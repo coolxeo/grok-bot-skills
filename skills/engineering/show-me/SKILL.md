@@ -7,7 +7,7 @@ description: >-
 ---
 # show-me
 
-Source: [humanlayer/skills show-me](https://github.com/humanlayer/skills/blob/main/plugins/show-me/skills/show-me/SKILL.md), recommended by Matt Pocock for PR descriptions that stay easy to read.
+Source: adapted from [HumanLayer, show-me](https://github.com/humanlayer/skills/blob/3c2629142c5d437428269b1b722b08c0b87f574d/plugins/show-me/skills/show-me/SKILL.md). [Dexter Horthy's launch article](https://www.humanlayer.com/blog/show-me-skill) credits Dillon Mulroy and Matt Pocock as influences. MIT; see [third-party notices](../../../THIRD_PARTY_NOTICES.md).
 
 Help the reader understand the change visually. Skip the preamble. Keep prose brief. Pick the **smallest** view that makes the key point clear. Prefer putting these visuals **in the PR body** next to the short text they support.
 

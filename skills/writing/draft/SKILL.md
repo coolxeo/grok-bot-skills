@@ -36,4 +36,4 @@ Write one section at a time from a signed outline and interview notes. Sculpt, d
 - After each section, reread from the top for tone shift and repeated points.
 - If the section fights the outline, say so and go back to Outline. Do not polish a broken arc.
 
-Source: adapted from nadiem99/claude-writing-skills (draft).
+Source: adapted from [Nadiem Mahmoud, draft](https://github.com/nadiem99/claude-writing-skills/blob/5b52111e1bd30e93643929f17155e82aa26f771f/skills/pipeline/draft/SKILL.md). MIT; see [third-party notices](../../../THIRD_PARTY_NOTICES.md).

@@ -42,3 +42,5 @@ Short, one idea per bubble. Lead with the result. PR mentions are inline markdow
 
 ## Merged or closed gate
 Every sweep: merged becomes Done, closed unmerged becomes Cancelled, before any ladder logic.
+
+Credit: [Lingxi Li, Lingxi's Engineer Bot](https://x.ai/bot/marketplace/bots/engineer-bot) matches this workflow, including its board fields, watch stages, cloud-agent reuse, and merge rules. See the [source audit](../../../docs/credits.md) for the evidence and license limits.

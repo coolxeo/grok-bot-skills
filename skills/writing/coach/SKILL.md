@@ -42,4 +42,4 @@ Triage, overall /35, one line per axis, then:
 
 READ-ONLY. Do not edit the draft. The writer decides.
 
-Source: adapted from nadiem99/claude-writing-skills (coach).
+Source: adapted from [Nadiem Mahmoud, coach](https://github.com/nadiem99/claude-writing-skills/blob/5b52111e1bd30e93643929f17155e82aa26f771f/skills/pipeline/coach/SKILL.md). MIT; see [third-party notices](../../../THIRD_PARTY_NOTICES.md).

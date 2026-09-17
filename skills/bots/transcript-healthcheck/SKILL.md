@@ -62,3 +62,5 @@ Offer to implement only after the user picks. Do not CreateAgent, write skills, 
 ## First-run cadence
 
 On first import, ask once what cadence they want (default weekday morning). Create or update the standing routine named `transcript-healthcheck` to match. Do not ask again every run.
+
+Credit: [Lauren Tan (@poteto), dr eggbot](https://x.ai/bot/marketplace/bots/dr-eggbot-v2) names this healthcheck and its weekday friction scan. [pstack recall](https://github.com/cursor/plugins/blob/e31650eea443aaea1e84cc15d88c13f40080b275/pstack/skills/recall/SKILL.md) is a related transcript-mining workflow. See the [source audit](../../../docs/credits.md) for the evidence and license limits.

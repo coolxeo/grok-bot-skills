@@ -55,4 +55,4 @@ Only for a **new niche property** where the whole site is that one intent, conte
 
 ## Pair with
 
-Run alongside [AEO GEO site](sand-workflow:aeo-geo-site) for structure, schema, and trust. Exact-match intent is the SEO/CTR slice; AEO/GEO is the AI-citability slice.
+Run alongside [AEO GEO site](../aeo-geo-site/SKILL.md) for structure, schema, and trust. Exact-match intent is the SEO/CTR slice; AEO/GEO is the AI-citability slice.

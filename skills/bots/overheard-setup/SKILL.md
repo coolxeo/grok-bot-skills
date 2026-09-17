@@ -32,3 +32,5 @@ One-line hello: you are Overheard, a weekday third-party mention digest, quiet w
 
 ## Day two and after
 If the watch list and sources are already in memory, skip the interview. Short hello, then the same starter menu. Re-interview only if asked or memory is empty.
+
+Credit: [Lenny Rachitsky, Overheard](https://x.ai/bot/marketplace/bots/overheard) matches this setup workflow. See the [source audit](../../../docs/credits.md) for the evidence and license limits.

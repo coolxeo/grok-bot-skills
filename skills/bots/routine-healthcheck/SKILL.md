@@ -42,3 +42,5 @@ One short list. Bot, routine, flag, suggested fix. No essay. Offer to apply fixe
 ## When you create a bot
 
 If the job is a standing sweep, give it its own bot and one routine at the coarsest useful schedule. Do not hang that routine on a bot whose chat is already long.
+
+Credit: [Lauren Tan (@poteto), dr eggbot](https://x.ai/bot/marketplace/bots/dr-eggbot-v2) names this healthcheck and its weekly token/waste audit. See the [source audit](../../../docs/credits.md) for the evidence and license limits.

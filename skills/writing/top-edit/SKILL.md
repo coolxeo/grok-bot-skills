@@ -51,4 +51,4 @@ CLEAN (0–2 minor), LIGHT FIXES (3–5), or NEEDS WORK (6+ or structural). One-
 
 If the same pattern hits 10 times, flag the first 3 and count the rest.
 
-Source: adapted from nadiem99/claude-writing-skills (top-edit). Run No AI slop first.
+Source: adapted from [Nadiem Mahmoud, top-edit](https://github.com/nadiem99/claude-writing-skills/blob/5b52111e1bd30e93643929f17155e82aa26f771f/skills/pipeline/top-edit/SKILL.md). MIT; see [third-party notices](../../../THIRD_PARTY_NOTICES.md). Run No AI slop first.

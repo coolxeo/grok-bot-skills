@@ -7,7 +7,7 @@ description: >-
 ---
 # AEO / GEO site (Microsoft + execution)
 
-Source frame: Microsoft Advertising, *From discovery to influence: A guide to AEO and GEO* (Jan 2026), as summarized in [Alex Groberman](https://x.com/alexgroberman/status/2012895638955204897). Primary PDF: https://about.ads.microsoft.com/content/dam/sites/msa-about/global/common/content-lib/pdf/from-discovery-to-influence-a-guide-to-aeo-and-geo.pdf
+Source frame: Microsoft Advertising, Jennifer Myers (author), and Paul Longo (executive sponsor), *From discovery to influence: A guide to AEO and GEO* (Jan 2026), as summarized in [Alex Groberman](https://www.linkedin.com/pulse/new-microsoft-just-revealed-how-get-traffic-from-alex-groberman-5af0c). Primary PDF: https://about.ads.microsoft.com/content/dam/sites/msa-about/global/common/content-lib/pdf/from-discovery-to-influence-a-guide-to-aeo-and-geo.pdf
 
 Use this whenever you ship or restyle site pages meant to be found, understood, cited, or recommended by AI search, assistants, browsers, or agents. SEO remains the foundation. AEO adds clarity. GEO adds trust.
 

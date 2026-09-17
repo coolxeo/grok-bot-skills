@@ -95,3 +95,5 @@ No coding instructions unless the job is hybrid and the split is explicit (coord
 Read the live profile back. Tell the user the name and the one-job line. Mention they delete from the sidebar (right-click, Delete) if they hate it.
 
 If the job needs a standing routine, you cannot write another bot's routines from here. Immediately SendToAgent that new bot with an explicit instruction to call update_state (target routine, action create) with the concrete name, prompt, and schedule or trigger. Do not stop at "set it up in its chat." Confirm to the user that you messaged it to create the routine. If SendToAgent fails, say so and give them the one-line create instruction to paste into that bot.
+
+Credit: [Lauren Tan (@poteto), dr eggbot](https://x.ai/bot/marketplace/bots/dr-eggbot-v2) matches this bot-design workflow. This skill also uses [pstack / poteto-mode](https://github.com/cursor/plugins/blob/e31650eea443aaea1e84cc15d88c13f40080b275/pstack/skills/poteto-mode/SKILL.md). See the [source audit](../../../docs/credits.md) for the evidence and license limits.

@@ -37,4 +37,4 @@ No delve/leverage/utilize/game-changer. No “it’s not X, it’s Y.” No “h
 
 Name the job, the reader, the strongest existing line, what to keep, then rewrite.
 
-References: judicael-s/Copywriting-skill (social-copywriting, x-formats, linkedin-formats, hook-discipline, human-voice-rules).
+Source: adapted from [Jules Sauvajol, Copywriting-skill](https://github.com/judicael-s/Copywriting-skill/blob/8282f17e1f15d0f2b4fa19a90b2005864f77cbe5/skills/social-copywriting/SKILL.md) and its x-formats, linkedin-formats, hook-discipline, and human-voice-rules references. MIT; see [third-party notices](../../../THIRD_PARTY_NOTICES.md).

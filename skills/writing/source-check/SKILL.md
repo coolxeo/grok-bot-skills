@@ -30,4 +30,4 @@ Solid / Mostly solid / Needs work / Unreliable. Suggest a fix for every problem.
 
 Original sources only. If a reporter cites a study, cite the study. Personal observation and common knowledge do not need a citation.
 
-Source: adapted from nadiem99/claude-writing-skills (source-check).
+Source: adapted from [Nadiem Mahmoud, source-check](https://github.com/nadiem99/claude-writing-skills/blob/5b52111e1bd30e93643929f17155e82aa26f771f/skills/pipeline/source-check/SKILL.md). MIT; see [third-party notices](../../../THIRD_PARTY_NOTICES.md).

@@ -25,4 +25,4 @@ Turn a seed, interview, or signed facts into a writing plan. Do not write the ar
 - Invent nothing. If a number, quote, or source is missing, mark the gap.
 - After the outline is signed, draft section by section. Then run source-check, then No AI slop.
 
-Source: adapted from nadiem99/claude-writing-skills (outline).
+Source: adapted from [Nadiem Mahmoud, outline](https://github.com/nadiem99/claude-writing-skills/blob/5b52111e1bd30e93643929f17155e82aa26f771f/skills/pipeline/outline/SKILL.md). MIT; see [third-party notices](../../../THIRD_PARTY_NOTICES.md).

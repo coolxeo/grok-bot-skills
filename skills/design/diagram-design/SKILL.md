@@ -35,3 +35,5 @@ The highest-quality move is deletion. Every node is a distinct idea. Target dens
 ## Output
 
 Self-contained HTML with inline SVG/CSS, then export PNG when the destination is a post or ad. Follow `references/export.md` and `references/output-spec.md`.
+
+License: the upstream diagram pack uses MIT. See [third-party notices](../../../THIRD_PARTY_NOTICES.md) and the [source audit](../../../docs/credits.md).

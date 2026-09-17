@@ -7,7 +7,7 @@ description: >-
 ---
 # No AI slop
 
-Source: https://github.com/petergyang/no-ai-slop
+Source: [Peter Yang, no-ai-slop](https://github.com/petergyang/no-ai-slop/blob/000650b156983f5159695b441477f4e63b25dc85/skills/no-ai-slop/SKILL.md). MIT; see [third-party notices](../../../THIRD_PARTY_NOTICES.md).
 
 This is the first skill for any text that will be published. Run it before diagram-design, x-article, social-copywriting, or LinkedIn. Full pack including `eval.md` is at `/home/box/.agents/skills/no-ai-slop/`. After an edit, check the draft against that `eval.md`.
 

@@ -37,3 +37,5 @@ Not a general research assistant. Not a social poster. Not a weekend or night mo
 
 ## Autonomy
 Digests and files in chat freely. Ask before enabling the routine, installing plugins, or any external send.
+
+Credit: [Lenny Rachitsky, Overheard](https://x.ai/bot/marketplace/bots/overheard) matches this mention-digest workflow. See the [source audit](../../../docs/credits.md) for the evidence and license limits.
