@@ -2,12 +2,12 @@
 name: ChatGPT Images browser playbook
 description: >-
   Use when generating stills on chatgpt.com with a signed-in browser session —
-  Images 2.5 UI only, one still per dispatch, no API keys, no cookie scraping,
+  Images UI only, one still per dispatch, no API keys, no cookie scraping,
   no sleep-poll loops. Session-only; hand the box to the owner for login/2FA.
 ---
 # ChatGPT Images browser playbook
 
-Automate ChatGPT Images 2.5 through a signed-in box browser session. No API keys. No cookie scraping. No private endpoint scripts. No Shell-driven CDP, Playwright, Puppeteer, or cookie DB reads.
+Automate ChatGPT Images through a signed-in box browser session. No API keys. No cookie scraping. No private endpoint scripts. No Shell-driven CDP, Playwright, Puppeteer, or cookie DB reads.
 
 This is a **session-only** playbook: drive the live Images UI the owner already uses. It is product-agnostic — attach whatever identity or style reference images the current job requires.
 
@@ -21,7 +21,7 @@ This is a **session-only** playbook: drive the live Images UI the owner already 
 2. Scope each dispatch tightly: one prompt, attach named refs, wait for the still, download or save it, stop.
 3. For a batch, loop many narrow dispatches (one still each). Do not ask one subagent to "generate the whole pack."
 4. Always attach the locked identity / style reference images the job requires before Generate. Do not invent product cast locks or character sheets in this skill — those belong to the project brief.
-5. Prefer Images 2.5 model picker explicitly when the UI offers a model choice. Reject GenerateImage and other local generators for this lane.
+5. Use the image-generation controls available in the current session. Do not assume a specific model name or picker exists. Reject GenerateImage and other local generators for this lane.
 6. **No sleep-poll loops.** Do not chain `sleep 15` / `sleep 20` / `sleep 30` waiting on the UI. Wait on the page result in the browser subagent, or stop and report. Retry once on rate limit, then pause.
 
 ## Batch recipe
