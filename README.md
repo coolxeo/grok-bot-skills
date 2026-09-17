@@ -1,125 +1,145 @@
-# grok-bot-skills
+![Grok Bot Skills: Writing, Design, Engineering, SEO, Bots, and Images.](assets/readme-header.jpg)
 
-Portable **Grok Bot** skills (`SKILL.md`) for public use.
+# Grok Bot Skills
 
-> Not affiliated with Cursor or xAI.
+22 skills for writing, design, code, SEO, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
 
-This pack is clean of personal-project specifics (no private brands, accounts, or personal ops).
+Each skill is a readable `SKILL.md` file. Pick one, read it, and adapt it to your bot.
 
-## What a Grok Bot skill is
+[Start here](#start-here) · [Browse all 22 skills](#all-skills) · [Contribute](#contribute)
 
-A skill is a folder with a `SKILL.md` file:
+## Start here
 
-1. **YAML frontmatter** — at least `name` and `description` (the when-to-use line agents match against).
-2. **Markdown body** — standing instructions the bot follows when the skill is invoked.
+| I want to… | Start with |
+| --- | --- |
+| Remove AI filler from a draft | [no-ai-slop](skills/writing/no-ai-slop/SKILL.md) |
+| Improve a website's design | [redesign-existing-projects](skills/design/redesign-existing-projects/SKILL.md) |
+| Create a bot with one clear job | [design-a-grok-bot](skills/bots/design-a-grok-bot/SKILL.md) |
+| Find noisy or wasteful routines | [routine-healthcheck](skills/bots/routine-healthcheck/SKILL.md) |
+| Write a post for X or LinkedIn | [social-copywriting](skills/writing/social-copywriting/SKILL.md) |
 
-Skills are grouped under `skills/<category>/<slug>/` for browsing. The **slug** (leaf kebab folder name) is the durable id — invoke with `/` or `@` plus that slug, and cross-link with `sand-workflow:<slug>`.
+## Get a skill
 
-## Install
+Download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
 
-1. Copy the skill folders you want into your Grok Bot workflows directory (typically under the agent workflows / skills path your bot already uses). You can copy a whole category or individual `<slug>` folders.
-2. Invoke with `/` or `@` plus the skill slug (for example `/no-ai-slop` or `@design-a-grok-bot`), depending on your Grok Bot UI.
-3. Prefer **one job per skill**. Do not merge unrelated playbooks into a single file.
+```sh
+git clone https://github.com/coolxeo/grok-bot-skills.git
+```
 
-## Ethos
+1. Open a skill from the list below. Read its instructions and tool needs.
+2. Copy that skill's folder into the workflows or skills directory your bot uses. Keep its folder name and `SKILL.md` file together.
+3. Invoke the folder name with `/` or `@` if your bot supports it. For example, use `/no-ai-slop`.
 
-- **One job.** Each skill does one thing and refuses adjacent work.
-- **Anti-slop.** Prefer concrete, short, verified prose over generic AI filler. Start publishing text with `no-ai-slop`.
-- **Portable.** Skills here stay general and reusable.
+The install path and invocation syntax depend on your bot. This repo does not include an installer. To try a writing skill without installing it, paste its instructions into a chat, then add your task.
 
-## Skill index
+### Try it
 
-### Writing — `skills/writing/`
+After you load `no-ai-slop`:
 
-| Slug | When to use |
-|------|-------------|
-| `coach` | Structural read of a draft before line-edit (thesis, arc, teach test) |
-| `draft` | Writing or expanding an article section by section (never one-shot the whole piece) |
-| `outline` | Turning a seed, interview, or facts into a writing plan |
-| `source-check` | After draft, before publish — verify factual claims |
-| `top-edit` | Last mechanical pass for AI tells and house-style misses |
-| `no-ai-slop` | First pass on any text headed for publish — strip AI tells without flattening voice |
-| `social-copywriting` | Writing or adapting copy for X or LinkedIn |
-| `x-article` | Writing or rewriting an X Article (long-form) with section images |
+```text
+Edit this paragraph. Keep the meaning and my voice. Remove filler.
 
-### Engineering — `skills/engineering/`
+Our innovative platform leverages cutting-edge technology to seamlessly
+empower teams to unlock their full potential.
+```
 
-| Slug | When to use |
-|------|-------------|
-| `engineering-playbook` | Delegating code to cloud agents and supervising PRs with a design-first bar |
-| `show-me` | Opening or rewriting a PR description, or explaining code shape visually |
+After you load `redesign-existing-projects`:
 
-### SEO — `skills/seo/`
+```text
+Review this landing page. Find the three biggest design problems.
+Explain each fix before changing the code. Keep the current features.
+```
 
-| Slug | When to use |
-|------|-------------|
-| `aeo-geo-site` | Building or updating a site for SEO plus AEO/GEO so assistants can cite it cleanly |
-| `exact-match-intent-seo` | Choosing domains, URL slugs, titles, or H1s for exact-match intent SEO |
+After you load `routine-healthcheck`:
 
-### Design — `skills/design/`
+```text
+Audit my scheduled routines. Find empty runs, duplicate work, and noisy
+updates. Show the evidence. Propose changes before applying them.
+```
 
-| Slug | When to use |
-|------|-------------|
-| `design-taste-frontend` | Anti-slop frontend for landings, portfolios, and redesigns (brief inference first) |
-| `redesign-existing-projects` | Auditing and upgrading an existing site/app away from generic AI patterns |
-| `diagram-design` | Explainer diagrams (architecture, sequence, process) as HTML/SVG/PNG |
+## All skills
 
-### Bots — `skills/bots/`
+### Writing
 
-| Slug | When to use |
-|------|-------------|
-| `design-a-grok-bot` | Designing or creating a new Grok Bot (persona, CreateAgent, verify live profile) |
-| `make-bot-ui` | Custom UI that wakes a Grok Bot over a webhook with tap/approve cards |
-| `routine-healthcheck` | Auditing scheduled routines for token waste and noisy empty wakes |
-| `transcript-healthcheck` | Mining bot transcripts for friction and evidence-backed automation proposals |
-| `overheard` | Weekday third-party mention digest voice, sources, and anti-jobs |
-| `overheard-setup` | First-run / reconfigure interview for watch list and sources |
+| Skill | What it does |
+| --- | --- |
+| [coach](skills/writing/coach/SKILL.md) | Review a draft's argument and structure before line edits. |
+| [outline](skills/writing/outline/SKILL.md) | Turn notes or an idea into an article plan. |
+| [draft](skills/writing/draft/SKILL.md) | Write an article one section at a time. |
+| [source-check](skills/writing/source-check/SKILL.md) | Check factual claims against named sources. |
+| [no-ai-slop](skills/writing/no-ai-slop/SKILL.md) | Remove AI writing patterns while keeping the writer's voice. |
+| [top-edit](skills/writing/top-edit/SKILL.md) | Flag style issues in a final editorial pass. |
+| [social-copywriting](skills/writing/social-copywriting/SKILL.md) | Write or adapt posts for X and LinkedIn. |
+| [x-article](skills/writing/x-article/SKILL.md) | Write long-form X Articles with section images. |
 
-### Images — `skills/images/`
+### Design
 
-| Slug | When to use |
-|------|-------------|
-| `chatgpt-images-browser-playbook` | Generating stills on chatgpt.com via signed-in Images 2.5 UI (session-only; one still per dispatch) |
+| Skill | What it does |
+| --- | --- |
+| [design-taste-frontend](skills/design/design-taste-frontend/SKILL.md) | Build landing pages and portfolios from a clear design brief. |
+| [redesign-existing-projects](skills/design/redesign-existing-projects/SKILL.md) | Audit and improve an existing site's design. |
+| [diagram-design](skills/design/diagram-design/SKILL.md) | Create explainer diagrams with the upstream diagram pack. |
 
-**Skill count: 22**
+### Engineering
 
-## Intentionally excluded
+| Skill | What it does |
+| --- | --- |
+| [engineering-playbook](skills/engineering/engineering-playbook/SKILL.md) | Delegate coding work to cloud agents and review the results. |
+| [show-me](skills/engineering/show-me/SKILL.md) | Explain code changes with visual PR descriptions. |
 
-These local skills are **not** published here (personal, employer-locked, or too product-specific):
+### SEO
 
-| Excluded slug | Why |
-|---------------|-----|
-| `linkedin-post-from-a-source` | Personal / account-tied posting path |
-| `gemini-omni-storyboard-commercial` | Product / cast-locked commercial pipeline |
-| `sunny-work-account-only-google` | Employer / work-account only |
-| `google-chat-work-path` | Employer chat path |
-| `executive-visual-overview` | Internal / non-portable briefing format |
-| `reddit-morning-paste-expiry` | Personal schedule / paste workflow |
-| `taste-skill-frontend` | Superseded / overlapping with `design-taste-frontend` |
-| `chatgpt-images-2-5-consistency` | Product cast / consistency locks unsuitable for a public general playbook |
+| Skill | What it does |
+| --- | --- |
+| [aeo-geo-site](skills/seo/aeo-geo-site/SKILL.md) | Structure site content for search and AI-assisted discovery. |
+| [exact-match-intent-seo](skills/seo/exact-match-intent-seo/SKILL.md) | Match domains, page titles, and URLs to search intent. |
 
-`chatgpt-images-browser-playbook` **is** included, but only as a **generalized session-only** rewrite (no product cast boards).
+### Bots
 
-## License and attributions
+| Skill | What it does |
+| --- | --- |
+| [design-a-grok-bot](skills/bots/design-a-grok-bot/SKILL.md) | Define a bot's job, voice, and wake conditions. |
+| [make-bot-ui](skills/bots/make-bot-ui/SKILL.md) | Build a custom UI that calls a bot through a webhook. |
+| [routine-healthcheck](skills/bots/routine-healthcheck/SKILL.md) | Find token waste and noise in scheduled routines. |
+| [transcript-healthcheck](skills/bots/transcript-healthcheck/SKILL.md) | Find repeated friction in bot transcripts. |
+| [overheard](skills/bots/overheard/SKILL.md) | Compile a digest of third-party mentions. |
+| [overheard-setup](skills/bots/overheard-setup/SKILL.md) | Set up a mention watch list, sources, and schedule. |
 
-- Licensed under the [MIT License](LICENSE) — Copyright 2026 coolxeo.
-- Upstream credits kept in skill bodies where applicable, including:
-  - **tasteskill** lineage in `design-taste-frontend` / redesign guidance
-  - **humanlayer** `show-me`
-  - **cathrynlavery** `diagram-design`
-  - **Microsoft AEO** PDF guidance referenced by AEO/GEO site work
-  - Writing-skill adaptations noted in coach / draft / outline / source-check / top-edit sources
+### Images
 
-## Changelog
+| Skill | What it does |
+| --- | --- |
+| [chatgpt-images-browser-playbook](skills/images/chatgpt-images-browser-playbook/SKILL.md) | Generate still images through a signed-in ChatGPT browser session. |
 
-### v0.2.0 — 2026-09-13
+## Tool requirements
 
-- Removed `CONTRIBUTING.md` and scrub / contributor-process language from the README.
-- Reorganized skills into category folders (`writing`, `engineering`, `seo`, `design`, `bots`, `images`) while keeping leaf kebab slugs.
-- Updated the README skill index for category browsing; `sand-workflow:<slug>` still targets leaf slugs.
+The instructions are plain Markdown. Some workflows need more than a chat window:
 
-### v0.1.0 — 2026-09-13
+- Bot and engineering skills refer to Grok Bot tools, routines, cloud agents, or local agent data. Check that your environment has those tools before running them.
+- Some coding workflows refer to pstack skills. Install that pack separately when a workflow needs it.
+- `diagram-design` needs the [upstream diagram pack](https://github.com/cathrynlavery/diagram-design), including its reference files.
+- The image playbook needs browser control and a signed-in ChatGPT session with image generation available.
+- Search, publishing, and design tasks need the relevant browser, connector, or project access.
 
-- Initial public release of scrubbed portable Grok Bot skills.
-- 21 core skills plus generalized `chatgpt-images-browser-playbook`.
-- README, MIT license, and contributor scrub checklist.
+Other agents may need changes to tool names, paths, or invocation syntax. Cross-agent compatibility has not been verified.
+
+## Contribute
+
+Found a useful improvement? Open an [issue](https://github.com/coolxeo/grok-bot-skills/issues) or a pull request.
+
+Keep each skill focused on one job. Use `skills/<category>/<slug>/SKILL.md` with `name` and `description` in YAML frontmatter. Include an example task and any tool requirements in your pull request. Add new skills to the list above. Preserve source credits and license notices.
+
+## Credits and license
+
+[MIT License](LICENSE). Copyright 2026 coolxeo. Keep applicable upstream license notices with adapted material.
+
+This collection includes adaptations and guidance from:
+
+- [petergyang/no-ai-slop](https://github.com/petergyang/no-ai-slop).
+- [nadiem99/claude-writing-skills](https://github.com/nadiem99/claude-writing-skills).
+- [humanlayer/skills](https://github.com/humanlayer/skills/tree/main/plugins/show-me).
+- [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design).
+- tasteskill, for frontend design and redesign guidance.
+- [Microsoft's AEO and GEO guide](https://about.ads.microsoft.com/content/dam/sites/msa-about/global/common/content-lib/pdf/from-discovery-to-influence-a-guide-to-aeo-and-geo.pdf).
+
+Source notes remain in the skills where available. This is a community project. It is not affiliated with xAI or Cursor.

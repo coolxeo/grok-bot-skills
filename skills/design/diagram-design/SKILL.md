@@ -7,7 +7,7 @@ description: >-
 ---
 # Diagram design
 
-Installed from [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) (skills.sh). Full pack lives at `/home/box/.agents/skills/diagram-design/`. **Read that `SKILL.md` and the matching `references/type-*.md` before drawing.** Do not invent a layout from memory.
+Based on [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) (skills.sh). This skill requires the upstream pack and its reference files. Locate its installed directory in your environment. If it is missing, ask the user to install it before continuing. Read its `SKILL.md` and the matching `references/type-*.md` before drawing. Resolve all reference paths below from that directory.
 
 Use this for explainer diagrams (architecture, sequence, process, layer stack, loop, and the other types in that pack) as standalone HTML/SVG/PNG. Not for a paragraph that already does the job, not for a 3-column table, not for one-shape "diagrams."
 
@@ -28,8 +28,8 @@ The highest-quality move is deletion. Every node is a distinct idea. Target dens
 ## Before you draw
 
 1. Ask whether a well-written paragraph would teach more. If yes, don't draw.
-2. Name the visual type and load `/home/box/.agents/skills/diagram-design/references/type-<name>.md`.
-3. Skin from `/home/box/.agents/skills/diagram-design/references/style-guide.md`. Do not silently ship the default tangerine skin into a branded project. Pull tokens from the live brand or a saved profile first.
+2. Name the visual type and load `references/type-<name>.md`.
+3. Skin from `references/style-guide.md`. Do not silently ship the default tangerine skin into a branded project. Pull tokens from the live brand or a saved profile first.
 4. For a 16:9 social or ad still (1200×675), one idea, large type, no legend soup.
 
 ## Output
