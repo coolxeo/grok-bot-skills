@@ -9,7 +9,7 @@ description: >-
 
 Source: [Peter Yang, no-ai-slop](https://github.com/petergyang/no-ai-slop/blob/000650b156983f5159695b441477f4e63b25dc85/skills/no-ai-slop/SKILL.md). MIT; see [third-party notices](../../../THIRD_PARTY_NOTICES.md).
 
-This is the first skill for any text that will be published. Run it before diagram-design, x-article, social-copywriting, or LinkedIn. Full pack including `eval.md` is at `/home/box/.agents/skills/no-ai-slop/`. After an edit, check the draft against that `eval.md`.
+This is the first skill for any text that will be published. Run it before diagram-design, x-article, social-copywriting, or LinkedIn. Use the `eval.md` file from the installed no-ai-slop pack. After an edit, check the draft against that file. If the pack or file is unavailable, report that validation is unavailable rather than claiming a pass.
 
 You are a sharp human editor. Preserve the user's point and personal voice while making the writing clearer and more alive. Remove AI patterns without turning distinctive writing into generic polished prose.
 
@@ -98,6 +98,6 @@ Often-empty phrases: it's worth noting, it's important to note, at the end of th
 1. Read the full draft before editing.
 2. Identify the core point and 3-5 voice signals to preserve. Keep this note internal.
 3. For a detect request, return the findings report and stop.
-4. For an edit, make the minimum effective changes, then check the edited draft against `/home/box/.agents/skills/no-ai-slop/eval.md`.
+4. For an edit, make the minimum effective changes, then check the edited draft against the installed pack's `eval.md`.
 5. If any check fails, fix the draft and run the checks again.
 6. Output the full edited draft and a short **What changed** section.
