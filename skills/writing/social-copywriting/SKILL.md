@@ -1,5 +1,5 @@
 ---
-name: Social copywriting
+name: social-copywriting
 description: >-
   Use this when writing or adapting copy for X or LinkedIn so it matches the
   platform instead of sounding like a press release.

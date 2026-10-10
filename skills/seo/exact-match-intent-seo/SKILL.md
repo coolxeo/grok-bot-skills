@@ -1,5 +1,5 @@
 ---
-name: Exact-match intent SEO
+name: exact-match-intent-seo
 description: >-
   use this when choosing domains, URL slugs, titles, or H1s for SEO — Exact
   Match Domain (EMD) lessons and the safer brand-domain equivalent

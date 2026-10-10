@@ -1,5 +1,5 @@
 ---
-name: Diagram design
+name: diagram-design
 description: >-
   use this when creating explainer diagrams (architecture, sequence, process,
   cards for posts) as HTML/SVG/PNG so they are branded and not ranking-dashboard

@@ -1,5 +1,5 @@
 ---
-name: Top edit
+name: top-edit
 description: >-
   Use this as the last mechanical pass before publishing, to screen AI tells and
   house-style misses that a slop word-list can skip.

@@ -1,5 +1,5 @@
 ---
-name: Outline
+name: outline
 description: >-
   Use this when turning a seed, interview, or set of facts into a writing plan
   before drafting an article.

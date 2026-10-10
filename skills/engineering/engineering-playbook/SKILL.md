@@ -1,5 +1,5 @@
 ---
-name: Engineering playbook
+name: engineering-playbook
 description: >-
   Standing principles for delegating code to cloud agents and supervising PRs to
   merge. Use on every ship or watch.

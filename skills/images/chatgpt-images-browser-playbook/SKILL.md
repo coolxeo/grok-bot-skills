@@ -1,5 +1,5 @@
 ---
-name: ChatGPT Images browser playbook
+name: chatgpt-images-browser-playbook
 description: >-
   Use when generating stills on chatgpt.com with a signed-in browser session —
   Images UI only, one still per dispatch, no API keys, no cookie scraping,

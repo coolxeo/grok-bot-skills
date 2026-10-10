@@ -1,5 +1,5 @@
 ---
-name: Coach
+name: coach
 description: >-
   Use this when a draft needs a structural read before line-edit — thesis, arc,
   and teach test first, style second.

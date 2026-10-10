@@ -1,5 +1,5 @@
 ---
-name: Source check
+name: source-check
 description: >-
   Use this after drafting an article, before publish, to verify every factual
   claim and statistic against a named source.

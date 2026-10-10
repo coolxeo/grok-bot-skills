@@ -1,5 +1,5 @@
 ---
-name: AEO GEO site
+name: aeo-geo-site
 description: >-
   use this when building or updating a website for SEO plus AEO/GEO (AI
   assistants, ChatGPT, Copilot, Gemini) so pages are machine-readable,

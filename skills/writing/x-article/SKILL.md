@@ -1,5 +1,5 @@
 ---
-name: X Article
+name: x-article
 description: >-
   Use this when writing or rewriting an X Article (long-form on
   x.com/i/article), with images between sections, a first-line hook, and no

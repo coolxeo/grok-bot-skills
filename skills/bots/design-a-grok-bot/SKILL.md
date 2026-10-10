@@ -1,5 +1,5 @@
 ---
-name: Design a Grok Bot
+name: design-a-grok-bot
 description: >-
   Use this when designing or creating a new Grok Bot. Ask a few preference
   questions, write a tight persona, CreateAgent, then verify against the live

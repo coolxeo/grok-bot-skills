@@ -2,11 +2,23 @@
 
 # Grok Bot Skills
 
+Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
+
 22 skills for writing, design, code, SEO, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
 
 The catalog has 19 local skills and 3 upstream skills. Each uses a readable `SKILL.md` file. Pick one, read it, and adapt it to your bot.
 
 [Start here](#start-here) · [Browse all 22 skills](#all-skills) · [Contribute](#contribute)
+
+## Install
+
+Install the local skills with the [Skills CLI](https://github.com/vercel-labs/skills):
+
+```sh
+npx skills add coolxeo/grok-bot-skills
+```
+
+To install one skill, add `--skill` and its folder name, for example `npx skills add coolxeo/grok-bot-skills --skill no-ai-slop`. Run `npx skills add coolxeo/grok-bot-skills --list` to see them all.
 
 ## Start here
 
@@ -184,3 +196,5 @@ See the [source audit for all 22 skills](docs/credits.md) for exact files, evide
 Original contributions use the [MIT License](LICENSE). Third-party material retains its applicable terms and notices. See [third-party notices](THIRD_PARTY_NOTICES.md); the matched marketplace templates do not have a verified MIT grant.
 
 This is a community project. It is not affiliated with xAI or Cursor. Credits do not imply endorsement.
+
+Follow [@DaniAcostaAI](https://x.com/DaniAcostaAI) on X for updates and new skills.

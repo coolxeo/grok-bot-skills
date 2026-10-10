@@ -1,5 +1,5 @@
 ---
-name: Draft
+name: draft
 description: >-
   Use this when writing or expanding an article section by section. Never
   generate a full article in one shot.

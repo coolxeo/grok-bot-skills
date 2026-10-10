@@ -1,5 +1,5 @@
 ---
-name: Transcript healthcheck
+name: transcript-healthcheck
 description: >-
   Use when auditing Grok Bot fleet transcripts for user friction, proposing new
   skills/bots/routines from repeated corrections, or running the standing

@@ -1,5 +1,5 @@
 ---
-name: No AI slop
+name: no-ai-slop
 description: >-
   ALWAYS use this first when writing or editing any text that will be published
   (X, ads, LinkedIn, site). Strip AI slop without flattening the writer's voice.
