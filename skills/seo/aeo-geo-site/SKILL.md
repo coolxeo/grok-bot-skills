@@ -40,7 +40,7 @@ AI needs structure and consistency more than clever prose.
   - Content / media sites: `Organization`, `WebSite`, `WebPage`, `FAQPage`, `VideoObject`, `ImageObject`, `BreadcrumbList`, `ContactPoint`
   - Retail (when applicable): `Product`, `Offer`, `AggregateRating`, `Review`, `Brand`, `ItemList`
 - Machine-readable twins where useful: markdown negotiation, `llms.txt`, public `design.md` or equivalent brand law for agents.
-- Dynamic fields stay fresh: price/availability/SKU/GTIN for commerce; titles, publish dates, watch URLs, “Made with AI” facts for media.
+- Dynamic fields stay fresh: price/availability/SKU/GTIN for commerce; titles, publish dates, canonical URLs, AI-use disclosures for content.
 - Localized signals when relevant: `inLanguage`, `priceCurrency`, address that matches real ops.
 - Images: descriptive alt text; `ImageObject` when it adds citability.
 - After meaningful ships, rescan agent-readiness (e.g. is-agentic) and fix Essential misses before soft polish.
@@ -50,11 +50,11 @@ AI needs structure and consistency more than clever prose.
 Optimize for questions and extraction, not keyword stuffing.
 
 - Front-load: who it is for, what problem it solves, what it is (and is not).
-- Headings that mirror real parent / buyer / user questions.
+- Headings that mirror real reader / buyer / user questions.
 - Modular, citable blocks: short paragraphs, Q&A, feature lists, comparison only when honest and on-brand.
-- Use-case framing (“best for the cooking slot”, “one colour at a time”) over vague slogans.
+- Use-case framing (“ready in 20 minutes”, “works with your existing CI”) over vague slogans.
 - Video / media pages: transcript or plain-language summary, still + outbound watch URL, VideoObject.
-- Relationships when real: “goes with”, related songs, related FAQs. Do not invent entities.
+- Relationships when real: “goes with”, related recipes or docs pages, related FAQs. Do not invent entities.
 - Prefer one clear answer per section. Avoid em-dashes, hedge piles, and low-trust hype.
 
 SEO vs AEO vs GEO in one line:
@@ -67,7 +67,7 @@ SEO vs AEO vs GEO in one line:
 
 AI systems prioritize verifiable truth and penalize low-trust language.
 
-- Consistent entity: same name, same facts, same URLs across site, YouTube, social, schema.
+- Consistent entity: same name, same facts, same URLs across site, social profiles, video channels, schema.
 - Proof you can show: reviews, press, certifications, expert mentions, official sameAs links — only real ones.
 - FAQ and help content that answers hard questions honestly (including “no”, “not yet”, disclosures).
 - Contact / trust pages when recommended (email, privacy, no fake forms).
@@ -76,32 +76,32 @@ AI systems prioritize verifiable truth and penalize low-trust language.
 
 ## Pre-ship checklist (every page or wave)
 
-- [ ] Primary reader job is named (parent deciding, agent citing, buyer comparing, …)
+- [ ] Primary reader job is named (developer evaluating, agent citing, buyer comparing, …)
 - [ ] H1 and first viewport answer that job without fluff
 - [ ] Visible facts match JSON-LD and any markdown twin
 - [ ] FAQ or Q-shaped headings where intent is question-shaped
 - [ ] Images have useful alt; no type burned into photos unless brand allows it
-- [ ] CTA points at the real product surface (watch URL, buy URL, contact) — not a maze
+- [ ] CTA points at the real product surface (signup, docs, buy URL, contact) — not a maze
 - [ ] `noindex` only for experiments; production pages in sitemap when indexable
 - [ ] No cloaking; Accept negotiation serves the same facts
-- [ ] Trust lines are true and on-brand (disclosures, Made with AI, location, cast)
+- [ ] Trust lines are true and on-brand (disclosures, AI-use notes, location, team)
 - [ ] Soft claims and competitor digs stay off
 
 ## Anti-patterns
 
 - Ranking-only pages with nothing an assistant can quote
-- Schema that invents ratings, products, or cast members
+- Schema that invents ratings, products, or team members
 - Different bot HTML vs user HTML
 - Paywall / survey funnels as “content”
-- Keyword stuffing, Montessori/guilt/comparison claims when brand forbids them
+- Keyword stuffing, unverifiable superlatives, fear-based or comparison claims when brand forbids them
 - Shipping a feed or schema type you cannot keep fresh
 
 ## How to run on a task
 
 1. Read brand / design law and existing schema patterns on the site.
-2. Name the intent cluster and the entity (song, character, org, product).
+2. Name the intent cluster and the entity (recipe, docs page, org, product).
 3. Draft or restyle with pillar 2 copy shape first, then pillar 1 markup, then pillar 3 trust links.
 4. Wire markdown / `llms.txt` / sitemap as needed.
 5. Verify with a live fetch (HTML + markdown Accept) and an agent-readiness scan after merge.
 
-Retail-specific feed/checkout work only when the site actually sells. For a media or companion site, treat videos and FAQ entities as the catalog and keep the door pointing at the real product (e.g. YouTube), not a fake shop.
+Retail-specific feed/checkout work only when the site actually sells. For a content or docs site, treat articles, docs pages, and FAQ entities as the catalog and keep the door pointing at the real product (e.g. the app signup or the docs), not a fake shop.

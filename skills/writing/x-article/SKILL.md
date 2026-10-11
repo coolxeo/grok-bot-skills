@@ -34,4 +34,4 @@ Use for X Articles (x.com/i/articles or compose/articles), not tweets or 1/2/3/4
 
 ## Voice
 
-First person, specific, short sentences mixed with longer ones. No toddler CTA on a founder/research Article. No press-release tone.
+First person, specific, short sentences mixed with longer ones. No unrelated product-promo CTA on a founder/research Article. No press-release tone.
