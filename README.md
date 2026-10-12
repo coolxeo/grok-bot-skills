@@ -6,7 +6,7 @@ Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
 
 22 skills for writing, design, code, SEO, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
 
-The catalog has 19 local skills and 3 upstream skills. Each uses a readable `SKILL.md` file. Pick one, read it, and adapt it to your bot.
+Every skill is Dani's own version, inspired by several public references rather than copied from one. Each is a single readable `SKILL.md`, and each one ends with what inspired it, what those references were missing, and what this version adds.
 
 [Start here](#start-here) · [Browse all 22 skills](#all-skills) · [Contribute](#contribute)
 
@@ -34,14 +34,14 @@ The free skills here stay free. These paid kits are bigger, tested versions with
 | I want to… | Start with |
 | --- | --- |
 | Remove AI filler from a draft | [no-ai-slop](skills/writing/no-ai-slop/SKILL.md) |
-| Improve a website's design | [redesign-existing-projects](skills/design/redesign-existing-projects/README.md) |
+| Improve a website's design | [redesign-existing-projects](skills/design/redesign-existing-projects/SKILL.md) |
 | Create a bot with one clear job | [design-a-grok-bot](skills/bots/design-a-grok-bot/SKILL.md) |
 | Find noisy or wasteful routines | [routine-healthcheck](skills/bots/routine-healthcheck/SKILL.md) |
 | Write a post for X or LinkedIn | [social-copywriting](skills/writing/social-copywriting/SKILL.md) |
 
 ## Get a skill
 
-For the 19 local skills, download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
+For all 22 skills, download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
 
 ```sh
 git clone https://github.com/coolxeo/grok-bot-skills.git
@@ -53,37 +53,17 @@ git clone https://github.com/coolxeo/grok-bot-skills.git
 
 The install path and invocation syntax depend on your bot. To try a writing skill without installing it, paste its instructions into a chat, then add your task.
 
-### Install upstream skills
+### Prefer the originals?
 
-The two Taste skills and `make-bot-ui` now come from their original authors. Their catalog links lead to install instructions. They are not included in the ZIP as skill files.
-
-You can install them directly with the [Skills CLI](https://github.com/vercel-labs/skills):
+These skills credit the work that inspired them. If you want an original instead, install it from its author, for example:
 
 ```sh
+npx skills add petergyang/no-ai-slop
 npx skills add Leonxlnx/taste-skill --skill design-taste-frontend redesign-existing-projects
 npx skills add https://github.com/cursor/plugins/tree/main/pstack/skills/make-bot-ui --skill "Make Bot UI"
 ```
 
-Or clone this repo and use the versions checked in our source audit:
-
-```sh
-# Preview all three commands without installing anything.
-node scripts/install-upstream.mjs all --dry-run
-
-# Install one skill. The CLI selects the destination.
-node scripts/install-upstream.mjs design-taste-frontend
-
-# Install all three into the current project for Codex.
-node scripts/install-upstream.mjs all -- --agent codex --yes
-```
-
-The script needs Node.js 22 or newer, npm, Git, and network access. It runs Skills CLI 1.6.0 with the source commits in [upstream-skills.json](upstream-skills.json). It installs into the directory where you run it. Add `-- --global` only if you want a user-wide install. To install into another project, run the script by its absolute path from that project.
-
-These commands download local files from upstream. They do not create a live remote dependency. The direct commands follow the upstream branch; the script uses fixed commits. Update the manifest to adopt a newer audited version. A link in `SKILL.md` alone does not install another skill.
-
-The CLI supports agents such as Codex and Claude Code. Grok Bot installation through this CLI has not been verified. For Grok Bot, use its supported import process and include the skill's companion files. Tool access still depends on the bot environment.
-
-Keep the local writing adaptations if you want the workflows in this catalog. The full upstream writing pack also needs its setup, context, and template files.
+The CLI supports agents such as Codex and Claude Code. Grok Bot installation through this CLI has not been verified. For Grok Bot, use its supported import process. Tool access still depends on the bot environment.
 
 ### Try it
 
@@ -129,9 +109,9 @@ updates. Show the evidence. Propose changes before applying them.
 
 | Skill | What it does |
 | --- | --- |
-| [design-taste-frontend](skills/design/design-taste-frontend/README.md) | Build landing pages and portfolios from a clear design brief. |
-| [redesign-existing-projects](skills/design/redesign-existing-projects/README.md) | Audit and improve an existing site's design. |
-| [diagram-design](skills/design/diagram-design/SKILL.md) | Create explainer diagrams with the upstream diagram pack. |
+| [design-taste-frontend](skills/design/design-taste-frontend/SKILL.md) | Build landing pages and portfolios from a clear design brief. |
+| [redesign-existing-projects](skills/design/redesign-existing-projects/SKILL.md) | Audit and improve an existing site's design. |
+| [diagram-design](skills/design/diagram-design/SKILL.md) | Create explainer diagrams that are branded, not dashboard slop. |
 
 ### Engineering
 
@@ -152,7 +132,7 @@ updates. Show the evidence. Propose changes before applying them.
 | Skill | What it does |
 | --- | --- |
 | [design-a-grok-bot](skills/bots/design-a-grok-bot/SKILL.md) | Define a bot's job, voice, and wake conditions. |
-| [make-bot-ui](skills/bots/make-bot-ui/README.md) | Build a custom UI that calls a bot through a webhook. |
+| [make-bot-ui](skills/bots/make-bot-ui/SKILL.md) | Build a custom UI that calls a bot through a webhook. |
 | [routine-healthcheck](skills/bots/routine-healthcheck/SKILL.md) | Find token waste and noise in scheduled routines. |
 | [transcript-healthcheck](skills/bots/transcript-healthcheck/SKILL.md) | Find repeated friction in bot transcripts. |
 | [overheard](skills/bots/overheard/SKILL.md) | Compile a digest of third-party mentions. |
@@ -170,7 +150,7 @@ The instructions are plain Markdown. Some workflows need more than a chat window
 
 - Bot and engineering skills refer to Grok Bot tools, routines, cloud agents, or local agent data. Check that your environment has those tools before running them.
 - Some coding workflows refer to pstack skills. Install that pack separately when a workflow needs it.
-- `diagram-design` needs the [upstream diagram pack](https://github.com/cathrynlavery/diagram-design), including its reference files.
+- `diagram-design` runs on its own. If [Cathryn Lavery's diagram pack](https://github.com/cathrynlavery/diagram-design) is installed, it uses that pack's type references too.
 - The image playbook needs browser control and a signed-in ChatGPT session with image generation available.
 - Search, publishing, and design tasks need the relevant browser, connector, or project access.
 
@@ -184,25 +164,24 @@ Keep each skill focused on one job. Use `skills/<category>/<slug>/SKILL.md` with
 
 ## Inspired by
 
-This collection links to upstream skills and includes adaptations and workflows shaped by these creators. Credit belongs to the original authors.
+Each skill here is written from scratch in our own words, drawing on several references. Credit for the ideas belongs to these authors. The [credits table](docs/credits.md) lists every reference with a link, what it does well, what it was missing, and what we added.
 
-- [Lauren Tan (@poteto)](https://github.com/poteto): [pstack](https://github.com/cursor/plugins/tree/main/pstack), including `make-bot-ui` and `poteto-mode`; and [dr eggbot](https://x.ai/bot/marketplace/bots/dr-eggbot-v2), which matches the bot design and healthcheck workflows.
-- [Lingxi Li](https://x.ai/bot/guides/grok-bot-for-engineering): [Lingxi's Engineer Bot](https://x.ai/bot/marketplace/bots/engineer-bot), which matches the engineering playbook.
-- [Lenny Rachitsky](https://x.ai/bot/marketplace/bots/overheard): Overheard, which matches the mention digest and setup workflows.
-- [Leon Lin / Leonxlnx](https://github.com/Leonxlnx/taste-skill): Taste Skill. Both frontend design skills now install from this source. The former bundled copies matched it exactly.
-- [Nadiem Mahmoud](https://github.com/nadiem99/claude-writing-skills): the coach, outline, draft, source-check, and top-edit adaptations. His sources include Every's Eleanor Warnock and Kate Lee.
-- [Peter Yang](https://github.com/petergyang/no-ai-slop): `no-ai-slop`.
-- [Jules Sauvajol](https://github.com/judicael-s/Copywriting-skill): `social-copywriting` and its format, hook, and voice references.
-- [HumanLayer](https://github.com/humanlayer/skills/tree/main/plugins/show-me): `show-me`. [Dexter Horthy's launch article](https://www.humanlayer.com/blog/show-me-skill) also credits Dillon Mulroy and Matt Pocock as influences.
-- [Cathryn Lavery](https://github.com/cathrynlavery/diagram-design): `diagram-design` and its required reference pack.
-- [Microsoft Advertising](https://about.ads.microsoft.com/content/dam/sites/msa-about/global/common/content-lib/pdf/from-discovery-to-influence-a-guide-to-aeo-and-geo.pdf): the AEO/GEO guide by Jennifer Myers, with Paul Longo as executive sponsor; plus [Alex Groberman's summary](https://www.linkedin.com/pulse/new-microsoft-just-revealed-how-get-traffic-from-alex-groberman-5af0c), used as SEO reference material.
-- [Hridoy Reh](https://x.com/hridoyreh/status/2096534436934455606): the recorded inspiration for `exact-match-intent-seo`. The original X post could not be reverified during this audit.
-
-See the [source audit for all 22 skills](docs/credits.md) for exact files, evidence, and unresolved origins. No standalone upstream was verified for `x-article` or `chatgpt-images-browser-playbook`.
+- **no-ai-slop:** inspired by [Peter Yang's no-ai-slop](https://github.com/petergyang/no-ai-slop), [Wikipedia's Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), [blader/humanizer](https://github.com/blader/humanizer), [Hardik Pandya's stop-slop](https://github.com/hardikpandya/stop-slop), [Conor Bronsdon's avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing), and [Lauren Tan's pstack unslop](https://github.com/cursor/plugins/tree/main/pstack/skills/unslop).
+- **coach, outline, draft, source-check, top-edit:** inspired by [Nadiem Mahmoud's claude-writing-skills](https://github.com/nadiem99/claude-writing-skills) (which credits Every's Eleanor Warnock and Kate Lee), Paul Graham's essays on writing, George Orwell's *Politics and the English Language*, Mike Caulfield's SIFT, Wikipedia's Verifiability policy, Google's technical writing course, and Hardik Pandya's stop-slop.
+- **social-copywriting:** inspired by [Jules Sauvajol's Copywriting-skill](https://github.com/judicael-s/Copywriting-skill), X's open-source heavy ranker README, and LinkedIn Engineering's dwell-time post.
+- **design-taste-frontend, redesign-existing-projects:** inspired by [Leon Lin's Taste Skill](https://github.com/Leonxlnx/taste-skill), Anthropic's frontend-design skill, Vercel's Web Interface Guidelines, and Nielsen Norman Group's usability heuristics.
+- **diagram-design:** inspired by [Cathryn Lavery's diagram-design](https://github.com/cathrynlavery/diagram-design), the C4 model's notation guide, and Edward Tufte's idea of chartjunk.
+- **engineering-playbook:** inspired by [Lingxi Li's Engineer Bot](https://x.ai/bot/marketplace/bots/engineer-bot), Google's engineering practices on small changes, and Lauren Tan's pstack.
+- **show-me:** inspired by [HumanLayer's show-me](https://github.com/humanlayer/skills/tree/main/plugins/show-me) (whose launch article credits Dillon Mulroy and Matt Pocock), Google's guide to change descriptions, and GitHub's diagram docs.
+- **design-a-grok-bot, routine-healthcheck, transcript-healthcheck, make-bot-ui:** inspired by [Lauren Tan (@poteto)](https://github.com/poteto)'s [dr eggbot](https://x.ai/bot/marketplace/bots/dr-eggbot-v2) and [pstack](https://github.com/cursor/plugins/tree/main/pstack), Anthropic's *Building effective agents*, the Google SRE book, Hamel Husain's field guide, Tailscale's Serve docs, and GitHub's webhook docs.
+- **overheard, overheard-setup:** inspired by [Lenny Rachitsky's Overheard](https://x.ai/bot/marketplace/bots/overheard), F5Bot, and Google Alerts.
+- **aeo-geo-site:** built on [Microsoft Advertising's AEO/GEO guide](https://about.ads.microsoft.com/content/dam/sites/msa-about/global/common/content-lib/pdf/from-discovery-to-influence-a-guide-to-aeo-and-geo.pdf) by Jennifer Myers and [Alex Groberman's summary](https://www.linkedin.com/pulse/new-microsoft-just-revealed-how-get-traffic-from-alex-groberman-5af0c).
+- **exact-match-intent-seo:** started from [Hridoy Reh's X post](https://x.com/hridoyreh/status/2096534436934455606), not reverified.
+- **x-article, chatgpt-images-browser-playbook:** Dani's own workflows; no outside source verified.
 
 ## License
 
-Original contributions use the [MIT License](LICENSE). Third-party material retains its applicable terms and notices. See [third-party notices](THIRD_PARTY_NOTICES.md); the matched marketplace templates do not have a verified MIT grant.
+This collection uses the [MIT License](LICENSE). The skills are written in our own words; no text is copied from the references. License notices for the open-source projects that inspired them are kept in [third-party notices](THIRD_PARTY_NOTICES.md) as attribution. Marketplace templates showed no reuse license, so nothing from them is reproduced.
 
 This is a community project. It is not affiliated with xAI or Cursor. Credits do not imply endorsement.
 

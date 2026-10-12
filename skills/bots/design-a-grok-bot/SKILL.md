@@ -8,92 +8,66 @@ description: >-
 ---
 # Design a Grok Bot
 
-Create the bot. Do not ship a shareable template unless the user asked for a template.
+Build a real bot for the user, not a template, unless they ask for a template. A good bot does one thing well and stays out of everything else.
 
-## Data shape
+## The four parts of a bot
 
-A bot is four fields, in this order:
+Write them in this order. The description holds all four.
 
-1. **One job.** One sentence. What it does every time it wakes.
-2. **Anti-jobs.** What it never does, even if asked. Adjacent work goes to a different bot.
-3. **Voice.** A few words. Match the user, or a named character. Not a generic assistant.
-4. **Wake.** On-demand chat, a standing routine, or both. Quiet when there is nothing to report.
+1. **Job.** One sentence: what it does each time it wakes.
+2. **Not its job.** The nearby things it refuses, even when asked. Those belong to another bot. (A mention scout doesn't post. A drafter doesn't send.)
+3. **Voice.** A few words. The user's own tone or a named character, never "helpful assistant".
+4. **Wake.** Chat, a routine, an event, or a mix. Silent when there is nothing worth saying.
 
-Name is short. Description carries all four. Do not pad with leftover tools, model essays, or "I can also help with..."
+Keep the name short. Leave out tool lists, model essays, and "I can also help with...".
 
-`CreateAgent` takes `name` and `description` only. That description is the whole persona. After create, prove it by reading `/home/box/agent-data/agents/<id>/profile.json`. Do not trust the tool ack alone.
+## Fresh install (first message after import)
 
-There is no delete tool. Only create when the job is real.
+Do this once, before any design work:
 
-## Fresh install (this bot, after template import)
+1. If `~/.cursor/rules/pstack-models.mdc` is missing, run `/setup-pstack`. If a real repo exists and there is no `verify-*` skill, run `/create-verification-skill`. Don't ask first.
+2. List `/home/box/agent-data/agents/<this-agent-id>/automations/`. Create whichever healthcheck routine is missing with `update_state` (target `routine`, action `create`), each told to stay quiet when it has nothing to propose:
+   - `transcript-healthcheck`, schedule `44 8 * * 1-5`, runs the transcript-healthcheck skill.
+   - `routine-healthcheck`, schedule `49 8 * * 1`, runs the routine-healthcheck skill.
+   Tell the user what you created or that both already existed. Imports don't always bring routines along, so this step is the safety net.
+3. Offer once to run a routine checkup across all bots.
 
-On the first real user message after this template is imported, do this once before designing anything:
-
-1. Run pstack's setup-pstack skill (`/setup-pstack`) when `~/.cursor/rules/pstack-models.mdc` is missing. Skip if the rule already exists. Do not ask permission. Then `/create-verification-skill` only when a real repo is present and no `verify-*` skill exists.
-2. **Prove the standing healthcheck routines exist on this bot.** List `/home/box/agent-data/agents/<this-agent-id>/automations/`. If `transcript-healthcheck` is missing, create it with `update_state` (target `routine`, action `create`): name `transcript-healthcheck`, schedule `44 8 * * 1-5`, prompt pointing at Transcript healthcheck skill, quiet when nothing to propose. If `routine-healthcheck` is missing, create it the same way: name `routine-healthcheck`, schedule `49 8 * * 1`, prompt pointing at Routine healthcheck skill, quiet when nothing to propose. Tell the user what you created (or that both were already there). Do not wait for them to ask. Template import may not materialize packed routines — this step is the safety net.
-3. Offer once: "want a checkup of every bot's routines?" Run Routine healthcheck only if they say yes.
-
-Skip steps already done in this chat. Do not re-create routines that already exist.
+Skip anything already done in this chat.
 
 ## Intake
 
-Ask only preference questions no experiment can settle. Typical set, skip any already answered:
+Ask only taste questions that no test can answer, and skip any already answered: the job, the name and voice (if they care), routine or on-demand, and who the bot talks to (just the user, other bots, a channel).
 
-- the one job
-- voice and name, if they care
-- standing routine vs on-demand
-- who it talks to (this user, other bots, an outside channel)
+Don't ask about tools, plugins, or models when a working sibling bot shows the answer. Once the job is clear, create the bot; don't ask "shall I?". For small reversible choices (a nickname, a color), pick one and say what you picked.
 
-Do not ask for tools, plugins, or model if you can copy a working sibling. Do not ask "should I create it?" after the job is clear. Create it.
+## Approval cards
 
-If the ask is reversible detail (color, a nickname), pick it and say what you picked.
-
-## Tap / approve cards (Grok Bot UI rule)
-
-If the bot ever needs the user to tap, approve, pick, confirm a load/post/spend, or green-light a live change:
-
-- Bake into the description: ALWAYS use a `SendToUser` question widget (tappable card) with real verified options.
-- Never plain-text "which tap?", letter menus (A/B/C), or "waiting on your tap" without a card.
-- One widget ends the turn.
-- If a tool already opens its own approval UI, call that tool instead of a widget.
-
-Apply this on every new bot that gates on a human tap, and rewrite existing personas when friction shows up.
+If the bot will ever need the user to approve, pick, or confirm (a post, a spend, a live change), put this in its description: always ask with a `SendToUser` question widget that has real, checked options. No plain-text "reply A or B", no "waiting for your tap" without a card. One card ends the turn. If a tool shows its own approval UI, use that instead.
 
 ## Coding bots
 
-Bar is pstack. Read pstack's poteto-mode (and boteto-mode on Grok Bot) when writing the persona. pstack is the coding-agent workflow pack: one job, unslopped prose, verified work, CloudAgent for repo work.
+The bar is pstack's poteto-mode (and boteto-mode on Grok Bot). In the description: the job and the not-jobs, short unslopped replies, repo work goes to a CloudAgent instead of a local clone, slash-skills are live files, and the model rule copied from an existing coding bot unless the user names one. Point to poteto-mode for hard tasks; don't paste the playbook in. If pstack isn't installed, say so and keep the same discipline.
 
-Bake into the description:
+## Other bots
 
-- one job and anti-jobs
-- unslopped, short replies
-- repo work goes to a CloudAgent, not a local clone
-- slash-skills are live files, not app commands, if this user uses them
-- copy the current model rule from an existing coding bot unless the user names one
-- point at pstack / poteto-mode as situational, not standing
+Scouts, shopkeepers, life admin, dispatchers, writers. In the description: the job in the first sentence, silence on empty runs, the refused neighbor verb, and the concrete how (which API, inbox, or channel), plus the approval-card rule if it gates on the user. No coding instructions unless the job is explicitly split between coordinating and coding.
 
-Do not paste the full pstack playbook into the description.
+## Create and prove it
 
-If pstack is not installed, say so and keep the same tightness anyway.
+1. `CreateAgent` takes `name` and `description`. The description is the whole persona. There is no delete tool, so create only for a real job.
+2. Read `/home/box/agent-data/agents/<id>/profile.json` back. Don't trust the tool's acknowledgment alone.
+3. Send the new bot one realistic test message and check that the reply matches the job and the voice. Fix the description if it doesn't.
+4. If the job needs a routine, you can't create another bot's routines. Use `SendToAgent` to tell the new bot to call `update_state` (target `routine`, action `create`) with the exact name, prompt, and schedule or trigger. If that fails, give the user the one-line instruction to paste into the new bot.
+5. Tell the user the name and the one-line job, and that they can delete it from the sidebar (right-click, Delete).
 
-## Non-coding bots
+## Inspired by
 
-Same tightness, different job. Scout, shopkeep, life-admin, dispatcher, writer.
+- [Lauren Tan (@poteto), dr eggbot](https://x.ai/bot/marketplace/bots/dr-eggbot-v2) (marketplace template; no reuse license shown, so no text is copied). Does well: one job, one voice, explicit anti-jobs, a short intake, and healthcheck routines on first run. Missing: its listing has no rule for approval cards, no read-back of the created profile, and no test message to the new bot.
+- [Lauren Tan, pstack poteto-mode](https://github.com/cursor/plugins/blob/e31650eea443aaea1e84cc15d88c13f40080b275/pstack/skills/poteto-mode/SKILL.md) (MIT). Does well: the coding-agent quality bar (unslopped prose, verified work, never block the human on reversible choices). Missing: written for a coding agent, not for designing other bots.
+- [Anthropic, Building effective agents](https://www.anthropic.com/research/building-effective-agents). Does well: start with the simplest setup and add complexity only when it pays, and design tool interfaces carefully. Missing: about architecture patterns, with no persona or anti-job guidance.
 
-Bake into the description:
+## What this version adds
 
-- ONLY job, named in the first sentence
-- stay quiet when there is nothing to report
-- never do the adjacent verb (a mentions scout does not post, a drafter does not send)
-- the concrete how (which API, which inbox, which channel), not "use whatever tools you have"
-- if the job needs a human tap/approve: the Tap/approve cards rule above
-
-No coding instructions unless the job is hybrid and the split is explicit (coordinate vs write code).
-
-## After create
-
-Read the live profile back. Tell the user the name and the one-job line. Mention they delete from the sidebar (right-click, Delete) if they hate it.
-
-If the job needs a standing routine, you cannot write another bot's routines from here. Immediately SendToAgent that new bot with an explicit instruction to call update_state (target routine, action create) with the concrete name, prompt, and schedule or trigger. Do not stop at "set it up in its chat." Confirm to the user that you messaged it to create the routine. If SendToAgent fails, say so and give them the one-line create instruction to paste into that bot.
-
-Credit: [Lauren Tan (@poteto), dr eggbot](https://x.ai/bot/marketplace/bots/dr-eggbot-v2) matches this bot-design workflow. This skill also uses [pstack / poteto-mode](https://github.com/cursor/plugins/blob/e31650eea443aaea1e84cc15d88c13f40080b275/pstack/skills/poteto-mode/SKILL.md). See the [source audit](../../../docs/credits.md) for the evidence and license limits.
+- The approval-card rule baked into every bot that gates on the user.
+- A read-back and a live test message before telling the user it's done.
+- The routine hand-off with a paste-able fallback.

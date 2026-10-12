@@ -7,60 +7,55 @@ description: >-
 ---
 # Transcript healthcheck
 
-Scan Grok Bot transcripts on disk for user friction in a time window. Propose new skills, bots, or routines only when evidence supports them. Do not create anything until the user picks a proposal.
+Read recent bot transcripts, find where the user had to fight the bot, and propose a skill, bot, or routine only where the evidence repeats. Build nothing until the user picks.
 
-## When to run
+## When
 
-- the standing `transcript-healthcheck` routine fires
-- the user asks for a fleet checkup, friction audit, or "what should we automate"
-- first run after this skill is imported (offer cadence then)
+- The standing `transcript-healthcheck` routine fires (default weekday mornings).
+- The user asks for a friction audit or "what should we automate?".
+- First run after import: ask once what cadence they want, then create or update the `transcript-healthcheck` routine. Don't re-ask.
 
-## Window and corpus
+## Scope
 
-Default window is the last 24 hours. If a routine or the user names another cadence, use that window instead.
+- Window: the last 24 hours unless the routine or user says otherwise.
+- Files: `/home/box/agent-data/agent-transcripts/<agentId>/<agentId>.jsonl`. Skip `sand-subagent-*` folders. Sort by modification time, not by folder name.
+- Names: `/home/box/agent-data/agents/<agentId>/profile.json`.
 
-Corpus is on this computer:
+Say the window and the number of bots out loud before reading.
 
-- `/home/box/agent-data/agent-transcripts/<agentId>/<agentId>.jsonl`
-- skip folders whose names start with `sand-subagent-`
-- order candidates by real modification time, never by UUID name
-- map `<agentId>` to a name via `/home/box/agent-data/agents/<agentId>/profile.json`
+## Read
 
-State the window and bot count back before mining.
+Split the transcript files across parallel subagents; keep only their findings in the main thread. Each subagent returns, per bot that had user messages in the window:
 
-## How to mine (recall-shaped)
+- the user's goals, in a line
+- friction, with a short quote and rough timestamp
+- what the bot did versus what the user wanted
+- a candidate fix (skill, bot, or routine) or `none`
 
-Fan out parallel subagents. Each gets a slice of agent transcript paths. The main thread keeps only their findings.
+Signs of friction: "no", "stop", "wrong", "I said", "undo", sarcasm; the same instruction given twice; the user doing work the bot should own; the bot asking a question it could have answered by trying; a thread the user abandons mid-task.
 
-Each subagent returns one block per bot that had user traffic in the window:
+Bots with no user messages are skipped. Finding nothing is a valid result.
 
-- bot name and id
-- user goals in the window (short)
-- friction signals with short quotes or paraphrases (cite approx turn or timestamp if present)
-- repeated corrections or re-asks
-- misunderstandings (bot did X, user wanted Y)
-- candidate gaps: skill / bot / routine, one line each, or `none`
+## Sort before proposing
 
-Friction to look for:
-
-- frustration, sarcasm, "stop", "wrong", "i said", "undo", "not what i meant"
-- same instruction restated
-- user doing work the bot should own
-- bot asking preference questions an experiment could settle
-- quiet failure (user abandons a thread)
-
-Skip bots with no user messages in the window. Null is a finding.
+Group the friction into a few named failure types across all bots (for example "forgets formatting rule", "asks instead of acting", "wrong account"). Count each. Propose only for types that show up more than once, or once with real cost (a wrong send, lost work). A one-off annoyance goes in the notes, not the proposals.
 
 ## Report
 
-Lead with a capsule (at most 5 bullets). Then a short list of proposals, each tagged `skill` | `bot` | `routine`, with the evidence line that earned it. Then "no change" bots in one line if useful.
+- Summary: up to five bullets.
+- Proposals, biggest first, each tagged `skill`, `bot`, or `routine`, with its count and one quoted line as evidence.
+- Bots with nothing to report, on one line.
 
-Stay quiet when the routine fires and there is nothing to propose. Do not send "(no change.)".
+On a scheduled run with nothing to propose, send nothing at all. Offer to build only after the user picks. Never create agents, skills, or routines from the report alone.
 
-Offer to implement only after the user picks. Do not CreateAgent, write skills, or create routines from this report alone.
+## Inspired by
 
-## First-run cadence
+- [Lauren Tan (@poteto), dr eggbot](https://x.ai/bot/marketplace/bots/dr-eggbot-v2) (marketplace template; no reuse license shown, so no text is copied). Does well: a weekday friction scan that stays quiet and waits for the user to choose. Missing: the listing doesn't say how to read transcripts or when evidence is strong enough.
+- [Lauren Tan, pstack recall](https://github.com/cursor/plugins/blob/e31650eea443aaea1e84cc15d88c13f40080b275/pstack/skills/recall/SKILL.md) (MIT). Does well: lock the window first, fan transcripts out to subagents, sort by real modification time, and lead with a short capsule. Missing: built to rebuild one person's working context, not to find friction across a fleet.
+- [Hamel Husain, A Field Guide to Rapidly Improving AI Products](https://hamel.dev/blog/posts/field-guide/). Does well: error analysis (read real logs, categorize failures, then fix the biggest categories). Missing: written for product teams with eval tooling, not a self-auditing bot.
 
-On first import, ask once what cadence they want (default weekday morning). Create or update the standing routine named `transcript-healthcheck` to match. Do not ask again every run.
+## What this version adds
 
-Credit: [Lauren Tan (@poteto), dr eggbot](https://x.ai/bot/marketplace/bots/dr-eggbot-v2) names this healthcheck and its weekday friction scan. [pstack recall](https://github.com/cursor/plugins/blob/e31650eea443aaea1e84cc15d88c13f40080b275/pstack/skills/recall/SKILL.md) is a related transcript-mining workflow. See the [source audit](../../../docs/credits.md) for the evidence and license limits.
+- A grouping and counting step, so proposals rest on repeated failures, not single quotes.
+- A cost exception for one-off failures that were expensive.
+- Full silence on empty scheduled runs.
