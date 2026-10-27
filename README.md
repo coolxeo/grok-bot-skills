@@ -4,11 +4,11 @@
 
 Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
 
-22 skills for writing, design, code, SEO, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
+23 skills for writing, design, code, SEO, ads, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
 
-The catalog has 19 local skills and 3 upstream skills. Each uses a readable `SKILL.md` file. Pick one, read it, and adapt it to your bot.
+The catalog has 20 local skills and 3 upstream skills. Each uses a readable `SKILL.md` file. Pick one, read it, and adapt it to your bot.
 
-[Start here](#start-here) · [Browse all 22 skills](#all-skills) · [Contribute](#contribute)
+[Start here](#start-here) · [Browse all 23 skills](#all-skills) · [Contribute](#contribute)
 
 ## Install
 
@@ -38,10 +38,11 @@ The free skills here stay free. These paid kits are bigger, tested versions with
 | Create a bot with one clear job | [design-a-grok-bot](skills/bots/design-a-grok-bot/SKILL.md) |
 | Find noisy or wasteful routines | [routine-healthcheck](skills/bots/routine-healthcheck/SKILL.md) |
 | Write a post for X or LinkedIn | [social-copywriting](skills/writing/social-copywriting/SKILL.md) |
+| Get better leads from automated ad campaigns | [whetstone-signal](skills/ads/whetstone-signal/SKILL.md) |
 
 ## Get a skill
 
-For the 19 local skills, download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
+For the 20 local skills, download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
 
 ```sh
 git clone https://github.com/coolxeo/grok-bot-skills.git
@@ -146,6 +147,12 @@ updates. Show the evidence. Propose changes before applying them.
 | --- | --- |
 | [aeo-geo-site](skills/seo/aeo-geo-site/SKILL.md) | Structure site content for search and AI-assisted discovery. |
 | [exact-match-intent-seo](skills/seo/exact-match-intent-seo/SKILL.md) | Match domains, page titles, and URLs to search intent. |
+
+### Ads
+
+| Skill | What it does |
+| --- | --- |
+| [whetstone-signal](skills/ads/whetstone-signal/SKILL.md) | Pick, score, and send back the conversion event automated ad campaigns optimize for. |
 
 ### Bots
 
