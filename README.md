@@ -6,20 +6,20 @@ Free skills that run my 3 YouTube channels with a team of Grok Bots. Nothing pos
 
 ## Paid kits
 
-| Kit (result name) | What it is | Price | Link |
-| --- | --- | --- | --- |
-| Audit your site for AI answers, then fix it | AEO/GEO Site Audit & Build Kit | €9 | [Get the kit →](https://daniacostaai.gumroad.com/l/cxabi) |
-| Make your pages and videos readable by AI answers | AEO Kit (Markdown Twins + YouTube Watch Pages) | $24 | [Get the kit →](https://daniacostaai.gumroad.com/l/wzalwo) |
-| Turn one video into Shorts, QA included | Shorts Builder Kit | $14 | [Get the kit →](https://daniacostaai.gumroad.com/l/ommvol) |
-| Turn rough notes into an X Article | X Article Writer | €7 | [Get the kit →](https://daniacostaai.gumroad.com/l/lzowtl) |
+| Kit (result name) | What it is | Price | Link | Free skill |
+| --- | --- | --- | --- | --- |
+| Audit your site for AI answers, then fix it | AEO/GEO Site Audit & Build Kit | €9 | [Get the kit →](https://daniacostaai.gumroad.com/l/cxabi) | [aeo-geo-site](skills/seo/aeo-geo-site/SKILL.md) |
+| Make your pages and videos readable by AI answers | AEO Kit (Markdown Twins + YouTube Watch Pages) | $24 | [Get the kit →](https://daniacostaai.gumroad.com/l/wzalwo) | [markdown-twin](skills/seo/markdown-twin/SKILL.md) |
+| Turn one video into Shorts, QA included | Shorts Builder Kit | $14 | [Get the kit →](https://daniacostaai.gumroad.com/l/ommvol) | [shorts-reframe](skills/video/shorts-reframe/SKILL.md) |
+| Turn rough notes into an X Article | X Article Writer | €7 | [Get the kit →](https://daniacostaai.gumroad.com/l/lzowtl) | [x-article](skills/writing/x-article/SKILL.md) |
 
 Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
 
-26 skills for writing, design, code, SEO, ads, YouTube research, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
+28 skills for writing, design, code, SEO, ads, YouTube research, video, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
 
-The catalog has 23 local skills and 3 upstream skills. Each uses a readable `SKILL.md` file. Pick one, read it, and adapt it to your bot.
+The catalog has 25 local skills and 3 upstream skills. Each uses a readable `SKILL.md` file. Pick one, read it, and adapt it to your bot.
 
-[Start here](#start-here) · [Browse all 26 skills](#all-skills) · [Contribute](#contribute)
+[Start here](#start-here) · [Browse all 28 skills](#all-skills) · [Contribute](#contribute)
 
 ## Install
 
@@ -45,7 +45,7 @@ To install one skill, add `--skill` and its folder name, for example `npx skills
 
 ## Get a skill
 
-For the 23 local skills, download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
+For the 25 local skills, download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
 
 ```sh
 git clone https://github.com/coolxeo/grok-bot-skills.git
@@ -152,6 +152,7 @@ updates. Show the evidence. Propose changes before applying them.
 | [exact-match-intent-seo](skills/seo/exact-match-intent-seo/SKILL.md) | Match domains, page titles, and URLs to search intent. |
 | [ai-search-gap-loop](skills/seo/ai-search-gap-loop/SKILL.md) | Track buyer prompts in Google and AI answers, diagnose each loss, make one change, and log the result. |
 | [ai-citation-sources](skills/seo/ai-citation-sources/SKILL.md) | List the third-party sources AI answers cite and draft one action per source. |
+| [markdown-twin](skills/seo/markdown-twin/SKILL.md) | Publish a clean markdown copy of one HTML page, advertise it with a link tag, and list it in /llms.txt. |
 
 ### Ads
 
@@ -164,6 +165,12 @@ updates. Show the evidence. Propose changes before applying them.
 | Skill | What it does |
 | --- | --- |
 | [youtube-niche-report](skills/youtube/youtube-niche-report/SKILL.md) | Pull a niche's top videos, score them against their own channel, and build an interactive HTML report of what wins. Ships with an example config for a made-up niche. |
+
+### Video
+
+| Skill | What it does |
+| --- | --- |
+| [shorts-reframe](skills/video/shorts-reframe/SKILL.md) | Crop a 16:9 video to 9:16, scale it to 1080x1920, keep the audio, and check duration and resolution. |
 
 ### Bots
 
@@ -190,6 +197,7 @@ The instructions are plain Markdown. Some workflows need more than a chat window
 - Some coding workflows refer to pstack skills. Install that pack separately when a workflow needs it.
 - `diagram-design` needs the [upstream diagram pack](https://github.com/cathrynlavery/diagram-design), including its reference files.
 - `youtube-niche-report` runs Python scripts with yt-dlp, ffmpeg and Pillow on a machine that can reach YouTube.
+- `shorts-reframe` needs ffmpeg and ffprobe on the machine that holds the source video.
 - The image playbook needs browser control and a signed-in ChatGPT session with image generation available.
 - Search, publishing, and design tasks need the relevant browser, connector, or project access.
 
@@ -216,8 +224,10 @@ This collection links to upstream skills and includes adaptations and workflows 
 - [Cathryn Lavery](https://github.com/cathrynlavery/diagram-design): `diagram-design` and its required reference pack.
 - [Microsoft Advertising](https://about.ads.microsoft.com/content/dam/sites/msa-about/global/common/content-lib/pdf/from-discovery-to-influence-a-guide-to-aeo-and-geo.pdf): the AEO/GEO guide by Jennifer Myers, with Paul Longo as executive sponsor; plus [Alex Groberman's summary](https://www.linkedin.com/pulse/new-microsoft-just-revealed-how-get-traffic-from-alex-groberman-5af0c), used as SEO reference material.
 - [Hridoy Reh](https://x.com/hridoyreh/status/2096534436934455606): the recorded inspiration for `exact-match-intent-seo`. The original X post could not be reverified during this audit.
+- [Jeremy Howard / llmstxt.org](https://llmstxt.org/): the /llms.txt v2 proposal, used as the reference for `markdown-twin`.
+- [FFmpeg crop filter documentation](https://ffmpeg.org/ffmpeg-filters.html#crop) and the [mediacodec.dev crop guide](https://mediacodec.dev/how-to/crop-video/): references for the centered 9:16 crop in `shorts-reframe`.
 
-See the [source audit for all 22 skills](docs/credits.md) for exact files, evidence, and unresolved origins. No standalone upstream was verified for `x-article` or `chatgpt-images-browser-playbook`.
+See the [source audit of the 22 skills reviewed on 17 Sep 2026](docs/credits.md) for exact files, evidence, and unresolved origins. No standalone upstream was verified for `x-article` or `chatgpt-images-browser-playbook`.
 
 ## License
 
