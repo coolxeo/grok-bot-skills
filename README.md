@@ -4,11 +4,11 @@
 
 Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
 
-23 skills for writing, design, code, SEO, ads, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
+24 skills for writing, design, code, SEO, ads, YouTube research, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
 
-The catalog has 20 local skills and 3 upstream skills. Each uses a readable `SKILL.md` file. Pick one, read it, and adapt it to your bot.
+The catalog has 21 local skills and 3 upstream skills. Each uses a readable `SKILL.md` file. Pick one, read it, and adapt it to your bot.
 
-[Start here](#start-here) · [Browse all 23 skills](#all-skills) · [Contribute](#contribute)
+[Start here](#start-here) · [Browse all 24 skills](#all-skills) · [Contribute](#contribute)
 
 ## Install
 
@@ -39,10 +39,11 @@ The free skills here stay free. These paid kits are bigger, tested versions with
 | Find noisy or wasteful routines | [routine-healthcheck](skills/bots/routine-healthcheck/SKILL.md) |
 | Write a post for X or LinkedIn | [social-copywriting](skills/writing/social-copywriting/SKILL.md) |
 | Get better leads from automated ad campaigns | [whetstone-signal](skills/ads/whetstone-signal/SKILL.md) |
+| Find what wins in a YouTube niche before planning videos | [youtube-niche-report](skills/youtube/youtube-niche-report/SKILL.md) |
 
 ## Get a skill
 
-For the 20 local skills, download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
+For the 21 local skills, download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
 
 ```sh
 git clone https://github.com/coolxeo/grok-bot-skills.git
@@ -154,6 +155,12 @@ updates. Show the evidence. Propose changes before applying them.
 | --- | --- |
 | [whetstone-signal](skills/ads/whetstone-signal/SKILL.md) | Pick, score, and send back the conversion event automated ad campaigns optimize for. |
 
+### YouTube
+
+| Skill | What it does |
+| --- | --- |
+| [youtube-niche-report](skills/youtube/youtube-niche-report/SKILL.md) | Pull a niche's top videos, score them against their own channel, and build an interactive HTML report of what wins. |
+
 ### Bots
 
 | Skill | What it does |
@@ -178,6 +185,7 @@ The instructions are plain Markdown. Some workflows need more than a chat window
 - Bot and engineering skills refer to Grok Bot tools, routines, cloud agents, or local agent data. Check that your environment has those tools before running them.
 - Some coding workflows refer to pstack skills. Install that pack separately when a workflow needs it.
 - `diagram-design` needs the [upstream diagram pack](https://github.com/cathrynlavery/diagram-design), including its reference files.
+- `youtube-niche-report` runs Python scripts with yt-dlp, ffmpeg and Pillow on a machine that can reach YouTube.
 - The image playbook needs browser control and a signed-in ChatGPT session with image generation available.
 - Search, publishing, and design tasks need the relevant browser, connector, or project access.
 
