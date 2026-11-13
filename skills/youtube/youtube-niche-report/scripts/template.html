@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><!--TITLE--></title>
+<style>
+/* One narrow reading column for prose, wide bands for tables. Dark by default, light when the system asks. */
+:root {
+  --bg: #0f1012; --panel: #17181c; --line: #2b2d33; --fg: #eceae4; --mute: #a3a3ad;
+  --accent: #7c9cff; --warm: #f0b35a; --good: #43c98b; --bad: #ff6f6f; --bar: #7c9cff;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) {
+  --bg: #f6f5f1; --panel: #ffffff; --line: #dcd9d0; --fg: #18181b; --mute: #5d5d66;
+  --accent: #3552c9; --warm: #9a5a00; --good: #1c8452; --bad: #c03636; --bar: #3552c9; color-scheme: light } }
+:root[data-theme="light"] {
+  --bg: #f6f5f1; --panel: #ffffff; --line: #dcd9d0; --fg: #18181b; --mute: #5d5d66;
+  --accent: #3552c9; --warm: #9a5a00; --good: #1c8452; --bad: #c03636; --bar: #3552c9; color-scheme: light }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--fg); font: 16px/1.55 var(--body); margin: 0; padding-inline: 16px }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 28px 80px; display: grid; gap: 52px }
+h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.05; margin: 0; letter-spacing: -0.01em }
+h2 { font-size: 28px; line-height: 1.1; margin: 0 }
+h3 { font-size: 19px; line-height: 1.2; margin: 0 }
+p { margin: 0 }
+a { color: var(--accent) }
+.eyebrow { font: 600 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--mute) }
+.mute { color: var(--mute) } .num { font-family: var(--mono); font-variant-numeric: tabular-nums }
+section { display: grid; gap: 16px; scroll-margin-top: 60px }
+.prose { max-width: 70ch } .lede { font-size: 19px; max-width: 66ch }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 26px; font: 14px var(--mono); color: var(--mute) }
+.stats b { color: var(--fg) }
+nav.toc { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line);
+  display: flex; gap: 4px 16px; flex-wrap: wrap; padding-block: 10px; font: 13px var(--mono) }
+nav.toc a { color: var(--mute); text-decoration: none } nav.toc a:hover { color: var(--fg) }
+.bullets { display: grid; gap: 10px; padding: 0; margin: 0; list-style: none; max-width: 78ch }
+.bullets li { padding-left: 20px; position: relative }
+.bullets li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: var(--accent) }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 10px; align-content: start; min-width: 0 }
+.card .n { font: 800 38px/0.9 var(--body); color: var(--accent) }
+.card .head { display: flex; gap: 12px; align-items: start }
+.tags { display: flex; flex-wrap: wrap; gap: 6px }
+.tag { font: 12px/1 var(--mono); padding: 5px 7px; border-radius: 4px; border: 1px solid var(--line); color: var(--mute) }
+.kv { display: grid; grid-template-columns: 76px 1fr; gap: 6px 10px; font-size: 14px; margin: 0 }
+.kv dt { color: var(--mute); font: 11px/1.7 var(--mono); text-transform: uppercase; letter-spacing: .06em }
+.kv dd { margin: 0; min-width: 0 }
+.hookline { border-left: 3px solid var(--warm); padding: 4px 10px; font-style: italic }
+.scope { display: flex; gap: 6px; flex-wrap: wrap }
+.scope button { font: 13px var(--mono); padding: 7px 10px; border-radius: 6px; border: 1px solid var(--line); background: transparent; color: var(--mute); cursor: pointer }
+.scope button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg) }
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--panel) }
+table { border-collapse: collapse; width: 100%; font-size: 14px }
+th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top }
+th { font: 600 11px/1.3 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--mute); white-space: nowrap; position: sticky; top: 0; background: var(--panel) }
+tr:last-child td { border-bottom: 0 }
+.r { text-align: right }
+.barwrap { display: flex; align-items: center; gap: 8px; min-width: 140px }
+.bar { height: 10px; border-radius: 2px; background: var(--bar); opacity: .85 }
+.x { font: 600 13px var(--mono) } .x.hi { color: var(--good) } .x.lo { color: var(--bad) }
+.note { font-size: 14px; color: var(--mute); max-width: 80ch }
+details.idea { background: var(--panel); border: 1px solid var(--line); border-radius: 10px }
+details.idea > summary { list-style: none; cursor: pointer; padding: 14px 16px; display: grid; grid-template-columns: 40px 160px 1fr; gap: 14px; align-items: center }
+details.idea > summary::-webkit-details-marker { display: none }
+details.idea[open] > summary { border-bottom: 1px solid var(--line) }
+details.idea .n { font: 800 30px/1 var(--body); color: var(--accent) }
+.thumb { width: 160px; aspect-ratio: 16/9; border-radius: 6px; object-fit: cover; background: var(--line); display: block; max-width: 100% }
+.idea .body { padding: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px }
+.idea .body > div { min-width: 0; display: grid; gap: 10px; align-content: start }
+.idea ol { margin: 0; padding-left: 20px; display: grid; gap: 4px }
+.lead { color: var(--good) }
+.label { font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--mute) }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center }
+.filters select, .filters input { font: 13px var(--mono); background: var(--panel); color: var(--fg); border: 1px solid var(--line); border-radius: 6px; padding: 7px 8px; max-width: 100% }
+#lb { max-height: 720px; overflow: auto }
+#lb th button { all: unset; cursor: pointer; user-select: none } #lb th button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+#lb th[aria-sort="descending"]::after { content: " ↓" } #lb th[aria-sort="ascending"]::after { content: " ↑" }
+#lb td.t { min-width: 240px; max-width: 420px }
+tr.own td { background: color-mix(in srgb, var(--good) 10%, transparent) }
+.sheets { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px }
+.sheets figure { margin: 0; display: grid; gap: 6px; min-width: 0 }
+.sheets img { width: 100%; border-radius: 6px; border: 1px solid var(--line) }
+.sheets figcaption { font-size: 13px; color: var(--mute) }
+@media (max-width: 760px) {
+  .idea .body { grid-template-columns: 1fr }
+  details.idea > summary { grid-template-columns: 32px 1fr } details.idea > summary .thumb { display: none }
+}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script id="data" type="application/json">/*DATA*/</script>
+<script>
+(function () {
+const D = JSON.parse(document.getElementById('data').textContent);
+const I = D.ins || {};
+const app = document.getElementById('app');
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const md = s => esc(s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');  // **bold** is the only markup in insights.json
+const fmtN = n => n >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 0 : 1) + 'M' : n >= 1e4 ? Math.round(n / 1e3) + 'K' : n >= 1e3 ? (n / 1e3).toFixed(1) + 'K' : String(Math.round(n || 0));
+const fmtX = x => (x >= 10 ? x.toFixed(0) : x.toFixed(1)) + '×';
+const xCls = x => x >= 2 ? 'hi' : x < 0.9 ? 'lo' : '';
+const dur = s => s == null ? '' : Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+const url = v => (v.tab === 'shorts' ? 'https://www.youtube.com/shorts/' : 'https://youtu.be/') + encodeURIComponent(v.id || '');
+const V = D.videos, byId = Object.fromEntries(V.map(v => [v.id, v]));
+const clName = k => (D.clusters || {})[k] || k;
+const pretty = k => String(k).replace(/_/g, ' ').replace(/^./, c => c.toUpperCase());
+const med = a => { const s = [...a].sort((x, y) => x - y); return s.length ? (s.length % 2 ? s[(s.length - 1) / 2] : (s[s.length / 2 - 1] + s[s.length / 2]) / 2) : 0 };
+const bullets = arr => arr && arr.length ? `<ul class="bullets">${arr.map(b => `<li>${md(b)}</li>`).join('')}</ul>` : '';
+const F = I.findings || {};
+const DIMS = [
+  ['cluster', 'Topics', 'Topic clusters', '"× channel" is a video\'s views divided by its own channel\'s median for the same tab. 1.0× is an ordinary upload for that channel; hits are videos at 3× or more.'],
+  ['format', 'Formats', 'Formats and lengths', ''],
+  ['hook', 'Hooks', 'Hooks: how the first seconds open', 'The hook text is the first line on screen (from frame sheets), else the first spoken line, else the title.'],
+  ['structure', 'Structures', 'How the videos are built', 'The line is YouTube\'s "most replayed" curve averaged across the videos that have one: where people rewatch.'],
+  ['title_shape', 'Titles', 'Title shapes', ''],
+  ['voice', 'Voice', 'Voice and sound', ''],
+];
+const own = V.filter(v => v.own).sort((a, b) => b.views - a.views);
+const int = x => { const n = Number(x); return Number.isInteger(n) ? n : null };  // slot and idea numbers are plain integers
+const ideas = (I.ideas || []).map((i, k) => ({ ...i, n: int(i.n) ?? k + 1 })), batch = ((I.answer || {}).batch || []).map((b, k) => ({ ...b, slot: int(b.slot) ?? k + 1, idea: int(b.idea) }));
+let h = '';
+// header
+h += `<header style="display:grid;gap:14px"><div class="eyebrow">${esc(I.eyebrow || 'Niche report · pulled ' + D.pulled_at)}</div>
+  <h1>${esc(I.title)}</h1>${I.lede ? `<p class="lede">${md(I.lede)}</p>` : ''}
+  <div class="stats">${[['channels', D.n_channels], ['videos listed', D.n_catalog.toLocaleString()], ['pulled in full', D.n_pulled.toLocaleString()], ['screened in', D.n_kept], ...(D.n_own ? [['yours', D.n_own]] : [])].map(([k, v]) => `<span><b>${v}</b> ${k}</span>`).join('')}</div></header>`;
+const toc = [];
+if (batch.length) toc.push(['answer', 'The answer']);
+if (own.length) toc.push(['you', 'Where you stand']);
+DIMS.forEach(([k, s]) => toc.push([k, s]));
+if (ideas.length) toc.push(['ideas', 'Ideas']);
+toc.push(['leaderboard', 'Leaderboard'], ['screen', 'Screening'], ['method', 'Method']);
+h += `<nav class="toc" aria-label="Sections">${toc.map(([id, l]) => `<a href="#${id}">${l}</a>`).join('')}</nav>`;
+// the answer
+if (batch.length) {
+  const A = I.answer, ideaBy = Object.fromEntries(ideas.map(i => [String(i.n), i]));
+  h += `<section id="answer"><div class="eyebrow">The answer</div><h2>${esc(A.heading || 'What to make next')}</h2>
+    ${A.intro ? `<p class="prose">${md(A.intro)}</p>` : ''}${bullets(A.rules)}
+    <div class="cards">${batch.map((b, k) => { const i = ideaBy[String(b.idea)] || {}; const t = b.title || (i.titles || [])[0] || '';
+      return `<article class="card"><div class="head"><div class="n">${b.slot}</div><div style="display:grid;gap:6px;min-width:0"><h3>${esc(t)}</h3>
+        <div class="tags">${(b.tags || i.tags || []).filter(Boolean).map(x => `<span class="tag">${esc(x)}</span>`).join('')}</div></div></div>
+        ${b.logline || i.adaptation ? `<p>${md(b.logline || i.adaptation)}</p>` : ''}
+        <dl class="kv">${b.why ? `<dt>Why</dt><dd>${md(b.why)}</dd>` : ''}${(b.hook || i.hook) ? `<dt>Hook</dt><dd class="hookline">${esc(b.hook || i.hook)}</dd>` : ''}
+        ${(i.titles || []).length > 1 ? `<dt>Titles</dt><dd>${i.titles.map((x, n) => `<span class="${n ? 'mute' : 'lead'}">${esc(x)}</span>`).join('<br>')}</dd>` : ''}
+        ${(i.thumbs || []).map((x, n) => `<dt>Thumb ${'AB'[n] || n + 1}</dt><dd>${esc(x)}</dd>`).join('')}
+        ${b.short ? `<dt>Short</dt><dd>${md(b.short)}</dd>` : ''}${i.n != null ? `<dt>Idea</dt><dd><a href="#idea-${i.n}">idea ${i.n}</a></dd>` : ''}</dl></article>`; }).join('')}</div></section>`;
+}
+// where you stand
+if (own.length) {
+  const kept = V.filter(v => !v.own), small = kept.filter(v => !v.tier.startsWith('established'));
+  h += `<section id="you"><div class="eyebrow">Where you stand</div><h2>${esc((I.own || {}).heading || 'Your channel next to the niche')}</h2>
+    ${((I.own || {}).paragraphs || []).map(p => `<p class="prose">${md(p)}</p>`).join('')}
+    <p class="note">Small-channel median: <b class="num">${Math.round(med(small.map(v => v.views))).toLocaleString()}</b> views per video. Your median: <b class="num">${Math.round(med(own.map(v => v.views))).toLocaleString()}</b>.</p>
+    <div class="tbl"><table><thead><tr><th>Your video</th><th class="r">Views</th><th>Type</th><th>Hook</th></tr></thead><tbody>
+    ${own.map(v => `<tr class="own"><td><a href="${url(v)}" target="_blank" rel="noopener">${esc(v.title)}</a></td><td class="r num">${v.views.toLocaleString()}</td><td class="mute">${esc(v.format)}</td><td class="mute">${esc(pretty(v.hook))}</td></tr>`).join('')}</tbody></table></div></section>`;
+}
+// dimension tables
+// the same scopes as analyze.py's tables, so the curve matches the row it sits in
+const est = v => v.tier.startsWith('established');
+const IN_SCOPE = { est_recent: v => est(v) && v.era !== 'older', est: est, all: () => true, small: v => !est(v) };
+function spark(k, scope) {
+  const hs = V.filter(v => !v.own && v.heat && v.structure === k && (IN_SCOPE[scope] || IN_SCOPE.all)(v)).map(v => v.heat);
+  if (!hs.length) return '<span class="mute">–</span>';
+  const m = hs[0].map((_, i) => hs.reduce((s, x) => s + x[i], 0) / hs.length), w = 120, ht = 28, mx = Math.max(...m) || 1;
+  const pts = m.map((y, i) => `${(i / (m.length - 1) * w).toFixed(1)},${(ht - 2 - y / mx * (ht - 4)).toFixed(1)}`).join(' ');
+  return `<svg width="${w}" height="${ht}" viewBox="0 0 ${w} ${ht}" role="img" aria-label="most replayed curve"><polyline fill="none" stroke="var(--accent)" stroke-width="1.6" points="${pts}"/></svg> <span class="mute num">n=${hs.length}</span>`;
+}
+DIMS.forEach(([k, short, title, intro]) => {
+  h += `<section id="${k}"><div class="eyebrow">${short}</div><h2>${title}</h2>${intro ? `<p class="prose">${intro}</p>` : ''}
+    <div class="scope" data-for="${k}"></div><div class="tbl"><table data-table="${k}"></table></div>${bullets(F[k])}
+    ${k === 'hook' && (I.hookdefs || []).length ? `<div class="tbl"><table><thead><tr><th>Hook type</th><th>What it is</th><th>Lines that worked</th></tr></thead><tbody>${I.hookdefs.map(x => `<tr><td><b>${esc(pretty(x.k))}</b></td><td>${md(x.what)}</td><td>${(x.ex || []).map(e => `<i>"${esc(e)}"</i>`).join('<br>')}</td></tr>`).join('')}</tbody></table></div>` : ''}
+    ${k === 'hook' && D.sheets.length ? `<div class="sheets">${D.sheets.map(s => { const v = byId[s.id] || {}; return `<figure><img src="${s.src}" alt="Nine frames from the first 45 seconds of ${esc(v.title)}" loading="lazy"><figcaption><b>${esc(v.channel)}</b>, <a href="${url(v)}" target="_blank" rel="noopener">${esc((v.title || '').slice(0, 50))}</a> · ${fmtN(v.views)}. ${md(s.note)}</figcaption></figure>`; }).join('')}</div>` : ''}</section>`;
+});
+// ideas
+if (ideas.length) {
+  h += `<section id="ideas"><div class="eyebrow">Ideas</div><h2>${esc(I.ideas_heading || 'Ideas, torn down and converted')}</h2>
+    ${I.ideas_intro ? `<p class="prose">${md(I.ideas_intro)}</p>` : ''}<div style="display:grid;gap:12px">${ideas.map(i => {
+    const src = (i.src || []).map(id => byId[id]).filter(Boolean), s0 = src[0] || {}, th = D.thumbs[(i.src || []).find(id => D.thumbs[id])];
+    return `<details class="idea" id="idea-${i.n}"><summary><div class="n">${i.n}</div>${th ? `<img class="thumb" src="${th}" alt="">` : '<div class="thumb"></div>'}
+      <div style="display:grid;gap:4px;min-width:0"><b>${esc((i.titles || [''])[0])}</b><span class="mute" style="font-size:13px">From: ${src.map(v => `${esc(v.title.slice(0, 48))} · ${esc(v.channel)} · ${fmtN(v.views)}`).join('; ')}</span>
+      <div class="tags">${s0.cluster ? `<span class="tag">${esc(clName(s0.cluster))}</span>` : ''}${s0.structure ? `<span class="tag">${esc(pretty(s0.structure))}</span>` : ''}${s0.hook ? `<span class="tag">${esc(pretty(s0.hook))}</span>` : ''}</div></div></summary>
+      <div class="body"><div><div class="label">Teardown</div><p>${md(i.lesson)}</p>
+        ${s0.id ? `<dl class="kv"><dt>Format</dt><dd>${esc(s0.format)}, ${dur(s0.dur)}</dd><dt>Hook</dt><dd><i>"${esc(s0.hook_text)}"</i></dd><dt>Lift</dt><dd class="num">${fmtX(s0.out)} its channel</dd></dl>` : ''}</div>
+      <div><div class="label">Your version</div><p>${md(i.adaptation)}</p>
+        <div class="label">${(i.titles || []).length} titles</div><ol>${(i.titles || []).map((t, n) => `<li class="${n ? '' : 'lead'}">${esc(t)}</li>`).join('')}</ol>
+        <div class="label">${(i.thumbs || []).length} thumbnails</div><ol type="A">${(i.thumbs || []).map(t => `<li>${esc(t)}</li>`).join('')}</ol>
+        ${i.hook ? `<div class="label">1 hook</div><p class="hookline">${esc(i.hook)}</p>` : ''}</div></div></details>`; }).join('')}</div></section>`;
+}
+// leaderboard
+const FL = { fCluster: ['cluster', 'All clusters', clName], fFormat: ['format', 'All formats'], fHook: ['hook', 'All hooks', pretty], fStruct: ['structure', 'All structures', pretty], fEra: ['era', 'All dates'], fTier: ['tier', 'All channel sizes'] };
+h += `<section id="leaderboard"><div class="eyebrow">Leaderboard</div><h2>Every screened-in video, ranked</h2>
+  <div class="filters"><input id="q" type="search" placeholder="Search titles or channels" aria-label="Search titles or channels">
+  ${Object.entries(FL).map(([id, [, lab]]) => `<select id="${id}" aria-label="${lab}"></select>`).join('')}<span class="mute num" id="lbCount"></span></div>
+  <div class="tbl" id="lb"><table><thead><tr>${[['rank', '#', 'r'], ['title', 'Title'], ['channel', 'Channel'], ['views', 'Views', 'r'], ['out', '× channel', 'r'], ['vpd', 'Per day', 'r'], ['dur', 'Length', 'r'], ['cluster', 'Cluster'], ['hook', 'Hook'], ['structure', 'Structure'], ['date', 'Date']].map(([k, l, c]) => `<th data-k="${k}"${c ? ` class="${c}"` : ''}${k === 'views' ? ' aria-sort="descending"' : ''}><button type="button">${l}</button></th>`).join('')}</tr></thead><tbody></tbody></table></div>
+  <p class="note">Views are a snapshot from ${esc(D.pulled_at)}.${own.length ? ' Your videos are tinted.' : ''} Click a column to sort.</p></section>`;
+// screening
+h += `<section id="screen"><div class="eyebrow">Screening</div><h2>What was taken out, and why</h2>
+  ${I.screen_note ? `<p class="prose">${md(I.screen_note)}</p>` : ''}
+  <div class="tbl"><table><thead><tr><th>Channel</th><th class="r">Subs</th><th>How it got in</th><th class="r">Listed</th><th class="r">Pulled</th><th class="r">Kept</th><th>Top reasons out</th></tr></thead><tbody>
+  ${D.screen.sort((a, b) => b.kept - a.kept || (b.subs || 0) - (a.subs || 0)).map(c => `<tr><td><b>${esc(c.channel)}</b></td><td class="r num">${c.subs ? fmtN(c.subs) : '–'}</td><td class="mute">${esc(c.why)}</td><td class="r num">${c.catalog}</td><td class="r num">${c.pulled}</td><td class="r num">${c.kept}</td><td class="mute">${c.reasons.map(([r, n]) => `${esc(r)} (${n})`).join('; ')}</td></tr>`).join('')}</tbody></table></div></section>`;
+// method
+h += `<section id="method"><div class="eyebrow">Method and caveats</div><h2>How this was made</h2>${bullets([
+  `Pulled read-only with yt-dlp on ${D.pulled_at}: ${D.n_channels} channels (seeds plus channels found by search), every listed video for channel medians, full metadata for each channel's top videos and Shorts, the first 60 s of captions for the top of each tab.`,
+  'A language model screened every pulled video against the niche rule and tagged topic cluster, structure, hook type and voice. Formats and title shapes come from fixed rules on length and title text.',
+  `"Established" means ${Number(D.established_subs).toLocaleString()}+ subscribers. "Recent" means uploaded ${esc(D.era_label)}.`,
+  ...(I.caveats || ['Many groups are small; read n before trusting a median. × channel uses the median of the whole catalogue, which favours old evergreen videos, and the newest videos have not peaked yet.'])])}</section>`;
+app.innerHTML = h;
+// scope toggles
+const SC = Object.entries(D.scopes);
+function renderTable(key, scope) {
+  const rows = D.tables[key][scope] || [], mx = Math.max(...rows.map(r => r.med), 1), lbl = key === 'cluster' ? clName : pretty, sp = key === 'structure';
+  document.querySelector(`table[data-table="${key}"]`).innerHTML = `<thead><tr><th>${DIMS.find(d => d[0] === key)[1]}</th><th class="r">Videos</th><th>Median views</th><th class="r">× channel</th><th class="r">Hits (3×+)</th><th class="r">Total</th>${sp ? '<th>Most replayed</th>' : ''}<th>Top video</th></tr></thead><tbody>` +
+    (rows.length ? rows.map(r => { const t = byId[r.top] || {}; return `<tr><td><b>${esc(lbl(r.k))}</b></td><td class="r num">${r.n}</td>
+      <td><div class="barwrap"><div class="bar" style="width:${Math.max(2, r.med / mx * 110)}px"></div><span class="num">${fmtN(r.med)}</span></div></td>
+      <td class="r"><span class="x ${xCls(r.out)}">${fmtX(r.out)}</span></td><td class="r num">${r.hit}</td><td class="r num">${fmtN(r.sum)}</td>${sp ? `<td>${spark(r.k, scope)}</td>` : ''}
+      <td style="min-width:200px"><a href="${url(t)}" target="_blank" rel="noopener">${esc((t.title || '').slice(0, 60))}</a> <span class="mute num">${fmtN(t.views)}</span></td></tr>`; }).join('')
+      : `<tr><td colspan="8" class="mute">No videos in this scope.</td></tr>`) + '</tbody>';
+}
+const firstScope = SC.find(([s]) => Object.values(D.tables).some(t => (t[s] || []).length))?.[0] || 'all';
+document.querySelectorAll('.scope').forEach(box => {
+  const key = box.dataset.for;
+  box.innerHTML = SC.map(([s, l]) => `<button type="button" data-s="${s}" aria-pressed="${s === firstScope}">${l}</button>`).join('');
+  box.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return;
+    box.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); renderTable(key, b.dataset.s); });
+  renderTable(key, firstScope);
+});
+// leaderboard
+const $ = s => document.querySelector(s);
+const all = V.slice().sort((a, b) => b.views - a.views); all.forEach((v, i) => v.rank = i + 1);
+for (const [id, [k, lab, nm]] of Object.entries(FL)) {
+  const vals = [...new Set(all.map(v => v[k]))].sort();
+  $('#' + id).innerHTML = `<option value="">${lab}</option>` + vals.map(x => `<option value="${esc(x)}">${esc(nm ? nm(x) : x)}</option>`).join('');
+}
+let sortK = 'views', sortDir = -1;
+function drawLB() {
+  const q = $('#q').value.trim().toLowerCase();
+  const rows = all.filter(v => (!q || (v.title + ' ' + v.channel).toLowerCase().includes(q)) && Object.entries(FL).every(([id, [k]]) => !$('#' + id).value || v[k] === $('#' + id).value));
+  rows.sort((a, b) => { const x = a[sortK], y = b[sortK]; return (typeof x === 'string' ? x.localeCompare(y) : (x ?? 0) - (y ?? 0)) * sortDir; });
+  $('#lbCount').textContent = rows.length + ' videos';
+  $('#lb tbody').innerHTML = rows.map(v => `<tr class="${v.own ? 'own' : ''}"><td class="r num">${v.rank}</td><td class="t"><a href="${url(v)}" target="_blank" rel="noopener">${esc(v.title)}</a></td><td>${esc(v.channel)}</td><td class="r num">${fmtN(v.views)}</td><td class="r"><span class="x ${xCls(v.out)}">${fmtX(v.out)}</span></td><td class="r num">${fmtN(v.vpd)}</td><td class="r num">${dur(v.dur)}</td><td>${esc(clName(v.cluster))}</td><td>${esc(pretty(v.hook))}</td><td>${esc(pretty(v.structure))}</td><td class="num">${esc((v.date || '').replace(/(\d{4})(\d\d)(\d\d)/, '$1-$2-$3'))}</td></tr>`).join('');
+}
+document.querySelectorAll('#lb th').forEach(th => th.querySelector('button').addEventListener('click', () => {
+  const k = th.dataset.k; sortDir = k === sortK ? -sortDir : (['title', 'channel', 'cluster', 'hook', 'structure', 'date'].includes(k) ? 1 : -1); sortK = k;
+  document.querySelectorAll('#lb th').forEach(x => x.removeAttribute('aria-sort')); th.setAttribute('aria-sort', sortDir < 0 ? 'descending' : 'ascending'); drawLB(); }));
+['q', ...Object.keys(FL)].forEach(id => $('#' + id).addEventListener('input', drawLB));
+drawLB();
+})();
+</script>
+</body>
+</html>
