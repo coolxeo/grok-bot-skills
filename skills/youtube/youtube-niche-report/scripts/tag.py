@@ -11,8 +11,8 @@ Pick the way your agent works:
     e.g. --cmd "grok -m <model> --output-format json --json-schema {schema} --prompt-file {prompt}".
     The answer can be the bare {"rows": [...]} object or any JSON that holds it (a "structuredOutput" or "result" key).
 
-Resumable: ids already in tags.jsonl are skipped. Channels found only by search get title-only rows (shorter prompts;
-they are mostly off-niche). Your own channel's videos are tagged too, so they can be compared, but never screened out.
+Resumable: ids already in tags.jsonl are skipped. Channels found only by search get shorter rows (no description, a
+shorter first60; they are often off-niche). Your own channel's videos are tagged too, so they can be compared, but never screened out.
 """
 import json
 import re
@@ -75,7 +75,9 @@ def build_rows(root):
                "duration": v.get("duration"), "view_count": v.get("view_count"), "upload_date": v.get("upload_date")}
         if v["chan"] in own:
             row["own"] = True
-        if v["chan"] not in broad:
+        if v["chan"] in broad:  # title-first rows: keep the opening line short, skip the description
+            row.update(first60=first60[:160])
+        else:
             row.update(description=(v.get("description") or "")[:300], first60=first60)
         rows.append((v["chan"] in broad, row))
     return rows

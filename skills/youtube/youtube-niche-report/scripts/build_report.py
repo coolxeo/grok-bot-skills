@@ -30,6 +30,17 @@ def b64(path, width):
     return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
 
 
+def fetch_thumb(vid, dest):
+    """Ideas can cite videos outside the top thumbnails pulled per channel; fetch those (best effort)."""
+    import urllib.request
+    dest.parent.mkdir(exist_ok=True)
+    try:
+        with urllib.request.urlopen(f"https://i.ytimg.com/vi/{vid}/mqdefault.jpg", timeout=20) as r:
+            dest.write_bytes(r.read())
+    except Exception as e:
+        print(f"no thumbnail for {vid}: {type(e).__name__}", file=sys.stderr)
+
+
 def main():
     p = workdir_arg(__doc__.splitlines()[0])
     p.add_argument("--out", default="report.html")
@@ -47,6 +58,8 @@ def main():
     for i in ins.get("ideas", []):
         for vid in i.get("src", []):
             f = root / "thumbs" / f"{vid}.jpg"
+            if not f.exists():
+                fetch_thumb(vid, f)
             if f.exists() and vid not in data["thumbs"]:
                 data["thumbs"][vid] = b64(f, 320)
     data["sheets"] = []

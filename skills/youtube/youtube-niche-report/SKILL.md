@@ -188,6 +188,10 @@ can be shared as one file or published as a web page.
 - **Trust × channel over views.** Views say which channel is big; ×
   channel says what worked for that channel.
 - **Read n.** A row with n under 5 is an anecdote. Say so, or merge it.
+- **Small pulls inflate × channel.** The median comes from the whole
+  catalogue, but only the top `top_per_tab` videos per channel are scored,
+  so a test run with `top_per_tab: 4` shows 50× to 100× everywhere. Compare
+  groups with each other, not with 1.0×, unless you pulled the default 50.
 - **Recent beats all-time for planning.** All-time tables are dominated by
   a few evergreen hits from years ago. Use them to spot durable topics, and
   the recent established scope to pick what to make now.
