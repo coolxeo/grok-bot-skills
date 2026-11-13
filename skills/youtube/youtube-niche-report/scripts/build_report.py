@@ -17,7 +17,7 @@ from common import load, workdir_arg
 
 HERE = Path(__file__).resolve().parent
 KEEP = ["id", "title", "channel", "tab", "views", "out", "vpd", "date", "dur", "cluster", "topic", "format", "hook",
-        "hook_text", "structure", "title_shape", "voice", "era", "tier", "own", "subs", "heat"]
+        "hook_text", "structure", "title_shape", "voice", "era", "tier", "own", "subs", "heat", "sample"]
 
 
 def b64(path, width):
@@ -62,11 +62,15 @@ def main():
                 fetch_thumb(vid, f)
             if f.exists() and vid not in data["thumbs"]:
                 data["thumbs"][vid] = b64(f, 320)
-    data["sheets"] = []
-    for s in ins.get("sheets", []):
-        f = root / "thumbs" / f"hook-{s['id']}.jpg"
+    data["sheets"] = []  # every sheet the page names: the hook section's, your own and those in free sections
+    wanted = ins.get("sheets", []) + (ins.get("own") or {}).get("sheets", []) + \
+        [s for c in ins.get("sections", []) for s in c.get("sheets", [])]
+    for sid in dict.fromkeys(s["id"] for s in wanted):
+        f = root / "thumbs" / f"hook-{sid}.jpg"
         if f.exists():
-            data["sheets"].append({"id": s["id"], "note": s.get("note", ""), "src": b64(f, 520)})
+            data["sheets"].append({"id": sid, "src": b64(f, 640)})
+        else:
+            print(f"no frame sheet for {sid}", file=sys.stderr)
 
     blob = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")  # no tag can close the data block
     title = ins["title"].replace("<", "&lt;")
