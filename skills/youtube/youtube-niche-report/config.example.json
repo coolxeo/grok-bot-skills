@@ -1,0 +1,68 @@
+{
+  "_example": "EXAMPLE ONLY. A made-up niche (home espresso) to show the format. Copy this file to config.json in your work folder and replace every value with your own niche.",
+  "niche": "Home espresso and latte art for beginners",
+  "report_title": "What wins in home espresso",
+  "own_channel": "",
+  "seed_channels": [
+    "@ExampleChannelOne",
+    "@ExampleChannelTwo"
+  ],
+  "queries": [
+    "home espresso beginner",
+    "latte art tutorial",
+    "espresso machine review",
+    "dialing in espresso",
+    "milk steaming tips"
+  ],
+  "search_depth": 40,
+  "max_discovered": 12,
+  "discover_min_hits": 2,
+  "discover_min_views": 50000,
+  "top_per_tab": 50,
+  "recent_per_tab": 20,
+  "hooks_per_tab": 20,
+  "thumbs_per_channel": 20,
+  "hook_sheets": 60,
+  "hook_sheet_shorts": 20,
+  "hook_sheets_per_channel": 6,
+  "hook_sheets_own": 12,
+  "tab_cap": 1500,
+  "workers": 4,
+  "caption_langs": [
+    "en"
+  ],
+  "wave_start": "",
+  "established_subs": 5000,
+  "film_buckets": [
+    150,
+    240
+  ],
+  "keep_rule": "Keep only videos that teach or show making espresso drinks at home: technique, latte art, gear for home baristas, routines. Out: cafe vlogs with no coffee making, unrelated cooking, music, news, generic product unboxings with no brewing.",
+  "clusters": {
+    "technique": "Pulling shots, dialing in, grind and ratio",
+    "milk_art": "Steaming milk and latte art",
+    "gear": "Machines, grinders and accessories",
+    "routine": "Morning routines and ASMR coffee",
+    "other": "Anything kept that fits none of the above"
+  },
+  "structures": [
+    "tutorial_steps",
+    "before_after",
+    "challenge_or_test",
+    "comparison",
+    "story_or_vlog",
+    "review",
+    "compilation",
+    "other"
+  ],
+  "hook_types": [
+    "result_first",
+    "mistake_or_problem",
+    "question_to_viewer",
+    "bold_claim",
+    "number_or_stat",
+    "challenge_setup",
+    "visual_only",
+    "other"
+  ]
+}

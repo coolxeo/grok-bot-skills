@@ -2,13 +2,24 @@
 
 # Grok Bot Skills
 
+Free skills that run my 3 YouTube channels with a team of Grok Bots. Nothing posts or spends without my tap. The paid kits are the tested, ready-to-run versions. ↓
+
+## Paid kits
+
+| Kit (result name) | What it is | Price | Link | Free skill |
+| --- | --- | --- | --- | --- |
+| Audit your site for AI answers, then fix it | AEO/GEO Site Audit & Build Kit | €9 | [Get the kit →](https://daniacostaai.gumroad.com/l/cxabi) | [aeo-geo-site](skills/seo/aeo-geo-site/SKILL.md) |
+| Make your pages and videos readable by AI answers | AEO Kit (Markdown Twins + YouTube Watch Pages) | $24 | [Get the kit →](https://daniacostaai.gumroad.com/l/wzalwo) | [markdown-twin](skills/seo/markdown-twin/SKILL.md) |
+| Turn one video into Shorts, QA included | Shorts Builder Kit | $14 | [Get the kit →](https://daniacostaai.gumroad.com/l/ommvol) | [shorts-reframe](skills/video/shorts-reframe/SKILL.md) |
+| Turn rough notes into an X Article | X Article Writer | €7 | [Get the kit →](https://daniacostaai.gumroad.com/l/lzowtl) | [x-article](skills/writing/x-article/SKILL.md) |
+
 Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
 
-22 skills for writing, design, code, SEO, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
+28 skills for writing, design, code, SEO, ads, YouTube research, video, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
 
-Every skill is Dani's own version, inspired by several public references rather than copied from one. Each is a single readable `SKILL.md`, and each one ends with what inspired it, what those references were missing, and what this version adds.
+Every skill is Dani's own version, inspired by several public references rather than copied from one. Each is a single readable `SKILL.md`. The rewritten skills end with what inspired them, what those references were missing, and what this version adds.
 
-[Start here](#start-here) · [Browse all 22 skills](#all-skills) · [Contribute](#contribute)
+[Start here](#start-here) · [Browse all 28 skills](#all-skills) · [Contribute](#contribute)
 
 ## Install
 
@@ -20,15 +31,6 @@ npx skills add coolxeo/grok-bot-skills
 
 To install one skill, add `--skill` and its folder name, for example `npx skills add coolxeo/grok-bot-skills --skill no-ai-slop`. Run `npx skills add coolxeo/grok-bot-skills --list` to see them all.
 
-## Paid kits
-
-The free skills here stay free. These paid kits are bigger, tested versions with code, templates and worked examples.
-
-- [AEO Kit: Markdown Twins + YouTube Watch Pages](https://daniacostaai.gumroad.com/l/wzalwo): the AEO audit skill plus a markdown twin router for Cloudflare Workers/Pages and a YouTube watch page builder.
-- [Shorts Builder Kit](https://daniacostaai.gumroad.com/l/ommvol): your agent cuts a 16:9 video into a 9:16 Short with eased pan and zoom, loudness and a jitter check.
-- [AEO/GEO Site Audit & Build Kit](https://daniacostaai.gumroad.com/l/cxabi): an upgraded aeo-geo-site with a checker script, a 100-point rubric and templates.
-- [X Article Writer](https://daniacostaai.gumroad.com/l/lzowtl): notes to a publish-ready X Article package.
-
 ## Start here
 
 | I want to… | Start with |
@@ -38,10 +40,12 @@ The free skills here stay free. These paid kits are bigger, tested versions with
 | Create a bot with one clear job | [design-a-grok-bot](skills/bots/design-a-grok-bot/SKILL.md) |
 | Find noisy or wasteful routines | [routine-healthcheck](skills/bots/routine-healthcheck/SKILL.md) |
 | Write a post for X or LinkedIn | [social-copywriting](skills/writing/social-copywriting/SKILL.md) |
+| Get better leads from automated ad campaigns | [whetstone-signal](skills/ads/whetstone-signal/SKILL.md) |
+| Find what wins in a YouTube niche before planning videos | [youtube-niche-report](skills/youtube/youtube-niche-report/SKILL.md) |
 
 ## Get a skill
 
-For all 22 skills, download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
+For all 28 skills, download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
 
 ```sh
 git clone https://github.com/coolxeo/grok-bot-skills.git
@@ -126,6 +130,27 @@ updates. Show the evidence. Propose changes before applying them.
 | --- | --- |
 | [aeo-geo-site](skills/seo/aeo-geo-site/SKILL.md) | Structure site content for search and AI-assisted discovery. |
 | [exact-match-intent-seo](skills/seo/exact-match-intent-seo/SKILL.md) | Match domains, page titles, and URLs to search intent. |
+| [ai-search-gap-loop](skills/seo/ai-search-gap-loop/SKILL.md) | Track buyer prompts in Google and AI answers, diagnose each loss, make one change, and log the result. |
+| [ai-citation-sources](skills/seo/ai-citation-sources/SKILL.md) | List the third-party sources AI answers cite and draft one action per source. |
+| [markdown-twin](skills/seo/markdown-twin/SKILL.md) | Publish a clean markdown copy of one HTML page, advertise it with a link tag, and list it in /llms.txt. |
+
+### Ads
+
+| Skill | What it does |
+| --- | --- |
+| [whetstone-signal](skills/ads/whetstone-signal/SKILL.md) | Pick, score, and send back the conversion event automated ad campaigns optimize for. |
+
+### YouTube
+
+| Skill | What it does |
+| --- | --- |
+| [youtube-niche-report](skills/youtube/youtube-niche-report/SKILL.md) | Pull a niche's top videos, score them against their own channel, and build an interactive HTML report of what wins. Ships with an example config for a made-up niche. |
+
+### Video
+
+| Skill | What it does |
+| --- | --- |
+| [shorts-reframe](skills/video/shorts-reframe/SKILL.md) | Crop a 16:9 video to 9:16, scale it to 1080x1920, keep the audio, and check duration and resolution. |
 
 ### Bots
 
@@ -151,6 +176,8 @@ The instructions are plain Markdown. Some workflows need more than a chat window
 - Bot and engineering skills refer to Grok Bot tools, routines, cloud agents, or local agent data. Check that your environment has those tools before running them.
 - Some coding workflows refer to pstack skills. Install that pack separately when a workflow needs it.
 - `diagram-design` runs on its own. If [Cathryn Lavery's diagram pack](https://github.com/cathrynlavery/diagram-design) is installed, it uses that pack's type references too.
+- `youtube-niche-report` runs Python scripts with yt-dlp, ffmpeg and Pillow on a machine that can reach YouTube.
+- `shorts-reframe` needs ffmpeg and ffprobe on the machine that holds the source video.
 - The image playbook needs browser control and a signed-in ChatGPT session with image generation available.
 - Search, publishing, and design tasks need the relevant browser, connector, or project access.
 
@@ -177,7 +204,11 @@ Each skill here is written from scratch in our own words, drawing on several ref
 - **overheard, overheard-setup:** inspired by [Lenny Rachitsky's Overheard](https://x.ai/bot/marketplace/bots/overheard), F5Bot, and Google Alerts.
 - **aeo-geo-site:** built on [Microsoft Advertising's AEO/GEO guide](https://about.ads.microsoft.com/content/dam/sites/msa-about/global/common/content-lib/pdf/from-discovery-to-influence-a-guide-to-aeo-and-geo.pdf) by Jennifer Myers and [Alex Groberman's summary](https://www.linkedin.com/pulse/new-microsoft-just-revealed-how-get-traffic-from-alex-groberman-5af0c).
 - **exact-match-intent-seo:** started from [Hridoy Reh's X post](https://x.com/hridoyreh/status/2096534436934455606), not reverified.
+- **markdown-twin:** inspired by [Jeremy Howard / llmstxt.org](https://llmstxt.org/): the /llms.txt v2 proposal.
+- **shorts-reframe:** inspired by [FFmpeg crop filter documentation](https://ffmpeg.org/ffmpeg-filters.html#crop) and the [mediacodec.dev crop guide](https://mediacodec.dev/how-to/crop-video/).
 - **x-article, chatgpt-images-browser-playbook:** Dani's own workflows; no outside source verified.
+
+See the [source audit of the 22 skills reviewed on 17 Sep 2026](docs/credits.md) for exact files, evidence, and unresolved origins. No standalone upstream was verified for `x-article` or `chatgpt-images-browser-playbook`.
 
 ## License
 
