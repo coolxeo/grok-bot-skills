@@ -76,7 +76,7 @@ details.idea .n { font: 800 30px/1 var(--body); color: var(--accent) }
 .filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center }
 .filters select, .filters input { font: 13px var(--mono); background: var(--panel); color: var(--fg); border: 1px solid var(--line); border-radius: 6px; padding: 7px 8px; max-width: 100% }
 #lb { max-height: 720px; overflow: auto }
-#lb th { cursor: pointer; user-select: none }
+#lb th button { all: unset; cursor: pointer; user-select: none } #lb th button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
 #lb th[aria-sort="descending"]::after { content: " ↓" } #lb th[aria-sort="ascending"]::after { content: " ↑" }
 #lb td.t { min-width: 240px; max-width: 420px }
 tr.own td { background: color-mix(in srgb, var(--good) 10%, transparent) }
@@ -104,7 +104,7 @@ const fmtN = n => n >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 0 : 1) + 'M' : n >= 1e
 const fmtX = x => (x >= 10 ? x.toFixed(0) : x.toFixed(1)) + '×';
 const xCls = x => x >= 2 ? 'hi' : x < 0.9 ? 'lo' : '';
 const dur = s => s == null ? '' : Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
-const url = v => v.tab === 'shorts' ? 'https://www.youtube.com/shorts/' + v.id : 'https://youtu.be/' + v.id;
+const url = v => (v.tab === 'shorts' ? 'https://www.youtube.com/shorts/' : 'https://youtu.be/') + encodeURIComponent(v.id || '');
 const V = D.videos, byId = Object.fromEntries(V.map(v => [v.id, v]));
 const clName = k => (D.clusters || {})[k] || k;
 const pretty = k => String(k).replace(/_/g, ' ').replace(/^./, c => c.toUpperCase());
@@ -120,7 +120,8 @@ const DIMS = [
   ['voice', 'Voice', 'Voice and sound', ''],
 ];
 const own = V.filter(v => v.own).sort((a, b) => b.views - a.views);
-const ideas = I.ideas || [], batch = (I.answer || {}).batch || [];
+const int = x => { const n = Number(x); return Number.isInteger(n) ? n : null };  // slot and idea numbers are plain integers
+const ideas = (I.ideas || []).map((i, k) => ({ ...i, n: int(i.n) ?? k + 1 })), batch = ((I.answer || {}).batch || []).map((b, k) => ({ ...b, slot: int(b.slot) ?? k + 1, idea: int(b.idea) }));
 let h = '';
 // header
 h += `<header style="display:grid;gap:14px"><div class="eyebrow">${esc(I.eyebrow || 'Niche report · pulled ' + D.pulled_at)}</div>
@@ -139,7 +140,7 @@ if (batch.length) {
   h += `<section id="answer"><div class="eyebrow">The answer</div><h2>${esc(A.heading || 'What to make next')}</h2>
     ${A.intro ? `<p class="prose">${md(A.intro)}</p>` : ''}${bullets(A.rules)}
     <div class="cards">${batch.map((b, k) => { const i = ideaBy[String(b.idea)] || {}; const t = b.title || (i.titles || [])[0] || '';
-      return `<article class="card"><div class="head"><div class="n">${b.slot ?? k + 1}</div><div style="display:grid;gap:6px;min-width:0"><h3>${esc(t)}</h3>
+      return `<article class="card"><div class="head"><div class="n">${b.slot}</div><div style="display:grid;gap:6px;min-width:0"><h3>${esc(t)}</h3>
         <div class="tags">${(b.tags || i.tags || []).filter(Boolean).map(x => `<span class="tag">${esc(x)}</span>`).join('')}</div></div></div>
         ${b.logline || i.adaptation ? `<p>${md(b.logline || i.adaptation)}</p>` : ''}
         <dl class="kv">${b.why ? `<dt>Why</dt><dd>${md(b.why)}</dd>` : ''}${(b.hook || i.hook) ? `<dt>Hook</dt><dd class="hookline">${esc(b.hook || i.hook)}</dd>` : ''}
@@ -191,7 +192,7 @@ const FL = { fCluster: ['cluster', 'All clusters', clName], fFormat: ['format', 
 h += `<section id="leaderboard"><div class="eyebrow">Leaderboard</div><h2>Every screened-in video, ranked</h2>
   <div class="filters"><input id="q" type="search" placeholder="Search titles or channels" aria-label="Search titles or channels">
   ${Object.entries(FL).map(([id, [, lab]]) => `<select id="${id}" aria-label="${lab}"></select>`).join('')}<span class="mute num" id="lbCount"></span></div>
-  <div class="tbl" id="lb"><table><thead><tr><th data-k="rank" class="r">#</th><th data-k="title">Title</th><th data-k="channel">Channel</th><th data-k="views" class="r" aria-sort="descending">Views</th><th data-k="out" class="r">× channel</th><th data-k="vpd" class="r">Per day</th><th data-k="dur" class="r">Length</th><th data-k="cluster">Cluster</th><th data-k="hook">Hook</th><th data-k="structure">Structure</th><th data-k="date">Date</th></tr></thead><tbody></tbody></table></div>
+  <div class="tbl" id="lb"><table><thead><tr>${[['rank', '#', 'r'], ['title', 'Title'], ['channel', 'Channel'], ['views', 'Views', 'r'], ['out', '× channel', 'r'], ['vpd', 'Per day', 'r'], ['dur', 'Length', 'r'], ['cluster', 'Cluster'], ['hook', 'Hook'], ['structure', 'Structure'], ['date', 'Date']].map(([k, l, c]) => `<th data-k="${k}"${c ? ` class="${c}"` : ''}${k === 'views' ? ' aria-sort="descending"' : ''}><button type="button">${l}</button></th>`).join('')}</tr></thead><tbody></tbody></table></div>
   <p class="note">Views are a snapshot from ${esc(D.pulled_at)}.${own.length ? ' Your videos are tinted.' : ''} Click a column to sort.</p></section>`;
 // screening
 h += `<section id="screen"><div class="eyebrow">Screening</div><h2>What was taken out, and why</h2>
@@ -239,7 +240,7 @@ function drawLB() {
   $('#lbCount').textContent = rows.length + ' videos';
   $('#lb tbody').innerHTML = rows.slice(0, 500).map(v => `<tr class="${v.own ? 'own' : ''}"><td class="r num">${v.rank}</td><td class="t"><a href="${url(v)}" target="_blank" rel="noopener">${esc(v.title)}</a></td><td>${esc(v.channel)}</td><td class="r num">${fmtN(v.views)}</td><td class="r"><span class="x ${xCls(v.out)}">${fmtX(v.out)}</span></td><td class="r num">${fmtN(v.vpd)}</td><td class="r num">${dur(v.dur)}</td><td>${esc(clName(v.cluster))}</td><td>${esc(pretty(v.hook))}</td><td>${esc(pretty(v.structure))}</td><td class="num">${esc((v.date || '').replace(/(\d{4})(\d\d)(\d\d)/, '$1-$2-$3'))}</td></tr>`).join('');
 }
-document.querySelectorAll('#lb th').forEach(th => th.addEventListener('click', () => {
+document.querySelectorAll('#lb th').forEach(th => th.querySelector('button').addEventListener('click', () => {
   const k = th.dataset.k; sortDir = k === sortK ? -sortDir : (['title', 'channel', 'cluster', 'hook', 'structure', 'date'].includes(k) ? 1 : -1); sortK = k;
   document.querySelectorAll('#lb th').forEach(x => x.removeAttribute('aria-sort')); th.setAttribute('aria-sort', sortDir < 0 ? 'descending' : 'ascending'); drawLB(); }));
 ['q', ...Object.keys(FL)].forEach(id => $('#' + id).addEventListener('input', drawLB));

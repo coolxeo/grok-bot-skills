@@ -26,10 +26,10 @@ STAMPS = [0.5, 2, 4, 7, 10, 15, 22, 30, 45]
 
 
 def pick(root, cfg):
-    own = {c["key"] for c in json.load(open(root / "channels.json")) if c.get("why") == "own"}
+    own = {c["key"] for c in json.load(open(root / "channels.json", encoding="utf-8")) if c.get("why") == "own"}
     meds = {}
     for r in jl_read(root / "catalog.jsonl"):
-        if r.get("view_count"):
+        if r.get("view_count") is not None:
             meds.setdefault((r["chan"], r["tab"]), []).append(r["view_count"])
     meds = {k: median(v) for k, v in meds.items()}
     views = {v["id"]: v.get("view_count") or 0 for v in jl_read(root / "videos.jsonl")}

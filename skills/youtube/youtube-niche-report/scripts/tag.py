@@ -1,12 +1,13 @@
 """Step 2: screen and tag every pulled video with a language model: keep or out, topic, cluster, structure, hook.
 
 usage:
-  python3 tag.py --dir <work> export              write tag-batches/prompt-NNN.md (one batch of about 120 videos each)
-  python3 tag.py --dir <work> import              read tag-batches/answer-NNN.json into tags.jsonl
+  python3 tag.py --dir <work> export              write tag-batches/prompt-<name>.md (about 120 videos each)
+  python3 tag.py --dir <work> import              read tag-batches/answer-<name>.json into tags.jsonl
   python3 tag.py --dir <work> run --cmd "<cmd>"   run <cmd> per batch and read its stdout as the answer
 
 Pick the way your agent works:
-  - The agent itself: run export, read each prompt file, write the JSON answer next to it as answer-NNN.json, run import.
+  - The agent itself: run export, read each prompt file, write the JSON answer next to it as answer-<name>.json
+    (same <name> as the prompt), run import. Rows that fail validation stay untagged; export again to retry them.
   - A model CLI: run with --cmd, where {prompt} is replaced by the prompt file path and {schema} by the schema file path,
     e.g. --cmd "grok -m <model> --output-format json --json-schema {schema} --prompt-file {prompt}".
     The answer can be the bare {"rows": [...]} object or any JSON that holds it (a "structuredOutput" or "result" key).
@@ -14,6 +15,7 @@ Pick the way your agent works:
 Resumable: ids already in tags.jsonl are skipped. Channels found only by search get shorter rows (no description, a
 shorter first60; they are often off-niche). Your own channel's videos are tagged too, so they can be compared, but never screened out.
 """
+import hashlib
 import json
 import re
 import shlex
@@ -61,7 +63,7 @@ ROWS (JSON lines):
 
 
 def build_rows(root):
-    chans = json.load(open(root / "channels.json"))
+    chans = json.load(open(root / "channels.json", encoding="utf-8"))
     broad = {c["key"] for c in chans if c.get("why", "").startswith("discovered")}
     own = {c["key"] for c in chans if c.get("why") == "own"}
     hooks = {r["id"]: r for r in jl_read(root / "hooks.jsonl")}
@@ -115,29 +117,65 @@ def find_rows(obj):
     return None
 
 
+VOICES = ["narrator", "on_camera_talk", "dialogue", "text_only", "music_only", "unknown"]
+
+
+def valid(g, cfg):
+    """Coerce one answer row to the schema; return None when it can't be trusted."""
+    if not isinstance(g, dict) or not isinstance(g.get("id"), str):
+        return None
+    keep = g.get("keep")
+    if isinstance(keep, str) and keep.lower() in ("true", "false"):
+        keep = keep.lower() == "true"
+    if not isinstance(keep, bool):
+        return None
+    out = {"id": g["id"], "keep": keep}
+    for k in ("why_out", "topic", "hook_text"):
+        out[k] = g.get(k) if isinstance(g.get(k), str) else ""
+    for k, allowed, fallback in (("cluster", cfg["clusters"], "other"), ("structure", cfg["structures"], "other"),
+                                 ("hook_type", cfg["hook_types"], "other"), ("voice", VOICES, "unknown")):
+        out[k] = g.get(k) if g.get(k) in allowed else fallback
+    return out
+
+
 def merge(batch, got, cfg):
+    """Valid rows for ids in this batch, one per id. Ids left out are retried by the next export or run."""
     want = {r["id"]: r for r in batch}
-    out = []
+    out, seen, bad = [], set(), 0
     for g in got or []:
-        if g.get("id") not in want:
+        g = valid(g, cfg)
+        if not g or g["id"] not in want or g["id"] in seen:
+            bad += 1
             continue
+        seen.add(g["id"])
         w = want[g["id"]]
         if w.get("own"):
             g["keep"], g["why_out"] = True, ""
-        if g.get("cluster") not in cfg["clusters"]:
-            g["cluster"] = "other"
         out.append({"chan": w["chan"], "tab": w["tab"], **g})
+    missing = len(want) - len(seen)
+    if bad or missing:
+        print(f"  {bad} invalid or duplicate rows dropped, {missing} ids without a valid answer (they stay untagged)",
+              file=sys.stderr)
     return out
+
+
+def batch_name(b):
+    """A name tied to the ids in the batch, so an answer can never be paired with different rows."""
+    return hashlib.sha1(" ".join(r["id"] for r in b).encode()).hexdigest()[:10]
 
 
 def export(root, cfg):
     d = root / "tag-batches"
     d.mkdir(exist_ok=True)
-    (d / "schema.json").write_text(json.dumps(schema(cfg)))
+    for old in list(d.glob("prompt-*.md")) + list(d.glob("batch-*.json")):  # stale batches from an earlier export
+        old.unlink()
+    (d / "schema.json").write_text(json.dumps(schema(cfg)), encoding="utf-8")
     bs = batches(root)
-    for i, b in enumerate(bs):
-        (d / f"prompt-{i:03d}.md").write_text(prompt(cfg) + "\n".join(json.dumps(r, ensure_ascii=False) for r in b))
-        (d / f"batch-{i:03d}.json").write_text(json.dumps(b, ensure_ascii=False))
+    for b in bs:
+        name = batch_name(b)
+        (d / f"prompt-{name}.md").write_text(prompt(cfg) + "\n".join(json.dumps(r, ensure_ascii=False) for r in b),
+                                             encoding="utf-8")
+        (d / f"batch-{name}.json").write_text(json.dumps(b, ensure_ascii=False), encoding="utf-8")
     print(f"{sum(map(len, bs))} rows in {len(bs)} prompt files in {d}", file=sys.stderr)
 
 
@@ -149,7 +187,13 @@ def import_(root, cfg):
         if not af.exists():
             print(f"missing {af.name}", file=sys.stderr)
             continue
-        rows = merge(json.load(open(bf)), find_rows(json.load(open(af))), cfg)
+        print(af.name, file=sys.stderr)
+        try:
+            answer = json.load(open(af, encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            print(f"  not valid JSON ({e}); fix it and import again", file=sys.stderr)
+            continue
+        rows = merge(json.load(open(bf, encoding="utf-8")), find_rows(answer), cfg)
         jl_append(root / "tags.jsonl", rows)
         n += len(rows)
         bf.rename(bf.with_suffix(".done"))
@@ -160,15 +204,19 @@ def run(root, cfg, cmd, workers):
     d = root / "tag-batches"
     d.mkdir(exist_ok=True)
     sf = d / "schema.json"
-    sf.write_text(json.dumps(schema(cfg)))
+    sf.write_text(json.dumps(schema(cfg)), encoding="utf-8")
 
     def one(item):
         i, b = item
         pf = d / f"run-{i:03d}.md"
-        pf.write_text(prompt(cfg) + "\n".join(json.dumps(r, ensure_ascii=False) for r in b))
+        pf.write_text(prompt(cfg) + "\n".join(json.dumps(r, ensure_ascii=False) for r in b), encoding="utf-8")
         args = [a.replace("{prompt}", str(pf)).replace("{schema}", str(sf)) for a in shlex.split(cmd)]
         for attempt in range(2):
-            p = subprocess.run(args, capture_output=True, text=True, timeout=1800)
+            try:
+                p = subprocess.run(args, capture_output=True, text=True, timeout=1800)
+            except subprocess.TimeoutExpired:
+                print(f"batch {i} timed out (try {attempt + 1})", file=sys.stderr)
+                continue
             try:
                 got = find_rows(json.loads(p.stdout))
             except Exception:

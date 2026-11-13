@@ -108,7 +108,7 @@ def main():
     hooks = {r["id"]: r for r in jl_read(root / "hooks.jsonl")}
     frames = {r["id"]: r for r in jl_read(root / "hook-frames.jsonl")}
     cat = jl_read(root / "catalog.jsonl")
-    chans = json.load(open(root / "channels.json"))
+    chans = json.load(open(root / "channels.json", encoding="utf-8"))
     own_keys = {c["key"] for c in chans if c.get("why") == "own"}
     if not tags:
         raise SystemExit("tags.jsonl is empty: run tag.py first")
@@ -177,7 +177,7 @@ def main():
            "tables": tables, "screen": screen, "videos": [r for r in rows if r["keep"]],
            "out_sample": sorted([{"id": r["id"], "channel": r["channel"], "title": r["title"], "views": r["views"],
                                   "why": r["why_out"]} for r in rows if not r["keep"]], key=lambda r: -r["views"])[:60]}
-    json.dump(out, open(root / "data.json", "w"), ensure_ascii=False, separators=(",", ":"))
+    json.dump(out, open(root / "data.json", "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
 
     print(f"kept {len(keep)} (+{len(own)} own) of {len(rows)} tagged; established {len(est)}; recent = {wave_label}")
     for key, tb in tables.items():

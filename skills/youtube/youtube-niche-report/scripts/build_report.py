@@ -46,9 +46,9 @@ def main():
     p.add_argument("--out", default="report.html")
     a = p.parse_args()
     root, cfg = load(a.dir)
-    data = json.load(open(root / "data.json"))
+    data = json.load(open(root / "data.json", encoding="utf-8"))
     ins_path = root / "insights.json"
-    ins = json.load(open(ins_path)) if ins_path.exists() else {}
+    ins = json.load(open(ins_path, encoding="utf-8")) if ins_path.exists() else {}
     data["videos"] = [{k: v.get(k) for k in KEEP} for v in data["videos"]]
     data.pop("out_sample", None)
     ins.setdefault("title", cfg["report_title"] or f"What wins in {cfg['niche']}")
@@ -68,12 +68,12 @@ def main():
         if f.exists():
             data["sheets"].append({"id": s["id"], "note": s.get("note", ""), "src": b64(f, 520)})
 
-    blob = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    blob = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")  # no tag can close the data block
     title = ins["title"].replace("<", "&lt;")
-    html = (HERE / "template.html").read_text().replace("/*DATA*/", blob).replace("<!--TITLE-->", title)
+    html = (HERE / "template.html").read_text(encoding="utf-8").replace("/*DATA*/", blob).replace("<!--TITLE-->", title)
     out = Path(a.out)
     out = out if out.is_absolute() else root / out
-    out.write_text(html)
+    out.write_text(html, encoding="utf-8")
     print(out, f"{len(html) / 1e6:.2f} MB")
 
 

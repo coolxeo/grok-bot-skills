@@ -107,9 +107,9 @@ account; this is public data.
 python3 scripts/tag.py --dir <work> export
 ```
 
-This writes `tag-batches/prompt-NNN.md` (about 120 videos each) and
+This writes `tag-batches/prompt-<name>.md` (about 120 videos each) and
 `schema.json`. Answer each prompt with JSON `{"rows": [...]}` in
-`tag-batches/answer-NNN.json`, then:
+`tag-batches/answer-<name>.json` (same `<name>`), then:
 
 ```sh
 python3 scripts/tag.py --dir <work> import

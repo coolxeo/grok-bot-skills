@@ -27,18 +27,43 @@ sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parent))  
 from common import channel_url, handle_key, jl_append, jl_read, jl_write, load, workdir_arg
 
 
-def ytdlp(args, timeout=900):
-    p = None
+MISSING = re.compile(r"does not have a|this channel has no|no videos? (found|available)", re.I)
+FAILED = []  # (what, why) for every request that failed, reported at the end of each stage
+
+
+def ytdlp_ok(args, timeout=900):
+    """Run yt-dlp; return (stdout, ok). ok is False when the request failed (not when a tab simply doesn't exist)."""
+    err = ""
     for attempt in range(3):
-        p = subprocess.run(["yt-dlp", "--no-warnings", *args], capture_output=True, text=True, timeout=timeout)
+        try:
+            p = subprocess.run(["yt-dlp", "--no-warnings", *args], capture_output=True, text=True, timeout=timeout)
+        except subprocess.TimeoutExpired:
+            err = f"timed out after {timeout} s"
+            continue
         if p.returncode == 0 or p.stdout.strip():
-            return p.stdout
-        if "429" in p.stderr or "rate" in p.stderr.lower():
+            return p.stdout, True
+        err = p.stderr.strip()[-300:]
+        if MISSING.search(err):
+            return "", True
+        if "429" in err or "rate" in err.lower():
             time.sleep(30 * (attempt + 1))
             continue
         break
-    print("yt-dlp failed:", args[-1], p.stderr.strip()[-300:], file=sys.stderr)
-    return p.stdout
+    FAILED.append((args[-1], err))
+    print("yt-dlp failed:", args[-1], err, file=sys.stderr)
+    return "", False
+
+
+def ytdlp(args, timeout=900):
+    return ytdlp_ok(args, timeout)[0]
+
+
+def report_failures(stage):
+    if FAILED:
+        print(f"{stage}: {len(FAILED)} requests failed; run again to retry them", file=sys.stderr)
+        for what, why in FAILED[:10]:
+            print(f"  {what}: {why}", file=sys.stderr)
+        FAILED.clear()
 
 
 def as_json(out):
@@ -56,16 +81,25 @@ def discover(root, cfg):
         return jl_read(path)
 
     def one(q):
-        d = as_json(ytdlp(["--flat-playlist", "-J", f"ytsearch{cfg['search_depth']}:{q}"])) or {}
+        out, ok = ytdlp_ok(["--flat-playlist", "-J", f"ytsearch{cfg['search_depth']}:{q}"])
+        if not ok:
+            return None
+        d = as_json(out) or {}
         return [{"query": q, "id": e.get("id"), "title": e.get("title"), "channel": e.get("channel"),
                  "channel_id": e.get("channel_id"), "channel_url": e.get("channel_url"),
                  "view_count": e.get("view_count"), "duration": e.get("duration")}
                 for e in d.get("entries") or [] if e]
 
-    rows = []
+    rows, failed = [], 0
     with ThreadPoolExecutor(cfg["workers"]) as ex:
         for r in ex.map(one, cfg["queries"]):
-            rows += r
+            if r is None:
+                failed += 1
+            else:
+                rows += r
+    if failed:  # don't cache a partial search: the next run retries every query
+        report_failures("discovery")
+        raise SystemExit(f"{failed} of {len(cfg['queries'])} searches failed; nothing saved. Run again.")
     jl_write(path, rows)
     return rows
 
@@ -73,7 +107,7 @@ def discover(root, cfg):
 def pick_channels(root, cfg, disc):
     path = root / "channels.json"
     if path.exists():
-        return json.load(open(path))
+        return json.load(open(path, encoding="utf-8"))
     chans = [{"key": handle_key(h), "url": channel_url(h), "why": "seed"} for h in cfg["seed_channels"]]
     if cfg["own_channel"]:
         chans.append({"key": handle_key(cfg["own_channel"]), "url": channel_url(cfg["own_channel"]), "why": "own"})
@@ -89,7 +123,7 @@ def pick_channels(root, cfg, disc):
             by[r["channel_id"]].append(r)
     cand = []
     for cid, rs in by.items():
-        hits = len({r["id"] for r in rs})
+        hits = len({r["query"] for r in rs})  # distinct searches, not videos
         top = max((r.get("view_count") or 0) for r in rs)
         if cid not in known and hits >= cfg["discover_min_hits"] and top >= cfg["discover_min_views"]:
             cand.append((hits, top, cid, rs[0].get("channel"), rs[0].get("channel_url")))
@@ -97,7 +131,7 @@ def pick_channels(root, cfg, disc):
     for hits, top, cid, name, url in cand[:cfg["max_discovered"]]:
         chans.append({"key": cid, "url": url or f"https://www.youtube.com/channel/{cid}", "channel_id": cid,
                       "name": name, "why": f"discovered: {hits} search hits, top {top:,} views"})
-    json.dump(chans, open(path, "w"), indent=1, ensure_ascii=False)
+    json.dump(chans, open(path, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
     return chans
 
 
@@ -110,8 +144,11 @@ def catalog(root, cfg, chans):
     def one(c):
         rows = []
         for tab in ("videos", "shorts"):
-            d = as_json(ytdlp(["--flat-playlist", "--playlist-end", str(cfg["tab_cap"]), "-J", f"{c['url']}/{tab}"]))
-            if not d:
+            out, ok = ytdlp_ok(["--flat-playlist", "--playlist-end", str(cfg["tab_cap"]), "-J", f"{c['url']}/{tab}"])
+            if not ok:
+                return None
+            d = as_json(out)
+            if not d:  # the channel has no such tab
                 continue
             for e in d.get("entries") or []:
                 if e:
@@ -121,10 +158,16 @@ def catalog(root, cfg, chans):
         print(f"catalog {c['key']}: {len(rows)}", file=sys.stderr)
         return rows
 
-    rows = []
+    rows, failed = [], 0
     with ThreadPoolExecutor(cfg["workers"]) as ex:
         for r in ex.map(one, chans):
-            rows += r
+            if r is None:
+                failed += 1
+            else:
+                rows += r
+    if failed:  # a missing channel would skew every median, so don't cache a partial catalogue
+        report_failures("catalog")
+        raise SystemExit(f"{failed} of {len(chans)} channels failed to list; nothing saved. Run again.")
     jl_write(path, rows)
     return rows
 
@@ -231,11 +274,13 @@ def hooks(root, cfg, cat):
         for vid in ids:
             if vid in done:
                 continue
-            ytdlp(["--skip-download", "--write-subs", "--write-auto-subs", "--sub-langs", langs, "--sub-format", "vtt",
-                   "--sleep-subtitles", "1", "-o", str(subdir / "%(id)s"), f"https://www.youtube.com/watch?v={vid}"],
-                  timeout=120)
+            _, ok = ytdlp_ok(["--skip-download", "--write-subs", "--write-auto-subs", "--sub-langs", langs,
+                              "--sub-format", "vtt", "--sleep-subtitles", "1", "-o", str(subdir / "%(id)s"),
+                              f"https://www.youtube.com/watch?v={vid}"], timeout=120)
+            if not ok:  # leave it out so the next run retries it
+                continue
             files = sorted(subdir.glob(f"{vid}*.vtt"), key=lambda p: ("orig" in p.name, len(p.name)))
-            lines = vtt_head(files[0].read_text(errors="ignore")) if files else []
+            lines = vtt_head(files[0].read_text(encoding="utf-8", errors="ignore")) if files else []
             src = "yt-dlp" if files else ""
             if not files:
                 lines = transcript_head(vid, cfg["caption_langs"])
@@ -281,7 +326,9 @@ def main():
     cat = catalog(root, cfg, chans)
     print("catalog rows", len(cat), file=sys.stderr)
     fetch_full(root, cfg, cat)
+    report_failures("full metadata")
     hooks(root, cfg, cat)
+    report_failures("captions")
     thumbs(root, cfg, cat)
     print("done", file=sys.stderr)
 
