@@ -124,6 +124,9 @@ Pick the route that fits the stack:
   Expected value works: score band multiplied by average deal value and by
   that band's historical close rate.
 
+All ad campaigns are stopped since 28 Oct 2026. Never start or re-enable a
+campaign without the user's tap card.
+
 Then switch the campaign goal to the new event or to value once it has
 about a week of clean data. Change one campaign first.
 
