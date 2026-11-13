@@ -7,126 +7,77 @@ description: >-
 ---
 # show-me
 
-Source: adapted from [HumanLayer, show-me](https://github.com/humanlayer/skills/blob/3c2629142c5d437428269b1b722b08c0b87f574d/plugins/show-me/skills/show-me/SKILL.md). [Dexter Horthy's launch article](https://www.humanlayer.com/blog/show-me-skill) credits Dillon Mulroy and Matt Pocock as influences. MIT; see [third-party notices](../../../THIRD_PARTY_NOTICES.md).
+Explain a change or a piece of code with the smallest picture that makes it click. Short prose, then a visual next to the sentence it supports. Default home for these visuals is the PR body.
 
-Help the reader understand the change visually. Skip the preamble. Keep prose brief. Pick the **smallest** view that makes the key point clear. Prefer putting these visuals **in the PR body** next to the short text they support.
+## PR bodies
 
-## When opening a PR
+1. **First line:** one complete sentence saying what the PR does. It should make sense in a list of 50 other PRs.
+2. **Why:** the problem and why this fix, in two or three sentences. Link the issue.
+3. **Shape:** one or two visuals from the menu below, picked for what changed.
+4. **How to verify:** exact commands, URLs, or clicks. Attach real proof (screenshot, test output) when you have it.
 
-1. Write Why / What / How to verify in short prose (or fill the repo template).
-2. Add one or more show-me blocks so a reviewer can scan shape without reading the whole diff first: a file-tree diff, a call-tree diff, a component-tree diff, a state/control-flow diff, or a Mermaid sequence — whichever matches the change.
-3. Do not dump every format. One or two well-chosen views beat a collage.
-4. Every claim in a visual must match the real diff. No invented paths or symbols.
-5. Redact secrets. Prefer public-safe labels.
+Use the repo's PR template if it has one, and slot the visuals into it.
 
-## Toolbox
+## Pick the view
 
-- **Logic / algorithm** as pseudocode:
+Match the view to the question the reviewer will ask:
 
-```text
-on(save)
-  if content is unchanged
-    return cached result
-  write new content
-  return fresh result
-```
+| Reviewer asks | Show |
+| --- | --- |
+| "What does it do step by step?" | Pseudocode |
+| "What calls what at runtime?" | Call tree |
+| "Where does this sit in the UI?" | Component tree with the state that matters |
+| "Which files own what?" | Shallow file tree with one-line roles |
+| "Who talks to whom, in what order?" | Mermaid sequence diagram |
+| "What exactly moved?" | Any of the above as a `diff` block |
 
-- **Runtime control flow** as a call tree:
-
-```text
-submitForm
-  createSession
-    persistPrompt
-    launchAgent
-  navigateToSession
-```
-
-- **UI structure** as a component tree (include state and module boundaries that matter):
-
-```tsx
-<SessionPage> (apps/example/src/routes/session.tsx)
-  useSessionEvents()
-  <SessionToolbar>
-    <RunSkillButton> (packages/ui)
-```
-
-- **File responsibility** or a broad refactor as a shallow file tree:
+Examples, kept tiny:
 
 ```text
-src/
-├── commands/       # parses user actions
-├── sessions/       # owns session state
-└── transport/      # sends API requests
+fetchInvoice(id)
+  cache.get(id)            # hit: return
+  api.getInvoice(id)
+    retry x3 on 5xx
+  cache.set(id, ttl=60s)
 ```
 
-- **Interaction / data flow** with Mermaid:
+```diff
+ checkout/
+ ├── cart.ts
+-├── payment.ts
++├── payment/
++│   ├── stripe.ts        # card flow only
++│   └── refunds.ts       # moved out of cart.ts
+ └── receipt.ts
+```
 
 ```mermaid
 sequenceDiagram
-    participant User
-    participant UI
-    participant Daemon
-    User->>UI: choose command
-    UI->>Daemon: send expanded prompt
-    Daemon-->>UI: stream result
+    Browser->>API: POST /refunds
+    API->>Stripe: create refund
+    Stripe-->>API: refund.id
+    API-->>Browser: 202 Accepted
 ```
 
-- Use **`diff`** when the point is what changes and the surrounding shape already exists. Match the diff shape to the topic.
+Use a `diff` when the surrounding shape already exists and the point is the change. Paste the full block instead when the change is mostly additions, or when trimming would hide ordering or who owns what.
 
-Component change:
+## Rules
 
-```diff
- <SessionPage>
-   useSessionEvents()
-   <SessionToolbar>
-+    <RunSkillButton />
-   <SessionTimeline>
-+    <SkillResultCard />
-```
+- Every path, symbol, and arrow must exist in the real diff. Check before posting.
+- One or two views. A collage of every format hides the point.
+- Keep only the nodes the current question needs.
+- Redact secrets, tokens, internal hostnames, and customer data.
+- GitHub renders Mermaid in PR bodies and comments; prefer it over images that go stale.
+- For layouts, visual UI states, or anything too dense for text, write one focused HTML file (a diagram or short slide) styled like the product, and attach or link it.
 
-File-layout change:
+## Inspired by
 
-```diff
- src/
- ├── commands/
-+│   └── show-me.ts
- ├── sessions/
--└── transport.ts
-+└── transport/
-+    ├── client.ts
-+    └── stream.ts
-```
+- [HumanLayer, show-me](https://github.com/humanlayer/skills/tree/main/plugins/show-me) (MIT). Does well: a toolbox of tiny text visuals (pseudocode, call trees, component trees, file trees, Mermaid, diffs) and "pick the smallest view". Missing: nothing on PR descriptions, no rule that visuals must match the real diff, and no redaction guidance. Its [launch article](https://www.humanlayer.com/blog/show-me-skill) credits Dillon Mulroy and Matt Pocock as influences.
+- [Google engineering practices, Writing good CL descriptions](https://github.com/google/eng-practices/blob/master/review/developer/cl-descriptions.md) (CC BY 3.0). Does well: a first line that stands alone, and a body that explains the problem and why this solution. Missing: text only, no visuals.
+- [GitHub Docs, Creating diagrams](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams). Does well: shows Mermaid and other diagram blocks render natively in Markdown. Missing: no advice on which diagram to draw.
 
-Call-tree change:
+## What this version adds
 
-```diff
- submitForm
-   createSession
-     persistPrompt
-+    expandSkillMention
-     launchAgent
--  navigateToSession
-+  navigateToSession
-+    subscribeToEvents
-```
-
-State / control-flow change:
-
-```diff
- on(save)
--  write content
-+  if content is unchanged
-+    return cached result
-+  write new content
-+  invalidate cache
-```
-
-- Show the **whole block** when most of it is new, when omitted context would hide ownership or order, or when the reader needs a copyable target shape.
-
-- For a visual UI, layout, state comparison, or concept too dense for Mermaid, write one focused HTML file under `/workspace` (diagram, infographic, or short slide). Match the product's colors, type, and spacing when known. Attach or link it; do not invent a `Bash(open …)` path on this assistant.
-
-## Guidance
-
-Place each visual next to the short text it supports. Keep only the calls, files, props, states, and boundaries needed for the current question.
-
-You may use one of these, or several. It is unlikely you will use all of them. Do not overwhelm the reader.
+- A PR body structure (first line, why, shape, verify) built around the visuals.
+- A "reviewer asks / show" table for choosing the view.
+- Accuracy and redaction rules, plus new examples written for this repo.

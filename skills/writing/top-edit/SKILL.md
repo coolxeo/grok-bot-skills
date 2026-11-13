@@ -4,51 +4,63 @@ description: >-
   Use this as the last mechanical pass before publishing, to screen AI tells and
   house-style misses that a slop word-list can skip.
 ---
-
-
 # Top edit
 
-Checklist pass. Pattern-matching, not a vibe critique. Run after No AI slop. Do not edit the draft in this pass. Report flags with line, quote, and a fix.
+The final screen before publishing. Run it after no-ai-slop. It is a checklist, not a critique: flag, don't edit. Each flag gets a line number, the quoted text, and a fix.
 
-## AI tells
+## Pass 1: Leftover tells
 
-1. Vague This/That openers with no noun
-2. Correlatives: not only/but also, both/and
-3. Formulaic transitions: moreover, furthermore, additionally, indeed, in fact
-4. Hedging: it could be argued, it seems, one might say
-5. Marketing speak: game-changing, groundbreaking, unlock, empower
-6. Signposts: let's dive in, as we'll see, here's the thing
-7. False drama fragments
-8. Artificial triads of three
-9. Balanced on-the-other-hand that refuses a position
-10. Consultant-speak: moving the needle, low-hanging fruit, key takeaway
-11. Banned words: leverage, comprehensive, pivotal, delve, showcase, tapestry, robust, seamless
-12. Em dashes
-13. Formula: not just X but Y, in today's world
-14. Forced symmetry across sections
-15. Repetition disguised as depth
-16. Sentence-initial But/And overuse
-17. Contrastive reframing more than twice in a long piece
+Things that survive a slop pass because no single word gives them away:
 
-## House
+1. "This" or "That" opening a sentence with no noun after it.
+2. Paired constructions used as decoration (not only... but also, both... and).
+3. Stacked connectors: moreover, furthermore, additionally, notably.
+4. Hedges that dodge a position (it could be argued, in many ways, to some extent).
+5. Even-handed "on the other hand" paragraphs that never land.
+6. Signposting the piece instead of moving it (as we'll see, as mentioned above).
+7. Consultant phrases: low-hanging fruit, move the needle, double-click on, circle back.
+8. Every section ending the same way, or the same paragraph shape repeated.
+9. A point restated in new words to look deeper.
+10. Contrast reframes ("not X, but Y") more than twice in a long piece.
+11. Stale metaphors (tip of the iceberg, perfect storm, double-edged sword).
 
-- Opening is a scene or lived fact, not an abstract thesis
-- Arc is concrete then mechanism then implications
-- Major claims have a named source
-- Teach test in one sentence
-- Specificity: could someone else have written this?
+## Pass 2: House style
 
-## Prose
+- Opens on something concrete, not a thesis or a question.
+- The one-sentence takeaway is findable.
+- Every big claim has a named source (run source-check if not).
+- Could anyone else have written this? If yes, flag where the writer's own detail is missing.
+- Destination rules from no-ai-slop: em dashes, trailing periods on social posts, hyphens on LinkedIn, hashtags only at the end.
+- Headline and first line don't say the same thing.
 
-- Same word twice in close range
-- Passive clusters
-- Five sentences of similar length
-- Dead metaphors
+## Pass 3: Prose
+
+- The same word three times in a few lines (unless it's the key term).
+- Three or more passive sentences in a row.
+- Five sentences in a row of about the same length.
+- Links: every URL resolves and the anchor text says where it goes.
+
+Some of these are fine on purpose. If breaking a rule makes the sentence better, leave it and say so.
 
 ## Verdict
 
-CLEAN (0–2 minor), LIGHT FIXES (3–5), or NEEDS WORK (6+ or structural). One-sentence recommendation.
+**Clean** (0-2 small flags), **Quick fixes** (3-5), or **Needs work** (6+, or anything structural). One sentence of advice. When one pattern repeats a lot, show the first three and count the rest.
 
-If the same pattern hits 10 times, flag the first 3 and count the rest.
+## After the verdict
 
-Source: adapted from [Nadiem Mahmoud, top-edit](https://github.com/nadiem99/claude-writing-skills/blob/5b52111e1bd30e93643929f17155e82aa26f771f/skills/pipeline/top-edit/SKILL.md). MIT; see [third-party notices](../../../THIRD_PARTY_NOTICES.md). Run No AI slop first.
+Once the writer has read the report, offer two optional extras:
+
+- **Voice bank.** Quote the one or two paragraphs that sound most like the writer at their best and say why. Offer to save them to their voice notes for future drafts.
+- **Retro.** One line on what went well in this piece's pipeline and one thing to change next time.
+
+## Inspired by
+
+- [Nadiem Mahmoud, top-edit](https://github.com/nadiem99/claude-writing-skills/blob/5b52111e1bd30e93643929f17155e82aa26f771f/skills/pipeline/top-edit/SKILL.md) and its [AI tells checklist](https://github.com/nadiem99/claude-writing-skills/blob/5b52111e1bd30e93643929f17155e82aa26f771f/context/ai-tells-checklist.md) (MIT), which credit Every's Kate Lee. Does well: a three-pass mechanical screen, line-level flags, a verdict scale, and voice capture afterwards. Missing: flags every em dash and every sentence that starts with "But" or "And", and has no exception for rules broken on purpose.
+- [George Orwell, Politics and the English Language](https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/). Does well: the stale-metaphor rule and the final rule that you should break any rule rather than write something awful. Missing: no checklist or report form.
+- [Hardik Pandya, stop-slop](https://github.com/hardikpandya/stop-slop) (MIT). Does well: a fast yes/no quick-check list. Missing: no house-style or destination checks.
+
+## What this version adds
+
+- Focus on tells that survive a word-list pass, so it does not repeat no-ai-slop.
+- Destination checks (social punctuation, LinkedIn hyphens, hashtags) and a link check.
+- An explicit "broken on purpose" exception.
