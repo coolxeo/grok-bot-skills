@@ -37,6 +37,8 @@ Skip steps already done in this chat. Do not re-create routines that already exi
 
 ## Intake
 
+First read the bot's lessons file (for example `skill-lessons/design-a-grok-bot.md` in your workspace) if it exists. Apply each lesson marked KEEP.
+
 Ask only preference questions no experiment can settle. Typical set, skip any already answered:
 
 - the one job
@@ -90,6 +92,17 @@ Bake into the description:
 
 No coding instructions unless the job is hybrid and the split is explicit (coordinate vs write code).
 
+## Test-and-keep (before create, and on every persona rewrite)
+
+A persona is a harness. Test it before you ship it. Cheap version: reason it through. Do not create test bots.
+
+1. **Probe set.** Write 4 fixed test asks for this job: one typical ask, one anti-job ask (the adjacent verb it must refuse), one decision that needs a tap card, and one quiet case (nothing to report). Save them with the lessons file so later rewrites use the same probes.
+2. **Propose.** For a rewrite, keep the current persona as the control and write 1-2 versions. Change one thing per version.
+3. **Probe.** Read each version against each probe. Score it pass or fail: the right action, the anti-job refused, a card (not plain text), and silence in the quiet case. Pick the version with the most passes. On a tie, pick the shorter one.
+4. **Compose.** Ship the winner. Merge a line from another version only if that line fixed a failed probe on its own.
+5. **Watch.** After the bot runs, real friction is the true probe. When the user or a transcript healthcheck shows a failure, add it as a new probe and rerun steps 2-4.
+6. **Record.** Add 1-3 lines to the lessons file: the date, the bot, what failed or helped, and the evidence. Mark a line TRY first, and KEEP only after it wins a probe on a second bot.
+
 ## After create
 
 Read the live profile back. Tell the user the name and the one-job line. Mention they delete from the sidebar (right-click, Delete) if they hate it.
@@ -97,3 +110,5 @@ Read the live profile back. Tell the user the name and the one-job line. Mention
 If the job needs a standing routine, you cannot write another bot's routines from here. Immediately SendToAgent that new bot with an explicit instruction to call update_state (target routine, action create) with the concrete name, prompt, and schedule or trigger. Do not stop at "set it up in its chat." Confirm to the user that you messaged it to create the routine. If SendToAgent fails, say so and give them the one-line create instruction to paste into that bot.
 
 Credit: [Lauren Tan (@poteto), dr eggbot](https://x.ai/bot/marketplace/bots/dr-eggbot-v2) matches this bot-design workflow. This skill also uses [pstack / poteto-mode](https://github.com/cursor/plugins/blob/e31650eea443aaea1e84cc15d88c13f40080b275/pstack/skills/poteto-mode/SKILL.md). See the [source audit](../../../docs/credits.md) for the evidence and license limits.
+
+The test-and-keep section is inspired by Harness²'s Propose-Probe-Compose loop and its lessons ledger (google-research/harness2). Harness² only runs on its own benchmarks and needs Vertex AI. This version adds a fixed probe set per bot, pass or fail scoring, real friction as a new probe, and a TRY then KEEP rule for lessons.

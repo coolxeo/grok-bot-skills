@@ -124,6 +124,9 @@ Pick the route that fits the stack:
   Expected value works: score band multiplied by average deal value and by
   that band's historical close rate.
 
+If the owner has paused all campaigns, do not start or re-enable any
+without asking them first.
+
 Then switch the campaign goal to the new event or to value once it has
 about a week of clean data. Change one campaign first.
 
