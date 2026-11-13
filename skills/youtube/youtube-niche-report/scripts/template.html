@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><!--TITLE--></title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <style>
 /* One narrow reading column for prose, wide bands for tables. Dark by default, light when the system asks. */
 :root {
@@ -20,8 +21,9 @@
   --bg: #f6f5f1; --panel: #ffffff; --line: #dcd9d0; --fg: #18181b; --mute: #5d5d66;
   --accent: #3552c9; --warm: #9a5a00; --good: #1c8452; --bad: #c03636; --bar: #3552c9; color-scheme: light }
 * { box-sizing: border-box }
-body { background: var(--bg); color: var(--fg); font: 16px/1.55 var(--body); margin: 0; padding-inline: 16px }
-.wrap { max-width: 1120px; margin: 0 auto; padding-block: 28px 80px; display: grid; gap: 52px }
+body { background: var(--bg); color: var(--fg); font: 16px/1.55 var(--body); margin: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 28px 80px; display: grid; gap: 52px; grid-template-columns: minmax(0, 1fr) }
 h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.05; margin: 0; letter-spacing: -0.01em }
 h2 { font-size: 28px; line-height: 1.1; margin: 0 }
 h3 { font-size: 19px; line-height: 1.2; margin: 0 }
@@ -29,11 +31,11 @@ p { margin: 0 }
 a { color: var(--accent) }
 .eyebrow { font: 600 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--mute) }
 .mute { color: var(--mute) } .num { font-family: var(--mono); font-variant-numeric: tabular-nums }
-section { display: grid; gap: 16px; scroll-margin-top: 60px }
+section { display: grid; gap: 16px; scroll-margin-top: 60px; grid-template-columns: minmax(0, 1fr) }
 .prose { max-width: 70ch } .lede { font-size: 19px; max-width: 66ch }
 .stats { display: flex; flex-wrap: wrap; gap: 8px 26px; font: 14px var(--mono); color: var(--mute) }
 .stats b { color: var(--fg) }
-nav.toc { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line);
+nav.toc { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line);
   display: flex; gap: 4px 16px; flex-wrap: wrap; padding-block: 10px; font: 13px var(--mono) }
 nav.toc a { color: var(--mute); text-decoration: none } nav.toc a:hover { color: var(--fg) }
 .bullets { display: grid; gap: 10px; padding: 0; margin: 0; list-style: none; max-width: 78ch }
@@ -119,7 +121,7 @@ const med = a => { const s = [...a].sort((x, y) => x - y); return s.length ? (s.
 const bullets = arr => arr && arr.length ? `<ul class="bullets">${arr.map(b => `<li>${md(b)}</li>`).join('')}</ul>` : '';
 const F = I.findings || {};
 const SH = Object.fromEntries((D.sheets || []).map(x => [x.id, x]));
-const sheetFigs = list => { const got = (list || []).filter(x => SH[x.id]); return got.length ? `<div class="sheets">${got.map(x => { const v = byId[x.id] || {}; return `<figure><img src="${SH[x.id].src}" alt="Nine frames from the opening of ${esc(v.title)}" loading="lazy"><figcaption><b>${esc(v.channel)}</b>, <a href="${url(v)}" target="_blank" rel="noopener">${esc((v.title || '').slice(0, 50))}</a> · ${fmtN(v.views)}. ${md(x.note || '')}</figcaption></figure>`; }).join('')}</div>` : ''; };
+const sheetFigs = list => { const got = (list || []).filter(x => SH[x.id]); return got.length ? `<div class="sheets">${got.map(x => { const v = byId[x.id] || {}; return `<figure><img src="${SH[x.id].src}" alt="Nine frames from the opening of ${esc(v.title)}"><figcaption><b>${esc(v.channel)}</b>, <a href="${url(v)}" target="_blank" rel="noopener">${esc((v.title || '').slice(0, 50))}</a> · ${fmtN(v.views)}. ${md(x.note || '')}</figcaption></figure>`; }).join('')}</div>` : ''; };
 // free sections from insights.json: paragraphs, kpis, bullets, cards, a table and frame sheets, in that order
 const custom = c => `<section id="${esc(c.id)}"><div class="eyebrow">${esc(c.eyebrow || c.nav || '')}</div><h2>${esc(c.heading || '')}</h2>
   ${(c.paragraphs || []).map(p => `<p class="prose">${md(p)}</p>`).join('')}
@@ -147,6 +149,7 @@ h += `<header style="display:grid;gap:14px"><div class="eyebrow">${esc(I.eyebrow
   <h1>${esc(I.title)}</h1>${I.lede ? `<p class="lede">${md(I.lede)}</p>` : ''}
   <div class="stats">${[['channels', D.n_channels], ['videos listed', D.n_catalog.toLocaleString()], ['pulled in full', D.n_pulled.toLocaleString()], ['screened in', D.n_kept], ...(D.n_own ? [['yours', D.n_own]] : [])].map(([k, v]) => `<span><b>${v}</b> ${k}</span>`).join('')}</div></header>`;
 const toc = [];
+secAt('first').forEach(c => toc.push([c.id, c.nav || c.heading]));
 if (batch.length) toc.push(['answer', 'The answer']);
 secAt('top').forEach(c => toc.push([c.id, c.nav || c.heading]));
 if (own.length) toc.push(['you', 'Where you stand']);
@@ -157,6 +160,7 @@ if (ideas.length) toc.push(['ideas', 'Ideas']);
 secAt('end').forEach(c => toc.push([c.id, c.nav || c.heading]));
 toc.push(['leaderboard', 'Leaderboard'], ['screen', 'Screening'], ['method', 'Method']);
 h += `<nav class="toc" aria-label="Sections">${toc.map(([id, l]) => `<a href="#${id}">${l}</a>`).join('')}</nav>`;
+secAt('first').forEach(c => { h += custom(c); });
 // the answer
 if (batch.length) {
   const A = I.answer, ideaBy = Object.fromEntries(ideas.map(i => [String(i.n), i]));

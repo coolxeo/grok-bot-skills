@@ -30,6 +30,19 @@ def b64(path, width):
     return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
 
 
+def sheet_thumb(sheet, dest):
+    """No thumbnail on disk (Shorts often have none): cut one from the first frame of the video's hook sheet."""
+    from PIL import Image
+    im = Image.open(sheet).convert("RGB")
+    w, h = im.width // 3, im.height // 3
+    cell = im.crop((0, 0, w, h))
+    if h > w:  # a 9:16 frame: keep a 16:9 band near the top, where a Short puts its header
+        band = round(w * 9 / 16)
+        top = round(h * 0.05)
+        cell = cell.crop((0, top, w, top + band))
+    cell.save(dest, "JPEG", quality=85)
+
+
 def fetch_thumb(vid, dest):
     """Ideas can cite videos outside the top thumbnails pulled per channel; fetch those (best effort)."""
     import urllib.request
@@ -58,6 +71,9 @@ def main():
     for i in ins.get("ideas", []):
         for vid in i.get("src", []):
             f = root / "thumbs" / f"{vid}.jpg"
+            sheet = root / "thumbs" / f"hook-{vid}.jpg"
+            if not f.exists() and sheet.exists():
+                sheet_thumb(sheet, f)
             if not f.exists():
                 fetch_thumb(vid, f)
             if f.exists() and vid not in data["thumbs"]:
@@ -73,7 +89,7 @@ def main():
             print(f"no frame sheet for {sid}", file=sys.stderr)
 
     blob = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")  # no tag can close the data block
-    title = ins["title"].replace("<", "&lt;")
+    title = (ins.get("page_title") or ins["title"]).replace("<", "&lt;")  # page_title: a short name for the browser tab
     html = (HERE / "template.html").read_text(encoding="utf-8").replace("/*DATA*/", blob).replace("<!--TITLE-->", title)
     out = Path(a.out)
     out = out if out.is_absolute() else root / out
