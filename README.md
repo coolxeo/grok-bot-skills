@@ -2,6 +2,17 @@
 
 # Grok Bot Skills
 
+Free skills that run my 3 YouTube channels with a team of Grok Bots. Nothing posts or spends without my tap. The paid kits are the tested, ready-to-run versions. ↓
+
+## Paid kits
+
+| Kit (result name) | What it is | Price | Link |
+| --- | --- | --- | --- |
+| Audit your site for AI answers, then fix it | AEO/GEO Site Audit & Build Kit | €9 | [Get the kit →](https://daniacostaai.gumroad.com/l/cxabi) |
+| Make your pages and videos readable by AI answers | AEO Kit (Markdown Twins + YouTube Watch Pages) | $24 | [Get the kit →](https://daniacostaai.gumroad.com/l/wzalwo) |
+| Turn one video into Shorts, QA included | Shorts Builder Kit | $14 | [Get the kit →](https://daniacostaai.gumroad.com/l/ommvol) |
+| Turn rough notes into an X Article | X Article Writer | €7 | [Get the kit →](https://daniacostaai.gumroad.com/l/lzowtl) |
+
 Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
 
 24 skills for writing, design, code, SEO, ads, YouTube research, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
@@ -19,15 +30,6 @@ npx skills add coolxeo/grok-bot-skills
 ```
 
 To install one skill, add `--skill` and its folder name, for example `npx skills add coolxeo/grok-bot-skills --skill no-ai-slop`. Run `npx skills add coolxeo/grok-bot-skills --list` to see them all.
-
-## Paid kits
-
-The free skills here stay free. These paid kits are bigger, tested versions with code, templates and worked examples.
-
-- [AEO Kit: Markdown Twins + YouTube Watch Pages](https://daniacostaai.gumroad.com/l/wzalwo): the AEO audit skill plus a markdown twin router for Cloudflare Workers/Pages and a YouTube watch page builder.
-- [Shorts Builder Kit](https://daniacostaai.gumroad.com/l/ommvol): your agent cuts a 16:9 video into a 9:16 Short with eased pan and zoom, loudness and a jitter check.
-- [AEO/GEO Site Audit & Build Kit](https://daniacostaai.gumroad.com/l/cxabi): an upgraded aeo-geo-site with a checker script, a 100-point rubric and templates.
-- [X Article Writer](https://daniacostaai.gumroad.com/l/lzowtl): notes to a publish-ready X Article package.
 
 ## Start here
 
