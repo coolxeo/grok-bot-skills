@@ -15,6 +15,7 @@ DEFAULTS = {
     "discover_min_hits": 2,
     "discover_min_views": 50000,
     "top_per_tab": 50,
+    "recent_per_tab": 20,
     "hooks_per_tab": 20,
     "thumbs_per_channel": 20,
     "hook_sheets": 60,
