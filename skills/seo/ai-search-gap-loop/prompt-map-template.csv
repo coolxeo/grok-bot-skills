@@ -1,0 +1,3 @@
+row_id,buyer_decision,type,wording,target_page,google_impressions,google_clicks,google_avg_position,ai_tool,ai_read_date,site_cited,brand_named,other_owned_cited,third_party_sources,status,primary_cause,other_causes,notes
+D1-G1,"Which [category] is right for [situation]?",google_query,"[short keyword query]",/example-page/,missing,missing,missing,,,,,,,,,,
+D1-A1,"Which [category] is right for [situation]?",ai_prompt,"[full sentence a person would ask an assistant]",/example-page/,,,,[tool name],YYYY-MM-DD,yes|no,yes|no,yes|no,"domain1.com; domain2.com",won|lost,crawl-index|missing|weak|third-party|not-a-fit,,

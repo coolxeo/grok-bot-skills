@@ -15,11 +15,11 @@ Free skills that run my 3 YouTube channels with a team of Grok Bots. Nothing pos
 
 Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
 
-24 skills for writing, design, code, SEO, ads, YouTube research, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
+26 skills for writing, design, code, SEO, ads, YouTube research, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
 
-The catalog has 21 local skills and 3 upstream skills. Each uses a readable `SKILL.md` file. Pick one, read it, and adapt it to your bot.
+The catalog has 23 local skills and 3 upstream skills. Each uses a readable `SKILL.md` file. Pick one, read it, and adapt it to your bot.
 
-[Start here](#start-here) · [Browse all 24 skills](#all-skills) · [Contribute](#contribute)
+[Start here](#start-here) · [Browse all 26 skills](#all-skills) · [Contribute](#contribute)
 
 ## Install
 
@@ -45,7 +45,7 @@ To install one skill, add `--skill` and its folder name, for example `npx skills
 
 ## Get a skill
 
-For the 21 local skills, download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
+For the 23 local skills, download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
 
 ```sh
 git clone https://github.com/coolxeo/grok-bot-skills.git
@@ -150,6 +150,8 @@ updates. Show the evidence. Propose changes before applying them.
 | --- | --- |
 | [aeo-geo-site](skills/seo/aeo-geo-site/SKILL.md) | Structure site content for search and AI-assisted discovery. |
 | [exact-match-intent-seo](skills/seo/exact-match-intent-seo/SKILL.md) | Match domains, page titles, and URLs to search intent. |
+| [ai-search-gap-loop](skills/seo/ai-search-gap-loop/SKILL.md) | Track buyer prompts in Google and AI answers, diagnose each loss, make one change, and log the result. |
+| [ai-citation-sources](skills/seo/ai-citation-sources/SKILL.md) | List the third-party sources AI answers cite and draft one action per source. |
 
 ### Ads
 
