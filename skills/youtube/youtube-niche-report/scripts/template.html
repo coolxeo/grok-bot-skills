@@ -158,10 +158,12 @@ if (own.length) {
     ${own.map(v => `<tr class="own"><td><a href="${url(v)}" target="_blank" rel="noopener">${esc(v.title)}</a></td><td class="r num">${v.views.toLocaleString()}</td><td class="mute">${esc(v.format)}</td><td class="mute">${esc(pretty(v.hook))}</td></tr>`).join('')}</tbody></table></div></section>`;
 }
 // dimension tables
-const HEAT = {};
-V.filter(v => !v.own && v.heat).forEach(v => (HEAT[v.structure] = HEAT[v.structure] || []).push(v.heat));
-function spark(k) {
-  const hs = HEAT[k]; if (!hs) return '<span class="mute">–</span>';
+// the same scopes as analyze.py's tables, so the curve matches the row it sits in
+const est = v => v.tier.startsWith('established');
+const IN_SCOPE = { est_recent: v => est(v) && v.era !== 'older', est: est, all: () => true, small: v => !est(v) };
+function spark(k, scope) {
+  const hs = V.filter(v => !v.own && v.heat && v.structure === k && (IN_SCOPE[scope] || IN_SCOPE.all)(v)).map(v => v.heat);
+  if (!hs.length) return '<span class="mute">–</span>';
   const m = hs[0].map((_, i) => hs.reduce((s, x) => s + x[i], 0) / hs.length), w = 120, ht = 28, mx = Math.max(...m) || 1;
   const pts = m.map((y, i) => `${(i / (m.length - 1) * w).toFixed(1)},${(ht - 2 - y / mx * (ht - 4)).toFixed(1)}`).join(' ');
   return `<svg width="${w}" height="${ht}" viewBox="0 0 ${w} ${ht}" role="img" aria-label="most replayed curve"><polyline fill="none" stroke="var(--accent)" stroke-width="1.6" points="${pts}"/></svg> <span class="mute num">n=${hs.length}</span>`;
@@ -213,7 +215,7 @@ function renderTable(key, scope) {
   document.querySelector(`table[data-table="${key}"]`).innerHTML = `<thead><tr><th>${DIMS.find(d => d[0] === key)[1]}</th><th class="r">Videos</th><th>Median views</th><th class="r">× channel</th><th class="r">Hits (3×+)</th><th class="r">Total</th>${sp ? '<th>Most replayed</th>' : ''}<th>Top video</th></tr></thead><tbody>` +
     (rows.length ? rows.map(r => { const t = byId[r.top] || {}; return `<tr><td><b>${esc(lbl(r.k))}</b></td><td class="r num">${r.n}</td>
       <td><div class="barwrap"><div class="bar" style="width:${Math.max(2, r.med / mx * 110)}px"></div><span class="num">${fmtN(r.med)}</span></div></td>
-      <td class="r"><span class="x ${xCls(r.out)}">${fmtX(r.out)}</span></td><td class="r num">${r.hit}</td><td class="r num">${fmtN(r.sum)}</td>${sp ? `<td>${spark(r.k)}</td>` : ''}
+      <td class="r"><span class="x ${xCls(r.out)}">${fmtX(r.out)}</span></td><td class="r num">${r.hit}</td><td class="r num">${fmtN(r.sum)}</td>${sp ? `<td>${spark(r.k, scope)}</td>` : ''}
       <td style="min-width:200px"><a href="${url(t)}" target="_blank" rel="noopener">${esc((t.title || '').slice(0, 60))}</a> <span class="mute num">${fmtN(t.views)}</span></td></tr>`; }).join('')
       : `<tr><td colspan="8" class="mute">No videos in this scope.</td></tr>`) + '</tbody>';
 }
@@ -238,7 +240,7 @@ function drawLB() {
   const rows = all.filter(v => (!q || (v.title + ' ' + v.channel).toLowerCase().includes(q)) && Object.entries(FL).every(([id, [k]]) => !$('#' + id).value || v[k] === $('#' + id).value));
   rows.sort((a, b) => { const x = a[sortK], y = b[sortK]; return (typeof x === 'string' ? x.localeCompare(y) : (x ?? 0) - (y ?? 0)) * sortDir; });
   $('#lbCount').textContent = rows.length + ' videos';
-  $('#lb tbody').innerHTML = rows.slice(0, 500).map(v => `<tr class="${v.own ? 'own' : ''}"><td class="r num">${v.rank}</td><td class="t"><a href="${url(v)}" target="_blank" rel="noopener">${esc(v.title)}</a></td><td>${esc(v.channel)}</td><td class="r num">${fmtN(v.views)}</td><td class="r"><span class="x ${xCls(v.out)}">${fmtX(v.out)}</span></td><td class="r num">${fmtN(v.vpd)}</td><td class="r num">${dur(v.dur)}</td><td>${esc(clName(v.cluster))}</td><td>${esc(pretty(v.hook))}</td><td>${esc(pretty(v.structure))}</td><td class="num">${esc((v.date || '').replace(/(\d{4})(\d\d)(\d\d)/, '$1-$2-$3'))}</td></tr>`).join('');
+  $('#lb tbody').innerHTML = rows.map(v => `<tr class="${v.own ? 'own' : ''}"><td class="r num">${v.rank}</td><td class="t"><a href="${url(v)}" target="_blank" rel="noopener">${esc(v.title)}</a></td><td>${esc(v.channel)}</td><td class="r num">${fmtN(v.views)}</td><td class="r"><span class="x ${xCls(v.out)}">${fmtX(v.out)}</span></td><td class="r num">${fmtN(v.vpd)}</td><td class="r num">${dur(v.dur)}</td><td>${esc(clName(v.cluster))}</td><td>${esc(pretty(v.hook))}</td><td>${esc(pretty(v.structure))}</td><td class="num">${esc((v.date || '').replace(/(\d{4})(\d\d)(\d\d)/, '$1-$2-$3'))}</td></tr>`).join('');
 }
 document.querySelectorAll('#lb th').forEach(th => th.querySelector('button').addEventListener('click', () => {
   const k = th.dataset.k; sortDir = k === sortK ? -sortDir : (['title', 'channel', 'cluster', 'hook', 'structure', 'date'].includes(k) ? 1 : -1); sortK = k;
