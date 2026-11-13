@@ -67,7 +67,7 @@ Scouts, shopkeepers, life admin, dispatchers, writers. In the description: the j
 - [Lauren Tan (@poteto), dr eggbot](https://x.ai/bot/marketplace/bots/dr-eggbot-v2) (marketplace template; no reuse license shown, so no text is copied). Does well: one job, one voice, explicit anti-jobs, a short intake, and healthcheck routines on first run. Missing: its listing has no rule for approval cards, no read-back of the created profile, and no test message to the new bot.
 - [Lauren Tan, pstack poteto-mode](https://github.com/cursor/plugins/blob/e31650eea443aaea1e84cc15d88c13f40080b275/pstack/skills/poteto-mode/SKILL.md) (MIT). Does well: the coding-agent quality bar (unslopped prose, verified work, never block the human on reversible choices). Missing: written for a coding agent, not for designing other bots.
 - [Anthropic, Building effective agents](https://www.anthropic.com/research/building-effective-agents). Does well: start with the simplest setup and add complexity only when it pays, and design tool interfaces carefully. Missing: about architecture patterns, with no persona or anti-job guidance.
-- Harness²'s Propose-Probe-Compose loop and its lessons ledger (google-research/harness2). Does well: a propose-probe-compose loop and a lessons ledger. Missing: it only runs on its own benchmarks and needs Vertex AI.
+- Harness²'s Propose-Probe-Compose loop and its lessons ledger (google-research/harness2). Does well: a propose-probe-compose loop and a lessons ledger. Missing: a research framework around JobBench, LAB, and WorkBuddy-Bench, plus a local demo with no credentials and authentication alternatives; not a procedure for designing Grok Bot personas.
 
 ## What this version adds
 
