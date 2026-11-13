@@ -91,7 +91,9 @@ It runs the searches, picks channels (seeds, your own, then up to
 `max_discovered` channels that came up in at least `discover_min_hits`
 searches with a video over `discover_min_views`), lists every video on each
 channel for the medians, fetches full metadata for each channel's top 50
-videos and top 50 Shorts, the first 60 s of captions for the top 20 of each,
+videos and top 50 Shorts plus its newest `recent_per_tab` (20) of each, so a
+channel that has gone quiet or a new one that is growing both show up, the
+first 60 s of captions for the top 20 of each,
 and 320 px thumbnails. The first run stops after the channel list. Open
 `channels.json`, delete discovered channels that are obviously off-niche,
 then run without `--discover-only`: it reuses the edited list, so the
@@ -135,6 +137,9 @@ python3 scripts/hookframes.py --dir <work>
 It picks the kept videos that beat their channel most (up to 60, at most 6
 per channel, about 20 of them Shorts), downloads only their first 60 s at
 480p, and writes a 3×3 frame sheet for each to `thumbs/hook-<id>.jpg`.
+With `own_channel` set it adds that channel's newest `hook_sheets_own` (12)
+uploads, so you can put your openings beside the winners'. `--ids a,b,c`
+builds sheets for exactly those videos and adds them to the picks.
 Look at each sheet and write one line per video to `hook-frames.jsonl`
 (fields in [references/method.md](references/method.md)): the text on
 screen at each frame, the first visual, cuts in the first 15 s, and when the
@@ -151,7 +156,12 @@ python3 -I scripts/analyze.py --dir <work>
 It writes `data.json` and prints every table: per cluster, format, hook,
 structure, title shape, voice, era and channel size, with count, median
 views, median × channel and hits (3×+), for all screened videos and for
-established channels' recent uploads. Read the tables against
+established channels' recent uploads. It also writes a row per channel
+(subscribers, uploads per week, median views per upload week by week).
+Add `--prev <older work folder>` (repeatable) when the same niche was
+pulled before: the page then shows how the same videos and subscriber
+counts moved between pulls. Set `pulled_at` in each folder's config.json
+if the folder name has no date. Read the tables against
 [references/method.md](references/method.md) before writing anything.
 
 ### 5. Write the findings and ideas
@@ -169,6 +179,10 @@ Write `insights.json` ([references/insights-schema.md](references/insights-schem
   evidence, each with why and which idea it comes from.
 - Caveats: small groups, recent videos that haven't peaked, anything the
   pull missed.
+- When the question is a diagnosis ("why did my channel stall"), use the
+  free `sections` for the verdict, a shown / inferred / could-not-read
+  split and a side-by-side score, and `channels` and `compare` for the
+  text around those two tables.
 
 Also write a short `FINDINGS.md` next to it with the same conclusions in
 plain text, so the result can live in a repo and be read without a browser.
@@ -180,7 +194,8 @@ python3 -I scripts/build_report.py --dir <work> --out report.html
 ```
 
 `--out` defaults to `report.html` in the work folder. Open it and check it
-at phone width. It embeds everything, so it
+at phone width. An idea whose source has no thumbnail on disk (Shorts
+often don't) gets the first frame of its hook sheet. It embeds everything, so it
 can be shared as one file or published as a web page.
 
 ## Reading the numbers

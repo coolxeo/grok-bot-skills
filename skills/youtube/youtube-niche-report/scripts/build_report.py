@@ -17,7 +17,7 @@ from common import load, workdir_arg
 
 HERE = Path(__file__).resolve().parent
 KEEP = ["id", "title", "channel", "tab", "views", "out", "vpd", "date", "dur", "cluster", "topic", "format", "hook",
-        "hook_text", "structure", "title_shape", "voice", "era", "tier", "own", "subs", "heat"]
+        "hook_text", "structure", "title_shape", "voice", "era", "tier", "own", "subs", "heat", "sample"]
 
 
 def b64(path, width):
@@ -28,6 +28,19 @@ def b64(path, width):
     buf = io.BytesIO()
     im.save(buf, "JPEG", quality=72)
     return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
+
+
+def sheet_thumb(sheet, dest):
+    """No thumbnail on disk (Shorts often have none): cut one from the first frame of the video's hook sheet."""
+    from PIL import Image
+    im = Image.open(sheet).convert("RGB")
+    w, h = im.width // 3, im.height // 3
+    cell = im.crop((0, 0, w, h))
+    if h > w:  # a 9:16 frame: keep a 16:9 band near the top, where a Short puts its header
+        band = round(w * 9 / 16)
+        top = round(h * 0.05)
+        cell = cell.crop((0, top, w, top + band))
+    cell.save(dest, "JPEG", quality=85)
 
 
 def fetch_thumb(vid, dest):
@@ -58,18 +71,25 @@ def main():
     for i in ins.get("ideas", []):
         for vid in i.get("src", []):
             f = root / "thumbs" / f"{vid}.jpg"
+            sheet = root / "thumbs" / f"hook-{vid}.jpg"
+            if not f.exists() and sheet.exists():
+                sheet_thumb(sheet, f)
             if not f.exists():
                 fetch_thumb(vid, f)
             if f.exists() and vid not in data["thumbs"]:
                 data["thumbs"][vid] = b64(f, 320)
-    data["sheets"] = []
-    for s in ins.get("sheets", []):
-        f = root / "thumbs" / f"hook-{s['id']}.jpg"
+    data["sheets"] = []  # every sheet the page names: the hook section's, your own and those in free sections
+    wanted = ins.get("sheets", []) + (ins.get("own") or {}).get("sheets", []) + \
+        [s for c in ins.get("sections", []) for s in c.get("sheets", [])]
+    for sid in dict.fromkeys(s["id"] for s in wanted):
+        f = root / "thumbs" / f"hook-{sid}.jpg"
         if f.exists():
-            data["sheets"].append({"id": s["id"], "note": s.get("note", ""), "src": b64(f, 520)})
+            data["sheets"].append({"id": sid, "src": b64(f, 640)})
+        else:
+            print(f"no frame sheet for {sid}", file=sys.stderr)
 
     blob = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")  # no tag can close the data block
-    title = ins["title"].replace("<", "&lt;")
+    title = (ins.get("page_title") or ins["title"]).replace("<", "&lt;")  # page_title: a short name for the browser tab
     html = (HERE / "template.html").read_text(encoding="utf-8").replace("/*DATA*/", blob).replace("<!--TITLE-->", title)
     out = Path(a.out)
     out = out if out.is_absolute() else root / out

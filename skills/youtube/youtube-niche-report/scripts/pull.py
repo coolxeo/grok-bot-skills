@@ -9,7 +9,8 @@ Writes into the work folder:
   discovery.jsonl   flat results of the search queries (finds channels the seed list missed)
   channels.json     the channels pulled: seeds, your own channel if set, and up to max_discovered found ones, with why
   catalog.jsonl     every video and Short listed on each channel (flat, rounded views): the base for channel medians
-  videos.jsonl      full metadata of each channel's top_per_tab videos and top_per_tab Shorts by views,
+  videos.jsonl      full metadata of each channel's top_per_tab videos and top_per_tab Shorts by views, plus its
+                    recent_per_tab newest uploads per tab (marked "sample": "recent"),
                     with YouTube's "most replayed" curve in 20 buckets when it exists
   hooks.jsonl       the first 60 s of captions (manual or auto) for each channel's top hooks_per_tab per tab;
                     falls back to youtube-transcript-api when it is installed and yt-dlp finds none
@@ -172,15 +173,19 @@ def catalog(root, cfg, chans):
     return rows
 
 
-def top_ids(cat, n):
+def top_ids(cat, n, recent=0):
+    """Per (channel, tab): the n most viewed ids, then the `recent` newest ids not already in (the flat listing is
+    newest first). The newest ones are an unbiased sample of what a channel uploads now, so 'recent' tables and
+    cadence aren't built only from the winners."""
     by = defaultdict(list)
     for r in cat:
         if r.get("id"):
             by[(r["chan"], r["tab"])].append(r)
     out = {}
     for k, rs in by.items():
-        rs.sort(key=lambda r: -(r.get("view_count") or 0))
-        out[k] = [r["id"] for r in rs[:n]]
+        top = [r["id"] for r in sorted(rs, key=lambda r: -(r.get("view_count") or 0))[:n]]
+        new = [r["id"] for r in rs[:recent] if r["id"] not in top]
+        out[k] = top + new
     return out
 
 
@@ -189,9 +194,11 @@ KEEP = ["id", "title", "channel", "channel_id", "uploader_id", "channel_follower
         "comment_count", "duration", "upload_date", "tags", "categories", "chapters", "language"]
 
 
-def slim(d, chan, tab, rank):
+def slim(d, chan, tab, rank, top_n=None):
     r = {k: d.get(k) for k in KEEP}
     r.update(chan=chan, tab=tab, rank=rank, description=(d.get("description") or "")[:800])
+    if top_n is not None and rank > top_n:
+        r["sample"] = "recent"  # pulled because it is new, not because it is a top video
     hm = d.get("heatmap") or []
     if hm:
         b = [0.0] * 20
@@ -215,14 +222,14 @@ def fetch_full(root, cfg, cat):
                 continue
             out = ytdlp(["--skip-download", "-j", f"https://www.youtube.com/watch?v={vid}"], timeout=120)
             try:
-                rows.append(slim(json.loads(out.splitlines()[0]), chan, tab, rank))
+                rows.append(slim(json.loads(out.splitlines()[0]), chan, tab, rank, cfg["top_per_tab"]))
             except Exception:
                 pass
         print(f"full {chan}/{tab}: {len(rows)} new", file=sys.stderr)
         return rows
 
     with ThreadPoolExecutor(cfg["workers"]) as ex:
-        for rows in ex.map(one, top_ids(cat, cfg["top_per_tab"]).items()):
+        for rows in ex.map(one, top_ids(cat, cfg["top_per_tab"], cfg["recent_per_tab"]).items()):
             jl_append(path, rows)
 
 

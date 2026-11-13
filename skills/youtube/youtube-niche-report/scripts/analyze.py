@@ -16,8 +16,8 @@ from collections import Counter, defaultdict
 sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parent))  # works under python3 -I
 from common import jl_read, load, workdir_arg
 
-SCOPES = {"est_recent": "Established, recent", "est": "Established, all time", "all": "All screened",
-          "small": "Small channels"}
+SCOPES = {"est_recent": "Established, recent", "recent": "All screened, recent", "est": "Established, all time",
+          "all": "All screened", "small": "Small channels"}
 DIMENSIONS = ["cluster", "format", "hook", "structure", "title_shape", "voice", "era", "tier"]
 
 
@@ -101,8 +101,85 @@ def table(rs, key):
     return sorted(out, key=lambda o: -o["out"])
 
 
+def week_of(d):
+    """'20261104' -> the Monday of that week as '2026-11-02'."""
+    day = dt.date(int(d[:4]), int(d[4:6]), int(d[6:]))
+    return (day - dt.timedelta(days=day.weekday())).isoformat()
+
+
+def channel_rows(chans, rows, cat, pull_day, wave):
+    """One row per channel: size, when it started, how often it uploads now, and what a recent upload gets.
+    Built from every pulled video (kept or not), so it describes the channel, not only its on-niche videos."""
+    out = []
+    for c in chans:
+        rs = [r for r in rows if r["chan"] == c["key"]]
+        if not rs:
+            continue
+        o = {"chan": c["key"], "channel": rs[0]["channel"], "subs": max((r["subs"] or 0) for r in rs),
+             "own": c.get("why") == "own", "why": c.get("why", ""), "kept": sum(r["keep"] for r in rs), "tabs": {}}
+        dates = sorted(r["date"] for r in rs if r["date"])
+        o["first"], o["last"] = (dates[0], dates[-1]) if dates else ("", "")
+        for tab in ("videos", "shorts"):
+            listed = [x["view_count"] for x in cat if x["chan"] == c["key"] and x["tab"] == tab and x.get("view_count") is not None]
+            if not listed:
+                continue
+            new = [r for r in rs if r["tab"] == tab and r["date"] and r["date"] >= wave]
+            last28 = [r for r in rs if r["tab"] == tab and r["age"] is not None and r["age"] <= 28]
+            top = max((r for r in rs if r["tab"] == tab), key=lambda r: r["views"], default=None)
+            weeks = defaultdict(list)
+            for r in rs:
+                if r["tab"] == tab and r["date"] and r["date"] >= wave:
+                    weeks[week_of(r["date"])].append(r["views"])
+            o["tabs"][tab] = {"listed": len(listed), "med": st.median(listed), "top": top and top["id"],
+                              "top_views": top["views"] if top else 0, "recent_n": len(new),
+                              "recent_med": st.median([r["views"] for r in new]) if new else None,
+                              "per_week": round(len(last28) / 4, 1),
+                              "weeks": {w: {"n": len(v), "med": st.median(v)} for w, v in sorted(weeks.items())}}
+        out.append(o)
+    return sorted(out, key=lambda o: -o["subs"])
+
+
+def compare(prev_dirs, rows, chans):
+    """Then and now for the same videos: how much each channel's already-published videos grew since an earlier
+    pull, and its subscribers then. Shows whose back catalogue is still being watched."""
+    from pathlib import Path
+    now = {r["id"]: r for r in rows}
+    out = []
+    for d in prev_dirs:
+        d = Path(d)
+        old = {}
+        for name in ("videos.jsonl", "recent.jsonl"):
+            for r in jl_read(d / name):
+                if r.get("id"):
+                    old[r["id"]] = r
+        if not old:
+            print(f"--prev {d}: no videos.jsonl, skipped", file=sys.stderr)
+            continue
+        cfgp, m = d / "config.json", re.search(r"\d{4}-\d\d-\d\d", d.name)
+        when = (json.load(open(cfgp, encoding="utf-8")).get("pulled_at") if cfgp.exists() else None) or \
+            (m.group(0) if m else d.name)  # config pulled_at, else a date in the folder name
+        per = {}
+        for vid, o in old.items():
+            n = now.get(vid)
+            if not n:
+                continue
+            p = per.setdefault(n["chan"], {"chan": n["chan"], "channel": n["channel"], "own": n["own"], "n": 0, "then": 0,
+                                           "now": 0, "subs_then": 0, "subs_now": n["subs"] or 0})
+            p["n"] += 1
+            p["then"] += o.get("view_count") or 0
+            p["now"] += n["views"]
+            p["subs_then"] = max(p["subs_then"], o.get("channel_follower_count") or 0)
+            p["subs_now"] = max(p["subs_now"], n["subs"] or 0)
+        out.append({"dir": d.name, "date": when, "rows": sorted(per.values(), key=lambda p: -(p["now"] - p["then"]))})
+    return out
+
+
 def main():
-    root, cfg = load(workdir_arg(__doc__.splitlines()[0]).parse_args().dir)
+    ap = workdir_arg(__doc__.splitlines()[0])
+    ap.add_argument("--prev", action="append", default=[],
+                    help="work folder of an earlier pull of the same niche (repeatable): adds a then-and-now table")
+    args = ap.parse_args()
+    root, cfg = load(args.dir)
     tags = {r["id"]: r for r in jl_read(root / "tags.jsonl")}
     vids = {r["id"]: r for r in jl_read(root / "videos.jsonl")}
     hooks = {r["id"]: r for r in jl_read(root / "hooks.jsonl")}
@@ -150,6 +227,7 @@ def main():
             "hook": hc, "hook_text": htxt[:140], "structure": t.get("structure") or "other",
             "title_shape": title_shape(r["title"]), "heat": r.get("heatmap20"), "frames": vid in frames,
             "cuts15": f.get("cut_count_first15"), "char_s": f.get("character_on_screen_by_s"),
+            "sample": r.get("sample") or "top",
         })
 
     keep = [r for r in rows if r["keep"] and not r["own"]]
@@ -157,7 +235,8 @@ def main():
     est = [r for r in keep if r["tier"].startswith("established")]
     tables = {}
     for key in DIMENSIONS:
-        tables[key] = {"est_recent": table([r for r in est if r["era"] != "older"], key), "est": table(est, key),
+        tables[key] = {"est_recent": table([r for r in est if r["era"] != "older"], key),
+                       "recent": table([r for r in keep if r["era"] != "older"], key), "est": table(est, key),
                        "all": table(keep, key), "small": table([r for r in keep if not r["tier"].startswith("established")], key)}
 
     screen = []
@@ -175,6 +254,7 @@ def main():
            "established_subs": cfg["established_subs"], "n_channels": len(chans), "n_catalog": len(cat),
            "n_pulled": len(rows), "n_kept": len(keep), "n_own": len(own), "clusters": cfg["clusters"],
            "tables": tables, "screen": screen, "videos": [r for r in rows if r["keep"]],
+           "channels": channel_rows(chans, rows, cat, pull_day, wave), "compare": compare(args.prev, rows, chans),
            "out_sample": sorted([{"id": r["id"], "channel": r["channel"], "title": r["title"], "views": r["views"],
                                   "why": r["why_out"]} for r in rows if not r["keep"]], key=lambda r: -r["views"])[:60]}
     json.dump(out, open(root / "data.json", "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))

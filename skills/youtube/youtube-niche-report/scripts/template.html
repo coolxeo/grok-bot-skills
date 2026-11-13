@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><!--TITLE--></title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <style>
 /* One narrow reading column for prose, wide bands for tables. Dark by default, light when the system asks. */
 :root {
@@ -20,8 +21,9 @@
   --bg: #f6f5f1; --panel: #ffffff; --line: #dcd9d0; --fg: #18181b; --mute: #5d5d66;
   --accent: #3552c9; --warm: #9a5a00; --good: #1c8452; --bad: #c03636; --bar: #3552c9; color-scheme: light }
 * { box-sizing: border-box }
-body { background: var(--bg); color: var(--fg); font: 16px/1.55 var(--body); margin: 0; padding-inline: 16px }
-.wrap { max-width: 1120px; margin: 0 auto; padding-block: 28px 80px; display: grid; gap: 52px }
+body { background: var(--bg); color: var(--fg); font: 16px/1.55 var(--body); margin: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 28px 80px; display: grid; gap: 52px; grid-template-columns: minmax(0, 1fr) }
 h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.05; margin: 0; letter-spacing: -0.01em }
 h2 { font-size: 28px; line-height: 1.1; margin: 0 }
 h3 { font-size: 19px; line-height: 1.2; margin: 0 }
@@ -29,11 +31,11 @@ p { margin: 0 }
 a { color: var(--accent) }
 .eyebrow { font: 600 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--mute) }
 .mute { color: var(--mute) } .num { font-family: var(--mono); font-variant-numeric: tabular-nums }
-section { display: grid; gap: 16px; scroll-margin-top: 60px }
+section { display: grid; gap: 16px; scroll-margin-top: 60px; grid-template-columns: minmax(0, 1fr) }
 .prose { max-width: 70ch } .lede { font-size: 19px; max-width: 66ch }
 .stats { display: flex; flex-wrap: wrap; gap: 8px 26px; font: 14px var(--mono); color: var(--mute) }
 .stats b { color: var(--fg) }
-nav.toc { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line);
+nav.toc { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line);
   display: flex; gap: 4px 16px; flex-wrap: wrap; padding-block: 10px; font: 13px var(--mono) }
 nav.toc a { color: var(--mute); text-decoration: none } nav.toc a:hover { color: var(--fg) }
 .bullets { display: grid; gap: 10px; padding: 0; margin: 0; list-style: none; max-width: 78ch }
@@ -80,6 +82,13 @@ details.idea .n { font: 800 30px/1 var(--body); color: var(--accent) }
 #lb th[aria-sort="descending"]::after { content: " ↓" } #lb th[aria-sort="ascending"]::after { content: " ↑" }
 #lb td.t { min-width: 240px; max-width: 420px }
 tr.own td { background: color-mix(in srgb, var(--good) 10%, transparent) }
+.heat td.c { text-align: right; font: 13px var(--mono); white-space: nowrap }
+.heat td.c span { color: var(--mute); font-size: 11px }
+.kpis { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px }
+.kpi { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: grid; gap: 4px }
+.kpi b { font: 700 26px/1.1 var(--body) } .kpi span { color: var(--mute); font-size: 13px }
+.split { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px }
+.split .card h3 { font-size: 16px }
 .sheets { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px }
 .sheets figure { margin: 0; display: grid; gap: 6px; min-width: 0 }
 .sheets img { width: 100%; border-radius: 6px; border: 1px solid var(--line) }
@@ -111,6 +120,18 @@ const pretty = k => String(k).replace(/_/g, ' ').replace(/^./, c => c.toUpperCas
 const med = a => { const s = [...a].sort((x, y) => x - y); return s.length ? (s.length % 2 ? s[(s.length - 1) / 2] : (s[s.length / 2 - 1] + s[s.length / 2]) / 2) : 0 };
 const bullets = arr => arr && arr.length ? `<ul class="bullets">${arr.map(b => `<li>${md(b)}</li>`).join('')}</ul>` : '';
 const F = I.findings || {};
+const SH = Object.fromEntries((D.sheets || []).map(x => [x.id, x]));
+const sheetFigs = list => { const got = (list || []).filter(x => SH[x.id]); return got.length ? `<div class="sheets">${got.map(x => { const v = byId[x.id] || {}; return `<figure><img src="${SH[x.id].src}" alt="Nine frames from the opening of ${esc(v.title)}"><figcaption><b>${esc(v.channel)}</b>, <a href="${url(v)}" target="_blank" rel="noopener">${esc((v.title || '').slice(0, 50))}</a> · ${fmtN(v.views)}. ${md(x.note || '')}</figcaption></figure>`; }).join('')}</div>` : ''; };
+// free sections from insights.json: paragraphs, kpis, bullets, cards, a table and frame sheets, in that order
+const custom = c => `<section id="${esc(c.id)}"><div class="eyebrow">${esc(c.eyebrow || c.nav || '')}</div><h2>${esc(c.heading || '')}</h2>
+  ${(c.paragraphs || []).map(p => `<p class="prose">${md(p)}</p>`).join('')}
+  ${(c.kpis || []).length ? `<div class="kpis">${c.kpis.map(k => `<div class="kpi"><b class="num">${esc(k.value)}</b><span>${md(k.label)}</span></div>`).join('')}</div>` : ''}
+  ${bullets(c.bullets)}
+  ${(c.cards || []).length ? `<div class="split">${c.cards.map(k => `<article class="card"><h3>${esc(k.title)}</h3>${(k.paragraphs || []).map(p => `<p>${md(p)}</p>`).join('')}${bullets(k.bullets)}</article>`).join('')}</div>` : ''}
+  ${c.table ? `<div class="tbl"><table><thead><tr>${c.table.head.map((x, i) => `<th${(c.table.right || []).includes(i) ? ' class="r"' : ''}>${esc(x)}</th>`).join('')}</tr></thead><tbody>${c.table.rows.map(r => `<tr>${r.map((x, i) => `<td class="${(c.table.right || []).includes(i) ? 'r num' : ''}">${md(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>` : ''}
+  ${c.note ? `<p class="note">${md(c.note)}</p>` : ''}${sheetFigs(c.sheets)}${bullets(c.after)}</section>`;
+const SECT = (I.sections || []).filter(c => c && c.id), secAt = at => SECT.filter(c => (c.place || 'top') === at);
+const CH = D.channels || [], CMP = D.compare || [];
 const DIMS = [
   ['cluster', 'Topics', 'Topic clusters', '"× channel" is a video\'s views divided by its own channel\'s median for the same tab. 1.0× is an ordinary upload for that channel; hits are videos at 3× or more.'],
   ['format', 'Formats', 'Formats and lengths', ''],
@@ -128,12 +149,18 @@ h += `<header style="display:grid;gap:14px"><div class="eyebrow">${esc(I.eyebrow
   <h1>${esc(I.title)}</h1>${I.lede ? `<p class="lede">${md(I.lede)}</p>` : ''}
   <div class="stats">${[['channels', D.n_channels], ['videos listed', D.n_catalog.toLocaleString()], ['pulled in full', D.n_pulled.toLocaleString()], ['screened in', D.n_kept], ...(D.n_own ? [['yours', D.n_own]] : [])].map(([k, v]) => `<span><b>${v}</b> ${k}</span>`).join('')}</div></header>`;
 const toc = [];
+secAt('first').forEach(c => toc.push([c.id, c.nav || c.heading]));
 if (batch.length) toc.push(['answer', 'The answer']);
+secAt('top').forEach(c => toc.push([c.id, c.nav || c.heading]));
 if (own.length) toc.push(['you', 'Where you stand']);
+if (CH.length) toc.push(['channels', 'Channels']);
+if (CMP.length) toc.push(['compare', 'Then and now']);
 DIMS.forEach(([k, s]) => toc.push([k, s]));
 if (ideas.length) toc.push(['ideas', 'Ideas']);
+secAt('end').forEach(c => toc.push([c.id, c.nav || c.heading]));
 toc.push(['leaderboard', 'Leaderboard'], ['screen', 'Screening'], ['method', 'Method']);
 h += `<nav class="toc" aria-label="Sections">${toc.map(([id, l]) => `<a href="#${id}">${l}</a>`).join('')}</nav>`;
+secAt('first').forEach(c => { h += custom(c); });
 // the answer
 if (batch.length) {
   const A = I.answer, ideaBy = Object.fromEntries(ideas.map(i => [String(i.n), i]));
@@ -148,19 +175,46 @@ if (batch.length) {
         ${(i.thumbs || []).map((x, n) => `<dt>Thumb ${'AB'[n] || n + 1}</dt><dd>${esc(x)}</dd>`).join('')}
         ${b.short ? `<dt>Short</dt><dd>${md(b.short)}</dd>` : ''}${i.n != null ? `<dt>Idea</dt><dd><a href="#idea-${i.n}">idea ${i.n}</a></dd>` : ''}</dl></article>`; }).join('')}</div></section>`;
 }
+secAt('top').forEach(c => { h += custom(c); });
 // where you stand
 if (own.length) {
   const kept = V.filter(v => !v.own), small = kept.filter(v => !v.tier.startsWith('established'));
   h += `<section id="you"><div class="eyebrow">Where you stand</div><h2>${esc((I.own || {}).heading || 'Your channel next to the niche')}</h2>
     ${((I.own || {}).paragraphs || []).map(p => `<p class="prose">${md(p)}</p>`).join('')}
     <p class="note">Small-channel median: <b class="num">${Math.round(med(small.map(v => v.views))).toLocaleString()}</b> views per video. Your median: <b class="num">${Math.round(med(own.map(v => v.views))).toLocaleString()}</b>.</p>
-    <div class="tbl"><table><thead><tr><th>Your video</th><th class="r">Views</th><th>Type</th><th>Hook</th></tr></thead><tbody>
-    ${own.map(v => `<tr class="own"><td><a href="${url(v)}" target="_blank" rel="noopener">${esc(v.title)}</a></td><td class="r num">${v.views.toLocaleString()}</td><td class="mute">${esc(v.format)}</td><td class="mute">${esc(pretty(v.hook))}</td></tr>`).join('')}</tbody></table></div></section>`;
+    <div class="tbl" style="max-height:560px;overflow-y:auto"><table><thead><tr><th>Your video</th><th class="r">Views</th><th class="r">× yours</th><th>Date</th><th class="r">Length</th><th>Type</th><th>Structure</th><th>Hook</th></tr></thead><tbody>
+    ${own.map(v => `<tr class="own"><td><a href="${url(v)}" target="_blank" rel="noopener">${esc(v.title)}</a></td><td class="r num">${v.views.toLocaleString()}</td><td class="r"><span class="x ${xCls(v.out)}">${fmtX(v.out)}</span></td><td class="num">${esc((v.date || '').replace(/(\d{4})(\d\d)(\d\d)/, '$2-$3'))}</td><td class="r num">${dur(v.dur)}</td><td class="mute">${esc(v.format)}</td><td class="mute">${esc(pretty(v.structure))}</td><td class="mute">${esc(pretty(v.hook))}</td></tr>`).join('')}</tbody></table></div>
+    ${sheetFigs((I.own || {}).sheets)}</section>`;
+}
+// channels: who is in the niche, how often they upload, and what an upload gets, week by week
+if (CH.length) {
+  const weeks = [...new Set(CH.flatMap(c => Object.values(c.tabs).flatMap(t => Object.keys(t.weeks))))].sort();
+  const mxw = Math.max(1, ...CH.flatMap(c => Object.values(c.tabs).flatMap(t => Object.values(t.weeks).map(w => w.med))));
+  const shade = v => `background:color-mix(in srgb, var(--accent) ${Math.round(Math.min(1, Math.log10(v + 1) / Math.log10(mxw + 1)) ** 2 * 55)}%, transparent)`;
+  const d8 = d => d ? d.replace(/(\d{4})(\d\d)(\d\d)/, '$1-$2-$3') : '';
+  const tabRow = (c, tab) => { const t = c.tabs[tab]; return t ? `<td class="r num">${t.listed}</td><td class="r num">${fmtN(t.med)}</td><td class="r num">${t.per_week}</td><td class="r num">${t.recent_med == null ? '–' : fmtN(t.recent_med)} <span class="mute">(${t.recent_n})</span></td>` : '<td class="r mute">–</td><td></td><td></td><td></td>'; };
+  h += `<section id="channels"><div class="eyebrow">Channels</div><h2>${esc((I.channels || {}).heading || 'Who is in this niche, and what an upload gets')}</h2>
+    ${((I.channels || {}).paragraphs || []).map(p => `<p class="prose">${md(p)}</p>`).join('')}
+    <div class="tbl"><table><thead><tr><th>Channel</th><th class="r">Subs</th><th>First pulled upload</th><th class="r">Videos</th><th class="r">Median</th><th class="r">Per week</th><th class="r">Recent median (n)</th><th class="r">Shorts</th><th class="r">Median</th><th class="r">Per week</th><th class="r">Recent median (n)</th></tr></thead><tbody>
+    ${CH.map(c => `<tr class="${c.own ? 'own' : ''}"><td><b>${esc(c.channel)}</b></td><td class="r num">${c.subs ? fmtN(c.subs) : '–'}</td><td class="num">${d8(c.first)}</td>${tabRow(c, 'videos')}${tabRow(c, 'shorts')}</tr>`).join('')}</tbody></table></div>
+    <p class="note">Median is over every listed upload. Per week counts uploads in the last 28 days. Recent median is over uploads ${esc(D.era_label)}; young uploads haven't finished growing.</p>
+    ${weeks.length ? ['videos', 'shorts'].map(tab => { const cs = CH.filter(c => c.tabs[tab] && Object.keys(c.tabs[tab].weeks).length); return cs.length ? `<h3>${tab === 'videos' ? 'Videos' : 'Shorts'}: median views per upload, by the week it went up</h3>
+    <div class="tbl"><table class="heat"><thead><tr><th>Channel</th>${weeks.map(w => `<th class="r">${w.slice(5)}</th>`).join('')}</tr></thead><tbody>
+    ${cs.map(c => `<tr class="${c.own ? 'own' : ''}"><td><b>${esc(c.channel)}</b></td>${weeks.map(w => { const x = c.tabs[tab].weeks[w]; return x ? `<td class="c" style="${shade(x.med)}">${fmtN(x.med)} <span>${x.n}</span></td>` : '<td class="c mute">·</td>'; }).join('')}</tr>`).join('')}</tbody></table></div>` : ''; }).join('') + '<p class="note">Columns are the Monday of each upload week; the small number is how many uploads. The last columns are young and still growing.</p>' : ''}
+    ${bullets((I.channels || {}).bullets)}</section>`;
+}
+// then and now: the same videos in an earlier pull
+if (CMP.length) {
+  h += `<section id="compare"><div class="eyebrow">Then and now</div><h2>${esc((I.compare || {}).heading || 'Whose older videos are still being watched')}</h2>
+    ${((I.compare || {}).paragraphs || []).map(p => `<p class="prose">${md(p)}</p>`).join('')}
+    ${CMP.map(c => `<h3>Since ${esc(c.date)}</h3><div class="tbl"><table><thead><tr><th>Channel</th><th class="r">Same videos</th><th class="r">Views then</th><th class="r">Views now</th><th class="r">Added</th><th class="r">Growth</th><th class="r">Subs then</th><th class="r">Subs now</th></tr></thead><tbody>
+    ${c.rows.map(r => `<tr class="${r.own ? 'own' : ''}"><td><b>${esc(r.channel)}</b></td><td class="r num">${r.n}</td><td class="r num">${fmtN(r.then)}</td><td class="r num">${fmtN(r.now)}</td><td class="r num">+${fmtN(r.now - r.then)}</td><td class="r num">${r.then ? '+' + Math.round((r.now / r.then - 1) * 100) + '%' : '–'}</td><td class="r num">${r.subs_then ? fmtN(r.subs_then) : '–'}</td><td class="r num">${r.subs_now ? fmtN(r.subs_now) : '–'}</td></tr>`).join('')}</tbody></table></div>`).join('')}
+    <p class="note">Only videos that are in both pulls. Growth on videos that were already out shows whether a back catalogue still earns views.</p>${bullets((I.compare || {}).bullets)}</section>`;
 }
 // dimension tables
 // the same scopes as analyze.py's tables, so the curve matches the row it sits in
 const est = v => v.tier.startsWith('established');
-const IN_SCOPE = { est_recent: v => est(v) && v.era !== 'older', est: est, all: () => true, small: v => !est(v) };
+const IN_SCOPE = { est_recent: v => est(v) && v.era !== 'older', recent: v => v.era !== 'older', est: est, all: () => true, small: v => !est(v) };
 function spark(k, scope) {
   const hs = V.filter(v => !v.own && v.heat && v.structure === k && (IN_SCOPE[scope] || IN_SCOPE.all)(v)).map(v => v.heat);
   if (!hs.length) return '<span class="mute">–</span>';
@@ -172,7 +226,7 @@ DIMS.forEach(([k, short, title, intro]) => {
   h += `<section id="${k}"><div class="eyebrow">${short}</div><h2>${title}</h2>${intro ? `<p class="prose">${intro}</p>` : ''}
     <div class="scope" data-for="${k}"></div><div class="tbl"><table data-table="${k}"></table></div>${bullets(F[k])}
     ${k === 'hook' && (I.hookdefs || []).length ? `<div class="tbl"><table><thead><tr><th>Hook type</th><th>What it is</th><th>Lines that worked</th></tr></thead><tbody>${I.hookdefs.map(x => `<tr><td><b>${esc(pretty(x.k))}</b></td><td>${md(x.what)}</td><td>${(x.ex || []).map(e => `<i>"${esc(e)}"</i>`).join('<br>')}</td></tr>`).join('')}</tbody></table></div>` : ''}
-    ${k === 'hook' && D.sheets.length ? `<div class="sheets">${D.sheets.map(s => { const v = byId[s.id] || {}; return `<figure><img src="${s.src}" alt="Nine frames from the first 45 seconds of ${esc(v.title)}" loading="lazy"><figcaption><b>${esc(v.channel)}</b>, <a href="${url(v)}" target="_blank" rel="noopener">${esc((v.title || '').slice(0, 50))}</a> · ${fmtN(v.views)}. ${md(s.note)}</figcaption></figure>`; }).join('')}</div>` : ''}</section>`;
+    ${k === 'hook' ? sheetFigs(I.sheets) : ''}</section>`;
 });
 // ideas
 if (ideas.length) {
@@ -189,8 +243,9 @@ if (ideas.length) {
         <div class="label">${(i.thumbs || []).length} thumbnails</div><ol type="A">${(i.thumbs || []).map(t => `<li>${esc(t)}</li>`).join('')}</ol>
         ${i.hook ? `<div class="label">1 hook</div><p class="hookline">${esc(i.hook)}</p>` : ''}</div></div></details>`; }).join('')}</div></section>`;
 }
+secAt('end').forEach(c => { h += custom(c); });
 // leaderboard
-const FL = { fCluster: ['cluster', 'All clusters', clName], fFormat: ['format', 'All formats'], fHook: ['hook', 'All hooks', pretty], fStruct: ['structure', 'All structures', pretty], fEra: ['era', 'All dates'], fTier: ['tier', 'All channel sizes'] };
+const FL = { fCluster: ['cluster', 'All clusters', clName], fFormat: ['format', 'All formats'], fHook: ['hook', 'All hooks', pretty], fStruct: ['structure', 'All structures', pretty], fEra: ['era', 'All dates'], fTier: ['tier', 'All channel sizes'], fTab: ['tab', 'Videos and Shorts', pretty], fChan: ['channel', 'All channels'] };
 h += `<section id="leaderboard"><div class="eyebrow">Leaderboard</div><h2>Every screened-in video, ranked</h2>
   <div class="filters"><input id="q" type="search" placeholder="Search titles or channels" aria-label="Search titles or channels">
   ${Object.entries(FL).map(([id, [, lab]]) => `<select id="${id}" aria-label="${lab}"></select>`).join('')}<span class="mute num" id="lbCount"></span></div>

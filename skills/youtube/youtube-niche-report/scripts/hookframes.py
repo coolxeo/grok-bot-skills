@@ -3,7 +3,8 @@
 usage:  python3 hookframes.py --dir <work>        (after tag.py; resumable; read-only on YouTube)
 
 Needs yt-dlp and ffmpeg. Picks the hook_sheets kept videos with the highest views / channel median (same tab), at most
-hook_sheets_per_channel per channel, about hook_sheet_shorts of them Shorts. For each it downloads only the first 60 s
+hook_sheets_per_channel per channel, about hook_sheet_shorts of them Shorts, plus your own channel's hook_sheets_own
+newest uploads (when own_channel is set). --ids a,b,c sheets just those videos. For each it downloads only the first 60 s
 at 480p into .hooks/ (not for sharing) and writes:
 
   thumbs/hook-<id>.jpg   9 frames at 0.5, 2, 4, 7, 10, 15, 22, 30 and 45 s in a 3x3 sheet, read left to right, top to bottom;
@@ -70,6 +71,11 @@ def pick(root, cfg):
 
     take([t for t in kept if t["tab"] == "shorts"], cfg["hook_sheet_shorts"])
     take([t for t in kept if t["tab"] == "videos"], cfg["hook_sheets"] - len(out))
+    # your own channel: its newest uploads, so its openings can be read the same way as the leaders'
+    if own and cfg["hook_sheets_own"]:
+        mine = [v for v in jl_read(root / "videos.jsonl") if v["chan"] in own]
+        mine.sort(key=lambda v: v.get("upload_date") or "", reverse=True)
+        out += [v["id"] for v in mine if v["id"] not in out][:cfg["hook_sheets_own"]]
     return out
 
 
@@ -110,13 +116,19 @@ def sheet(root, vid, tab):
 
 
 def main():
-    root, cfg = load(workdir_arg(__doc__.splitlines()[0]).parse_args().dir)
+    ap = workdir_arg(__doc__.splitlines()[0])
+    ap.add_argument("--ids", help="comma-separated video ids to sheet instead of the automatic pick")
+    a = ap.parse_args()
+    root, cfg = load(a.dir)
     (root / "thumbs").mkdir(exist_ok=True)
-    ids = pick(root, cfg)
-    tabs = {t["id"]: t["tab"] for t in jl_read(root / "tags.jsonl")}
+    ids = [i.strip() for i in a.ids.split(",") if i.strip()] if a.ids else pick(root, cfg)
+    tabs = {v["id"]: v["tab"] for v in jl_read(root / "videos.jsonl")}
+    tabs.update({t["id"]: t["tab"] for t in jl_read(root / "tags.jsonl")})
     with ThreadPoolExecutor(3) as ex:
         got = list(ex.map(lambda v: sheet(root, v, tabs.get(v, "videos")), ids))
-    json.dump([{"id": v, "stamps": ts} for v, ts in zip(ids, got)], open(root / "hook-picks.json", "w"))
+    picks = root / "hook-picks.json"
+    old = [p for p in (json.load(open(picks)) if picks.exists() else []) if p["id"] not in ids] if a.ids else []
+    json.dump(old + [{"id": v, "stamps": ts} for v, ts in zip(ids, got)], open(picks, "w"))
     for v, ts in zip(ids, got):
         if ts and ts != STAMPS:
             print(f"  {v}: short clip, frames at {', '.join(map(str, ts))} s", file=sys.stderr)
