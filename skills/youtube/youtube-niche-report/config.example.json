@@ -1,8 +1,12 @@
 {
+  "_example": "EXAMPLE ONLY. A made-up niche (home espresso) to show the format. Copy this file to config.json in your work folder and replace every value with your own niche.",
   "niche": "Home espresso and latte art for beginners",
   "report_title": "What wins in home espresso",
   "own_channel": "",
-  "seed_channels": ["@ExampleChannelOne", "@ExampleChannelTwo"],
+  "seed_channels": [
+    "@ExampleChannelOne",
+    "@ExampleChannelTwo"
+  ],
   "queries": [
     "home espresso beginner",
     "latte art tutorial",
@@ -22,10 +26,15 @@
   "hook_sheets_per_channel": 6,
   "tab_cap": 1500,
   "workers": 4,
-  "caption_langs": ["en"],
+  "caption_langs": [
+    "en"
+  ],
   "wave_start": "",
   "established_subs": 5000,
-  "film_buckets": [150, 240],
+  "film_buckets": [
+    150,
+    240
+  ],
   "keep_rule": "Keep only videos that teach or show making espresso drinks at home: technique, latte art, gear for home baristas, routines. Out: cafe vlogs with no coffee making, unrelated cooking, music, news, generic product unboxings with no brewing.",
   "clusters": {
     "technique": "Pulling shots, dialing in, grind and ratio",

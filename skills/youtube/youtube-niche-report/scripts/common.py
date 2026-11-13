@@ -44,7 +44,7 @@ def load(workdir):
     cfg_path = root / "config.json"
     if not cfg_path.exists():
         raise SystemExit(f"no config.json in {root}; copy config.example.json there and edit it")
-    cfg = {**DEFAULTS, **json.load(open(cfg_path))}
+    cfg = {**DEFAULTS, **{k: v for k, v in json.load(open(cfg_path)).items() if not k.startswith("_")}}
     if "other" not in cfg["clusters"]:
         cfg["clusters"]["other"] = "Other"
     return root, cfg

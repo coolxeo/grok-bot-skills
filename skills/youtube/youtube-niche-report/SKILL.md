@@ -76,7 +76,8 @@ Ask for these first. If the user can't answer one, use the default and say so.
 
 Make a work folder for this report (one per niche and date, for example
 `niche-espresso-2026-11-13/`) and copy `config.example.json` into it as
-`config.json`. Fill in the inputs. All scripts take `--dir <work folder>`
+`config.json`. That file is an example only: a made-up home espresso niche
+that shows the format. Replace every value with the user's inputs. All scripts take `--dir <work folder>`
 and are resumable: rerun a step and it skips what is already done.
 
 ### 1. Pull (30 to 60 minutes)
@@ -219,7 +220,7 @@ can be shared as one file or published as a web page.
 
 ## Files
 
-- [config.example.json](config.example.json): every setting with a worked example niche
+- [config.example.json](config.example.json): every setting, filled in for a made-up example niche (home espresso); replace it all
 - [scripts/pull.py](scripts/pull.py), [scripts/tag.py](scripts/tag.py),
   [scripts/hookframes.py](scripts/hookframes.py),
   [scripts/analyze.py](scripts/analyze.py),

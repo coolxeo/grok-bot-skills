@@ -4,6 +4,9 @@ You write this file after reading the tables from `analyze.py`. Every key is
 optional; the page leaves out what is missing. Text fields accept `**bold**`
 and nothing else.
 
+The values below are a made-up example (the home espresso niche from
+`config.example.json`), not real results. Replace them with your own.
+
 ```json
 {
   "title": "What wins in home espresso, and the next five videos",

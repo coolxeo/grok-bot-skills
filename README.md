@@ -159,7 +159,7 @@ updates. Show the evidence. Propose changes before applying them.
 
 | Skill | What it does |
 | --- | --- |
-| [youtube-niche-report](skills/youtube/youtube-niche-report/SKILL.md) | Pull a niche's top videos, score them against their own channel, and build an interactive HTML report of what wins. |
+| [youtube-niche-report](skills/youtube/youtube-niche-report/SKILL.md) | Pull a niche's top videos, score them against their own channel, and build an interactive HTML report of what wins. Ships with an example config for a made-up niche. |
 
 ### Bots
 
