@@ -6,8 +6,10 @@ Needs yt-dlp and ffmpeg. Picks the hook_sheets kept videos with the highest view
 hook_sheets_per_channel per channel, about hook_sheet_shorts of them Shorts. For each it downloads only the first 60 s
 at 480p into .hooks/ (not for sharing) and writes:
 
-  thumbs/hook-<id>.jpg   9 frames at 0.5, 2, 4, 7, 10, 15, 22, 30 and 45 s in a 3x3 sheet, read left to right, top to bottom
-  hook-picks.json        the ids picked, best first
+  thumbs/hook-<id>.jpg   9 frames at 0.5, 2, 4, 7, 10, 15, 22, 30 and 45 s in a 3x3 sheet, read left to right, top to bottom;
+                         a clip shorter than 46 s gets its 9 frames spread evenly over its real length instead. Shorts
+                         use 9:16 cells (180x320), so vertical text stays readable; videos use 16:9 cells (320x180).
+  hook-picks.json        the ids picked, best first, each with the frame times (s) its sheet used
 
 Then look at each sheet yourself and write hook-frames.jsonl (one line per sheet, see references/method.md):
   {"id": "...", "onscreen": [{"t": 0.5, "text": "first line on screen"}], "first_visual": "...",
@@ -23,6 +25,23 @@ sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parent))  
 from common import jl_read, load, workdir_arg
 
 STAMPS = [0.5, 2, 4, 7, 10, 15, 22, 30, 45]
+
+
+def clip_length(clip):
+    p = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(clip)],
+                       capture_output=True, text=True)
+    try:
+        return float(p.stdout.strip())
+    except ValueError:
+        return None
+
+
+def stamps_for(length):
+    """The fixed times when the clip is long enough, else 9 times spread from 0.5 s to just before the end."""
+    if not length or length > STAMPS[-1] + 1:
+        return STAMPS
+    end = max(length - 0.6, 1.0)
+    return [round(0.5 + (end - 0.5) * i / 8, 1) for i in range(9)]
 
 
 def pick(root, cfg):
@@ -54,10 +73,12 @@ def pick(root, cfg):
     return out
 
 
-def sheet(root, vid):
+def sheet(root, vid, tab):
+    """Returns the frame times used, or None when no sheet could be made."""
     dest = root / "thumbs" / f"hook-{vid}.jpg"
+    times = root / "thumbs" / f"hook-{vid}.times.json"
     if dest.exists():
-        return True
+        return json.load(open(times)) if times.exists() else STAMPS
     clips = root / ".hooks"
     clips.mkdir(exist_ok=True)
     clip = clips / f"{vid}.mp4"
@@ -67,28 +88,39 @@ def sheet(root, vid):
                         f"https://www.youtube.com/watch?v={vid}"], capture_output=True, text=True, timeout=300)
     if not clip.exists():
         print(f"clip failed {vid}", file=sys.stderr)
-        return False
+        return None
+    w, h = (180, 320) if tab == "shorts" else (320, 180)
+    fit = f"scale={w}:{h}:force_original_aspect_ratio=decrease,pad={w}:{h}:(ow-iw)/2:(oh-ih)/2"
     frames = clips / vid
     frames.mkdir(exist_ok=True)
-    for i, t in enumerate(STAMPS):
+    for old in frames.glob("*.png"):
+        old.unlink()
+    ts = stamps_for(clip_length(clip))
+    for i, t in enumerate(ts):
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(t), "-i", str(clip), "-frames:v", "1",
-                        "-vf", "scale=320:320:force_original_aspect_ratio=decrease,pad=320:320:(ow-iw)/2:(oh-ih)/2",
-                        str(frames / f"{i:02d}.png")])
+                        "-vf", fit, str(frames / f"{i:02d}.png")])
     if not list(frames.glob("*.png")):
-        return False
+        return None
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", "1", "-pattern_type", "glob",
                     "-i", str(frames / "*.png"), "-vf", "tile=3x3", "-frames:v", "1", "-q:v", "4", str(dest)])
-    return dest.exists()
+    if not dest.exists():
+        return None
+    times.write_text(json.dumps(ts))
+    return ts
 
 
 def main():
     root, cfg = load(workdir_arg(__doc__.splitlines()[0]).parse_args().dir)
     (root / "thumbs").mkdir(exist_ok=True)
     ids = pick(root, cfg)
-    json.dump(ids, open(root / "hook-picks.json", "w"))
+    tabs = {t["id"]: t["tab"] for t in jl_read(root / "tags.jsonl")}
     with ThreadPoolExecutor(3) as ex:
-        ok = sum(ex.map(lambda v: sheet(root, v), ids))
-    print(f"hook sheets: {ok}/{len(ids)} in {root / 'thumbs'}", file=sys.stderr)
+        got = list(ex.map(lambda v: sheet(root, v, tabs.get(v, "videos")), ids))
+    json.dump([{"id": v, "stamps": ts} for v, ts in zip(ids, got)], open(root / "hook-picks.json", "w"))
+    for v, ts in zip(ids, got):
+        if ts and ts != STAMPS:
+            print(f"  {v}: short clip, frames at {', '.join(map(str, ts))} s", file=sys.stderr)
+    print(f"hook sheets: {sum(ts is not None for ts in got)}/{len(ids)} in {root / 'thumbs'}", file=sys.stderr)
 
 
 if __name__ == "__main__":

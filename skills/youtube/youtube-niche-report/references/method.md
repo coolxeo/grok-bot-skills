@@ -48,7 +48,7 @@ which is close enough for a ratio. Catalogue size is capped by `tab_cap`.
 | `hooks.jsonl` | pull | `id`, `has_subs`, `source`, `first60`: `[{t, text}]` |
 | `thumbs/<id>.jpg` | pull | 320 px thumbnail |
 | `tags.jsonl` | tag | `id`, `keep`, `why_out`, `topic`, `cluster`, `structure`, `hook_type`, `hook_text`, `voice` |
-| `thumbs/hook-<id>.jpg`, `hook-picks.json` | hookframes | 3×3 sheet of the first 45 s |
+| `thumbs/hook-<id>.jpg`, `hook-picks.json` | hookframes | 3×3 sheet of the first 45 s; `hook-picks.json` lists each id with the frame times it used |
 | `hook-frames.jsonl` | you | see below |
 | `data.json` | analyze | everything the page needs |
 | `insights.json` | you | see insights-schema.md |
@@ -57,7 +57,10 @@ which is close enough for a ratio. Catalogue size is capped by `tab_cap`.
 ## hook-frames.jsonl
 
 One line per sheet you read. Frames are at 0.5, 2, 4, 7, 10, 15, 22, 30 and
-45 s, left to right, top to bottom.
+45 s, left to right, top to bottom. A clip shorter than 46 s (most Shorts)
+gets its 9 frames spread evenly over its real length instead: take the times
+from `stamps` in `hook-picks.json` (the script also prints them). Shorts use
+tall 9:16 cells and videos wide 16:9 cells.
 
 ```json
 {"id": "VIDEO_ID",
