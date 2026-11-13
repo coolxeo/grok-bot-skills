@@ -21,6 +21,7 @@ DEFAULTS = {
     "hook_sheets": 60,
     "hook_sheet_shorts": 20,
     "hook_sheets_per_channel": 6,
+    "hook_sheets_own": 12,
     "tab_cap": 1500,
     "workers": 4,
     "caption_langs": ["en"],
