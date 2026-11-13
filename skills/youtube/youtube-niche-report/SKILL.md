@@ -82,7 +82,8 @@ and are resumable: rerun a step and it skips what is already done.
 ### 1. Pull (30 to 60 minutes)
 
 ```sh
-python3 scripts/pull.py --dir <work>
+python3 scripts/pull.py --dir <work> --discover-only   # searches + channel list, a few minutes
+python3 scripts/pull.py --dir <work>                   # the rest, 30 to 60 minutes
 ```
 
 It runs the searches, picks channels (seeds, your own, then up to
@@ -90,9 +91,10 @@ It runs the searches, picks channels (seeds, your own, then up to
 searches with a video over `discover_min_views`), lists every video on each
 channel for the medians, fetches full metadata for each channel's top 50
 videos and top 50 Shorts, the first 60 s of captions for the top 20 of each,
-and 320 px thumbnails. Check `channels.json` after the discovery step: drop
-discovered channels that are obviously off-niche and rerun, so the later
-steps don't waste time on them.
+and 320 px thumbnails. The first run stops after the channel list. Open
+`channels.json`, delete discovered channels that are obviously off-niche,
+then run without `--discover-only`: it reuses the edited list, so the
+later steps don't waste time on them.
 
 Rate limits: the script backs off on HTTP 429. If YouTube keeps refusing,
 lower `workers` to 2 and try again later. Don't add cookies from a signed-in
@@ -176,7 +178,8 @@ plain text, so the result can live in a repo and be read without a browser.
 python3 -I scripts/build_report.py --dir <work> --out report.html
 ```
 
-Open `report.html` and check it at phone width. It embeds everything, so it
+`--out` defaults to `report.html` in the work folder. Open it and check it
+at phone width. It embeds everything, so it
 can be shared as one file or published as a web page.
 
 ## Reading the numbers

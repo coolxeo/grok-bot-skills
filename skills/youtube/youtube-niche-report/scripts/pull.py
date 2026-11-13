@@ -1,6 +1,6 @@
 """Step 1: pull a niche from YouTube, read-only, with yt-dlp.
 
-usage:  python3 pull.py --dir <work folder>        (resumable: finished steps and rows are skipped)
+usage:  python3 pull.py --dir <work folder> [--discover-only]     (resumable: finished steps and rows are skipped)
 
 Needs yt-dlp and curl on a network that reaches YouTube. Nothing on YouTube is changed and nothing is downloaded
 except captions and 320 px thumbnails. A niche of about 30 channels takes 30-60 minutes.
@@ -263,13 +263,21 @@ def thumbs(root, cfg, cat):
 
 
 def main():
-    root, cfg = load(workdir_arg(__doc__.splitlines()[0]).parse_args().dir)
+    ap = workdir_arg(__doc__.splitlines()[0])
+    ap.add_argument("--discover-only", action="store_true",
+                    help="stop after writing channels.json, so you can review it before the long pull")
+    args = ap.parse_args()
+    root, cfg = load(args.dir)
     if not cfg["queries"] and not cfg["seed_channels"]:
         raise SystemExit("config.json needs at least one of queries or seed_channels")
     disc = discover(root, cfg)
     print("discovery rows", len(disc), file=sys.stderr)
     chans = pick_channels(root, cfg, disc)
     print("channels", len(chans), [c.get("name") or c["key"] for c in chans], file=sys.stderr)
+    if args.discover_only:
+        print(f"review {root / 'channels.json'}, drop off-niche channels, then run again without --discover-only",
+              file=sys.stderr)
+        return
     cat = catalog(root, cfg, chans)
     print("catalog rows", len(cat), file=sys.stderr)
     fetch_full(root, cfg, cat)
