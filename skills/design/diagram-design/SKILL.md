@@ -45,7 +45,31 @@ Draw only when space carries meaning: order, flow, containment, or connection. I
 
 - A single HTML file with inline SVG and CSS, no external requests.
 - SVG has a `<title>` and `<desc>` for screen readers.
-- PNG export at 2x for posts and ads. Open the PNG and look at it before handing it over.
+- PNG export at 2x for posts and ads. Open the PNG and look at it before handing it over. That still is the default. Do not commit a rendered png, or any gif, mp4, or webm.
+
+## Optional line-draw clip
+
+Skip this unless the user asks for motion. The PNG stays the default path.
+
+1. Animate the inline SVG as a line-draw. Prefer CSS so the timing matches a preset from [motion-picker](../motion-picker/SKILL.md#presets) exactly. calm is the default. Measure each path (SVGGeometryElement.getTotalLength() works) and store the length in a custom property. Set `stroke-dasharray` and `stroke-dashoffset` to that length, then animate `stroke-dashoffset` to 0 over the preset duration and cubic-bezier. When `prefers-reduced-motion` is reduce, do not animate; leave the stroke fully drawn and ship the PNG only.
+2. Vivus is the other option ([readme](https://github.com/maxwellito/vivus/blob/master/readme.md)). Its duration option counts frames, not milliseconds, so do not drop the preset's millisecond number straight into that option. Convert with frames ≈ milliseconds ÷ 1000 × the capture frame rate, and write down the frame count you passed. At 60fps the calm row is about 25 frames. Vivus follows strokes on path elements and does not draw a fill. Convert real outlines to paths, or stay with the CSS method.
+3. Follow the [motion-picker](../motion-picker/SKILL.md) rules: one moment on the page, and for the recording, short moving clips joined with fades, no held still, no zoom-in, and no push-in. The timing numbers stay the [presets](../motion-picker/SKILL.md#presets).
+4. Record a short clip with a headless browser, as webm or mp4. Keep that file outside git, along with any gif or rendered png.
+
+```css
+@media (prefers-reduced-motion: no-preference) {
+  .draw {
+    stroke-dasharray: var(--len);
+    stroke-dashoffset: var(--len);
+    animation: draw 420ms cubic-bezier(0.33, 0, 0.2, 1) forwards;
+  }
+}
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+```
+
+The 420ms curve is the calm row. If you switch preset, copy the new row from [motion-picker](../motion-picker/SKILL.md#presets). Do not invent a third duration.
 
 ## Inspired by
 
@@ -58,3 +82,4 @@ Draw only when space carries meaning: order, flow, containment, or connection. I
 - Standalone: works without the upstream pack, and uses it when present.
 - Caption-first planning and a "should this be a diagram?" test.
 - Dani's never-ship list, social still sizes, and accessible SVG plus a look-at-the-PNG check.
+- An optional line-draw clip (CSS stroke offset, or Vivus) timed by the [motion-picker](../motion-picker/SKILL.md#presets) presets. The PNG stays the default. The clip stays out of git.
