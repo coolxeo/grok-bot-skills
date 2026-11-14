@@ -15,11 +15,11 @@ Free skills that run my 3 YouTube channels with a team of Grok Bots. Nothing pos
 
 Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
 
-28 skills for writing, design, code, SEO, ads, YouTube research, video, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
+29 skills for writing, design, code, SEO, ads, YouTube research, video, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
 
 Every skill is Dani's own version, inspired by several public references rather than copied from one. Each is a single readable `SKILL.md`. The rewritten skills end with what inspired them, what those references were missing, and what this version adds.
 
-[Start here](#start-here) · [Browse all 28 skills](#all-skills) · [Contribute](#contribute)
+[Start here](#start-here) · [Browse all 29 skills](#all-skills) · [Contribute](#contribute)
 
 ## Install
 
@@ -45,7 +45,7 @@ To install one skill, add `--skill` and its folder name, for example `npx skills
 
 ## Get a skill
 
-For all 28 skills, download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
+For all 29 skills, download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
 
 ```sh
 git clone https://github.com/coolxeo/grok-bot-skills.git
@@ -116,6 +116,7 @@ updates. Show the evidence. Propose changes before applying them.
 | [design-taste-frontend](skills/design/design-taste-frontend/SKILL.md) | Build landing pages and portfolios from a clear design brief. |
 | [redesign-existing-projects](skills/design/redesign-existing-projects/SKILL.md) | Audit and improve an existing site's design. |
 | [diagram-design](skills/design/diagram-design/SKILL.md) | Create explainer diagrams that are branded, not dashboard slop. |
+| [motion-picker](skills/design/motion-picker/SKILL.md) | Pick one animation library for a single motion moment, with its license and a calm, snappy, or playful preset. |
 
 ### Engineering
 
@@ -175,7 +176,8 @@ The instructions are plain Markdown. Some workflows need more than a chat window
 
 - Bot and engineering skills refer to Grok Bot tools, routines, cloud agents, or local agent data. Check that your environment has those tools before running them.
 - Some coding workflows refer to pstack skills. Install that pack separately when a workflow needs it.
-- `diagram-design` runs on its own. If [Cathryn Lavery's diagram pack](https://github.com/cathrynlavery/diagram-design) is installed, it uses that pack's type references too.
+- `diagram-design` runs on its own. If [Cathryn Lavery's diagram pack](https://github.com/cathrynlavery/diagram-design) is installed, it uses that pack's type references too. Its optional line-draw clip needs a headless browser only if you record webm or mp4. Do not commit gif, mp4, webm, or rendered png files.
+- `motion-picker` needs no package of its own. It chooses a library and a timing preset. The same media rule applies: captures stay out of git.
 - `youtube-niche-report` runs Python scripts with yt-dlp, ffmpeg and Pillow on a machine that can reach YouTube.
 - `shorts-reframe` needs ffmpeg and ffprobe on the machine that holds the source video.
 - The image playbook needs browser control and a signed-in ChatGPT session with image generation available.
@@ -198,6 +200,7 @@ Each skill here is written from scratch in our own words, drawing on several ref
 - **social-copywriting:** inspired by [Jules Sauvajol's Copywriting-skill](https://github.com/judicael-s/Copywriting-skill), X's open-source heavy ranker README, and LinkedIn Engineering's dwell-time post.
 - **design-taste-frontend, redesign-existing-projects:** inspired by [Leon Lin's Taste Skill](https://github.com/Leonxlnx/taste-skill), Anthropic's frontend-design skill, Vercel's Web Interface Guidelines, and Nielsen Norman Group's usability heuristics.
 - **diagram-design:** inspired by [Cathryn Lavery's diagram-design](https://github.com/cathrynlavery/diagram-design), the C4 model's notation guide, and Edward Tufte's idea of chartjunk.
+- **motion-picker:** inspired by [N01ennn's post](https://x.com/N01ennn/status/2121695892738629808) naming 20 animation libraries, and by the LICENSE file in each of those repos.
 - **engineering-playbook:** inspired by [Lingxi Li's Engineer Bot](https://x.ai/bot/marketplace/bots/engineer-bot), Google's engineering practices on small changes, and Lauren Tan's pstack.
 - **show-me:** inspired by [HumanLayer's show-me](https://github.com/humanlayer/skills/tree/main/plugins/show-me) (whose launch article credits Dillon Mulroy and Matt Pocock), Google's guide to change descriptions, and GitHub's diagram docs.
 - **design-a-grok-bot, routine-healthcheck, transcript-healthcheck, make-bot-ui:** inspired by [Lauren Tan (@poteto)](https://github.com/poteto)'s [dr eggbot](https://x.ai/bot/marketplace/bots/dr-eggbot-v2) and [pstack](https://github.com/cursor/plugins/tree/main/pstack), Anthropic's *Building effective agents*, the Google SRE book, Hamel Husain's field guide, Tailscale's Serve docs, and GitHub's webhook docs.
