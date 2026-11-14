@@ -36,3 +36,14 @@ Use for X Articles (x.com/i/articles or compose/articles), not tweets or 1/2/3/4
 ## Voice
 
 First person, specific, short sentences mixed with longer ones. No unrelated product-promo CTA on a founder/research Article. No press-release tone.
+
+## Inspired by
+
+- Dani Acosta's own X Article workflow. No outside source was verified, so none is credited (see [docs/credits.md](../../../docs/credits.md)). It builds on this repo's outline, draft, source-check, no-ai-slop, and social-copywriting skills.
+
+## What this version adds
+
+- A closer rule: end on a step the reader can take or a real question, not a slogan.
+- The title and the first line must say different things.
+- A lint and fact-lock check with no-ai-slop's `scripts/lint.py` before hand-off.
+- A promo post written with social-copywriting, handed over with the Article draft.
