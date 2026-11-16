@@ -73,7 +73,8 @@ Skip it for a single-shot clip or a script with no picture notes.
 - [scripts/template.html](scripts/template.html): the page; the builder fills in the data.
 - [scripts/test_plan_page.py](scripts/test_plan_page.py): `python3 -m pytest -q skills/video/video-plan-page/scripts`
 - [example/script.json](example/script.json) and [example/plan.json](example/plan.json): a made-up
-  45-second film, *Seven Days to One Loaf*, with no images, so it builds from a fresh clone.
+  45-second film, *Seven Days to One Loaf*. Its 11 key frames and 2 thumbnails are AI-generated
+  stills in [example/keys/](example/keys/) (960 px JPEG), so a fresh clone builds the page with pictures.
 
 ## Checklist
 

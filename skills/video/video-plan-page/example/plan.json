@@ -132,5 +132,22 @@
    ]
   }
  ],
- "approve_what": "Seven Days to One Loaf"
+ "approve_what": "Seven Days to One Loaf",
+ "keys": {
+  "S01": "keys/s01.jpg",
+  "S02": "keys/s02.jpg",
+  "S03": "keys/s03.jpg",
+  "S04": "keys/s04.jpg",
+  "S05": "keys/s05.jpg",
+  "S06": "keys/s06.jpg",
+  "S07": "keys/s07.jpg",
+  "S08": "keys/s08.jpg",
+  "S09": "keys/s09.jpg",
+  "S10": "keys/s10.jpg",
+  "S11": "keys/s11.jpg"
+ },
+ "thumb_images": {
+  "A": "keys/thumb-a.jpg",
+  "B": "keys/thumb-b.jpg"
+ }
 }
