@@ -1,0 +1,206 @@
+{
+ "title": "Seven Days to One Loaf",
+ "series": "Kitchen Quests",
+ "episode": 1,
+ "of": 3,
+ "moral": "The first try is supposed to be ugly. It still counts.",
+ "notes": "Demo script for the video-plan-page skill. Every picture is still to paint, so the animatic shows the shot notes.",
+ "titles": [
+  "Seven Days to One Loaf",
+  "I Grew Yeast From Nothing (Day 1 to 7)",
+  "My First Sourdough Was Ugly. I Ate It Anyway."
+ ],
+ "thumbs": [
+  {
+   "id": "A",
+   "words": "DAY 7",
+   "brief": "Maya's hands holding a lopsided loaf toward the camera, warm kitchen light, flour on her sleeve."
+  },
+  {
+   "id": "B",
+   "words": "0 → 1 loaf",
+   "brief": "Split frame: empty jar on the left, the finished loaf on the right."
+  }
+ ],
+ "checks": [
+  {
+   "name": "quest stated by 10 s",
+   "ok": true,
+   "info": "goal and deadline in the first two lines"
+  },
+  {
+   "name": "every open loop closes",
+   "ok": true,
+   "info": "loaf, feed"
+  },
+  {
+   "name": "enemy speaks at least 3 times",
+   "ok": true,
+   "info": "3 whispers"
+  },
+  {
+   "name": "boss at 70-85 % of runtime",
+   "ok": true,
+   "info": ""
+  },
+  {
+   "name": "payoff in the last 15 s",
+   "ok": true,
+   "info": ""
+  }
+ ],
+ "quest": {
+  "goal": "bake one loaf from a starter she grows herself",
+  "stakes": "seven days, no store-bought yeast",
+  "enemy": "the Shortcut (\"just buy one.\")",
+  "hud": "day counter, top right",
+  "opening": "cold open on the empty jar",
+  "cast": [
+   "Maya",
+   "the Shortcut (voice only)",
+   "a neighbour (one glimpse)"
+  ],
+  "hooks": [
+   {
+    "text": "Maya has never baked bread. She has seven days.",
+    "checks": "MHSNB",
+    "pick": true
+   },
+   {
+    "text": "Seven days. One jar. No yeast from the store.",
+    "checks": "HSNB"
+   },
+   {
+    "text": "Day three, her starter smelled like old socks.",
+    "checks": "MSNB"
+   },
+   {
+    "text": "I tried to grow bread from flour and water.",
+    "checks": "MHB"
+   },
+   {
+    "text": "The bakery opens at eight. She didn't go.",
+    "checks": "HSB"
+   }
+  ]
+ },
+ "lines": [
+  {
+   "who": "C",
+   "text": "Maya has never baked bread. | She has seven days.",
+   "level": 0,
+   "beat": "quest",
+   "loop": "open:loaf",
+   "see": "Close on an empty jar on a kitchen counter, morning light, a bag of flour beside it.",
+   "hud": "DAY 1",
+   "knows": [
+    "maya"
+   ],
+   "min": 4.6
+  },
+  {
+   "who": "C",
+   "text": "One loaf. | Made from a starter she grows herself.",
+   "level": 0,
+   "beat": "quest",
+   "see": "Maya stirs flour and water in the jar with a wooden spoon.",
+   "min": 4.2
+  },
+  {
+   "who": "S",
+   "text": "just buy one. | the bakery opens at eight.",
+   "level": 0,
+   "beat": "but",
+   "min": 3.6
+  },
+  {
+   "who": "C",
+   "text": "Day two. Nothing happens.",
+   "level": 1,
+   "beat": "try",
+   "see": "The jar on the windowsill. No bubbles. Maya leans in, frowning.",
+   "hud": "DAY 2"
+  },
+  {
+   "who": "C",
+   "text": "Day three. It smells like old socks.",
+   "level": 1,
+   "beat": "worse",
+   "see": "Maya holds the jar at arm's length.",
+   "hud": "DAY 3"
+  },
+  {
+   "who": "S",
+   "text": "see? it's not for you.",
+   "level": 1,
+   "beat": "but"
+  },
+  {
+   "who": "C",
+   "text": "She reads one line on a flour bag: | feed it twice a day.",
+   "level": 1,
+   "beat": "turn",
+   "loop": "open:feed",
+   "see": "Macro on the printed instructions, a thumb under the words.",
+   "knows": [
+    "maya",
+    "neighbour"
+   ]
+  },
+  {
+   "who": "C",
+   "text": "Day five. Bubbles.",
+   "level": 2,
+   "beat": "win",
+   "loop": "close:feed",
+   "see": "The starter has doubled, glossy bubbles at the glass.",
+   "hud": "DAY 5"
+  },
+  {
+   "who": "C",
+   "text": "Day six. The dough tears every time she folds it.",
+   "level": 2,
+   "beat": "worse",
+   "see": "Wet dough ripping between her fingers.",
+   "hud": "DAY 6"
+  },
+  {
+   "who": "S",
+   "text": "eight a.m. warm bread. | no tearing.",
+   "level": 2,
+   "beat": "but"
+  },
+  {
+   "who": "C",
+   "text": "Day seven. She waits. | Four more hours.",
+   "level": 3,
+   "beat": "boss",
+   "see": "The oven light on, Maya sitting on the floor watching through the glass.",
+   "hud": "DAY 7"
+  },
+  {
+   "who": "X",
+   "text": "",
+   "level": 3,
+   "beat": "boss",
+   "see": "The loaf comes out: dark crust, a crack across the top.",
+   "min": 2.6
+  },
+  {
+   "who": "C",
+   "text": "It's flat. It's lopsided. | It's hers.",
+   "level": 4,
+   "beat": "payoff",
+   "loop": "close:loaf",
+   "see": "She tears the loaf open; steam rises. She eats the first piece standing up."
+  },
+  {
+   "who": "C",
+   "text": "Starter: 4 days. Loaf: 1. | Bakery visits: 0.",
+   "level": 4,
+   "beat": "moral",
+   "see": "The empty jar, refilled, back on the counter. Card holds.",
+   "min": 4.0
+  }
+ ]
+}

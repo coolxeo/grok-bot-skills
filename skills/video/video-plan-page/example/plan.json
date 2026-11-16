@@ -1,0 +1,142 @@
+{
+ "eyebrow": "Kitchen Quests · film 1 of 3 · demo plan",
+ "lede": "A first-time baker has seven days to grow a starter and bake one loaf. Press play to watch the script as an animatic, check the plan, then answer the choices at the bottom.",
+ "chips": [
+  "16:9 · about 0:45",
+  "Captions + whispered enemy",
+  "Nothing rendered yet"
+ ],
+ "levels": {
+  "0": "Quest",
+  "1": "Level 1 · the jar",
+  "2": "Level 2 · the dough",
+  "3": "Boss · the wait",
+  "4": "Payoff"
+ },
+ "hud_label": "WHO KNOWS",
+ "speakers": {
+  "C": "caption",
+  "S": "the Shortcut, whispered",
+  "X": "picture only"
+ },
+ "colours": {
+  "maya": "#ffd166",
+  "neighbour": "#3fd6c8"
+ },
+ "enemy_colour": "#c39bff",
+ "shots_note": "Key frames get painted after the OK.",
+ "steps": [
+  {
+   "title": "Lock the script",
+   "detail": "Apply the choices below; freeze the lines.",
+   "time": "30 min"
+  },
+  {
+   "title": "Paint key frames",
+   "detail": "One image per shot, in the thumbnail look.",
+   "time": "3 h"
+  },
+  {
+   "title": "Animate and voice",
+   "detail": "Short moves on each key; record the whispers.",
+   "time": "4 h"
+  },
+  {
+   "title": "Cut, caption, mix",
+   "detail": "Captions on the timing above; one quiet music bed.",
+   "time": "2 h"
+  },
+  {
+   "title": "Review and publish",
+   "detail": "Watch on a phone first.",
+   "time": "1 h"
+  }
+ ],
+ "gantt": [
+  {
+   "name": "Lock script",
+   "start": 0,
+   "end": 0.5,
+   "kind": "you"
+  },
+  {
+   "name": "Key frames",
+   "start": 0.5,
+   "end": 3.5
+  },
+  {
+   "name": "Animate",
+   "start": 3.5,
+   "end": 7.5,
+   "kind": "cpu"
+  },
+  {
+   "name": "Voice",
+   "start": 3.5,
+   "end": 4.5,
+   "kind": "you"
+  },
+  {
+   "name": "Cut + mix",
+   "start": 7.5,
+   "end": 9.5
+  },
+  {
+   "name": "Review",
+   "start": 9.5,
+   "end": 10.5,
+   "kind": "you"
+  }
+ ],
+ "gantt_span": 12,
+ "gantt_note": "Hours from the OK. Purple: the bot. Teal: the machine. Amber: you.",
+ "decisions": [
+  {
+   "question": "Which thumbnail?",
+   "options": [
+    {
+     "label": "A · DAY 7",
+     "detail": "Hands and the loaf; the result up front.",
+     "reply": "Thumbnail A",
+     "rec": true
+    },
+    {
+     "label": "B · 0 → 1 loaf",
+     "detail": "Before and after; clearer but colder.",
+     "reply": "Thumbnail B"
+    }
+   ]
+  },
+  {
+   "question": "How does the enemy sound?",
+   "options": [
+    {
+     "label": "Whispered caption only",
+     "detail": "No voice actor; fastest.",
+     "reply": "Enemy as whispered captions",
+     "rec": true
+    },
+    {
+     "label": "Voiced whisper",
+     "detail": "Adds one recording session.",
+     "reply": "Enemy voiced"
+    }
+   ]
+  },
+  {
+   "question": "Title?",
+   "options": [
+    {
+     "label": "Seven Days to One Loaf",
+     "reply": "Title 1",
+     "rec": true
+    },
+    {
+     "label": "My First Sourdough Was Ugly. I Ate It Anyway.",
+     "reply": "Title 3"
+    }
+   ]
+  }
+ ],
+ "approve_what": "Seven Days to One Loaf"
+}

@@ -11,6 +11,7 @@ Free skills that run my 3 YouTube channels with a team of Grok Bots. Nothing pos
 | Audit your site for AI answers, then fix it | AEO/GEO Site Audit & Build Kit | €9 | [Get the kit →](https://daniacostaai.gumroad.com/l/cxabi) | [aeo-geo-site](skills/seo/aeo-geo-site/SKILL.md) |
 | Make your pages and videos readable by AI answers | AEO Kit (Markdown Twins + YouTube Watch Pages) | $24 | [Get the kit →](https://daniacostaai.gumroad.com/l/wzalwo) | [markdown-twin](skills/seo/markdown-twin/SKILL.md) |
 | Turn one video into Shorts, QA included | Shorts Builder Kit | $14 | [Get the kit →](https://daniacostaai.gumroad.com/l/ommvol) | [shorts-reframe](skills/video/shorts-reframe/SKILL.md) |
+| [video-plan-page](skills/video/video-plan-page/SKILL.md) | Turn a video script into one HTML page with a playable animatic, the shot list, and choices to approve before anything is rendered. Ships with a made-up demo film. |
 | Turn rough notes into an X Article | X Article Writer | €7 | [Get the kit →](https://daniacostaai.gumroad.com/l/lzowtl) | [x-article](skills/writing/x-article/SKILL.md) |
 
 Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
@@ -209,6 +210,7 @@ Each skill here is written from scratch in our own words, drawing on several ref
 - **exact-match-intent-seo:** started from [Hridoy Reh's X post](https://x.com/hridoyreh/status/2096534436934455606), not reverified.
 - **markdown-twin:** inspired by [Jeremy Howard / llmstxt.org](https://llmstxt.org/): the /llms.txt v2 proposal.
 - **shorts-reframe:** inspired by [FFmpeg crop filter documentation](https://ffmpeg.org/ffmpeg-filters.html#crop) and the [mediacodec.dev crop guide](https://mediacodec.dev/how-to/crop-video/).
+- **video-plan-page:** Dani's own storytelling-video plan page (private channel repo, PR #204), rewritten as a standalone skill.
 - **x-article, chatgpt-images-browser-playbook:** Dani's own workflows; no outside source verified.
 
 See the [source audit of the 22 skills reviewed on 17 Sep 2026](docs/credits.md) for exact files, evidence, and unresolved origins. No standalone upstream was verified for `x-article` or `chatgpt-images-browser-playbook`.
