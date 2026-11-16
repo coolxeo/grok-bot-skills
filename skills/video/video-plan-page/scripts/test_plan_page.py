@@ -91,7 +91,7 @@ def test_empty_script_fails(tmp_path):
     assert pp.main([str(_write(tmp_path, "s.json", {"title": "x"})), "--out", str(tmp_path / "o.html")]) == 1
 
 
-def test_reply_names_every_picked_option_by_label(tmp_path):
+def test_reply_names_picks_and_bar_matches_legend(tmp_path):
     """Runs the page in a headless browser when Playwright is installed; skipped otherwise."""
     import pytest
     pw = pytest.importorskip("playwright.sync_api")
@@ -114,4 +114,7 @@ def test_reply_names_every_picked_option_by_label(tmp_path):
                 page.click(f"#q{i}_{j}")
                 text = page.inner_text("#replytext")
                 assert f"{i + 1}. {op['label']}" in text, text
+        bar = page.eval_on_selector_all(".seg span", "els => els.map(e => e.textContent).reverse()")
+        legend = page.eval_on_selector_all("#legend span", "els => els.map(e => e.textContent)")
+        assert bar == legend[:len(bar)], (bar, legend)
         browser.close()

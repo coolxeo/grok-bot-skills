@@ -67,7 +67,7 @@ button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--acc
 .tc{font-family:var(--f-mono);font-variant-numeric:tabular-nums;color:var(--muted)}
 .bar{position:relative;height:46px;border-radius:8px;background:var(--surface);border:1px solid var(--line);cursor:pointer;overflow:hidden;touch-action:none}
 .seg{position:absolute;top:0;bottom:0;border-right:1px solid var(--bg)}
-.seg span{position:absolute;left:6px;top:4px;font-family:var(--f-mono);font-size:10px;color:var(--muted);white-space:nowrap}
+.seg span{position:absolute;left:6px;right:4px;top:4px;overflow:hidden;text-overflow:ellipsis;font-family:var(--f-mono);font-size:10px;color:var(--muted);white-space:nowrap}
 .tick{position:absolute;bottom:4px;width:2px;height:12px;border-radius:1px}
 .head{position:absolute;top:0;bottom:0;width:2px;background:var(--accent);pointer-events:none}
 .beatinfo{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 20px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
@@ -225,7 +225,6 @@ const fmt=t=>{const m=Math.floor(t/60),s=(t%60);return m+':'+(s<10?'0':'')+s.toF
 D.lines.forEach(l=>{l.level=l.level||0;l.beat=l.beat||''});const L=D.lines, total=D.total, P=D.plan||{};
 const maxLv=Math.max(...L.map(l=>l.level||0)), bossLv=L.some(l=>l.beat==='boss')?Math.max(...L.filter(l=>l.beat==='boss').map(l=>l.level)):-1;
 const lvName=k=>(P.levels&&P.levels[k])||(k==0?'Quest':k==bossLv?'Boss':'Level '+k);
-const lvShort=k=>k==0?'Q':k==bossLv?'Boss':'L'+k;
 const WHO=Object.assign({S:'enemy, whispered',C:'card',N:'narrator',X:'picture only'},D.speakers||{});
 // header
 $('h1').textContent=D.title;document.title=P.page_title||D.title;
@@ -261,7 +260,7 @@ $('play').onclick=()=>{playing=!playing;$('play').textContent=playing?'Pause':'P
 const sp=(a,b,v)=>()=>{speed=v;$(a).setAttribute('aria-pressed','true');$(b).setAttribute('aria-pressed','false')};
 $('speed1').onclick=sp('speed1','speed4',1);$('speed4').onclick=sp('speed4','speed1',4);$('prev').onclick=()=>step(-1);$('next').onclick=()=>step(1);
 (function(){const bar=$('bar'),lv={};L.forEach(l=>{lv[l.level]=lv[l.level]||[l.t,l.t+l.dur];lv[l.level][1]=l.t+l.dur});
-  Object.entries(lv).forEach(([k,[a,b]])=>{const s=el('div','seg');s.style.left=(a/total*100)+'%';s.style.width=((b-a)/total*100)+'%';s.style.background=LVC[k%LVC.length]+'22';s.append(el('span',null,lvShort(+k)));bar.prepend(s)});
+  Object.entries(lv).forEach(([k,[a,b]])=>{const s=el('div','seg');s.style.left=(a/total*100)+'%';s.style.width=((b-a)/total*100)+'%';s.style.background=LVC[k%LVC.length]+'22';s.append(el('span',null,lvName(+k)));s.title=lvName(+k);bar.prepend(s)});
   L.forEach(l=>{const t=el('div','tick');t.style.left=(l.t/total*100)+'%';t.style.background=l.who==='S'?'var(--enemy)':l.who==='X'?'#8d86ad':LVC[l.level%LVC.length];bar.append(t)});
   for(let k=0;k<=maxLv;k++){const s=el('span');const w=el('i','sw');w.style.background=LVC[k%LVC.length];s.append(w,lvName(k));$('legend').append(s)}
   if(L.some(l=>l.who==='S')){const s=el('span');const w=el('i','sw');w.style.background='var(--enemy)';s.append(w,'tick: the enemy speaks');$('legend').append(s)}
