@@ -85,6 +85,7 @@ def test_demo_builds_from_a_fresh_clone(tmp_path):
     plan = json.loads((EXAMPLE / "plan.json").read_text(encoding="utf-8"))
     for path in list((plan.get("keys") or {}).values()) + list((plan.get("thumb_images") or {}).values()):
         assert not path.startswith(("~", "/")), path
+        assert (EXAMPLE / path).is_file(), path
 
 
 def test_empty_script_fails(tmp_path):
