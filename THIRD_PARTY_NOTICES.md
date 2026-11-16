@@ -198,6 +198,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+## Harness²
+
+Inspiration for: design-a-grok-bot. [Inspected upstream license](https://github.com/google-research/harness2/blob/main/LICENSE). Repository: https://github.com/google-research/harness2.
+
+Apache-2.0. The inspected LICENSE is the standard Apache License, Version 2.0 text. The repository has no NOTICE file, and LICENSE has no filled-in copyright line (only the Apache appendix placeholder), so none is recorded here.
+
 ## Other credited sources
 
 The Grok Bot marketplace templates that inspired several bot skills are credited to Lauren Tan, Lingxi Li, and Lenny Rachitsky. No reuse license was found on their pages, so no text from them is reproduced.
