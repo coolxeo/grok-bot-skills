@@ -97,13 +97,11 @@
     {
      "label": "A · DAY 7",
      "detail": "Hands and the loaf; the result up front.",
-     "reply": "Thumbnail A",
      "rec": true
     },
     {
      "label": "B · 0 → 1 loaf",
-     "detail": "Before and after; clearer but colder.",
-     "reply": "Thumbnail B"
+     "detail": "Before and after; clearer but colder."
     }
    ]
   },
@@ -113,13 +111,11 @@
     {
      "label": "Whispered caption only",
      "detail": "No voice actor; fastest.",
-     "reply": "Enemy as whispered captions",
      "rec": true
     },
     {
      "label": "Voiced whisper",
-     "detail": "Adds one recording session.",
-     "reply": "Enemy voiced"
+     "detail": "Adds one recording session."
     }
    ]
   },
@@ -128,12 +124,10 @@
    "options": [
     {
      "label": "Seven Days to One Loaf",
-     "reply": "Title 1",
      "rec": true
     },
     {
-     "label": "My First Sourdough Was Ugly. I Ate It Anyway.",
-     "reply": "Title 3"
+     "label": "My First Sourdough Was Ugly. I Ate It Anyway."
     }
    ]
   }

@@ -106,4 +106,6 @@ phones got a scaled-down desktop layout.
 - System-font fallbacks for every face, plus `--no-webfonts`.
 - UTF-8 reads and writes, a byte-accurate size limit, safer escaping of script text, and
   tolerance for hooks without checks and lines without a level.
+- The approval reply names every picked option by its label (recommended ones marked), not by a
+  separate reply code, so the reply always matches what was ticked.
 - A neutral demo that builds from a fresh clone, and tests that cover each fix.

@@ -89,3 +89,29 @@ def test_demo_builds_from_a_fresh_clone(tmp_path):
 
 def test_empty_script_fails(tmp_path):
     assert pp.main([str(_write(tmp_path, "s.json", {"title": "x"})), "--out", str(tmp_path / "o.html")]) == 1
+
+
+def test_reply_names_every_picked_option_by_label(tmp_path):
+    """Runs the page in a headless browser when Playwright is installed; skipped otherwise."""
+    import pytest
+    pw = pytest.importorskip("playwright.sync_api")
+    out = tmp_path / "demo.html"
+    assert pp.main([str(EXAMPLE / "script.json"), "--plan", str(EXAMPLE / "plan.json"), "--out", str(out), "--no-webfonts"]) == 0
+    plan = json.loads((EXAMPLE / "plan.json").read_text(encoding="utf-8"))
+    with pw.sync_playwright() as p:
+        try:
+            browser = p.chromium.launch()
+        except Exception:
+            try:
+                browser = p.chromium.launch(channel="chrome")
+            except Exception as e:  # no browser on this machine
+                pytest.skip(f"no Chromium: {e}")
+        page = browser.new_page()
+        page.goto(out.as_uri())
+        # every decision: first the recommended state, then each other option in turn
+        for i, d in enumerate(plan["decisions"]):
+            for j, op in enumerate(d["options"]):
+                page.click(f"#q{i}_{j}")
+                text = page.inner_text("#replytext")
+                assert f"{i + 1}. {op['label']}" in text, text
+        browser.close()

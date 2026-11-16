@@ -23,7 +23,7 @@ plan.json (every field optional)
     thumb_images {thumb id: image}, shots_note, steps [{title, detail, time}],
     gantt [{name, start, end, kind: "cpu"|"you"}] in hours, gantt_span, gantt_note,
     cards [{tab, tab_label, title, rows [[k, v]]}], decisions [{question, options
-    [{label, detail, reply, rec}]}], approve_what.
+    [{label, detail, rec}]}], approve_what. The reply names each picked option by its label.
 
 Images are relative to the plan file, shrunk to 960 px JPEG (with Pillow) and embedded, so the
 page is a single file. A missing image prints a warning and the shot stays "to paint".
