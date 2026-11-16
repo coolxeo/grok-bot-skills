@@ -15,11 +15,11 @@ Free skills that run my 3 YouTube channels with a team of Grok Bots. Nothing pos
 
 Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
 
-29 skills for writing, design, code, SEO, ads, YouTube research, video, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
+30 skills for writing, design, code, SEO, ads, YouTube research, video, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
 
 Every skill is Dani's own version, inspired by several public references rather than copied from one. Each is a single readable `SKILL.md`. The rewritten skills end with what inspired them, what those references were missing, and what this version adds.
 
-[Start here](#start-here) · [Browse all 29 skills](#all-skills) · [Contribute](#contribute)
+[Start here](#start-here) · [Browse all 30 skills](#all-skills) · [Contribute](#contribute)
 
 ## Install
 
@@ -45,7 +45,7 @@ To install one skill, add `--skill` and its folder name, for example `npx skills
 
 ## Get a skill
 
-For all 29 skills, download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
+For all 30 skills, download the [ZIP](https://github.com/coolxeo/grok-bot-skills/archive/refs/heads/main.zip), or clone the repo:
 
 ```sh
 git clone https://github.com/coolxeo/grok-bot-skills.git
@@ -152,6 +152,7 @@ updates. Show the evidence. Propose changes before applying them.
 | Skill | What it does |
 | --- | --- |
 | [shorts-reframe](skills/video/shorts-reframe/SKILL.md) | Crop a 16:9 video to 9:16, scale it to 1080x1920, keep the audio, and check duration and resolution. |
+| [video-plan-page](skills/video/video-plan-page/SKILL.md) | Turn a video script into one HTML page with a playable animatic, the shot list, and choices to approve before anything is rendered. Ships with a made-up demo film. |
 
 ### Bots
 
@@ -180,6 +181,7 @@ The instructions are plain Markdown. Some workflows need more than a chat window
 - `motion-picker` needs no package of its own. It chooses a library and a timing preset. The same media rule applies: captures stay out of git.
 - `youtube-niche-report` runs Python scripts with yt-dlp, ffmpeg and Pillow on a machine that can reach YouTube.
 - `shorts-reframe` needs ffmpeg and ffprobe on the machine that holds the source video.
+- `video-plan-page` runs one Python 3 script. Pillow is optional (it shrinks embedded images); the tests' browser check needs Playwright and skips without it.
 - The image playbook needs browser control and a signed-in ChatGPT session with image generation available.
 - Search, publishing, and design tasks need the relevant browser, connector, or project access.
 
@@ -209,6 +211,7 @@ Each skill here is written from scratch in our own words, drawing on several ref
 - **exact-match-intent-seo:** started from [Hridoy Reh's X post](https://x.com/hridoyreh/status/2096534436934455606), not reverified.
 - **markdown-twin:** inspired by [Jeremy Howard / llmstxt.org](https://llmstxt.org/): the /llms.txt v2 proposal.
 - **shorts-reframe:** inspired by [FFmpeg crop filter documentation](https://ffmpeg.org/ffmpeg-filters.html#crop) and the [mediacodec.dev crop guide](https://mediacodec.dev/how-to/crop-video/).
+- **video-plan-page:** Dani's own storytelling-video plan page (private channel repo, PR #204), rewritten as a standalone skill.
 - **x-article, chatgpt-images-browser-playbook:** Dani's own workflows; no outside source verified.
 
 See the [source audit of the 22 skills reviewed on 17 Sep 2026](docs/credits.md) for exact files, evidence, and unresolved origins. No standalone upstream was verified for `x-article` or `chatgpt-images-browser-playbook`.
