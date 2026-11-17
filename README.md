@@ -4,6 +4,8 @@
 
 Free skills that run my 3 YouTube channels with a team of Grok Bots. Nothing posts or spends without my tap. The paid kits are the tested, ready-to-run versions. ↓
 
+Kits and install guides: [botkits.dev](https://botkits.dev)
+
 ## Paid kits
 
 | Kit (result name) | What it is | Price | Link | Free skill |
