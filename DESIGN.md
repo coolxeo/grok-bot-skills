@@ -50,7 +50,7 @@ Clear space: keep a margin around the mark of at least the lid lip (~10% of the 
 
 - Design on an 8 px grid.
 - README headers are 1280×320. Mark is 192 px, 72 px from the left, 56 px from the wordmark. Keep 60 px between the end of the word and the dot grid.
-- Top-3 cards are 800×460. 9 px brand-blue bar at the top. Title starts at x=38, cap height near y=35. Content inset 76 px on article-style cards; diagrams sit in the middle band (about y=130–310).
+- Top-3 cards are 800×460. 9 px brand-blue bar at the top. Title starts at x=38, cap height near y=35. Content inset 76 px on article-style cards; diagrams sit in the middle band (about y=130 to 310).
 - Terminal demos are 960×520. 9 px blue bar, 17 px window dot at (36, 28), a rule under the title, code inset 50 px. Body text after a `you`/`bot` label starts at x=122.
 - Give the mark clear space of at least 10% of the tile. Do not crop into the lid lip.
 
@@ -63,9 +63,9 @@ Minimums are for 1×. Never ship text smaller than this.
 | Wordmark | Newsreader | 168 px on the 1280 header | −0.025 em | 80 px |
 | Card title (skill slug) | Newsreader | 40 px | −0.02 em | 24 px |
 | Article title | Hanken Grotesk 700 | 30 px | −0.02 em | 18 px |
-| Body / hook | Hanken Grotesk | 18–20 px | 0 | 14 px |
+| Body / hook | Hanken Grotesk | 18 to 20 px | 0 | 14 px |
 | Caption / label | Hanken Grotesk or DM Mono | 16 px | 0 | 13 px |
-| Code, install line, diagrams | DM Mono | 13–26 px | 0 | 12 px |
+| Code, install line, diagrams | DM Mono | 13 to 26 px | 0 | 12 px |
 | Hero number | Newsreader | ~88 px | −0.03 em | 40 px |
 
 Outline all type to paths in SVGs. No `<text>` in shipped SVGs.
