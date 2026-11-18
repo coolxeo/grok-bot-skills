@@ -10,7 +10,7 @@ For writers and operators who need a first line that names a real story.
 npx skills add botkitsdev/botkits --skill storytelling-hooks
 ```
 
-To list the 32 skills in the repo: `npx skills add botkitsdev/botkits --list`.
+To list every skill in the repo: `npx skills add botkitsdev/botkits --list`.
 
 No CLI? Copy this folder into the skills folder your agent uses, and keep `SKILL.md` inside it.
 
