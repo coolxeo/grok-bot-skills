@@ -1,10 +1,50 @@
 # BotKits design
 
-How to make BotKits visuals. Follow BRAND.md for names, colour, type and logo rules. This file covers grid, type scale, image sizes, alt text, file names, and the check you run before shipping.
+How to make BotKits visuals. Follow [BRAND.md](BRAND.md) for the name, voice and claims. Colour, type and logo rules are in [Visual tokens and logo](#visual-tokens-and-logo) below. This file covers grid, type scale, image sizes, alt text, file names, and the check you run before shipping.
 
 ## Where this applies
 
 README cards, demo GIFs, dividers, badges, headers, and social images. The logo mark is locked; do not redraw it.
+
+## Visual tokens and logo
+
+Moved here from Designer's brand sheet. Colour, type and logo rules live in this section.
+
+### Colour
+
+Brand blue is the default colour. Orange is a spark used at most once, and only sometimes.
+
+| Token | Light | Dark | Use |
+|---|---|---|---|
+| bg | `#f1f2ee` | `#111418` | Page / artboard |
+| surface | `#fafaf7` | `#171b20` | Cards, panels |
+| text / ink | `#14181b` | `#e7e9e3` | Body and headlines |
+| muted | `#535b61` | `#9ea7ad` | Secondary text |
+| rule | `#d2d6ce` | `#2b3138` | Dividers, hairlines |
+| blue | `#2340c4` | `#a3b4ff` | Brand colour: titles, frames, links, bars |
+| on-ink | `#f6f7f3` | `#111418` | Type or icon sitting on ink |
+| spark | `#F2762E` | `#FF9A5C` | One small accent, only sometimes |
+
+Do not use lime `#C8FF3D` or the old ink `#0D0A1F`.
+
+### Type
+
+- Newsreader (display) for headlines and the wordmark.
+- Hanken Grotesk for body.
+- DM Mono for code, the install line, skill slugs, and terminal demos.
+- All are SIL OFL. Outline type to paths in shipped SVGs; ship no `<text>` and no font dependency.
+
+### Logo
+
+Files live in `assets/`:
+
+- `mark-512.png` — square mark on `#2340c4`. Also ship `mark.svg` and `mark-1024.png` when you can.
+- `logo-wide.png` / `logo-wide@2x.png` — 1280×320 light header (wordmark + install line).
+- `header-dark.png` / `header-dark@2x.png` — 1280×320 dark header.
+
+The mark is a closed isometric kit with pill eyes, on the blue tile. Do not recolour it, add a spark, or change its geometry.
+
+Clear space: keep a margin around the mark of at least the lid lip (~10% of the tile). The 40 px GitHub avatar must still read as a box with two eyes, with the blue circle edge visible on `#ffffff` and `#0d1117`. Do not use the mark below 40 px.
 
 ## Grid and spacing
 
@@ -69,7 +109,7 @@ Write a short, factual description of what the image shows. Name the skill and a
 ## Before you ship an image
 
 1. The prose name is BotKits; the wordmark and slug are botkits / botkitsdev/botkits. No "botskills".
-2. Tokens are a single light or dark set from BRAND.md. No lime `#C8FF3D`. No mixed palettes.
+2. Tokens are a single light or dark set from [Visual tokens and logo](#visual-tokens-and-logo). No lime `#C8FF3D`. No mixed palettes.
 3. Logo and headers are blue and white only. Pixel-check that they contain no spark and no lime.
 4. If the image uses a spark, there is only one, it is small (under ~5% of pixels), and it is not body text.
 5. Type meets the minimum sizes. SVG type is outlined; no `<text>`.
