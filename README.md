@@ -22,17 +22,38 @@
 
 Kits and install guides: [botkits.dev](https://botkits.dev)
 
-Free skills that run my 3 YouTube channels with a team of Grok Bots. Nothing posts or spends without my tap. The paid kits are the tested, ready-to-run versions.
+<p align="center">
+  <img src="assets/demo.gif" alt="Terminal demo: npx skills add botkitsdev/botskills, then a bot loads no-ai-slop/SKILL.md when the task matches." width="800">
+</p>
 
-Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
+[Top 3](#top-3) · [Quick start](#quick-start) · [Start here](#start-here) · [All 31 skills](#all-skills) · [How a skill is used](#how-a-skill-is-used) · [Tool requirements](#tool-requirements) · [Contribute](#contribute) · [Inspired by](#inspired-by) · [License](#license)
 
-31 skills for writing, design, code, SEO, ads, YouTube research, video, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
+## Top 3
 
-Every skill is Dani's own version, inspired by several public references rather than copied from one. Each is a single readable `SKILL.md`. The rewritten skills end with what inspired them, what those references were missing, and what this version adds.
+<table>
+<tr>
+<td valign="top" width="33%">
+<p align="center"><a href="skills/video/shorts-reframe/"><img src="assets/top3-shorts-reframe.png" alt="shorts-reframe: center-crop 16:9 to 9:16, scale to 1080x1920, then check size and duration"></a></p>
+<strong><a href="skills/video/shorts-reframe/">shorts-reframe</a></strong><br>
+Turn a 16:9 video into 9:16 with a fixed center crop, scale to 1080x1920, keep the audio, and check duration and resolution.
+</td>
+<td valign="top" width="33%">
+<p align="center"><a href="skills/writing/x-article/"><img src="assets/top3-x-article.png" alt="x-article steps: outline, draft, source-check, lint, promo post, hand over. Do not post."></a></p>
+<strong><a href="skills/writing/x-article/">x-article</a></strong><br>
+Write or rewrite an X Article (long-form on x.com/i/article), with images between sections, a first-line hook, and no invented numbers.
+</td>
+<td valign="top" width="33%">
+<p align="center"><a href="skills/seo/aeo-geo-site/"><img src="assets/top3-aeo-geo-site.png" alt="aeo-geo-site steps: schema, intent, draft, llms.txt, then a live fetch and an agent-readiness scan"></a></p>
+<strong><a href="skills/seo/aeo-geo-site/">aeo-geo-site</a></strong><br>
+Build or update a website for SEO plus AEO/GEO (AI assistants, ChatGPT, Copilot, Gemini) so pages are machine-readable, intent-clear, and citable.
+</td>
+</tr>
+</table>
 
-[Start here](#start-here) · [Browse all 31 skills](#all-skills) · [Contribute](#contribute)
+**Paid kits:** [Shorts Builder Kit, $14](https://botkits.dev/kits/#shorts-builder-kit) · [X Article Writer, $7](https://botkits.dev/kits/#x-article-writer) · [AEO/GEO Site Audit & Build Kit, $9](https://botkits.dev/kits/#aeo-geo-site-audit-build-kit) · [AEO Kit (Markdown Twins + YouTube Watch Pages), $24](https://botkits.dev/kits/#aeo-kit)
 
-## Paid kits
+<details>
+<summary><strong>Paid kit details</strong></summary>
 
 | Kit (result name) | What it is | Price | Link | Free skill |
 | --- | --- | --- | --- | --- |
@@ -41,7 +62,9 @@ Every skill is Dani's own version, inspired by several public references rather 
 | Turn one video into Shorts, QA included | Shorts Builder Kit | $14 | [Get the kit →](https://daniacostaai.gumroad.com/l/ommvol) | [shorts-reframe](skills/video/shorts-reframe/) |
 | Turn rough notes into an X Article | X Article Writer | $7 | [Get the kit →](https://daniacostaai.gumroad.com/l/lzowtl) | [x-article](skills/writing/x-article/) |
 
-## Install
+</details>
+
+## Quick start
 
 Install the local skills with the [Skills CLI](https://github.com/vercel-labs/skills):
 
@@ -50,20 +73,6 @@ npx skills add botkitsdev/botskills
 ```
 
 To install one skill, add `--skill` and its folder name, for example `npx skills add botkitsdev/botskills --skill no-ai-slop`. Run `npx skills add botkitsdev/botskills --list` to see them all.
-
-## Start here
-
-| I want to… | Start with |
-| --- | --- |
-| Remove AI filler from a draft | [no-ai-slop](skills/writing/no-ai-slop/) |
-| Improve a website's design | [redesign-existing-projects](skills/design/redesign-existing-projects/) |
-| Create a bot with one clear job | [design-a-grok-bot](skills/bots/design-a-grok-bot/) |
-| Find noisy or wasteful routines | [routine-healthcheck](skills/bots/routine-healthcheck/) |
-| Write a post for X or LinkedIn | [social-copywriting](skills/writing/social-copywriting/) |
-| Get better leads from automated ad campaigns | [whetstone-signal](skills/ads/whetstone-signal/) |
-| Find what wins in a YouTube niche before planning videos | [youtube-niche-report](skills/youtube/youtube-niche-report/) |
-
-## Get a skill
 
 For all 31 skills, download the [ZIP](https://github.com/botkitsdev/botskills/archive/refs/heads/main.zip), or clone the repo:
 
@@ -76,6 +85,26 @@ git clone https://github.com/botkitsdev/botskills.git
 3. Invoke the folder name with `/` or `@` if your bot supports it. For example, use `/no-ai-slop`.
 
 The install path and invocation syntax depend on your bot. To try a writing skill without installing it, paste its instructions into a chat, then add your task.
+
+Free skills that run my 3 YouTube channels with a team of Grok Bots. Nothing posts or spends without my tap. The paid kits are the tested, ready-to-run versions.
+
+Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
+
+31 skills for writing, design, code, SEO, ads, YouTube research, video, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
+
+Every skill is Dani's own version, inspired by several public references rather than copied from one. Each is a single readable `SKILL.md`. The rewritten skills end with what inspired them, what those references were missing, and what this version adds.
+
+## Start here
+
+| I want to… | Start with |
+| --- | --- |
+| Remove AI filler from a draft | [no-ai-slop](skills/writing/no-ai-slop/) |
+| Improve a website's design | [redesign-existing-projects](skills/design/redesign-existing-projects/) |
+| Create a bot with one clear job | [design-a-grok-bot](skills/bots/design-a-grok-bot/) |
+| Find noisy or wasteful routines | [routine-healthcheck](skills/bots/routine-healthcheck/) |
+| Write a post for X or LinkedIn | [social-copywriting](skills/writing/social-copywriting/) |
+| Get better leads from automated ad campaigns | [whetstone-signal](skills/ads/whetstone-signal/) |
+| Find what wins in a YouTube niche before planning videos | [youtube-niche-report](skills/youtube/youtube-niche-report/) |
 
 ### Prefer the originals?
 
@@ -116,7 +145,8 @@ updates. Show the evidence. Propose changes before applying them.
 
 ## All skills
 
-### Writing
+<details>
+<summary><strong>Writing (9)</strong></summary>
 
 | Skill | What it does |
 | --- | --- |
@@ -130,7 +160,10 @@ updates. Show the evidence. Propose changes before applying them.
 | [x-article](skills/writing/x-article/) | Write long-form X Articles with section images. |
 | [ship-post](skills/writing/ship-post/) | Turn commits and PRs into one build-in-public post. |
 
-### Design
+</details>
+
+<details>
+<summary><strong>Design (4)</strong></summary>
 
 | Skill | What it does |
 | --- | --- |
@@ -139,14 +172,20 @@ updates. Show the evidence. Propose changes before applying them.
 | [diagram-design](skills/design/diagram-design/) | Create explainer diagrams that are branded, not dashboard slop. |
 | [motion-picker](skills/design/motion-picker/) | Pick one animation library for a single motion moment, with its license and a calm, snappy, or playful preset. |
 
-### Engineering
+</details>
+
+<details>
+<summary><strong>Engineering (2)</strong></summary>
 
 | Skill | What it does |
 | --- | --- |
 | [engineering-playbook](skills/engineering/engineering-playbook/) | Delegate coding work to cloud agents and review the results. |
 | [show-me](skills/engineering/show-me/) | Explain code changes with visual PR descriptions. |
 
-### SEO
+</details>
+
+<details>
+<summary><strong>SEO (5)</strong></summary>
 
 | Skill | What it does |
 | --- | --- |
@@ -156,26 +195,38 @@ updates. Show the evidence. Propose changes before applying them.
 | [ai-citation-sources](skills/seo/ai-citation-sources/) | List the third-party sources AI answers cite and draft one action per source. |
 | [markdown-twin](skills/seo/markdown-twin/) | Publish a clean markdown copy of one HTML page, advertise it with a link tag, and list it in /llms.txt. |
 
-### Ads
+</details>
+
+<details>
+<summary><strong>Ads (1)</strong></summary>
 
 | Skill | What it does |
 | --- | --- |
 | [whetstone-signal](skills/ads/whetstone-signal/) | Pick, score, and send back the conversion event automated ad campaigns optimize for. |
 
-### YouTube
+</details>
+
+<details>
+<summary><strong>YouTube (1)</strong></summary>
 
 | Skill | What it does |
 | --- | --- |
 | [youtube-niche-report](skills/youtube/youtube-niche-report/) | Pull a niche's top videos, score them against their own channel, and build an interactive HTML report of what wins. Ships with an example config for a made-up niche. |
 
-### Video
+</details>
+
+<details>
+<summary><strong>Video (2)</strong></summary>
 
 | Skill | What it does |
 | --- | --- |
 | [shorts-reframe](skills/video/shorts-reframe/) | Crop a 16:9 video to 9:16, scale it to 1080x1920, keep the audio, and check duration and resolution. |
 | [video-plan-page](skills/video/video-plan-page/) | Turn a video script into one HTML page with a playable animatic, the shot list, and choices to approve before rendering. Ships with a made-up demo film. |
 
-### Bots
+</details>
+
+<details>
+<summary><strong>Bots (6)</strong></summary>
 
 | Skill | What it does |
 | --- | --- |
@@ -186,11 +237,16 @@ updates. Show the evidence. Propose changes before applying them.
 | [overheard](skills/bots/overheard/) | Compile a digest of third-party mentions. |
 | [overheard-setup](skills/bots/overheard-setup/) | Set up a mention watch list, sources, and schedule. |
 
-### Images
+</details>
+
+<details>
+<summary><strong>Images (1)</strong></summary>
 
 | Skill | What it does |
 | --- | --- |
 | [chatgpt-images-browser-playbook](skills/images/chatgpt-images-browser-playbook/) | Generate still images through a signed-in ChatGPT browser session. |
+
+</details>
 
 ## How a skill is used
 
