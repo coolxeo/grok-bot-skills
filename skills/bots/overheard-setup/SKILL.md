@@ -1,8 +1,9 @@
 ---
 name: overheard-setup
 description: >-
-  First-run watch-list interview. Also use when the user wants to reconfigure
+  Needs Grok Bot. First-run watch-list interview. Also use when the user wants to reconfigure
   names, brands, URLs, or sources.
+compatibility: Needs Grok Bot (sets up the Overheard Grok Bot).
 ---
 # Overheard setup
 

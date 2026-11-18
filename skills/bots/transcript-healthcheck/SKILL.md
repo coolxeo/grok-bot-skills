@@ -1,9 +1,10 @@
 ---
 name: transcript-healthcheck
 description: >-
-  Use when auditing Grok Bot fleet transcripts for user friction, proposing new
+  Needs Grok Bot. Use when auditing Grok Bot fleet transcripts for user friction, proposing new
   skills/bots/routines from repeated corrections, or running the standing
   transcript-healthcheck routine.
+compatibility: Needs Grok Bot (reads Grok Bot fleet transcripts).
 ---
 # Transcript healthcheck
 
