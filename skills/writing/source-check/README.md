@@ -40,6 +40,6 @@ After the check, every checkable claim has a status (OK, Stretched, Open, or Wro
 
 - [botkits.dev](https://botkits.dev)
 - Instructions: [SKILL.md](SKILL.md)
-- Inspired by: [Nadiem Mahmoud's source-check](https://github.com/nadiem99/claude-writing-skills/blob/5b52111e1bd30e93643929f17155e82aa26f771f/skills/pipeline/source-check/SKILL.md) (MIT), [Mike Caulfield's SIFT](https://hapgood.us/2019/06/19/sift-the-four-moves/), and [Wikipedia's Verifiability policy](https://en.wikipedia.org/wiki/Wikipedia:Verifiability) (CC BY-SA 4.0). Mahmoud has clear claim statuses and a Sources section, but judges outlets from a fixed list and has no rule for conflicting sources. This skill adds a check of who is behind a source, a rule for conflicting numbers, and access dates and archive links.
+- Inspired by: [Nadiem Mahmoud's source-check](https://github.com/nadiem99/claude-writing-skills/blob/5b52111e1bd30e93643929f17155e82aa26f771f/skills/pipeline/source-check/SKILL.md) (MIT), [Mike Caulfield's SIFT](https://hapgood.us/2019/06/19/sift-the-four-moves/), and [Wikipedia's Verifiability policy](https://en.wikipedia.org/wiki/Wikipedia:Verifiability) (CC BY-SA 4.0). This skill adds a check of who is behind a source, a rule for conflicting numbers, and access dates and archive links.
 
 License: MIT

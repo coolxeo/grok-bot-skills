@@ -39,6 +39,6 @@ After the pass, each section is written and approved before the next. The thesis
 
 - [botkits.dev](https://botkits.dev)
 - Instructions: [SKILL.md](SKILL.md)
-- Inspired by: [Nadiem Mahmoud's draft](https://github.com/nadiem99/claude-writing-skills/blob/5b52111e1bd30e93643929f17155e82aa26f771f/skills/pipeline/draft/SKILL.md) (MIT), [Paul Graham's Write Simply](https://www.paulgraham.com/simply.html) and [Writing, Briefly](https://www.paulgraham.com/writing44.html), and [George Orwell's Politics and the English Language](https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/). Mahmoud drafts section by section and checks the thesis first, but bans "But" and "And" openers and leans on vault files. This skill adds gap markers, anti-slop rules during drafting, and permission for natural "But" and "And" openers.
+- Inspired by: [Nadiem Mahmoud's draft](https://github.com/nadiem99/claude-writing-skills/blob/5b52111e1bd30e93643929f17155e82aa26f771f/skills/pipeline/draft/SKILL.md) (MIT), [Paul Graham's Write Simply](https://www.paulgraham.com/simply.html) and [Writing, Briefly](https://www.paulgraham.com/writing44.html), and [George Orwell's Politics and the English Language](https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/). This skill adds gap markers, anti-slop rules during drafting, and permission for natural "But" and "And" openers.
 
 License: MIT

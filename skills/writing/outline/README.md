@@ -39,6 +39,6 @@ After the plan you have a one-sentence claim, a named shape with a reason, a sec
 
 - [botkits.dev](https://botkits.dev)
 - Instructions: [SKILL.md](SKILL.md)
-- Inspired by: [Nadiem Mahmoud's outline](https://github.com/nadiem99/claude-writing-skills/blob/5b52111e1bd30e93643929f17155e82aa26f771f/skills/pipeline/outline/SKILL.md) (MIT), [Paul Graham's Writing, Briefly](https://www.paulgraham.com/writing44.html), and [Google's Technical Writing Two on large documents](https://developers.google.com/tech-writing/two/large-docs). Mahmoud has concrete hook options and approval before drafting, but uses one narrative arc and vault folders. This skill adds a one-sentence claim first, four named shapes, a cut list, and a note that the plan will change during drafting.
+- Inspired by: [Nadiem Mahmoud's outline](https://github.com/nadiem99/claude-writing-skills/blob/5b52111e1bd30e93643929f17155e82aa26f771f/skills/pipeline/outline/SKILL.md) (MIT), [Paul Graham's Writing, Briefly](https://www.paulgraham.com/writing44.html), and [Google's Technical Writing Two on large documents](https://developers.google.com/tech-writing/two/large-docs). This skill adds a one-sentence claim first, four named shapes, a cut list, and a note that the plan will change during drafting.
 
 License: MIT

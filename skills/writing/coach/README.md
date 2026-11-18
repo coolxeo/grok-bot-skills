@@ -39,6 +39,6 @@ After the read you get a reverse outline and a gate result. If any gate question
 
 - [botkits.dev](https://botkits.dev)
 - Instructions: [SKILL.md](SKILL.md)
-- Inspired by: [Nadiem Mahmoud's coach](https://github.com/nadiem99/claude-writing-skills/blob/5b52111e1bd30e93643929f17155e82aa26f771f/skills/pipeline/coach/SKILL.md) (MIT, which credits Every's Eleanor Warnock), [Paul Graham's Writing, Briefly](https://www.paulgraham.com/writing44.html), and [George Orwell's Politics and the English Language](https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/). Mahmoud has a structure-first gate and a seven-axis rubric, but is tied to vault folders and judges every piece by an essay arc. This skill adds reader, venue and goal questions, a reverse outline as gate evidence, a "what works" section, and one question for the writer.
+- Inspired by: [Nadiem Mahmoud's coach](https://github.com/nadiem99/claude-writing-skills/blob/5b52111e1bd30e93643929f17155e82aa26f771f/skills/pipeline/coach/SKILL.md) (MIT, which credits Every's Eleanor Warnock), [Paul Graham's Writing, Briefly](https://www.paulgraham.com/writing44.html), and [George Orwell's Politics and the English Language](https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/). This skill adds reader, venue and goal questions, a reverse outline as gate evidence, a "what works" section, and one question for the writer.
 
 License: MIT
