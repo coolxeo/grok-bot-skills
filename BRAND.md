@@ -36,7 +36,7 @@ BotKits is not a Grok Bot project. Grok Bot is where we run the skills every day
 - Promise: a clear process your agent can follow for one job, in a file you can read in five minutes.
 - Every number needs a source you can open: a file, a commit, a dashboard, a public URL. Put the source and the date next to it, or in a linked note.
 - No invented numbers. No "10x", "hours saved", "thousands of users" unless we measured it and can show where.
-- Skill count: say the real count from the repo on the day you write it. Today it is 31. Update the badge, the README and the site together.
+- Skill count: say the real count from the repo on the day you write it. Update the badge, the README and the site together.
 - "Used daily by my own bots" is true for Grok Bot only. Do not extend it to other agents.
 - Screenshots and examples must come from real runs. Mark mockups as mockups.
 
@@ -95,6 +95,7 @@ Every skill page (README or botkits.dev) uses this order:
 - Gumroad links appear only in a section titled **Paid kits** (README, site kits page, a skill page's paid kit line). Never in posts, Reddit comments, PR descriptions or a skill's `SKILL.md`.
 - Paid kits (exact names and prices): X Article Writer, $7. AEO/GEO Site Audit & Build Kit, $9. Shorts Builder Kit, $14. AEO Kit (Markdown Twins + YouTube Watch Pages), $24. Check the listing before you quote a price.
 - Free skills stay free and complete. A paid kit is the tested, ready-to-run version, not the missing half.
+- Paid kit files (scripts, templates, examples, tests) never go in this repo. The lite skills `x-article`, `aeo-geo-site`, `shorts-reframe` and `markdown-twin` hold only `SKILL.md` and `README.md`. The `paid-guard` check stops any PR that breaks this.
 
 ## 10. Words to avoid
 

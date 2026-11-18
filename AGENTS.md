@@ -108,6 +108,7 @@ Or copy one skill folder by hand. Copy the skill folder itself (`skills/<categor
 - Do not merge your own PR. A reviewer merges.
 - Do not change `assets/` or `README.md` in a PR whose topic is something else.
 - PR body: what changed, why, and links to any sources. No Gumroad links in PR bodies.
+- Never add paid kit files to this repo. Run `bash .github/scripts/paid-guard.sh` before you push (BRAND.md section 9).
 
 ## Before you open a PR
 
