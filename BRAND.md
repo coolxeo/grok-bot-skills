@@ -36,7 +36,7 @@ BotKits is not a Grok Bot project. Grok Bot is where we run the skills every day
 - Promise: a clear process your agent can follow for one job, in a file you can read in five minutes.
 - Every number needs a source you can open: a file, a commit, a dashboard, a public URL. Put the source and the date next to it, or in a linked note.
 - No invented numbers. No "10x", "hours saved", "thousands of users" unless we measured it and can show where.
-- Skill count: say the real count from the repo on the day you write it. Count it with `ls skills/*/*/SKILL.md | wc -l` (32 on 18 Nov 2026). Update the badge, the README and the site together.
+- Skill count: say the real count from the repo on the day you write it.  Update the badge, the README and the site together.
 - "Used daily by my own bots" is true for Grok Bot only. Do not extend it to other agents.
 - Screenshots and examples must come from real runs. Mark mockups as mockups.
 
