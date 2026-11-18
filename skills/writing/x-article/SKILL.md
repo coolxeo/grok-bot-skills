@@ -15,7 +15,7 @@ Use for X Articles (x.com/i/articles or compose/articles), not tweets or 1/2/3/4
 - First line of the body is the hook. If it is weak, change the entry point before polishing. The title and the first line say different things.
 - Research body: question → what you looked at → what you could measure → what you could not.
 - Images sit between sections, not as a dump at the end. Diagrams that explain the next paragraph. No decoration. Cover is type-only, no product mascot on a founder/research piece.
-- Closer is one usable line: a step the reader can take or a question you want answered, not a slogan or a two-beat kicker. Hashtags only at the end, 0–2 (`#buildinpublic` when it is actually build-in-public).
+- Closer is one usable line: a step the reader can take or a question you want answered, not a slogan or a two-beat kicker. Hashtags only at the end, 0 to 2 (`#buildinpublic` when it is actually build-in-public).
 
 ## Research rules
 
