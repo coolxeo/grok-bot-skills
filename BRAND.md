@@ -70,7 +70,7 @@ Only claim what we checked. Source: `2026-11-18-agent-compat-research.md`. Reche
 
 Rules:
 
-- Say "should work in any agent that supports the Agent Skills format" for agents we have not run. Never say "works everywhere".
+- Say "Other agents that support the Agent Skills format can load it. We have not run it there." for agents we have not run. Never say "works everywhere".
 - Do not say a skill "works in X" until someone ran it there. Install tested is not run tested.
 - Skills that use Grok Bot tools (routines, cards, agent folders) must say so on the first line of their page: "Needs Grok Bot. Uses routines and approval cards."
 - Do not write "compatible with Muse" or "works with dots".
