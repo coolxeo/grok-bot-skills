@@ -7,7 +7,7 @@ Last updated: 18 Nov 2026. Owner: Dani Acosta.
 ## 1. Name
 
 - In prose, always write **BotKits**. One word, capital B, capital K.
-- The lowercase **botkits** wordmark is for the logo only. Do not type it as a name in sentences.
+- The logo wordmark is also **BotKits** (Dani, 18 Nov 2026). Lowercase "botkits" appears only in the repo slug, the domain and the install command.
 - Repo slug: `botkitsdev/botkits`. Site: `botkits.dev`. Write these exactly, in code format when they are commands or paths.
 - Never write: "botskills", "Bot Kits", "Botkits", "BOTKITS", "Grok Bot skills", "Grok skills".
 - The owner is **Dani Acosta**. Use that exact name. X handle: @DaniAcostaAI.
