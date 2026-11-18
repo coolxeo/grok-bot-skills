@@ -1,5 +1,9 @@
 <p align="center">
-  <img src="assets/logo-wide.svg" alt="botskills" width="800">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.png 1x, assets/header-dark@2x.png 2x">
+    <source media="(prefers-color-scheme: light)" srcset="assets/logo-wide.png 1x, assets/logo-wide@2x.png 2x">
+    <img src="assets/logo-wide.png" alt="botskills" width="800">
+  </picture>
 </p>
 
 <p align="center">
