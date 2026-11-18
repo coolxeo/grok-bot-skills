@@ -21,7 +21,7 @@ No CLI? Copy this folder into the skills folder your agent uses, and keep `SKILL
 - Fills every blank with a real fact. If a fact is missing, it changes family instead of inventing one.
 - Uses our own templates rather than another writer's lines.
 
-## Before and after (example)
+## Before / after (example)
 
 This example starts with a topic and no fact in the first line: "Some notes on how my writing process improved this year." The reader cannot tell what changed, or whether the post will pay off.
 

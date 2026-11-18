@@ -10,7 +10,7 @@ Use this for long-form X Articles on x.com/i/articles or compose/articles, not f
 npx skills add botkitsdev/botkits --skill x-article
 ```
 
-To list the 31 skills in the repo: `npx skills add botkitsdev/botkits --list`.
+To list every skill in the repo: `npx skills add botkitsdev/botkits --list`.
 
 No CLI? Copy this folder into the skills folder your agent uses, and keep `SKILL.md` inside it.
 

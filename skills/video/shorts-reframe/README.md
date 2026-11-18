@@ -10,7 +10,7 @@ Use this when turning one landscape (16:9) clip into a vertical (9:16) clip with
 npx skills add botkitsdev/botkits --skill shorts-reframe
 ```
 
-To list the 31 skills in the repo: `npx skills add botkitsdev/botkits --list`.
+To list every skill in the repo: `npx skills add botkitsdev/botkits --list`.
 
 No CLI? Copy this folder into the skills folder your agent uses, and keep `SKILL.md` inside it.
 

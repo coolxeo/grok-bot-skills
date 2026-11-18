@@ -10,7 +10,7 @@ Use this after drafting an article, before publish, to verify every factual clai
 npx skills add botkitsdev/botkits --skill source-check
 ```
 
-To list the 31 skills in the repo: `npx skills add botkitsdev/botkits --list`.
+To list every skill in the repo: `npx skills add botkitsdev/botkits --list`.
 
 No CLI? Copy this folder into the skills folder your agent uses, and keep `SKILL.md` inside it.
 
