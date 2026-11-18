@@ -1,8 +1,8 @@
 # storytelling-hooks
 
-Write a hook from a fact you already have, or build a swipe-file carousel people can save and reuse.
+Write a hook from a fact you already have.
 
-For writers and operators who need a first line that names a real story, or a reference carousel that readers bookmark.
+For writers and operators who need a first line that names a real story.
 
 ## Install
 
@@ -19,8 +19,7 @@ No CLI? Copy this folder into the skills folder your agent uses, and keep `SKILL
 - Picks a hook family from a fact you already have (a date, a cost, a client question, a rule you follow).
 - Drafts 3 hooks from 2 or 3 families, keeps 1, and checks that the rest of the post can pay off that line.
 - Fills every blank with a real fact. If a fact is missing, it changes family instead of inventing one.
-- When the job is a swipe-file carousel: plans a one-line post that ends in a colon, a cover slide, and content slides with one named group, a "use when" line, and 6 to 8 numbered templates.
-- Uses BotKits visual tokens for any carousel artwork, and our own templates rather than another writer's lines.
+- Uses our own templates rather than another writer's lines.
 
 ## Before and after (example)
 
@@ -32,7 +31,7 @@ After the pass, the chosen hook (Lesson family) is:
 2 years of weekly posts left me with one rule: finish the outline before any sentence.
 ```
 
-The two unused options came from Transformation and Mistake. The body then has to deliver that one rule. For a carousel job, the post text would be a headline plus a colon, and each slide would keep the same row count.
+The two unused options came from Transformation and Mistake. The body then has to deliver that one rule.
 
 ## Works with
 
@@ -46,7 +45,6 @@ The two unused options came from Transformation and Mistake. The body then has t
 - [botkits.dev](https://botkits.dev)
 - Instructions: [SKILL.md](SKILL.md)
 - Pattern library: [references/patterns.md](references/patterns.md)
-- Source table: [references/swipe-file-carousel-analysis.md](references/swipe-file-carousel-analysis.md)
-- Inspired by: [Chase Dimond's 80 Storytelling Hooks](https://x.com/ecomchasedimond/status/2122793870669062451) and the 11 other save-first posts listed in [SKILL.md](SKILL.md#inspired-by). This skill adds why each family works, our own templates, a fact rule for every blank, a check that the body pays off the hook, and a carousel procedure that uses BotKits visual tokens.
+- Inspired by: [Chase Dimond's 80 Storytelling Hooks](https://x.com/ecomchasedimond/status/2122793870669062451) and the 11 other save-first posts listed in [SKILL.md](SKILL.md#inspired-by). This skill adds why each family works, our own templates, a fact rule for every blank, and a check that the body pays off the hook.
 
 License: MIT

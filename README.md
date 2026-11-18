@@ -107,7 +107,7 @@ Every skill is Dani's own version, inspired by several public references rather 
 | Create a bot with one clear job | [design-a-grok-bot](skills/bots/design-a-grok-bot/) |
 | Find noisy or wasteful routines | [routine-healthcheck](skills/bots/routine-healthcheck/) |
 | Write a post for X or LinkedIn | [social-copywriting](skills/writing/social-copywriting/) |
-| Write a storytelling hook or a swipe-file carousel | [storytelling-hooks](skills/writing/storytelling-hooks/) |
+| Write a storytelling hook | [storytelling-hooks](skills/writing/storytelling-hooks/) |
 | Get better leads from automated ad campaigns | [whetstone-signal](skills/ads/whetstone-signal/) |
 | Find what wins in a YouTube niche before planning videos | [youtube-niche-report](skills/youtube/youtube-niche-report/) |
 
@@ -162,7 +162,7 @@ updates. Show the evidence. Propose changes before applying them.
 | [no-ai-slop](skills/writing/no-ai-slop/) | Remove AI writing patterns while keeping the writer's voice. |
 | [top-edit](skills/writing/top-edit/) | Flag style issues in a final editorial pass. |
 | [social-copywriting](skills/writing/social-copywriting/) | Write or adapt posts for X and LinkedIn. |
-| [storytelling-hooks](skills/writing/storytelling-hooks/) | Write a hook by story family, or build a save-first swipe-file carousel. |
+| [storytelling-hooks](skills/writing/storytelling-hooks/) | Write a hook by story family, from a fact you already have. |
 | [x-article](skills/writing/x-article/) | Write long-form X Articles with section images. |
 | [ship-post](skills/writing/ship-post/) | Turn commits and PRs into one build-in-public post. |
 
@@ -296,7 +296,7 @@ Each skill here is written from scratch in our own words, drawing on several ref
 - **coach, outline, draft, source-check, top-edit:** inspired by [Nadiem Mahmoud's claude-writing-skills](https://github.com/nadiem99/claude-writing-skills) (which credits Every's Eleanor Warnock and Kate Lee), Paul Graham's essays on writing, George Orwell's *Politics and the English Language*, Mike Caulfield's SIFT, Wikipedia's Verifiability policy, Google's technical writing course, and Hardik Pandya's stop-slop.
 - **ship-post:** inspired by the ship-post reference in [Corey Haines's marketingskills](https://github.com/coreyhaines31/marketingskills).
 - **social-copywriting:** inspired by [Jules Sauvajol's Copywriting-skill](https://github.com/judicael-s/Copywriting-skill), X's published ranking code (xai-org/x-algorithm, 2026) and the older heavy ranker README, and LinkedIn Engineering's dwell-time post.
-- **storytelling-hooks:** inspired by [Chase Dimond's 80 Storytelling Hooks](https://x.com/ecomchasedimond/status/2122793870669062451) and eleven other save-first list and carousel posts listed in the skill, all read on 18 Nov 2026.
+- **storytelling-hooks:** inspired by [Chase Dimond's 80 Storytelling Hooks](https://x.com/ecomchasedimond/status/2122793870669062451) and eleven other save-first list posts listed in the skill, all read on 18 Nov 2026.
 - **design-taste-frontend, redesign-existing-projects:** inspired by [Leon Lin's Taste Skill](https://github.com/Leonxlnx/taste-skill), Anthropic's frontend-design skill, Vercel's Web Interface Guidelines, and Nielsen Norman Group's usability heuristics.
 - **diagram-design:** inspired by [Cathryn Lavery's diagram-design](https://github.com/cathrynlavery/diagram-design), the C4 model's notation guide, and Edward Tufte's idea of chartjunk.
 - **motion-picker:** inspired by [N01ennn's post](https://x.com/N01ennn/status/2121695892738629808) naming 20 animation libraries, and by the LICENSE file in each of those repos.

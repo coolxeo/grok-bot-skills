@@ -1,10 +1,10 @@
 # Hook family patterns
 
-Our own fill-in templates, sorted by family. Use them to write a hook or to fill a swipe-file carousel (one family per content slide, 6 to 8 rows, same count on every slide).
+Our own fill-in templates, sorted by family. Use them to write a hook.
 
 Do not paste another writer's hooks into a post or a slide. Every blank needs a real fact from the person who will publish. If a fact is missing, pick another family or leave the blank visible on a demo slide.
 
-Thanks to [Chase Dimond, 80 Storytelling Hooks](https://x.com/ecomchasedimond/status/2122793870669062451) for the ten family names and the "use when" plus fill-in shape. The "why it works" lines and every template below are ours. The 11 other posts in [swipe-file-carousel-analysis.md](swipe-file-carousel-analysis.md) informed the carousel format, not these lines.
+Thanks to [Chase Dimond, 80 Storytelling Hooks](https://x.com/ecomchasedimond/status/2122793870669062451) for the ten family names and the "use when" plus fill-in shape. The "why it works" lines and every template below are ours. The 11 other posts in [swipe-file-carousel-analysis.md](swipe-file-carousel-analysis.md) are cited as evidence for why hook lists get saved, not as lines to copy.
 
 ## Transformation
 
