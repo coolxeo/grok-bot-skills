@@ -10,7 +10,7 @@ Use this when turning a seed, interview, or set of facts into a writing plan bef
 npx skills add botkitsdev/botkits --skill outline
 ```
 
-To list the 31 skills in the repo: `npx skills add botkitsdev/botkits --list`.
+To list every skill in the repo: `npx skills add botkitsdev/botkits --list`.
 
 No CLI? Copy this folder into the skills folder your agent uses, and keep `SKILL.md` inside it.
 

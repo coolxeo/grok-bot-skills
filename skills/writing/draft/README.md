@@ -10,7 +10,7 @@ Use this when writing or expanding an article one section at a time, with the wr
 npx skills add botkitsdev/botkits --skill draft
 ```
 
-To list the 31 skills in the repo: `npx skills add botkitsdev/botkits --list`.
+To list every skill in the repo: `npx skills add botkitsdev/botkits --list`.
 
 No CLI? Copy this folder into the skills folder your agent uses, and keep `SKILL.md` inside it.
 
