@@ -1,5 +1,9 @@
 <p align="center">
-  <img src="assets/logo-wide.svg" alt="botskills" width="800">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.png 1x, assets/header-dark@2x.png 2x">
+    <source media="(prefers-color-scheme: light)" srcset="assets/logo-wide.png 1x, assets/logo-wide@2x.png 2x">
+    <img src="assets/logo-wide.png" alt="botskills" width="800">
+  </picture>
 </p>
 
 <p align="center">
@@ -33,19 +37,19 @@ Kits and install guides: [botkits.dev](https://botkits.dev)
 <table>
 <tr>
 <td valign="top" width="33%">
-<p align="center"><a href="skills/video/shorts-reframe/"><img src="assets/top3-shorts-reframe.png" alt="shorts-reframe: center-crop 16:9 to 9:16, scale to 1080x1920, then check size and duration"></a></p>
+<p align="center"><a href="skills/video/shorts-reframe/"><img src="assets/top3-shorts-reframe.png" alt="shorts-reframe: 16:9 frame and the 9:16 center-crop result at 1080×1920"></a></p>
 <strong><a href="skills/video/shorts-reframe/">shorts-reframe</a></strong><br>
-Turn a 16:9 video into 9:16 with a fixed center crop, scale to 1080x1920, keep the audio, and check duration and resolution.
+Turn a 16:9 video into a 1080×1920 Short. Center crop, audio kept, length and size checked.
 </td>
 <td valign="top" width="33%">
-<p align="center"><a href="skills/writing/x-article/"><img src="assets/top3-x-article.png" alt="x-article steps: outline, draft, source-check, lint, promo post, hand over. Do not post."></a></p>
+<p align="center"><a href="skills/writing/x-article/"><img src="assets/top3-x-article.png" alt="x-article: mock article header with a hook line, a section, and an image slot"></a></p>
 <strong><a href="skills/writing/x-article/">x-article</a></strong><br>
-Write or rewrite an X Article (long-form on x.com/i/article), with images between sections, a first-line hook, and no invented numbers.
+Turn rough notes into an X Article, with a first-line hook, images between sections and no invented numbers.
 </td>
 <td valign="top" width="33%">
-<p align="center"><a href="skills/seo/aeo-geo-site/"><img src="assets/top3-aeo-geo-site.png" alt="aeo-geo-site steps: schema, intent, draft, llms.txt, then a live fetch and an agent-readiness scan"></a></p>
+<p align="center"><a href="skills/seo/aeo-geo-site/"><img src="assets/top3-aeo-geo-site.png" alt="aeo-geo-site: botkits.dev is-agentic score, 79 to 81 to 100, is-agentic.com, 17 Nov 2026"></a></p>
 <strong><a href="skills/seo/aeo-geo-site/">aeo-geo-site</a></strong><br>
-Build or update a website for SEO plus AEO/GEO (AI assistants, ChatGPT, Copilot, Gemini) so pages are machine-readable, intent-clear, and citable.
+Make your site easy for ChatGPT, Gemini and Copilot to read, understand and cite.
 </td>
 </tr>
 </table>
