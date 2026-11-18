@@ -19,7 +19,7 @@ No CLI? Copy this folder into the skills folder your agent uses, and keep `SKILL
 - Treats SEO as the foundation (crawlable, fast, indexable pages), AEO as clarity (clear, structured, extractable answers), and GEO as trust (credible, consistent, justified facts).
 - Covers three data planes when they apply: crawled web data; structured feeds and APIs (sitemaps, `llms.txt`, markdown twins, JSON-LD, public APIs); and the live website. The same HTML goes to bots and users. Extra formats are additive and must not carry different facts.
 - Starts with server-rendered HTML, robots, sitemap, and canonicals. JSON-LD must match visible content. After a meaningful ship, rescan agent-readiness (for example is-agentic) and fix Essential misses before soft polish.
-- Front-loads who the page is for, what problem it solves, what it is, and what it is not. Headings mirror real questions. One clear answer per section. Copy uses phrases like "ready in 20 minutes" or "works with your existing CI".
+- Front-loads who the page is for, what problem it solves, what it is, and what it is not. Headings mirror real questions. One clear answer per section. Writes concrete claims, for example "ready in 20 minutes" or "works with your existing CI".
 - Keeps the entity consistent: the same name, facts, and URLs across the site, profiles, and schema. Uses only real proof. No exaggerated claims, fake social proof, or a "#1" without a source.
 
 ## Before / after (example)
@@ -28,15 +28,13 @@ This example restyles a page so an assistant can read and cite it. The starting 
 
 Once restyled, the H1 and first viewport answer the reader's job. Visible facts match JSON-LD and any markdown twin. Headings are question-shaped where the intent is a question. The same facts are served to bots and users. After merge, you verify with a live fetch (HTML and markdown Accept) and an agent-readiness scan, then fix Essential misses first.
 
-The skill's own copy-shape illustration starts with SEO as "waterproof rain jacket", AEO as "lightweight packable waterproof rain jacket with ventilation", and GEO as proof that is true and verifiable.
-
 ![botkits.dev agent-readiness score on is-agentic.com, 17 Nov 2026: 79, then 81, then 100](../../../assets/top3-aeo-geo-site.png)
 
 ## Works with
 
 - Used daily: Grok Bot.
 - Installs with `npx skills add` (tested 18 Nov 2026): Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and Grok Build.
-- It should work in any agent that supports the Agent Skills format. Install tested is not run tested.
+- Other agents that support the Agent Skills format can load it. We have not run it there.
 - No direct install yet in ChatGPT dots or Meta Muse. Paste the instructions from [SKILL.md](SKILL.md) into a chat.
 
 ## Paid kits

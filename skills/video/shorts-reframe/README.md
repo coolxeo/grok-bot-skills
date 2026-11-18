@@ -39,7 +39,7 @@ ffprobe must then show width `1080`, height `1920`, and a duration that matches 
 
 - Used daily: Grok Bot.
 - Installs with `npx skills add` (tested 18 Nov 2026): Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and Grok Build.
-- It should work in any agent that supports the Agent Skills format. Install tested is not run tested.
+- Other agents that support the Agent Skills format can load it. We have not run it there.
 - No direct install yet in ChatGPT dots or Meta Muse. Paste the instructions from [SKILL.md](SKILL.md) into a chat.
 
 ## Paid kits
