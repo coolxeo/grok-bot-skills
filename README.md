@@ -7,10 +7,10 @@
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/botkitsdev/botkits?labelColor=0D0A1F&color=C8FF3D" alt="MIT license"></a>
-  <a href="https://github.com/botkitsdev/botkits/stargazers"><img src="https://img.shields.io/github/stars/botkitsdev/botkits?style=flat&labelColor=0D0A1F&color=F7F4FF" alt="GitHub stars"></a>
-  <a href="#all-skills"><img src="https://img.shields.io/badge/skills-31-F7F4FF?labelColor=0D0A1F" alt="31 skills"></a>
-  <a href="https://botkits.dev"><img src="https://img.shields.io/badge/botkits.dev-C8FF3D?labelColor=0D0A1F&color=C8FF3D" alt="botkits.dev"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/botkitsdev/botkits?labelColor=14181B&color=2340C4" alt="MIT license"></a>
+  <a href="https://github.com/botkitsdev/botkits/stargazers"><img src="https://img.shields.io/github/stars/botkitsdev/botkits?style=flat&labelColor=14181B&color=F6F7F3" alt="GitHub stars"></a>
+  <a href="#all-skills"><img src="https://img.shields.io/badge/skills-31-F6F7F3?labelColor=14181B" alt="31 skills"></a>
+  <a href="https://botkits.dev"><img src="https://img.shields.io/badge/botkits.dev-2340C4?labelColor=14181B&color=2340C4" alt="botkits.dev"></a>
 </p>
 
 # Skills your bots can run today
@@ -255,10 +255,13 @@ updates. Show the evidence. Propose changes before applying them.
 ## How a skill is used
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#fafaf7", "primaryTextColor": "#14181b", "primaryBorderColor": "#2340c4", "lineColor": "#2340c4", "secondaryColor": "#f1f2ee", "tertiaryColor": "#f1f2ee", "edgeLabelBackground": "#f1f2ee"}}}%%
 flowchart LR
   A[Pick a skill] --> B[Install it on your bot or agent]
   B --> C[Bot loads SKILL.md when the task matches]
   C --> D[Result]
+  classDef step fill:#fafaf7,stroke:#2340c4,color:#14181b,stroke-width:1.5px
+  class A,B,C,D step
 ```
 
 ## Tool requirements
