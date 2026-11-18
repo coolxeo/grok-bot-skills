@@ -38,7 +38,7 @@ Then ask: would I have produced this plan for any similar page? If yes, change t
 
 ## 4. Build
 
-- Real copy written for the end user: plain verbs, sentence case, buttons that say what happens ("Start free trial", not "Submit"). Run headlines through no-ai-slop. No em dashes in UI copy.
+- Real copy written for the end user: plain verbs, sentence case, buttons that say what happens ("Start free trial", not "Submit"). Run headlines through botkits-no-ai-slop. No em dashes in UI copy.
 - Real images if they exist. If they don't, leave clearly labeled slots and list them at the end instead of faking them.
 - Check that every dependency exists in the project before importing it.
 - Quality floor, no announcement needed: responsive to 360px, visible keyboard focus, `prefers-reduced-motion` respected, text contrast at WCAG AA, links are links and buttons are buttons, no `transition: all`.
@@ -57,4 +57,4 @@ Open the page in a browser at mobile and desktop widths and take screenshots. Ch
 
 - A short, loadable skill: design read, token plan, defaults to avoid, build, look.
 - A browser screenshot check at two widths before handing over.
-- Copy rules tied to no-ai-slop, and an accessibility floor drawn from interface guidelines.
+- Copy rules tied to botkits-no-ai-slop, and an accessibility floor drawn from interface guidelines.

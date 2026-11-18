@@ -5,7 +5,7 @@ description: >-
   user needs a visual explanation of code shape, flow, or structure. Keep PR
   bodies easy to scan with the smallest clear diagram
 ---
-# show-me
+# botkits-show-me
 
 Explain a change or a piece of code with the smallest picture that makes it click. Short prose, then a visual next to the sentence it supports. Default home for these visuals is the PR body.
 

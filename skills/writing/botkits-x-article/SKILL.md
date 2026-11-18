@@ -29,8 +29,8 @@ Use for X Articles (x.com/i/articles or compose/articles), not tweets or 1/2/3/4
 1. Outline (hook options, mechanism, evidence gaps).
 2. Draft section by section.
 3. Source-check.
-4. No AI slop in Embedded mode (minimum change), then its `scripts/lint.py` on the final text. Check the fact lock: every number still matches source-check.
-5. Write the promo post with social-copywriting (named thing in line 1, link placement per that skill).
+4. No AI slop in Embedded mode (minimum change), then its `scripts/lint.py` on the final text. Check the fact lock: every number still matches botkits-source-check.
+5. Write the promo post with botkits-social-copywriting (named thing in line 1, link placement per that skill).
 6. Hand both drafts to whoever holds the account. Do not post.
 
 ## Voice
@@ -39,11 +39,11 @@ First person, specific, short sentences mixed with longer ones. No unrelated pro
 
 ## Inspired by
 
-- Dani Acosta's own X Article workflow. No outside source was verified, so none is credited (see [docs/credits.md](../../../docs/credits.md)). It builds on this repo's outline, draft, source-check, no-ai-slop, and social-copywriting skills.
+- Dani Acosta's own X Article workflow. No outside source was verified, so none is credited (see [docs/credits.md](../../../docs/credits.md)). It builds on this repo's botkits-outline, botkits-draft, botkits-source-check, botkits-no-ai-slop, and botkits-social-copywriting skills.
 
 ## What this version adds
 
 - A closer rule: end on a step the reader can take or a real question, not a slogan.
 - The title and the first line must say different things.
-- A lint and fact-lock check with no-ai-slop's `scripts/lint.py` before hand-off.
-- A promo post written with social-copywriting, handed over with the Article draft.
+- A lint and fact-lock check with botkits-no-ai-slop's `scripts/lint.py` before hand-off.
+- A promo post written with botkits-social-copywriting, handed over with the Article draft.

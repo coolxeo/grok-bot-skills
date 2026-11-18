@@ -75,7 +75,7 @@ License names were read from each repo's LICENSE file on 14 Nov 2026. `unverifie
 3. Name the license and any trap that applies.
 4. Say whether reduced motion, or a motion moment that already exists, means you should skip it.
 
-Example: a docs page asks for a diagram that draws itself and nothing else. Use [diagram-design](../diagram-design/SKILL.md), then its optional line-draw, preset calm. Do not add Lenis. Do not add a second moment on the hero.
+Example: a docs page asks for a diagram that draws itself and nothing else. Use [botkits-diagram-design](../botkits-diagram-design/SKILL.md), then its optional line-draw, preset calm. Do not add Lenis. Do not add a second moment on the hero.
 
 ## Inspired by
 

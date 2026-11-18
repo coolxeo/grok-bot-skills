@@ -23,7 +23,7 @@ Write from an approved outline, one section at a time, with the writer approving
 - Mix short and long sentences on purpose.
 - Start a sentence with "But" or "And" when it reads naturally. Grammar allows it.
 - No invented numbers, quotes, or sources. Leave `[GAP: what is needed]` and keep going.
-- Follow no-ai-slop's house rules as you write (no em dashes in short copy, no staged contrasts, no slogan endings). Cheaper than fixing them later.
+- Follow botkits-no-ai-slop's house rules as you write (no em dashes in short copy, no staged contrasts, no slogan endings). Cheaper than fixing them later.
 
 ## After each section
 
@@ -32,7 +32,7 @@ Write from an approved outline, one section at a time, with the writer approving
 - If the section is fighting the outline, say so and propose an outline change. Going back early beats polishing a broken arc.
 - Stop and wait for approval unless the writer asked for more than one section.
 
-When every section is in: source-check, then no-ai-slop.
+When every section is in: botkits-source-check, then botkits-no-ai-slop.
 
 ## Inspired by
 

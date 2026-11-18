@@ -10,7 +10,7 @@ description: >-
 
 Use this skill to run a small, honest loop on one site. You start from the decisions your buyers make. You find the prompts and queries where the site loses. You find the cause. You make one change. You measure again.
 
-This skill does not tell you how to write or mark up a page. For the fix itself, use [aeo-geo-site](../aeo-geo-site/SKILL.md). For a missing page, use [exact-match-intent-seo](../exact-match-intent-seo/SKILL.md) to pick the slug, title, and H1. For third-party sources that AI cites, use [ai-citation-sources](../ai-citation-sources/SKILL.md).
+This skill does not tell you how to write or mark up a page. For the fix itself, use [botkits-aeo-geo-site](../botkits-aeo-geo-site/SKILL.md). For a missing page, use [botkits-exact-match-intent-seo](../botkits-exact-match-intent-seo/SKILL.md) to pick the slug, title, and H1. For third-party sources that AI cites, use [botkits-ai-citation-sources](../botkits-ai-citation-sources/SKILL.md).
 
 Helper files:
 
@@ -57,8 +57,8 @@ Give each lost row exactly one primary cause. Check them in this order, because 
 | --- | --- | --- |
 | **crawl-index** | The target page exists, but it is not indexed, is blocked for search crawlers in `robots.txt`, returns an error, has `noindex`, has a wrong canonical, or renders its main text only with JavaScript. | Fix access first. See the technical priority list below. |
 | **missing** | No page on the site answers this decision. | Go to the missing-page branch. |
-| **weak** | A page exists and is indexed, but it does not answer the prompt in plain words, is thin, is out of date, or answers a different question. | Improve that page with [aeo-geo-site](../aeo-geo-site/SKILL.md). |
-| **third-party** | Your page is fine, but AI answers cite lists, reviews, forums, or directories instead. | Run [ai-citation-sources](../ai-citation-sources/SKILL.md) for this row. |
+| **weak** | A page exists and is indexed, but it does not answer the prompt in plain words, is thin, is out of date, or answers a different question. | Improve that page with [botkits-aeo-geo-site](../botkits-aeo-geo-site/SKILL.md). |
+| **third-party** | Your page is fine, but AI answers cite lists, reviews, forums, or directories instead. | Run [botkits-ai-citation-sources](../botkits-ai-citation-sources/SKILL.md) for this row. |
 
 If the product does not truly answer the prompt (for example the prompt asks for a format or feature you do not have), mark the row `not-a-fit`, write why, and drop it from the next cycle. Do not bend a page to match a prompt it cannot honestly answer.
 
@@ -69,7 +69,7 @@ Note the difference between search crawlers and training crawlers. Blocking a tr
 ### Missing page or weak page
 
 - Improve an existing page before you make a new one. A new page is correct only when no page covers the decision and adding the answer to an existing page would make that page about two things.
-- For a new page, use [exact-match-intent-seo](../exact-match-intent-seo/SKILL.md): one intent, slug, title, and H1 in the buyer's words. Then apply [aeo-geo-site](../aeo-geo-site/SKILL.md).
+- For a new page, use [botkits-exact-match-intent-seo](../botkits-exact-match-intent-seo/SKILL.md): one intent, slug, title, and H1 in the buyer's words. Then apply [botkits-aeo-geo-site](../botkits-aeo-geo-site/SKILL.md).
 - Do not make many thin pages for close variants of one question.
 
 ### Technical SEO priority

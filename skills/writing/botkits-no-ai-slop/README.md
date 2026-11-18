@@ -16,7 +16,7 @@ No CLI? Copy this folder into the skills folder your agent uses, and keep `SKILL
 
 ## What it does
 
-- Load it before writing anything public, and as the last edit inside x-article, social-copywriting, ship-post, draft, and diagram captions. The goal is copy that sounds like the person who wrote it, minus the habits a model leaves behind.
+- Load it before writing anything public, and as the last edit inside botkits-x-article, botkits-social-copywriting, botkits-ship-post, botkits-draft, and diagram captions. The goal is copy that sounds like the person who wrote it, minus the habits a model leaves behind.
 - Four modes: Edit (default; lightest touch, then show what changed), Detect (list each tell with the quoted line, the pattern name, and a fix; do not rewrite and do not give an AI-probability score), Embedded (cleaned text only, for other skills), and Batch (run Edit or Detect on each piece, then compare first and last lines for shared templates).
 - Before editing, gets the writer's real voice from two or three published pieces in the same place when it can. The sample outranks the general tells. House rules still apply.
 - Fixes the shape, not the symptom. Leaves quotations, titles, names, code, URLs, and mentioned phrases alone. Never adds a number, name, date, quote, or experience the writer did not give. Runs a fact lock on names, numbers, links, negations, conditions, and certainty.

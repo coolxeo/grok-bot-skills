@@ -28,8 +28,8 @@ Do this once, before any design work:
 
 1. If `~/.cursor/rules/pstack-models.mdc` is missing, run `/setup-pstack`. If a real repo exists and there is no `verify-*` skill, run `/create-verification-skill`. Don't ask first.
 2. List `/home/box/agent-data/agents/<this-agent-id>/automations/`. Create whichever healthcheck routine is missing with `update_state` (target `routine`, action `create`), each told to stay quiet when it has nothing to propose:
-   - `transcript-healthcheck`, schedule `44 8 * * 1-5`, runs the transcript-healthcheck skill.
-   - `routine-healthcheck`, schedule `49 8 * * 1`, runs the routine-healthcheck skill.
+   - `transcript-healthcheck`, schedule `44 8 * * 1-5`, runs the botkits-transcript-healthcheck skill.
+   - `routine-healthcheck`, schedule `49 8 * * 1`, runs the botkits-routine-healthcheck skill.
    Tell the user what you created or that both already existed. Imports don't always bring routines along, so this step is the safety net.
 3. Offer once to run a routine checkup across all bots.
 

@@ -85,7 +85,7 @@ Skip it for a single-shot clip or a script with no picture notes.
 - [ ] Nothing built until the reply came back
 
 > **Next step: from approved plan to Shorts.** When the long cut is done, the free
-> [shorts-reframe](../shorts-reframe/SKILL.md) skill crops it to 9:16 Shorts.
+> [botkits-shorts-reframe](../botkits-shorts-reframe/SKILL.md) skill crops it to 9:16 Shorts.
 
 ## Inspired by
 

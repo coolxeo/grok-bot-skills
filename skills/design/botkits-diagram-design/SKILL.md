@@ -39,7 +39,7 @@ Draw only when space carries meaning: order, flow, containment, or connection. I
 
 ## Social and ad stills
 
-1200×675 (16:9) unless the platform asks for something else. One idea, big type, no legend. Run the caption through no-ai-slop.
+1200×675 (16:9) unless the platform asks for something else. One idea, big type, no legend. Run the caption through botkits-no-ai-slop.
 
 ## Output
 
@@ -51,9 +51,9 @@ Draw only when space carries meaning: order, flow, containment, or connection. I
 
 Skip this unless the user asks for motion. The PNG stays the default path.
 
-1. Animate the inline SVG as a line-draw. Prefer CSS so the timing matches a preset from [motion-picker](../motion-picker/SKILL.md#presets) exactly. calm is the default. Measure each path (SVGGeometryElement.getTotalLength() works) and store the length in a custom property. Set `stroke-dasharray` and `stroke-dashoffset` to that length, then animate `stroke-dashoffset` to 0 over the preset duration and cubic-bezier. When `prefers-reduced-motion` is reduce, do not animate; leave the stroke fully drawn and ship the PNG only.
+1. Animate the inline SVG as a line-draw. Prefer CSS so the timing matches a preset from [botkits-motion-picker](../botkits-motion-picker/SKILL.md#presets) exactly. calm is the default. Measure each path (SVGGeometryElement.getTotalLength() works) and store the length in a custom property. Set `stroke-dasharray` and `stroke-dashoffset` to that length, then animate `stroke-dashoffset` to 0 over the preset duration and cubic-bezier. When `prefers-reduced-motion` is reduce, do not animate; leave the stroke fully drawn and ship the PNG only.
 2. Vivus is the other option ([readme](https://github.com/maxwellito/vivus/blob/master/readme.md)). Its duration option counts frames, not milliseconds, so do not drop the preset's millisecond number straight into that option. Convert with frames ≈ milliseconds ÷ 1000 × the capture frame rate, and write down the frame count you passed. At 60fps the calm row is about 25 frames. Vivus follows strokes on path elements and does not draw a fill. Convert real outlines to paths, or stay with the CSS method.
-3. Follow the [motion-picker](../motion-picker/SKILL.md) rules: one moment on the page, and for the recording, short moving clips joined with fades, no held still, no zoom-in, and no push-in. The timing numbers stay the [presets](../motion-picker/SKILL.md#presets).
+3. Follow the [botkits-motion-picker](../botkits-motion-picker/SKILL.md) rules: one moment on the page, and for the recording, short moving clips joined with fades, no held still, no zoom-in, and no push-in. The timing numbers stay the [presets](../botkits-motion-picker/SKILL.md#presets).
 4. Record a short clip with a headless browser, as webm or mp4. Keep that file outside git, along with any gif or rendered png.
 
 ```css
@@ -69,7 +69,7 @@ Skip this unless the user asks for motion. The PNG stays the default path.
 }
 ```
 
-The 420ms curve is the calm row. If you switch preset, copy the new row from [motion-picker](../motion-picker/SKILL.md#presets). Do not invent a third duration.
+The 420ms curve is the calm row. If you switch preset, copy the new row from [botkits-motion-picker](../botkits-motion-picker/SKILL.md#presets). Do not invent a third duration.
 
 ## Inspired by
 
@@ -82,4 +82,4 @@ The 420ms curve is the calm row. If you switch preset, copy the new row from [mo
 - Standalone: works without the upstream pack, and uses it when present.
 - Caption-first planning and a "should this be a diagram?" test.
 - Dani's never-ship list, social still sizes, and accessible SVG plus a look-at-the-PNG check.
-- An optional line-draw clip (CSS stroke offset, or Vivus) timed by the [motion-picker](../motion-picker/SKILL.md#presets) presets. The PNG stays the default. The clip stays out of git.
+- An optional line-draw clip (CSS stroke offset, or Vivus) timed by the [botkits-motion-picker](../botkits-motion-picker/SKILL.md#presets) presets. The PNG stays the default. The clip stays out of git.

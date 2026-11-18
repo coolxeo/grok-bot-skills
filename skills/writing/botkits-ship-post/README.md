@@ -18,7 +18,7 @@ No CLI? Copy this folder into the skills folder your agent uses, and keep `SKILL
 
 - Collects what shipped from git (the given ref, or the last 7 days if none), then asks the owner one question and waits: what got in users' way before, and what is different now. It does not write that sentence for them.
 - Picks the one change a user would notice. Opens on the before and after, not the method. Writes three openings and keeps one.
-- Drafts one X post, a reply that carries the link if there is one, and a Reddit draft only if asked. Then runs no-ai-slop and lists every number next to the commit, file, or owner message it came from. Hands the drafts over and stops. Never posts, schedules, or publishes.
+- Drafts one X post, a reply that carries the link if there is one, and a Reddit draft only if asked. Then runs botkits-no-ai-slop and lists every number next to the commit, file, or owner message it came from. Hands the drafts over and stops. Never posts, schedules, or publishes.
 - Every number traces to the commits, the diff, or the owner's answer. No claims about what users did or felt unless the owner reported it. If the owner's sentence and the code disagree, it says so and describes what the code does.
 - A week of only refactors, dependency bumps, CI, and lint is a quiet week. It says that, and offers to skip or to post about the problem being worked on, in the owner's words.
 

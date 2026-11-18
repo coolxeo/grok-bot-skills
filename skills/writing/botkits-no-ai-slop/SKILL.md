@@ -9,7 +9,7 @@ description: >-
 ---
 # No AI slop
 
-Dani Acosta's anti-slop pass. Load it before writing anything public, and run it as the last edit inside x-article, social-copywriting, ship-post, draft, and diagram captions. The goal is copy that sounds like the person who wrote it, minus the habits a model leaves behind.
+Dani Acosta's anti-slop pass. Load it before writing anything public, and run it as the last edit inside botkits-x-article, botkits-social-copywriting, botkits-ship-post, botkits-draft, and diagram captions. The goal is copy that sounds like the person who wrote it, minus the habits a model leaves behind.
 
 ## Pick a mode
 

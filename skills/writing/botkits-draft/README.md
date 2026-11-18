@@ -18,15 +18,15 @@ No CLI? Copy this folder into the skills folder your agent uses, and keep `SKILL
 
 - Writes from an approved outline, one section at a time. The writer approves each section before the next. Never produces the whole article in one go.
 - Before each section, restates the thesis in one sentence, names the section and why it comes next, and names two habits of the writer's voice to keep.
-- Every paragraph moves the piece with a new fact, step, or turn. Uses plain words. Opens each section on something concrete. Leaves `[GAP: what is needed]` instead of inventing numbers, quotes, or sources. Follows no-ai-slop house rules while writing.
+- Every paragraph moves the piece with a new fact, step, or turn. Uses plain words. Opens each section on something concrete. Leaves `[GAP: what is needed]` instead of inventing numbers, quotes, or sources. Follows botkits-no-ai-slop house rules while writing.
 - After each section, offers two versions of any heavy line (the hook, a key claim, the last line), rereads from the top, and proposes an outline change if the section is fighting the plan. Then stops and waits for approval unless the writer asked for more than one section.
-- When every section is in: source-check, then no-ai-slop.
+- When every section is in: botkits-source-check, then botkits-no-ai-slop.
 
 ## Before / after (example)
 
 This example starts with an approved outline. The missing facts are still unmarked. The risk is writing the whole article at once, inventing a number or quote, or polishing a section that fights the outline.
 
-After the pass, each section is written and approved before the next. The thesis is restated first. Voice habits are named. Gaps stay as `[GAP: ...]`. Heavy lines come in two versions for the writer to pick. If a section fights the outline, an outline change is proposed and the work waits. When every section is in, the next steps are source-check, then no-ai-slop.
+After the pass, each section is written and approved before the next. The thesis is restated first. Voice habits are named. Gaps stay as `[GAP: ...]`. Heavy lines come in two versions for the writer to pick. If a section fights the outline, an outline change is proposed and the work waits. When every section is in, the next steps are botkits-source-check, then botkits-no-ai-slop.
 
 ## Works with
 

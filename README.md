@@ -260,38 +260,38 @@ On 18 Nov 2026 every skill got the `botkits-` prefix, so our skills do not overw
 
 | Old name | New name |
 | --- | --- |
-| `whetstone-signal` | [`botkits-whetstone-signal`](skills/ads/botkits-whetstone-signal/) |
-| `design-a-grok-bot` | [`botkits-design-a-grok-bot`](skills/bots/botkits-design-a-grok-bot/) |
-| `make-bot-ui` | [`botkits-make-bot-ui`](skills/bots/botkits-make-bot-ui/) |
-| `overheard` | [`botkits-overheard`](skills/bots/botkits-overheard/) |
-| `overheard-setup` | [`botkits-overheard-setup`](skills/bots/botkits-overheard-setup/) |
-| `routine-healthcheck` | [`botkits-routine-healthcheck`](skills/bots/botkits-routine-healthcheck/) |
-| `transcript-healthcheck` | [`botkits-transcript-healthcheck`](skills/bots/botkits-transcript-healthcheck/) |
-| `design-taste-frontend` | [`botkits-design-taste-frontend`](skills/design/botkits-design-taste-frontend/) |
-| `diagram-design` | [`botkits-diagram-design`](skills/design/botkits-diagram-design/) |
-| `motion-picker` | [`botkits-motion-picker`](skills/design/botkits-motion-picker/) |
-| `redesign-existing-projects` | [`botkits-redesign-existing-projects`](skills/design/botkits-redesign-existing-projects/) |
-| `engineering-playbook` | [`botkits-engineering-playbook`](skills/engineering/botkits-engineering-playbook/) |
-| `show-me` | [`botkits-show-me`](skills/engineering/botkits-show-me/) |
-| `chatgpt-images-browser-playbook` | [`botkits-chatgpt-images-browser-playbook`](skills/images/botkits-chatgpt-images-browser-playbook/) |
-| `aeo-geo-site` | [`botkits-aeo-geo-site`](skills/seo/botkits-aeo-geo-site/) |
-| `ai-citation-sources` | [`botkits-ai-citation-sources`](skills/seo/botkits-ai-citation-sources/) |
-| `ai-search-gap-loop` | [`botkits-ai-search-gap-loop`](skills/seo/botkits-ai-search-gap-loop/) |
-| `exact-match-intent-seo` | [`botkits-exact-match-intent-seo`](skills/seo/botkits-exact-match-intent-seo/) |
-| `markdown-twin` | [`botkits-markdown-twin`](skills/seo/botkits-markdown-twin/) |
-| `shorts-reframe` | [`botkits-shorts-reframe`](skills/video/botkits-shorts-reframe/) |
-| `video-plan-page` | [`botkits-video-plan-page`](skills/video/botkits-video-plan-page/) |
-| `coach` | [`botkits-coach`](skills/writing/botkits-coach/) |
-| `draft` | [`botkits-draft`](skills/writing/botkits-draft/) |
-| `no-ai-slop` | [`botkits-no-ai-slop`](skills/writing/botkits-no-ai-slop/) |
-| `outline` | [`botkits-outline`](skills/writing/botkits-outline/) |
-| `ship-post` | [`botkits-ship-post`](skills/writing/botkits-ship-post/) |
-| `social-copywriting` | [`botkits-social-copywriting`](skills/writing/botkits-social-copywriting/) |
-| `source-check` | [`botkits-source-check`](skills/writing/botkits-source-check/) |
-| `storytelling-hooks` | [`botkits-storytelling-hooks`](skills/writing/botkits-storytelling-hooks/) |
-| `top-edit` | [`botkits-top-edit`](skills/writing/botkits-top-edit/) |
-| `x-article` | [`botkits-x-article`](skills/writing/botkits-x-article/) |
-| `youtube-niche-report` | [`botkits-youtube-niche-report`](skills/youtube/botkits-youtube-niche-report/) |
+| `whetstone-signal` | `botkits-whetstone-signal` |
+| `design-a-grok-bot` | `botkits-design-a-grok-bot` |
+| `make-bot-ui` | `botkits-make-bot-ui` |
+| `overheard` | `botkits-overheard` |
+| `overheard-setup` | `botkits-overheard-setup` |
+| `routine-healthcheck` | `botkits-routine-healthcheck` |
+| `transcript-healthcheck` | `botkits-transcript-healthcheck` |
+| `design-taste-frontend` | `botkits-design-taste-frontend` |
+| `diagram-design` | `botkits-diagram-design` |
+| `motion-picker` | `botkits-motion-picker` |
+| `redesign-existing-projects` | `botkits-redesign-existing-projects` |
+| `engineering-playbook` | `botkits-engineering-playbook` |
+| `show-me` | `botkits-show-me` |
+| `chatgpt-images-browser-playbook` | `botkits-chatgpt-images-browser-playbook` |
+| `aeo-geo-site` | `botkits-aeo-geo-site` |
+| `ai-citation-sources` | `botkits-ai-citation-sources` |
+| `ai-search-gap-loop` | `botkits-ai-search-gap-loop` |
+| `exact-match-intent-seo` | `botkits-exact-match-intent-seo` |
+| `markdown-twin` | `botkits-markdown-twin` |
+| `shorts-reframe` | `botkits-shorts-reframe` |
+| `video-plan-page` | `botkits-video-plan-page` |
+| `coach` | `botkits-coach` |
+| `draft` | `botkits-draft` |
+| `no-ai-slop` | `botkits-no-ai-slop` |
+| `outline` | `botkits-outline` |
+| `ship-post` | `botkits-ship-post` |
+| `social-copywriting` | `botkits-social-copywriting` |
+| `source-check` | `botkits-source-check` |
+| `storytelling-hooks` | `botkits-storytelling-hooks` |
+| `top-edit` | `botkits-top-edit` |
+| `x-article` | `botkits-x-article` |
+| `youtube-niche-report` | `botkits-youtube-niche-report` |
 
 ## How a skill is used
 
@@ -331,25 +331,25 @@ Keep each skill focused on one job. Use `skills/<category>/<slug>/SKILL.md` with
 
 Each skill here is written from scratch in our own words, drawing on several references. Credit for the ideas belongs to these authors. The [credits table](docs/credits.md) lists every reference with a link, what it does well, what it was missing, and what we added.
 
-- **no-ai-slop:** inspired by [Peter Yang's no-ai-slop](https://github.com/petergyang/no-ai-slop), [Wikipedia's Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), [blader/humanizer](https://github.com/blader/humanizer), [Hardik Pandya's stop-slop](https://github.com/hardikpandya/stop-slop), [Conor Bronsdon's avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing), and [Lauren Tan's pstack unslop](https://github.com/cursor/plugins/tree/main/pstack/skills/unslop).
-- **coach, outline, draft, source-check, top-edit:** inspired by [Nadiem Mahmoud's claude-writing-skills](https://github.com/nadiem99/claude-writing-skills) (which credits Every's Eleanor Warnock and Kate Lee), Paul Graham's essays on writing, George Orwell's *Politics and the English Language*, Mike Caulfield's SIFT, Wikipedia's Verifiability policy, Google's technical writing course, and Hardik Pandya's stop-slop.
-- **ship-post:** inspired by the ship-post reference in [Corey Haines's marketingskills](https://github.com/coreyhaines31/marketingskills).
-- **social-copywriting:** inspired by [Jules Sauvajol's Copywriting-skill](https://github.com/judicael-s/Copywriting-skill), X's published ranking code (xai-org/x-algorithm, 2026) and the older heavy ranker README, and LinkedIn Engineering's dwell-time post.
-- **storytelling-hooks:** inspired by [Chase Dimond's 80 Storytelling Hooks](https://x.com/ecomchasedimond/status/2122793870669062451) and eleven other save-first list posts listed in the skill, all read on 18 Nov 2026.
-- **design-taste-frontend, redesign-existing-projects:** inspired by [Leon Lin's Taste Skill](https://github.com/Leonxlnx/taste-skill), Anthropic's frontend-design skill, Vercel's Web Interface Guidelines, and Nielsen Norman Group's usability heuristics.
-- **diagram-design:** inspired by [Cathryn Lavery's diagram-design](https://github.com/cathrynlavery/diagram-design), the C4 model's notation guide, and Edward Tufte's idea of chartjunk.
-- **motion-picker:** inspired by [N01ennn's post](https://x.com/N01ennn/status/2121695892738629808) naming 20 animation libraries, and by the LICENSE file in each of those repos.
-- **engineering-playbook:** inspired by [Lingxi Li's Engineer Bot](https://x.ai/bot/marketplace/bots/engineer-bot), Google's engineering practices on small changes, and Lauren Tan's pstack.
-- **show-me:** inspired by [HumanLayer's show-me](https://github.com/humanlayer/skills/tree/main/plugins/show-me) (whose launch article credits Dillon Mulroy and Matt Pocock), Google's guide to change descriptions, and GitHub's diagram docs.
-- **design-a-grok-bot, routine-healthcheck, transcript-healthcheck, make-bot-ui:** inspired by [Lauren Tan (@poteto)](https://github.com/poteto)'s [dr eggbot](https://x.ai/bot/marketplace/bots/dr-eggbot-v2) and [pstack](https://github.com/cursor/plugins/tree/main/pstack), Anthropic's *Building effective agents*, the Google SRE book, Hamel Husain's field guide, Tailscale's Serve docs, and GitHub's webhook docs.
-- **design-a-grok-bot** also draws on [Harness²](https://github.com/google-research/harness2) (google-research/harness2).
-- **overheard, overheard-setup:** inspired by [Lenny Rachitsky's Overheard](https://x.ai/bot/marketplace/bots/overheard), F5Bot, and Google Alerts.
-- **aeo-geo-site:** built on [Microsoft Advertising's AEO/GEO guide](https://about.ads.microsoft.com/content/dam/sites/msa-about/global/common/content-lib/pdf/from-discovery-to-influence-a-guide-to-aeo-and-geo.pdf) by Jennifer Myers and [Alex Groberman's summary](https://www.linkedin.com/pulse/new-microsoft-just-revealed-how-get-traffic-from-alex-groberman-5af0c).
-- **exact-match-intent-seo:** started from [Hridoy Reh's X post](https://x.com/hridoyreh/status/2096534436934455606), not reverified.
-- **markdown-twin:** inspired by [Jeremy Howard / llmstxt.org](https://llmstxt.org/): the /llms.txt v2 proposal.
-- **shorts-reframe:** inspired by [FFmpeg crop filter documentation](https://ffmpeg.org/ffmpeg-filters.html#crop) and the [mediacodec.dev crop guide](https://mediacodec.dev/how-to/crop-video/).
-- **video-plan-page:** Dani's own storytelling-video plan page (private channel repo, PR #204), rewritten as a standalone skill.
-- **x-article, chatgpt-images-browser-playbook:** Dani's own workflows; no outside source verified.
+- **botkits-no-ai-slop:** inspired by [Peter Yang's no-ai-slop](https://github.com/petergyang/no-ai-slop), [Wikipedia's Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), [blader/humanizer](https://github.com/blader/humanizer), [Hardik Pandya's stop-slop](https://github.com/hardikpandya/stop-slop), [Conor Bronsdon's avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing), and [Lauren Tan's pstack unslop](https://github.com/cursor/plugins/tree/main/pstack/skills/unslop).
+- **botkits-coach, botkits-outline, botkits-draft, botkits-source-check, botkits-top-edit:** inspired by [Nadiem Mahmoud's claude-writing-skills](https://github.com/nadiem99/claude-writing-skills) (which credits Every's Eleanor Warnock and Kate Lee), Paul Graham's essays on writing, George Orwell's *Politics and the English Language*, Mike Caulfield's SIFT, Wikipedia's Verifiability policy, Google's technical writing course, and Hardik Pandya's stop-slop.
+- **botkits-ship-post:** inspired by the ship-post reference in [Corey Haines's marketingskills](https://github.com/coreyhaines31/marketingskills).
+- **botkits-social-copywriting:** inspired by [Jules Sauvajol's Copywriting-skill](https://github.com/judicael-s/Copywriting-skill), X's published ranking code (xai-org/x-algorithm, 2026) and the older heavy ranker README, and LinkedIn Engineering's dwell-time post.
+- **botkits-storytelling-hooks:** inspired by [Chase Dimond's 80 Storytelling Hooks](https://x.com/ecomchasedimond/status/2122793870669062451) and eleven other save-first list posts listed in the skill, all read on 18 Nov 2026.
+- **botkits-design-taste-frontend, botkits-redesign-existing-projects:** inspired by [Leon Lin's Taste Skill](https://github.com/Leonxlnx/taste-skill), Anthropic's frontend-design skill, Vercel's Web Interface Guidelines, and Nielsen Norman Group's usability heuristics.
+- **botkits-diagram-design:** inspired by [Cathryn Lavery's diagram-design](https://github.com/cathrynlavery/diagram-design), the C4 model's notation guide, and Edward Tufte's idea of chartjunk.
+- **botkits-motion-picker:** inspired by [N01ennn's post](https://x.com/N01ennn/status/2121695892738629808) naming 20 animation libraries, and by the LICENSE file in each of those repos.
+- **botkits-engineering-playbook:** inspired by [Lingxi Li's Engineer Bot](https://x.ai/bot/marketplace/bots/engineer-bot), Google's engineering practices on small changes, and Lauren Tan's pstack.
+- **botkits-show-me:** inspired by [HumanLayer's show-me](https://github.com/humanlayer/skills/tree/main/plugins/show-me) (whose launch article credits Dillon Mulroy and Matt Pocock), Google's guide to change descriptions, and GitHub's diagram docs.
+- **botkits-design-a-grok-bot, botkits-routine-healthcheck, botkits-transcript-healthcheck, botkits-make-bot-ui:** inspired by [Lauren Tan (@poteto)](https://github.com/poteto)'s [dr eggbot](https://x.ai/bot/marketplace/bots/dr-eggbot-v2) and [pstack](https://github.com/cursor/plugins/tree/main/pstack), Anthropic's *Building effective agents*, the Google SRE book, Hamel Husain's field guide, Tailscale's Serve docs, and GitHub's webhook docs.
+- **botkits-design-a-grok-bot** also draws on [Harness²](https://github.com/google-research/harness2) (google-research/harness2).
+- **botkits-overheard, botkits-overheard-setup:** inspired by [Lenny Rachitsky's Overheard](https://x.ai/bot/marketplace/bots/overheard), F5Bot, and Google Alerts.
+- **botkits-aeo-geo-site:** built on [Microsoft Advertising's AEO/GEO guide](https://about.ads.microsoft.com/content/dam/sites/msa-about/global/common/content-lib/pdf/from-discovery-to-influence-a-guide-to-aeo-and-geo.pdf) by Jennifer Myers and [Alex Groberman's summary](https://www.linkedin.com/pulse/new-microsoft-just-revealed-how-get-traffic-from-alex-groberman-5af0c).
+- **botkits-exact-match-intent-seo:** started from [Hridoy Reh's X post](https://x.com/hridoyreh/status/2096534436934455606), not reverified.
+- **botkits-markdown-twin:** inspired by [Jeremy Howard / llmstxt.org](https://llmstxt.org/): the /llms.txt v2 proposal.
+- **botkits-shorts-reframe:** inspired by [FFmpeg crop filter documentation](https://ffmpeg.org/ffmpeg-filters.html#crop) and the [mediacodec.dev crop guide](https://mediacodec.dev/how-to/crop-video/).
+- **botkits-video-plan-page:** Dani's own storytelling-video plan page (private channel repo, PR #204), rewritten as a standalone skill.
+- **botkits-x-article, botkits-chatgpt-images-browser-playbook:** Dani's own workflows; no outside source verified.
 
 See the [credits table](docs/credits.md) for exact files, evidence, and unresolved origins. The source audit of the 22 skills reviewed on 17 Sep 2026 is unchanged. The six later skills and the Harness² credit already present in `botkits-design-a-grok-bot` were reviewed on 13 Nov 2026. No standalone upstream was verified for `botkits-x-article` or `botkits-chatgpt-images-browser-playbook`. Source credit for `botkits-ai-search-gap-loop` and `botkits-ai-citation-sources` is pending an owner decision. Origins for `botkits-whetstone-signal` and `botkits-youtube-niche-report` are unresolved.
 

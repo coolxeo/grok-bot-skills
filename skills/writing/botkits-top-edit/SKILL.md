@@ -6,7 +6,7 @@ description: >-
 ---
 # Top edit
 
-The final screen before publishing. Run it after no-ai-slop. It is a checklist, not a critique: flag, don't edit. Each flag gets a line number, the quoted text, and a fix.
+The final screen before publishing. Run it after botkits-no-ai-slop. It is a checklist, not a critique: flag, don't edit. Each flag gets a line number, the quoted text, and a fix.
 
 ## Pass 1: Leftover tells
 
@@ -28,9 +28,9 @@ Things that survive a slop pass because no single word gives them away:
 
 - Opens on something concrete, not a thesis or a question.
 - The one-sentence takeaway is findable.
-- Every big claim has a named source (run source-check if not).
+- Every big claim has a named source (run botkits-source-check if not).
 - Could anyone else have written this? If yes, flag where the writer's own detail is missing.
-- Destination rules from no-ai-slop: em dashes, trailing periods on social posts, hyphens on LinkedIn, hashtags only at the end.
+- Destination rules from botkits-no-ai-slop: em dashes, trailing periods on social posts, hyphens on LinkedIn, hashtags only at the end.
 - Headline and first line don't say the same thing.
 
 ## Pass 3: Prose
@@ -61,6 +61,6 @@ Once the writer has read the report, offer two optional extras:
 
 ## What this version adds
 
-- Focus on tells that survive a word-list pass, so it does not repeat no-ai-slop.
+- Focus on tells that survive a word-list pass, so it does not repeat botkits-no-ai-slop.
 - Destination checks (social punctuation, LinkedIn hyphens, hashtags) and a link check.
 - An explicit "broken on purpose" exception.

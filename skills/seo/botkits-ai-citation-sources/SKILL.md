@@ -9,7 +9,7 @@ description: >-
 
 Use this skill for prompts where your site loses because AI answers trust other sources: lists, reviews, forums, directories, articles, video platforms. You list those sources. You tag each one OWN, CLAIM, EARN, or CONTEST. You write a draft action for each one. A human approves every action.
 
-Input: the lost rows with cause `third-party` from [ai-search-gap-loop](../ai-search-gap-loop/SKILL.md). Each row has the prompt, the date, the tool, and the cited domains.
+Input: the lost rows with cause `third-party` from [botkits-ai-search-gap-loop](../botkits-ai-search-gap-loop/SKILL.md). Each row has the prompt, the date, the tool, and the cited domains.
 
 Helper file: [source-table-template.md](source-table-template.md).
 
@@ -30,7 +30,7 @@ Give each source exactly one tag.
 
 | Tag | When | Draft action |
 | --- | --- | --- |
-| **OWN** | You control the page (your site, your channel, your profile, your store page), but it is weak or not cited. | Draft an edit to that page so it answers the prompt plainly and matches the facts on your site. Use [aeo-geo-site](../aeo-geo-site/SKILL.md). |
+| **OWN** | You control the page (your site, your channel, your profile, your store page), but it is weak or not cited. | Draft an edit to that page so it answers the prompt plainly and matches the facts on your site. Use [botkits-aeo-geo-site](../botkits-aeo-geo-site/SKILL.md). |
 | **CLAIM** | The source has a listing or profile slot for you that you can claim or fill as the owner: a directory, a platform profile, a knowledge panel, an app or catalog listing. | Draft the claim or profile text with true, consistent facts (name, what it is, who it is for, official links). Note the account and verification steps a human must do. |
 | **EARN** | An independent editor, reviewer, or list author decides who is included. | Draft a short, factual note to the author or editor that says what the product is and why it fits their list. No payment for placement unless the page discloses it. No pressure. |
 | **CONTEST** | The source has a factual error about you, or a fair comparison leaves you out of a set you clearly belong to. | Draft a correction request with evidence (a link to a public page that shows the fact). Ask for a correction, not removal of others. |
@@ -54,7 +54,7 @@ Forums such as Reddit, Quora, and topic boards are often cited. Treat them with 
 1. Pick at most one or two source actions per cycle, so the loop can tell what helped.
 2. Prefer OWN and CLAIM first. You control them, and they are fast to check.
 3. EARN and CONTEST depend on other people. Log the date you sent them and do not count them as wins until the source changes.
-4. Add the chosen action to the cycle entry in the [ai-search-gap-loop](../ai-search-gap-loop/SKILL.md) log.
+4. Add the chosen action to the cycle entry in the [botkits-ai-search-gap-loop](../botkits-ai-search-gap-loop/SKILL.md) log.
 
 ## Step 5. Recheck
 

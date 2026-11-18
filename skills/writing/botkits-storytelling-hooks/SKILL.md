@@ -40,9 +40,9 @@ Full templates live in [references/patterns.md](references/patterns.md). Use the
 1. Name the fact the post can stand on, and the payoff the body can deliver.
 2. Draft 3 hooks from 2 or 3 different families. Write them from the fact, not from a swipe file.
 3. Drop any hook whose promise the body cannot keep. Drop any hook with an empty or invented blank.
-4. Keep 1. Run [no-ai-slop](../no-ai-slop/) and [top-edit](../top-edit/) on that line.
+4. Keep 1. Run [botkits-no-ai-slop](../botkits-no-ai-slop/) and [botkits-top-edit](../botkits-top-edit/) on that line.
 5. Fit the line to the platform: on X it is the whole first line; on LinkedIn it must fit before "see more"; on a video it is the first spoken line.
-6. For the rest of an X or LinkedIn post, hand off to [social-copywriting](../social-copywriting/).
+6. For the rest of an X or LinkedIn post, hand off to [botkits-social-copywriting](../botkits-social-copywriting/).
 
 Deliver the chosen hook in a code block. Under it, name the family, the fact that fills each blank, and the two hooks you did not use.
 

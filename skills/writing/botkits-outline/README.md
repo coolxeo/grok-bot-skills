@@ -20,7 +20,7 @@ No CLI? Copy this folder into the skills folder your agent uses, and keep `SKILL
 - Picks a shape that fits the material and says why: Story to mechanism, Answer first, Teardown, or Changed my mind. Heavy sections get more beats than light ones.
 - For each section it records a working heading, the job it does in one line, the facts or examples it will use, and its rough length.
 - Adds two or three openings built from something real in the material (a moment, a number, a quote), gaps marked `[GAP: ...]` (never filled by guessing), and a cut list of material that is true but off the point.
-- Presents the plan and waits for a yes. After sign-off the chain is draft, source-check, no-ai-slop. The plan can still move once drafting starts.
+- Presents the plan and waits for a yes. After sign-off the chain is botkits-draft, botkits-source-check, botkits-no-ai-slop. The plan can still move once drafting starts.
 
 ## Before / after (example)
 

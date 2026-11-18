@@ -35,7 +35,7 @@ Also include:
 
 ## Hand-off
 
-Present the plan and wait for a yes. Expect the plan to move once drafting starts; a lot of the thinking happens in the draft. After sign-off the chain is draft, source-check, no-ai-slop.
+Present the plan and wait for a yes. Expect the plan to move once drafting starts; a lot of the thinking happens in the draft. After sign-off the chain is botkits-draft, botkits-source-check, botkits-no-ai-slop.
 
 ## Inspired by
 

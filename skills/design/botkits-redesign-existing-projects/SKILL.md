@@ -26,7 +26,7 @@ Walk each page and note problems with a screenshot or line reference:
 - **States:** missing hover, focus, active, loading, empty, and error states.
 - **Feedback and control:** users can't tell what happened after a click, can't undo, or get stuck.
 - **Accessibility:** keyboard access, visible focus, alt text, labels on inputs, WCAG AA contrast, reduced motion.
-- **Template tells:** identical cards everywhere, generic hero, stock testimonials, filler copy (run copy through no-ai-slop).
+- **Template tells:** identical cards everywhere, generic hero, stock testimonials, filler copy (run copy through botkits-no-ai-slop).
 - **Code:** one-off magic numbers, `!important` piles, `transition: all`, duplicate components.
 
 ## 3. Rank

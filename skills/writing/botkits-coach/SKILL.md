@@ -36,7 +36,7 @@ Any "no" ends the review here. Report the gate failures with the reverse outline
 | --- | --- |
 | Entry | The first lines give a specific moment, number, or problem, not a warm-up. |
 | Build | One line of argument that gains ground and lands. |
-| Voice | Sounds like one person on one day. No inserted punchlines or AI tells (see no-ai-slop). |
+| Voice | Sounds like one person on one day. No inserted punchlines or AI tells (see botkits-no-ai-slop). |
 | Evidence | The reader trusts the claims because they can see where they come from. |
 | Takeaway | One sentence the reader could repeat to a friend. |
 | Reach | Terms the target reader may not know are explained once, without talking down. |

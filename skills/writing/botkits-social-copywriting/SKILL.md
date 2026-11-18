@@ -6,7 +6,7 @@ description: >-
 ---
 # Social copywriting
 
-Write posts that read native to X or LinkedIn. Use it once the idea exists; finish with no-ai-slop.
+Write posts that read native to X or LinkedIn. Use it once the idea exists; finish with botkits-no-ai-slop.
 
 ## Before writing
 
@@ -31,8 +31,8 @@ The first line decides everything. If it's weak, change where the post starts in
 - Thread: 5-12 posts. Post 1 is the hook and stands alone; it gets most of the reach. Each post earns the next. The last one asks a real question or just stops.
 - Video: the code ignores views of clips shorter than its minimum duration (10 seconds by default). Do not promise a ranking boost for video.
 - 0-2 hashtags, never mid-thread. Never paste LinkedIn copy onto X.
-- Replies on other people's posts: answer in the first sentence, add the one fact they lack, stop. See no-ai-slop, "Replies and comments".
-- Posts about something you shipped: use ship-post, which starts from the commits and allows no number the commits or the owner can't back.
+- Replies on other people's posts: answer in the first sentence, add the one fact they lack, stop. See botkits-no-ai-slop, "Replies and comments".
+- Posts about something you shipped: use botkits-ship-post, which starts from the commits and allows no number the commits or the owner can't back.
 
 ## LinkedIn
 
@@ -67,7 +67,7 @@ When fixing an existing post: name its job, its reader, its strongest line, and 
 
 - Ranking advice tied to X's current published code (2026 weights) instead of the 2023 snapshot or folklore numbers.
 - A corrected link rule: the post must stand alone, link placement is a choice to test, not a known penalty.
-- Closer, video, self-reply, and reply rules, plus a hand-off to ship-post for build-in-public posts.
+- Closer, video, self-reply, and reply rules, plus a hand-off to botkits-ship-post for build-in-public posts.
 - Dani's LinkedIn rules: no hyphens, four hashtags max, one honest note, link in comments.
 - Shape and opening rotation so a feed of posts doesn't read like one template.
-- Code-block delivery with an angle note, and hooks that pass no-ai-slop.
+- Code-block delivery with an angle note, and hooks that pass botkits-no-ai-slop.
