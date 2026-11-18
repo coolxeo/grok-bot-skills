@@ -38,9 +38,9 @@ Do not use lime `#C8FF3D` or the old ink `#0D0A1F`.
 
 Files live in `assets/`:
 
-- `mark-512.png` — square mark on `#2340c4`. Also ship `mark.svg` and `mark-1024.png` when you can.
-- `logo-wide.png` / `logo-wide@2x.png` — 1280×320 light header (wordmark + install line).
-- `header-dark.png` / `header-dark@2x.png` — 1280×320 dark header.
+- `mark-512.png`: square mark on `#2340c4`. Also ship `mark.svg` and `mark-1024.png` when you can.
+- `logo-wide.png` / `logo-wide@2x.png`: 1280×320 light header (wordmark + install line).
+- `header-dark.png` / `header-dark@2x.png`: 1280×320 dark header.
 
 The mark is a closed isometric kit with pill eyes, on the blue tile. Do not recolour it, add a spark, or change its geometry.
 
@@ -88,10 +88,10 @@ Outline all type to paths in SVGs. No `<text>` in shipped SVGs.
 | Asset | 1× | 2× |
 |---|---|---|
 | `logo-wide.png`, `header-dark.png`, `header-light.png` | 1280×320 | 2560×640 |
-| `mark-512.png` | 512×512 | — (`mark-1024.png` is 1024×1024) |
-| GitHub avatar | 40×40 circle | — |
+| `mark-512.png` | 512×512 | none (`mark-1024.png` is 1024×1024) |
+| GitHub avatar | 40×40 circle | none |
 | Top-3 cards | 800×460 | 1600×920 |
-| `demo.gif` | 960×520 | — |
+| `demo.gif` | 960×520 | none |
 
 Match these sizes when you replace a repo file.
 
