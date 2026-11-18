@@ -9,13 +9,13 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/github/license/botkitsdev/botkits?labelColor=14181B&color=2340C4" alt="MIT license"></a>
   <a href="https://github.com/botkitsdev/botkits/stargazers"><img src="https://img.shields.io/github/stars/botkitsdev/botkits?style=flat&labelColor=14181B&color=F6F7F3" alt="GitHub stars"></a>
-  <a href="#all-skills"><img src="https://img.shields.io/badge/skills-31-F6F7F3?labelColor=14181B" alt="31 skills"></a>
+  <a href="#all-skills"><img src="https://img.shields.io/badge/skills-32-F6F7F3?labelColor=14181B" alt="32 skills"></a>
   <a href="https://botkits.dev"><img src="https://img.shields.io/badge/botkits.dev-2340C4?labelColor=14181B&color=2340C4" alt="botkits.dev"></a>
 </p>
 
 # Skills your bots can run today
 
-Open SKILL.md folders for Claude, ChatGPT, Codex, Cursor, Gemini, Copilot and Grok Bot. 31 skills, used daily by my own Grok Bots. MIT.
+Open SKILL.md folders for Claude, ChatGPT, Codex, Cursor, Gemini, Copilot and Grok Bot. 32 skills, used daily by my own Grok Bots. MIT.
 
 <p align="center">
   <a href="https://botkits.dev">Browse on botkits.dev</a>
@@ -30,7 +30,7 @@ Kits and install guides: [botkits.dev](https://botkits.dev)
   <img src="assets/demo.gif" alt="Terminal demo: npx skills add botkitsdev/botkits, then a bot loads no-ai-slop/SKILL.md when the task matches." width="800">
 </p>
 
-[Top 3](#top-3) · [Quick start](#quick-start) · [Start here](#start-here) · [All 31 skills](#all-skills) · [How a skill is used](#how-a-skill-is-used) · [Tool requirements](#tool-requirements) · [Contribute](#contribute) · [Inspired by](#inspired-by) · [License](#license)
+[Top 3](#top-3) · [Quick start](#quick-start) · [Start here](#start-here) · [All 32 skills](#all-skills) · [How a skill is used](#how-a-skill-is-used) · [Tool requirements](#tool-requirements) · [Contribute](#contribute) · [Inspired by](#inspired-by) · [License](#license)
 
 ## Top 3
 
@@ -78,7 +78,7 @@ npx skills add botkitsdev/botkits
 
 To install one skill, add `--skill` and its folder name, for example `npx skills add botkitsdev/botkits --skill no-ai-slop`. Run `npx skills add botkitsdev/botkits --list` to see them all.
 
-For all 31 skills, download the [ZIP](https://github.com/botkitsdev/botkits/archive/refs/heads/main.zip), or clone the repo:
+For all 32 skills, download the [ZIP](https://github.com/botkitsdev/botkits/archive/refs/heads/main.zip), or clone the repo:
 
 ```sh
 git clone https://github.com/botkitsdev/botkits.git
@@ -90,11 +90,11 @@ git clone https://github.com/botkitsdev/botkits.git
 
 The install path and invocation syntax depend on your bot. To try a writing skill without installing it, paste its instructions into a chat, then add your task.
 
-Free skills I use daily to run my 3 YouTube channels. My bots run on Grok Bot. The skills are plain SKILL.md files, so they should work in any agent that supports the Agent Skills format. Nothing posts or spends without my tap. The paid kits are the tested, ready-to-run versions.
+Free skills I use daily to run my 3 YouTube channels. My bots run on Grok Bot. The skills are plain SKILL.md files for any agent that supports the Agent Skills format. Nothing posts or spends without my tap. The paid kits are the tested, ready-to-run versions.
 
 Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
 
-31 skills for writing, design, code, SEO, ads, YouTube research, video, images, and bot routines. Give your bot a clear process for the job you need done.
+32 skills for writing, design, code, SEO, ads, YouTube research, video, images, and bot routines. Give your bot a clear process for the job you need done.
 
 Every skill is Dani's own version, inspired by several public references rather than copied from one. Each is a single readable `SKILL.md`. The rewritten skills end with what inspired them, what those references were missing, and what this version adds.
 
@@ -107,6 +107,7 @@ Every skill is Dani's own version, inspired by several public references rather 
 | Create a bot with one clear job | [design-a-grok-bot](skills/bots/design-a-grok-bot/) |
 | Find noisy or wasteful routines | [routine-healthcheck](skills/bots/routine-healthcheck/) |
 | Write a post for X or LinkedIn | [social-copywriting](skills/writing/social-copywriting/) |
+| Write a storytelling hook or a swipe-file carousel | [storytelling-hooks](skills/writing/storytelling-hooks/) |
 | Get better leads from automated ad campaigns | [whetstone-signal](skills/ads/whetstone-signal/) |
 | Find what wins in a YouTube niche before planning videos | [youtube-niche-report](skills/youtube/youtube-niche-report/) |
 
@@ -150,7 +151,7 @@ updates. Show the evidence. Propose changes before applying them.
 ## All skills
 
 <details>
-<summary><strong>Writing (9)</strong></summary>
+<summary><strong>Writing (10)</strong></summary>
 
 | Skill | What it does |
 | --- | --- |
@@ -161,6 +162,7 @@ updates. Show the evidence. Propose changes before applying them.
 | [no-ai-slop](skills/writing/no-ai-slop/) | Remove AI writing patterns while keeping the writer's voice. |
 | [top-edit](skills/writing/top-edit/) | Flag style issues in a final editorial pass. |
 | [social-copywriting](skills/writing/social-copywriting/) | Write or adapt posts for X and LinkedIn. |
+| [storytelling-hooks](skills/writing/storytelling-hooks/) | Write a hook by story family, or build a save-first swipe-file carousel. |
 | [x-article](skills/writing/x-article/) | Write long-form X Articles with section images. |
 | [ship-post](skills/writing/ship-post/) | Turn commits and PRs into one build-in-public post. |
 
@@ -294,6 +296,7 @@ Each skill here is written from scratch in our own words, drawing on several ref
 - **coach, outline, draft, source-check, top-edit:** inspired by [Nadiem Mahmoud's claude-writing-skills](https://github.com/nadiem99/claude-writing-skills) (which credits Every's Eleanor Warnock and Kate Lee), Paul Graham's essays on writing, George Orwell's *Politics and the English Language*, Mike Caulfield's SIFT, Wikipedia's Verifiability policy, Google's technical writing course, and Hardik Pandya's stop-slop.
 - **ship-post:** inspired by the ship-post reference in [Corey Haines's marketingskills](https://github.com/coreyhaines31/marketingskills).
 - **social-copywriting:** inspired by [Jules Sauvajol's Copywriting-skill](https://github.com/judicael-s/Copywriting-skill), X's published ranking code (xai-org/x-algorithm, 2026) and the older heavy ranker README, and LinkedIn Engineering's dwell-time post.
+- **storytelling-hooks:** inspired by [Chase Dimond's 80 Storytelling Hooks](https://x.com/ecomchasedimond/status/2122793870669062451) and eleven other save-first list and carousel posts listed in the skill, all read on 18 Nov 2026.
 - **design-taste-frontend, redesign-existing-projects:** inspired by [Leon Lin's Taste Skill](https://github.com/Leonxlnx/taste-skill), Anthropic's frontend-design skill, Vercel's Web Interface Guidelines, and Nielsen Norman Group's usability heuristics.
 - **diagram-design:** inspired by [Cathryn Lavery's diagram-design](https://github.com/cathrynlavery/diagram-design), the C4 model's notation guide, and Edward Tufte's idea of chartjunk.
 - **motion-picker:** inspired by [N01ennn's post](https://x.com/N01ennn/status/2121695892738629808) naming 20 animation libraries, and by the LICENSE file in each of those repos.
