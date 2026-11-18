@@ -29,7 +29,7 @@ Do not use lime `#C8FF3D` or the old ink `#0D0A1F`.
 
 ### Type
 
-- Newsreader (display) for headlines and the wordmark.
+- Newsreader (display) for headlines and the BotKits wordmark.
 - Hanken Grotesk for body.
 - DM Mono for code, the install line, skill slugs, and terminal demos.
 - All are SIL OFL. Outline type to paths in shipped SVGs; ship no `<text>` and no font dependency.
@@ -108,7 +108,7 @@ Write a short, factual description of what the image shows. Name the skill and a
 
 ## Before you ship an image
 
-1. The prose name is BotKits; the wordmark and slug are botkits / botkitsdev/botkits. No "botskills".
+1. The prose name and the wordmark are BotKits; the slug is botkitsdev/botkits. No "botskills".
 2. Tokens are a single light or dark set from [Visual tokens and logo](#visual-tokens-and-logo). No lime `#C8FF3D`. No mixed palettes.
 3. Logo and headers are blue and white only. Pixel-check that they contain no spark and no lime.
 4. If the image uses a spark, there is only one, it is small (under ~5% of pixels), and it is not body text.
