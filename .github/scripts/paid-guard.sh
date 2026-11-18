@@ -5,8 +5,13 @@ set -euo pipefail
 fail=0
 
 # 1. The 4 lite skills hold only SKILL.md and README.md.
-for d in skills/writing/x-article skills/seo/aeo-geo-site skills/video/shorts-reframe skills/seo/markdown-twin; do
-  [ -d "$d" ] || continue
+# The botkits- folders must exist, so a rename cannot skip this check. The old folders are README-only stubs.
+for d in skills/writing/botkits-x-article skills/seo/botkits-aeo-geo-site skills/video/botkits-shorts-reframe skills/seo/botkits-markdown-twin \
+         skills/writing/x-article skills/seo/aeo-geo-site skills/video/shorts-reframe skills/seo/markdown-twin; do
+  if [ ! -d "$d" ]; then
+    case "$d" in */botkits-*) echo "Paid guard: lite skill folder $d is missing. Update this list if it moved."; fail=1 ;; esac
+    continue
+  fi
   extra=$(find "$d" -type f ! -name SKILL.md ! -name README.md)
   if [ -n "$extra" ]; then echo "Paid guard: $d is a lite skill. Only SKILL.md and README.md may live here:"; echo "$extra"; fail=1; fi
 done

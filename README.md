@@ -30,25 +30,25 @@ Kits and install guides: [botkits.dev](https://botkits.dev)
   <img src="assets/demo.gif" alt="Terminal demo: npx skills add botkitsdev/botkits, then a bot loads no-ai-slop/SKILL.md when the task matches." width="800">
 </p>
 
-[Top 3](#top-3) · [Quick start](#quick-start) · [Start here](#start-here) · [All 32 skills](#all-skills) · [How a skill is used](#how-a-skill-is-used) · [Tool requirements](#tool-requirements) · [Contribute](#contribute) · [Inspired by](#inspired-by) · [License](#license)
+[Top 3](#top-3) · [Quick start](#quick-start) · [Start here](#start-here) · [All 32 skills](#all-skills) · [Renamed skills](#renamed-skills) · [How a skill is used](#how-a-skill-is-used) · [Tool requirements](#tool-requirements) · [Contribute](#contribute) · [Inspired by](#inspired-by) · [License](#license)
 
 ## Top 3
 
 <table>
 <tr>
 <td valign="top" width="33%">
-<p align="center"><a href="skills/video/shorts-reframe/"><img src="assets/top3-shorts-reframe.png" alt="shorts-reframe: 16:9 frame and the 9:16 center-crop result at 1080×1920"></a></p>
-<strong><a href="skills/video/shorts-reframe/">shorts-reframe</a></strong><br>
+<p align="center"><a href="skills/video/botkits-shorts-reframe/"><img src="assets/top3-shorts-reframe.png" alt="shorts-reframe: 16:9 frame and the 9:16 center-crop result at 1080×1920"></a></p>
+<strong><a href="skills/video/botkits-shorts-reframe/">botkits-shorts-reframe</a></strong><br>
 Turn a 16:9 video into a 1080×1920 Short. Center crop, audio kept, length and size checked.
 </td>
 <td valign="top" width="33%">
-<p align="center"><a href="skills/writing/x-article/"><img src="assets/top3-x-article.png" alt="x-article: mock article header with a hook line, a section, and an image slot"></a></p>
-<strong><a href="skills/writing/x-article/">x-article</a></strong><br>
+<p align="center"><a href="skills/writing/botkits-x-article/"><img src="assets/top3-x-article.png" alt="x-article: mock article header with a hook line, a section, and an image slot"></a></p>
+<strong><a href="skills/writing/botkits-x-article/">botkits-x-article</a></strong><br>
 Turn rough notes into an X Article, with a first-line hook, images between sections and no invented numbers.
 </td>
 <td valign="top" width="33%">
-<p align="center"><a href="skills/seo/aeo-geo-site/"><img src="assets/top3-aeo-geo-site.png" alt="aeo-geo-site: botkits.dev is-agentic score, 79 to 81 to 100, is-agentic.com, 17 Nov 2026"></a></p>
-<strong><a href="skills/seo/aeo-geo-site/">aeo-geo-site</a></strong><br>
+<p align="center"><a href="skills/seo/botkits-aeo-geo-site/"><img src="assets/top3-aeo-geo-site.png" alt="aeo-geo-site: botkits.dev is-agentic score, 79 to 81 to 100, is-agentic.com, 17 Nov 2026"></a></p>
+<strong><a href="skills/seo/botkits-aeo-geo-site/">botkits-aeo-geo-site</a></strong><br>
 Make your site easy for ChatGPT, Gemini and Copilot to read, understand and cite.
 </td>
 </tr>
@@ -61,10 +61,10 @@ Make your site easy for ChatGPT, Gemini and Copilot to read, understand and cite
 
 | Kit (result name) | What it is | Price | Link | Free skill |
 | --- | --- | --- | --- | --- |
-| Audit your site for AI answers, then fix it | AEO/GEO Site Audit & Build Kit | $9 | [Get the kit →](https://daniacostaai.gumroad.com/l/cxabi) | [aeo-geo-site](skills/seo/aeo-geo-site/) |
-| Make your pages and videos readable by AI answers | AEO Kit (Markdown Twins + YouTube Watch Pages) | $24 | [Get the kit →](https://daniacostaai.gumroad.com/l/wzalwo) | [markdown-twin](skills/seo/markdown-twin/) |
-| Turn one video into Shorts, QA included | Shorts Builder Kit | $14 | [Get the kit →](https://daniacostaai.gumroad.com/l/ommvol) | [shorts-reframe](skills/video/shorts-reframe/) |
-| Turn rough notes into an X Article | X Article Writer | $7 | [Get the kit →](https://daniacostaai.gumroad.com/l/lzowtl) | [x-article](skills/writing/x-article/) |
+| Audit your site for AI answers, then fix it | AEO/GEO Site Audit & Build Kit | $9 | [Get the kit →](https://daniacostaai.gumroad.com/l/cxabi) | [botkits-aeo-geo-site](skills/seo/botkits-aeo-geo-site/) |
+| Make your pages and videos readable by AI answers | AEO Kit (Markdown Twins + YouTube Watch Pages) | $24 | [Get the kit →](https://daniacostaai.gumroad.com/l/wzalwo) | [botkits-markdown-twin](skills/seo/botkits-markdown-twin/) |
+| Turn one video into Shorts, QA included | Shorts Builder Kit | $14 | [Get the kit →](https://daniacostaai.gumroad.com/l/ommvol) | [botkits-shorts-reframe](skills/video/botkits-shorts-reframe/) |
+| Turn rough notes into an X Article | X Article Writer | $7 | [Get the kit →](https://daniacostaai.gumroad.com/l/lzowtl) | [botkits-x-article](skills/writing/botkits-x-article/) |
 
 </details>
 
@@ -76,7 +76,7 @@ Install the local skills with the [Skills CLI](https://github.com/vercel-labs/sk
 npx skills add botkitsdev/botkits
 ```
 
-To install one skill, add `--skill` and its folder name, for example `npx skills add botkitsdev/botkits --skill no-ai-slop`. Run `npx skills add botkitsdev/botkits --list` to see them all.
+To install one skill, add `--skill` and its folder name, for example `npx skills add botkitsdev/botkits --skill botkits-no-ai-slop`. Run `npx skills add botkitsdev/botkits --list` to see them all.
 
 For all 32 skills, download the [ZIP](https://github.com/botkitsdev/botkits/archive/refs/heads/main.zip), or clone the repo:
 
@@ -86,7 +86,7 @@ git clone https://github.com/botkitsdev/botkits.git
 
 1. Open a skill from the list below. Read its instructions and tool needs.
 2. Copy that skill's folder into the workflows or skills directory your bot uses. Keep its folder name and `SKILL.md` file together. Preserve source credits and applicable license notices.
-3. Invoke the folder name with `/` or `@` if your bot supports it. For example, use `/no-ai-slop`.
+3. Invoke the folder name with `/` or `@` if your bot supports it. For example, use `/botkits-no-ai-slop`.
 
 The install path and invocation syntax depend on your bot. To try a writing skill without installing it, paste its instructions into a chat, then add your task.
 
@@ -102,14 +102,14 @@ Every skill is Dani's own version, inspired by several public references rather 
 
 | I want to… | Start with |
 | --- | --- |
-| Remove AI filler from a draft | [no-ai-slop](skills/writing/no-ai-slop/) |
-| Improve a website's design | [redesign-existing-projects](skills/design/redesign-existing-projects/) |
-| Create a bot with one clear job | [design-a-grok-bot](skills/bots/design-a-grok-bot/) |
-| Find noisy or wasteful routines | [routine-healthcheck](skills/bots/routine-healthcheck/) |
-| Write a post for X or LinkedIn | [social-copywriting](skills/writing/social-copywriting/) |
-| Write a storytelling hook | [storytelling-hooks](skills/writing/storytelling-hooks/) |
-| Get better leads from automated ad campaigns | [whetstone-signal](skills/ads/whetstone-signal/) |
-| Find what wins in a YouTube niche before planning videos | [youtube-niche-report](skills/youtube/youtube-niche-report/) |
+| Remove AI filler from a draft | [botkits-no-ai-slop](skills/writing/botkits-no-ai-slop/) |
+| Improve a website's design | [botkits-redesign-existing-projects](skills/design/botkits-redesign-existing-projects/) |
+| Create a bot with one clear job | [botkits-design-a-grok-bot](skills/bots/botkits-design-a-grok-bot/) |
+| Find noisy or wasteful routines | [botkits-routine-healthcheck](skills/bots/botkits-routine-healthcheck/) |
+| Write a post for X or LinkedIn | [botkits-social-copywriting](skills/writing/botkits-social-copywriting/) |
+| Write a storytelling hook | [botkits-storytelling-hooks](skills/writing/botkits-storytelling-hooks/) |
+| Get better leads from automated ad campaigns | [botkits-whetstone-signal](skills/ads/botkits-whetstone-signal/) |
+| Find what wins in a YouTube niche before planning videos | [botkits-youtube-niche-report](skills/youtube/botkits-youtube-niche-report/) |
 
 ### Prefer the originals?
 
@@ -125,7 +125,7 @@ The CLI installs skills for agents such as Claude Code, Codex, Cursor, Gemini CL
 
 ### Try it
 
-After you load `no-ai-slop`:
+After you load `botkits-no-ai-slop`:
 
 ```text
 Edit this paragraph. Keep the meaning and my voice. Remove filler.
@@ -134,14 +134,14 @@ Our innovative platform leverages cutting-edge technology to seamlessly
 empower teams to unlock their full potential.
 ```
 
-After you load `redesign-existing-projects`:
+After you load `botkits-redesign-existing-projects`:
 
 ```text
 Review this landing page. Find the three biggest design problems.
 Explain each fix before changing the code. Keep the current features.
 ```
 
-After you load `routine-healthcheck`:
+After you load `botkits-routine-healthcheck`:
 
 ```text
 Audit my scheduled routines. Find empty runs, duplicate work, and noisy
@@ -155,16 +155,16 @@ updates. Show the evidence. Propose changes before applying them.
 
 | Skill | What it does |
 | --- | --- |
-| [coach](skills/writing/coach/) | Review a draft's argument and structure before line edits. |
-| [outline](skills/writing/outline/) | Turn notes or an idea into an article plan. |
-| [draft](skills/writing/draft/) | Write an article one section at a time. |
-| [source-check](skills/writing/source-check/) | Check factual claims against named sources. |
-| [no-ai-slop](skills/writing/no-ai-slop/) | Remove AI writing patterns while keeping the writer's voice. |
-| [top-edit](skills/writing/top-edit/) | Flag style issues in a final editorial pass. |
-| [social-copywriting](skills/writing/social-copywriting/) | Write or adapt posts for X and LinkedIn. |
-| [storytelling-hooks](skills/writing/storytelling-hooks/) | Write a hook by story family, from a fact you already have. |
-| [x-article](skills/writing/x-article/) | Write long-form X Articles with section images. |
-| [ship-post](skills/writing/ship-post/) | Turn commits and PRs into one build-in-public post. |
+| [botkits-coach](skills/writing/botkits-coach/) | Review a draft's argument and structure before line edits. |
+| [botkits-outline](skills/writing/botkits-outline/) | Turn notes or an idea into an article plan. |
+| [botkits-draft](skills/writing/botkits-draft/) | Write an article one section at a time. |
+| [botkits-source-check](skills/writing/botkits-source-check/) | Check factual claims against named sources. |
+| [botkits-no-ai-slop](skills/writing/botkits-no-ai-slop/) | Remove AI writing patterns while keeping the writer's voice. |
+| [botkits-top-edit](skills/writing/botkits-top-edit/) | Flag style issues in a final editorial pass. |
+| [botkits-social-copywriting](skills/writing/botkits-social-copywriting/) | Write or adapt posts for X and LinkedIn. |
+| [botkits-storytelling-hooks](skills/writing/botkits-storytelling-hooks/) | Write a hook by story family, from a fact you already have. |
+| [botkits-x-article](skills/writing/botkits-x-article/) | Write long-form X Articles with section images. |
+| [botkits-ship-post](skills/writing/botkits-ship-post/) | Turn commits and PRs into one build-in-public post. |
 
 </details>
 
@@ -173,10 +173,10 @@ updates. Show the evidence. Propose changes before applying them.
 
 | Skill | What it does |
 | --- | --- |
-| [design-taste-frontend](skills/design/design-taste-frontend/) | Build landing pages and portfolios from a clear design brief. |
-| [redesign-existing-projects](skills/design/redesign-existing-projects/) | Audit and improve an existing site's design. |
-| [diagram-design](skills/design/diagram-design/) | Create explainer diagrams that are branded, not dashboard slop. |
-| [motion-picker](skills/design/motion-picker/) | Pick one animation library for a single motion moment, with its license and a calm, snappy, or playful preset. |
+| [botkits-design-taste-frontend](skills/design/botkits-design-taste-frontend/) | Build landing pages and portfolios from a clear design brief. |
+| [botkits-redesign-existing-projects](skills/design/botkits-redesign-existing-projects/) | Audit and improve an existing site's design. |
+| [botkits-diagram-design](skills/design/botkits-diagram-design/) | Create explainer diagrams that are branded, not dashboard slop. |
+| [botkits-motion-picker](skills/design/botkits-motion-picker/) | Pick one animation library for a single motion moment, with its license and a calm, snappy, or playful preset. |
 
 </details>
 
@@ -185,8 +185,8 @@ updates. Show the evidence. Propose changes before applying them.
 
 | Skill | What it does |
 | --- | --- |
-| [engineering-playbook](skills/engineering/engineering-playbook/) | Delegate coding work to cloud agents and review the results. |
-| [show-me](skills/engineering/show-me/) | Explain code changes with visual PR descriptions. |
+| [botkits-engineering-playbook](skills/engineering/botkits-engineering-playbook/) | Delegate coding work to cloud agents and review the results. |
+| [botkits-show-me](skills/engineering/botkits-show-me/) | Explain code changes with visual PR descriptions. |
 
 </details>
 
@@ -195,11 +195,11 @@ updates. Show the evidence. Propose changes before applying them.
 
 | Skill | What it does |
 | --- | --- |
-| [aeo-geo-site](skills/seo/aeo-geo-site/) | Structure site content for search and AI-assisted discovery. |
-| [exact-match-intent-seo](skills/seo/exact-match-intent-seo/) | Match domains, page titles, and URLs to search intent. |
-| [ai-search-gap-loop](skills/seo/ai-search-gap-loop/) | Track buyer prompts in Google and AI answers, diagnose each loss, make one change, and log the result. |
-| [ai-citation-sources](skills/seo/ai-citation-sources/) | List the third-party sources AI answers cite and draft one action per source. |
-| [markdown-twin](skills/seo/markdown-twin/) | Publish a clean markdown copy of one HTML page, advertise it with a link tag, and list it in /llms.txt. |
+| [botkits-aeo-geo-site](skills/seo/botkits-aeo-geo-site/) | Structure site content for search and AI-assisted discovery. |
+| [botkits-exact-match-intent-seo](skills/seo/botkits-exact-match-intent-seo/) | Match domains, page titles, and URLs to search intent. |
+| [botkits-ai-search-gap-loop](skills/seo/botkits-ai-search-gap-loop/) | Track buyer prompts in Google and AI answers, diagnose each loss, make one change, and log the result. |
+| [botkits-ai-citation-sources](skills/seo/botkits-ai-citation-sources/) | List the third-party sources AI answers cite and draft one action per source. |
+| [botkits-markdown-twin](skills/seo/botkits-markdown-twin/) | Publish a clean markdown copy of one HTML page, advertise it with a link tag, and list it in /llms.txt. |
 
 </details>
 
@@ -208,7 +208,7 @@ updates. Show the evidence. Propose changes before applying them.
 
 | Skill | What it does |
 | --- | --- |
-| [whetstone-signal](skills/ads/whetstone-signal/) | Pick, score, and send back the conversion event automated ad campaigns optimize for. |
+| [botkits-whetstone-signal](skills/ads/botkits-whetstone-signal/) | Pick, score, and send back the conversion event automated ad campaigns optimize for. |
 
 </details>
 
@@ -217,7 +217,7 @@ updates. Show the evidence. Propose changes before applying them.
 
 | Skill | What it does |
 | --- | --- |
-| [youtube-niche-report](skills/youtube/youtube-niche-report/) | Pull a niche's top videos, score them against their own channel, and build an interactive HTML report of what wins. Ships with an example config for a made-up niche. |
+| [botkits-youtube-niche-report](skills/youtube/botkits-youtube-niche-report/) | Pull a niche's top videos, score them against their own channel, and build an interactive HTML report of what wins. Ships with an example config for a made-up niche. |
 
 </details>
 
@@ -226,8 +226,8 @@ updates. Show the evidence. Propose changes before applying them.
 
 | Skill | What it does |
 | --- | --- |
-| [shorts-reframe](skills/video/shorts-reframe/) | Crop a 16:9 video to 9:16, scale it to 1080x1920, keep the audio, and check duration and resolution. |
-| [video-plan-page](skills/video/video-plan-page/) | Turn a video script into one HTML page with a playable animatic, the shot list, and choices to approve before rendering. Ships with a made-up demo film. |
+| [botkits-shorts-reframe](skills/video/botkits-shorts-reframe/) | Crop a 16:9 video to 9:16, scale it to 1080x1920, keep the audio, and check duration and resolution. |
+| [botkits-video-plan-page](skills/video/botkits-video-plan-page/) | Turn a video script into one HTML page with a playable animatic, the shot list, and choices to approve before rendering. Ships with a made-up demo film. |
 
 </details>
 
@@ -236,12 +236,12 @@ updates. Show the evidence. Propose changes before applying them.
 
 | Skill | What it does |
 | --- | --- |
-| [design-a-grok-bot](skills/bots/design-a-grok-bot/) | Define a bot's job, voice, and wake conditions. |
-| [make-bot-ui](skills/bots/make-bot-ui/) | Build a custom UI that calls a bot through a webhook. |
-| [routine-healthcheck](skills/bots/routine-healthcheck/) | Find token waste and noise in scheduled routines. |
-| [transcript-healthcheck](skills/bots/transcript-healthcheck/) | Find repeated friction in bot transcripts. |
-| [overheard](skills/bots/overheard/) | Compile a digest of third-party mentions. |
-| [overheard-setup](skills/bots/overheard-setup/) | Set up a mention watch list, sources, and schedule. |
+| [botkits-design-a-grok-bot](skills/bots/botkits-design-a-grok-bot/) | Define a bot's job, voice, and wake conditions. |
+| [botkits-make-bot-ui](skills/bots/botkits-make-bot-ui/) | Build a custom UI that calls a bot through a webhook. |
+| [botkits-routine-healthcheck](skills/bots/botkits-routine-healthcheck/) | Find token waste and noise in scheduled routines. |
+| [botkits-transcript-healthcheck](skills/bots/botkits-transcript-healthcheck/) | Find repeated friction in bot transcripts. |
+| [botkits-overheard](skills/bots/botkits-overheard/) | Compile a digest of third-party mentions. |
+| [botkits-overheard-setup](skills/bots/botkits-overheard-setup/) | Set up a mention watch list, sources, and schedule. |
 
 </details>
 
@@ -250,9 +250,48 @@ updates. Show the evidence. Propose changes before applying them.
 
 | Skill | What it does |
 | --- | --- |
-| [chatgpt-images-browser-playbook](skills/images/chatgpt-images-browser-playbook/) | Generate still images through a signed-in ChatGPT browser session. |
+| [botkits-chatgpt-images-browser-playbook](skills/images/botkits-chatgpt-images-browser-playbook/) | Generate still images through a signed-in ChatGPT browser session. |
 
 </details>
+
+## Renamed skills
+
+On 18 Nov 2026 every skill got the `botkits-` prefix, so our skills do not overwrite other skills with the same name. The old folders now hold only a README that points to the new folder. Old `--skill` commands no longer install anything, so use the new name.
+
+| Old name | New name |
+| --- | --- |
+| `whetstone-signal` | [`botkits-whetstone-signal`](skills/ads/botkits-whetstone-signal/) |
+| `design-a-grok-bot` | [`botkits-design-a-grok-bot`](skills/bots/botkits-design-a-grok-bot/) |
+| `make-bot-ui` | [`botkits-make-bot-ui`](skills/bots/botkits-make-bot-ui/) |
+| `overheard` | [`botkits-overheard`](skills/bots/botkits-overheard/) |
+| `overheard-setup` | [`botkits-overheard-setup`](skills/bots/botkits-overheard-setup/) |
+| `routine-healthcheck` | [`botkits-routine-healthcheck`](skills/bots/botkits-routine-healthcheck/) |
+| `transcript-healthcheck` | [`botkits-transcript-healthcheck`](skills/bots/botkits-transcript-healthcheck/) |
+| `design-taste-frontend` | [`botkits-design-taste-frontend`](skills/design/botkits-design-taste-frontend/) |
+| `diagram-design` | [`botkits-diagram-design`](skills/design/botkits-diagram-design/) |
+| `motion-picker` | [`botkits-motion-picker`](skills/design/botkits-motion-picker/) |
+| `redesign-existing-projects` | [`botkits-redesign-existing-projects`](skills/design/botkits-redesign-existing-projects/) |
+| `engineering-playbook` | [`botkits-engineering-playbook`](skills/engineering/botkits-engineering-playbook/) |
+| `show-me` | [`botkits-show-me`](skills/engineering/botkits-show-me/) |
+| `chatgpt-images-browser-playbook` | [`botkits-chatgpt-images-browser-playbook`](skills/images/botkits-chatgpt-images-browser-playbook/) |
+| `aeo-geo-site` | [`botkits-aeo-geo-site`](skills/seo/botkits-aeo-geo-site/) |
+| `ai-citation-sources` | [`botkits-ai-citation-sources`](skills/seo/botkits-ai-citation-sources/) |
+| `ai-search-gap-loop` | [`botkits-ai-search-gap-loop`](skills/seo/botkits-ai-search-gap-loop/) |
+| `exact-match-intent-seo` | [`botkits-exact-match-intent-seo`](skills/seo/botkits-exact-match-intent-seo/) |
+| `markdown-twin` | [`botkits-markdown-twin`](skills/seo/botkits-markdown-twin/) |
+| `shorts-reframe` | [`botkits-shorts-reframe`](skills/video/botkits-shorts-reframe/) |
+| `video-plan-page` | [`botkits-video-plan-page`](skills/video/botkits-video-plan-page/) |
+| `coach` | [`botkits-coach`](skills/writing/botkits-coach/) |
+| `draft` | [`botkits-draft`](skills/writing/botkits-draft/) |
+| `no-ai-slop` | [`botkits-no-ai-slop`](skills/writing/botkits-no-ai-slop/) |
+| `outline` | [`botkits-outline`](skills/writing/botkits-outline/) |
+| `ship-post` | [`botkits-ship-post`](skills/writing/botkits-ship-post/) |
+| `social-copywriting` | [`botkits-social-copywriting`](skills/writing/botkits-social-copywriting/) |
+| `source-check` | [`botkits-source-check`](skills/writing/botkits-source-check/) |
+| `storytelling-hooks` | [`botkits-storytelling-hooks`](skills/writing/botkits-storytelling-hooks/) |
+| `top-edit` | [`botkits-top-edit`](skills/writing/botkits-top-edit/) |
+| `x-article` | [`botkits-x-article`](skills/writing/botkits-x-article/) |
+| `youtube-niche-report` | [`botkits-youtube-niche-report`](skills/youtube/botkits-youtube-niche-report/) |
 
 ## How a skill is used
 
@@ -272,11 +311,11 @@ The instructions are plain Markdown. Some workflows need more than a chat window
 
 - Some bot and engineering skills use Grok Bot tools: routines, approval cards, cloud agents, or local agent data. As written, they need Grok Bot. Check that your environment has those tools before running them.
 - Some coding workflows refer to pstack skills. Install that pack separately when a workflow needs it.
-- `diagram-design` runs on its own. If [Cathryn Lavery's diagram pack](https://github.com/cathrynlavery/diagram-design) is installed, it uses that pack's type references too. Its optional line-draw clip needs a headless browser only if you record webm or mp4. Do not commit gif, mp4, webm, or rendered png files.
-- `motion-picker` needs no package of its own. It chooses a library and a timing preset. The same media rule applies: captures stay out of git.
-- `youtube-niche-report` runs Python scripts with yt-dlp, ffmpeg and Pillow on a machine that can reach YouTube.
-- `shorts-reframe` needs ffmpeg and ffprobe on the machine that holds the source video.
-- `video-plan-page` runs one Python 3 script. Pillow is optional (it shrinks embedded images); the tests' browser check needs Playwright and skips without it.
+- `botkits-diagram-design` runs on its own. If [Cathryn Lavery's diagram pack](https://github.com/cathrynlavery/diagram-design) is installed, it uses that pack's type references too. Its optional line-draw clip needs a headless browser only if you record webm or mp4. Do not commit gif, mp4, webm, or rendered png files.
+- `botkits-motion-picker` needs no package of its own. It chooses a library and a timing preset. The same media rule applies: captures stay out of git.
+- `botkits-youtube-niche-report` runs Python scripts with yt-dlp, ffmpeg and Pillow on a machine that can reach YouTube.
+- `botkits-shorts-reframe` needs ffmpeg and ffprobe on the machine that holds the source video.
+- `botkits-video-plan-page` runs one Python 3 script. Pillow is optional (it shrinks embedded images); the tests' browser check needs Playwright and skips without it.
 - The image playbook needs browser control and a signed-in ChatGPT session with image generation available.
 - Search, publishing, and design tasks need the relevant browser, connector, or project access.
 
@@ -312,7 +351,7 @@ Each skill here is written from scratch in our own words, drawing on several ref
 - **video-plan-page:** Dani's own storytelling-video plan page (private channel repo, PR #204), rewritten as a standalone skill.
 - **x-article, chatgpt-images-browser-playbook:** Dani's own workflows; no outside source verified.
 
-See the [credits table](docs/credits.md) for exact files, evidence, and unresolved origins. The source audit of the 22 skills reviewed on 17 Sep 2026 is unchanged. The six later skills and the Harness² credit already present in `design-a-grok-bot` were reviewed on 13 Nov 2026. No standalone upstream was verified for `x-article` or `chatgpt-images-browser-playbook`. Source credit for `ai-search-gap-loop` and `ai-citation-sources` is pending an owner decision. Origins for `whetstone-signal` and `youtube-niche-report` are unresolved.
+See the [credits table](docs/credits.md) for exact files, evidence, and unresolved origins. The source audit of the 22 skills reviewed on 17 Sep 2026 is unchanged. The six later skills and the Harness² credit already present in `botkits-design-a-grok-bot` were reviewed on 13 Nov 2026. No standalone upstream was verified for `botkits-x-article` or `botkits-chatgpt-images-browser-playbook`. Source credit for `botkits-ai-search-gap-loop` and `botkits-ai-citation-sources` is pending an owner decision. Origins for `botkits-whetstone-signal` and `botkits-youtube-niche-report` are unresolved.
 
 ## License
 

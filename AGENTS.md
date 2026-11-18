@@ -119,4 +119,4 @@ Or copy one skill folder by hand. Copy the skill folder itself (`skills/<categor
 - [ ] Every image has real alt text.
 - [ ] Every number has a source.
 - [ ] New outside ideas are credited.
-- [ ] Public text passed [no-ai-slop](skills/writing/no-ai-slop/).
+- [ ] Public text passed [botkits-no-ai-slop](skills/writing/botkits-no-ai-slop/).
