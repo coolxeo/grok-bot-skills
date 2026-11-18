@@ -2,13 +2,13 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.png 1x, assets/header-dark@2x.png 2x">
     <source media="(prefers-color-scheme: light)" srcset="assets/logo-wide.png 1x, assets/logo-wide@2x.png 2x">
-    <img src="assets/logo-wide.png" alt="botskills" width="800">
+    <img src="assets/logo-wide.png" alt="botkits" width="800">
   </picture>
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/botkitsdev/botskills?labelColor=0D0A1F&color=C8FF3D" alt="MIT license"></a>
-  <a href="https://github.com/botkitsdev/botskills/stargazers"><img src="https://img.shields.io/github/stars/botkitsdev/botskills?style=flat&labelColor=0D0A1F&color=F7F4FF" alt="GitHub stars"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/botkitsdev/botkits?labelColor=0D0A1F&color=C8FF3D" alt="MIT license"></a>
+  <a href="https://github.com/botkitsdev/botkits/stargazers"><img src="https://img.shields.io/github/stars/botkitsdev/botkits?style=flat&labelColor=0D0A1F&color=F7F4FF" alt="GitHub stars"></a>
   <a href="#all-skills"><img src="https://img.shields.io/badge/skills-31-F7F4FF?labelColor=0D0A1F" alt="31 skills"></a>
   <a href="https://botkits.dev"><img src="https://img.shields.io/badge/botkits.dev-C8FF3D?labelColor=0D0A1F&color=C8FF3D" alt="botkits.dev"></a>
 </p>
@@ -27,7 +27,7 @@
 Kits and install guides: [botkits.dev](https://botkits.dev)
 
 <p align="center">
-  <img src="assets/demo.gif" alt="Terminal demo: npx skills add botkitsdev/botskills, then a bot loads no-ai-slop/SKILL.md when the task matches." width="800">
+  <img src="assets/demo.gif" alt="Terminal demo: npx skills add botkitsdev/botkits, then a bot loads no-ai-slop/SKILL.md when the task matches." width="800">
 </p>
 
 [Top 3](#top-3) · [Quick start](#quick-start) · [Start here](#start-here) · [All 31 skills](#all-skills) · [How a skill is used](#how-a-skill-is-used) · [Tool requirements](#tool-requirements) · [Contribute](#contribute) · [Inspired by](#inspired-by) · [License](#license)
@@ -73,15 +73,15 @@ Make your site easy for ChatGPT, Gemini and Copilot to read, understand and cite
 Install the local skills with the [Skills CLI](https://github.com/vercel-labs/skills):
 
 ```sh
-npx skills add botkitsdev/botskills
+npx skills add botkitsdev/botkits
 ```
 
-To install one skill, add `--skill` and its folder name, for example `npx skills add botkitsdev/botskills --skill no-ai-slop`. Run `npx skills add botkitsdev/botskills --list` to see them all.
+To install one skill, add `--skill` and its folder name, for example `npx skills add botkitsdev/botkits --skill no-ai-slop`. Run `npx skills add botkitsdev/botkits --list` to see them all.
 
-For all 31 skills, download the [ZIP](https://github.com/botkitsdev/botskills/archive/refs/heads/main.zip), or clone the repo:
+For all 31 skills, download the [ZIP](https://github.com/botkitsdev/botkits/archive/refs/heads/main.zip), or clone the repo:
 
 ```sh
-git clone https://github.com/botkitsdev/botskills.git
+git clone https://github.com/botkitsdev/botkits.git
 ```
 
 1. Open a skill from the list below. Read its instructions and tool needs.
@@ -279,7 +279,7 @@ Other agents may need changes to tool names, paths, or invocation syntax. Cross-
 
 ## Contribute
 
-Found a useful improvement? Open an [issue](https://github.com/botkitsdev/botskills/issues) or a pull request.
+Found a useful improvement? Open an [issue](https://github.com/botkitsdev/botkits/issues) or a pull request.
 
 Keep each skill focused on one job. Use `skills/<category>/<slug>/SKILL.md` with `name` and `description` in YAML frontmatter. Include an example task and any tool requirements in your pull request. Add new skills to the list above. Preserve source credits and license notices.
 

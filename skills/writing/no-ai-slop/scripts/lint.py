@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """lint.py: flag AI-writing tells in a draft. Detect only. It never edits.
 
-Part of the no-ai-slop skill (github.com/coolxeo/grok-bot-skills). MIT.
+Part of the no-ai-slop skill (github.com/botkitsdev/botkits). MIT.
 No dependencies beyond Python 3.
 
 Usage:
