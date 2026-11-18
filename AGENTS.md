@@ -5,7 +5,7 @@ Instructions for any coding agent working in this repo: Grok Bot, Claude Code, C
 ## Read first
 
 1. [BRAND.md](BRAND.md): the name (always **BotKits** in prose), what we may claim, voice, links and the skill page shape.
-2. [DESIGN.md](DESIGN.md): palette, fonts, logo use, image sizes and the README layout.
+2. [DESIGN.md](DESIGN.md): grid, type scale, light and dark tokens, spark, image sizes, alt text, file names and the image check.
 
 Both are required. If a task conflicts with them, stop and ask the owner instead of guessing.
 
