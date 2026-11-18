@@ -62,43 +62,15 @@ Rules:
 - Keep PNGs small: export at 1x and 2x, no larger. Do not commit video captures or rendered test output.
 - Put shared images in `assets/`. Put images used by one skill in that skill's folder.
 
-## Per-skill README template
+## Per-skill README layout
 
-Each skill folder can have a `README.md` for humans. `SKILL.md` stays the instructions for the bot. Use this shape, in this order:
+Each skill folder can have a `README.md` for humans. `SKILL.md` stays the instructions for the bot. The section order is set in [BRAND.md](BRAND.md) section 8. Layout rules:
 
-```markdown
-# <skill-name>
+- Put the skill card (800×460, light and dark) right under the one-line promise, with alt text.
+- Install line in a code block: `npx skills add botkitsdev/botkits --skill <skill-name>`.
+- Before and after as a two-column table, marked as an example.
+- "Works with" uses the BRAND.md section 7 wording only.
+- The paid kit link sits in a line titled **Paid kits**, only if a kit exists.
+- No other images, badges or colours beyond this file.
 
-<One-line promise: what you get, in plain words.>
-
-<p align="center"><img src="<card>.png" alt="<what the card shows>" width="800"></p>
-
-**For:** <who it is for, in one line.>
-
-## Install
-
-    npx skills add botkitsdev/botkits --skill <skill-name>
-
-Or copy this folder into your bot's skills folder. See [AGENTS.md](../../../AGENTS.md#use-a-skill-in-other-bots).
-
-## Before and after
-
-| Before | After |
-| --- | --- |
-| <the problem, concrete> | <the result, concrete> |
-
-## Needs
-
-<Tools, logins or bots this skill needs. Say if it was only tested on one bot.>
-
-## More
-
-- Browse all skills on [botkits.dev](https://botkits.dev)
-- Paid kit: [<kit name>, $<price>](<link>) (only if a kit exists)
-
-## Inspired by
-
-<Credit and links, if the skill draws on outside work.>
-```
-
-Copy for the promise, who it is for and the before/after comes from Marketer. Layout and images follow this file.
+Copy comes from Marketer. Layout and images follow this file.

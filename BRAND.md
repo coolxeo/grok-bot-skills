@@ -1,61 +1,114 @@
-# BotKits brand
+# BotKits brand rules
 
-This file sets the name, the claims and the voice for BotKits. Every README, skill, image caption, PR body and post about this repo follows it. Visual rules live in [DESIGN.md](DESIGN.md).
+This file is the standard for every word we publish about BotKits: README, skill pages, botkits.dev, posts, PRs, and kit listings. AGENTS.md must follow it. For colors, type, logo and images, follow [DESIGN.md](DESIGN.md).
 
-## Name
+Last updated: 18 Nov 2026. Owner: Dani Acosta.
 
-- In prose, the name is always **BotKits**: capital B, capital K, one word.
-- Never write "botskills" (the old name), "Botkits", "Bot Kits" or "BOTKITS" in prose.
-- Lowercase `botkits` is only for URLs, the repo slug, package and folder names, and code: `botkits.dev`, `botkitsdev/botkits`, `npx skills add botkitsdev/botkits`.
-- The logo wordmark is drawn as lowercase "botkits" for now. That is artwork, not prose. Dani decides if it changes.
-- The author is **Dani Acosta**. On X: [@DaniAcostaAI](https://x.com/DaniAcostaAI).
+## 1. Name
 
-## What BotKits is
+- In prose, always write **BotKits**. One word, capital B, capital K.
+- The lowercase **botkits** wordmark is for the logo only. Do not type it as a name in sentences.
+- Repo slug: `botkitsdev/botkits`. Site: `botkits.dev`. Write these exactly, in code format when they are commands or paths.
+- Never write: "botskills", "Bot Kits", "Botkits", "BOTKITS", "Grok Bot skills", "Grok skills".
+- The owner is **Dani Acosta**. Use that exact name. X handle: @DaniAcostaAI.
+- Paid products use their exact listing names (see section 9).
 
-BotKits is a set of open skill folders for AI bots and coding agents. Each skill is one job, written as a `SKILL.md` file. Paid kits on [botkits.dev](https://botkits.dev/kits/) are the tested, ready-to-run versions of some free skills.
+## 2. Positioning
 
-One-line positioning: **Skills your bots can run today.**
+Options (one line each):
 
-## Which bots
+1. Skills your bots can run today. Open SKILL.md folders for Claude, ChatGPT, Codex, Cursor, Gemini, Copilot and Grok Bot.
+2. Plain, tested processes for the jobs your bots do every day. One SKILL.md each. MIT.
+3. Open skills for any agent that reads SKILL.md. Built and used daily by a real bot team.
 
-BotKits is not Grok-only. Skills use the open [Agent Skills](https://agentskills.io/specification) format (a folder with a `SKILL.md` that starts with `name` and `description`), and that format is read by many bots. Say only what each bot can do today:
+**Pick: option 1.** It keeps the current H1, names the agents a reader already uses, and says what the thing is (a folder with a SKILL.md). Use the short form "Skills your bots can run today" as the H1 and the full line as the subhead.
 
-| Bot | What we can say | Source |
-| --- | --- | --- |
-| Claude Code | Loads skill folders from `.claude/skills/`. | [Claude Code docs](https://code.claude.com/docs/en/skills) |
-| Claude apps | Custom skills upload as a ZIP in Customize > Skills, with code execution on. | [Claude Help Center](https://support.claude.com/en/articles/12512180-use-skills-in-claude) |
-| Codex | Loads skill folders from `.agents/skills/`. | [ChatGPT Learn: Build skills](https://learn.chatgpt.com/docs/build-skills) |
-| ChatGPT | Skills can be uploaded on Business, Enterprise, Edu and Healthcare workspaces. | [OpenAI Help Center](https://help.openai.com/en/articles/20001066-skills-in-chatgpt) |
-| Cursor | Loads skill folders from `.agents/skills/` and `.cursor/skills/`, and also reads `.claude/skills/` and `.codex/skills/`. | [Cursor docs](https://cursor.com/docs/skills) |
-| Gemini CLI | Loads skill folders from `.gemini/skills/` or `.agents/skills/`. | [Gemini CLI docs](https://geminicli.com/docs/cli/creating-skills/) |
-| Muse Code | Loads skill folders from `.agents/skills/`. | [Muse Code docs](https://meta-models.github.io/muse-code-sdk/next/guides/extend/skills/) |
-| Grok Bot | Saves a skill from chat into your private skill library, shared by all your Bots. | [Grok Bot docs](https://docs.x.ai/grok-bot/skills-routines-and-automations) |
-| Muse (Meta app), ChatGPT dots | No skill install found in official docs. You can paste a skill's text into chat or into custom instructions. | See AGENTS.md research notes |
+BotKits is not a Grok Bot project. Grok Bot is where we run the skills every day. That is proof, not the audience.
 
-Rules for claims:
+## 3. Who it is for
 
-- Do not say "works with every bot" or "tested on X" unless someone ran it there and kept the proof.
-- Some skills use one bot's tools (Grok Bot routines, a signed-in browser, ffmpeg). Say so in that skill's README.
-- When a bot adds or drops support, update this table first, with the source link.
+- Solo founders and small teams who run AI agents for real work: writing, SEO, video, ads, bot operations.
+- People who already use one of the agents in section 7 and want a clear process, not a prompt pack.
+- Not for: people who want a hosted app, a course, or a promise of growth.
 
-## Voice
+## 4. Promise and proof
 
-- Plain, short and concrete. Say what the skill does and what you get.
-- Use numbers only from a source you can link or a run you can show. No invented numbers, no made-up users, no fake reviews.
-- No hype words: "revolutionary", "game-changer", "supercharge", "unlock", "seamless", "effortless", "10x", "magic".
-- No AI tells. Run [no-ai-slop](skills/writing/no-ai-slop/) on any public text.
-- First person is Dani's voice ("my bot team", "I use this daily") only when it is true.
-- Nothing about ads results, revenue or sponsors unless Dani signs off on the exact claim.
+- Promise: a clear process your agent can follow for one job, in a file you can read in five minutes.
+- Every number needs a source you can open: a file, a commit, a dashboard, a public URL. Put the source and the date next to it, or in a linked note.
+- No invented numbers. No "10x", "hours saved", "thousands of users" unless we measured it and can show where.
+- Skill count: say the real count from the repo on the day you write it. Today it is 31. Update the badge, the README and the site together.
+- "Used daily by my own bots" is true for Grok Bot only. Do not extend it to other agents.
+- Screenshots and examples must come from real runs. Mark mockups as mockups.
 
-## Links
+## 5. Voice and tone
 
-- Site: [botkits.dev](https://botkits.dev)
-- Repo: [github.com/botkitsdev/botkits](https://github.com/botkitsdev/botkits)
-- Paid kits: [botkits.dev/kits](https://botkits.dev/kits/)
-- Install line: `npx skills add botkitsdev/botkits`
+- Short. Concrete. Verbs first. One idea per sentence.
+- Plain English in the spirit of ASD-STE100: common words, active voice, present tense, sentences under about 20 words.
+- First person singular for Dani ("I", "my bots"). Second person for the reader ("your bot").
+- Say what the skill does, what goes in, what comes out, and what it will not do.
+- Calm. No hype, no exclamation marks, no emoji in prose.
+- No em dashes. Use a period, a comma, a colon or parentheses.
 
-Link to the repo or botkits.dev first. Gumroad links go only in the paid-kit line of a skill README or on botkits.dev.
+## 6. Skill names and descriptions
 
-## Credits
+- Folder name = `name` in frontmatter. Lowercase, digits and hyphens, max 64 characters (Agent Skills spec).
+- Name the job or the output: `x-article`, `shorts-reframe`, `source-check`. Not the tool or the brand.
+- New skills must not carry one agent's name (no `*-grok-bot`, `*-claude`) unless the skill only works there. If so, add a `compatibility` line in the frontmatter and say it in the first line of the page.
+- `description` starts with the trigger: "Use this when ..." or "Use to ...". Then the output. Then one key limit. Max 1024 characters; aim for under 300.
+- Front-load trigger words. Some agents cut long descriptions.
 
-Skills inspired by outside work are rewritten in our own words and end with an "Inspired by" section. See [docs/credits.md](docs/credits.md) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). BotKits is a community project and is not affiliated with xAI, Cursor, Anthropic, OpenAI, Google or Meta.
+## 7. Compatibility wording
+
+Only claim what we checked. Source: `2026-11-18-agent-compat-research.md`. Recheck before each release.
+
+| Wording to use | Agents |
+| --- | --- |
+| "Used daily" | Grok Bot |
+| "Installs with `npx skills add`" (tested 18 Nov 2026) | Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot, Grok Build |
+| "Supports the SKILL.md format (vendor docs)" | Claude apps (upload), ChatGPT (Business, Enterprise, Edu, Healthcare upload), and the other clients listed at agentskills.io |
+| "No direct install yet. Paste the instructions into a chat." | ChatGPT dots, Meta Muse |
+
+Rules:
+
+- Say "should work in any agent that supports the Agent Skills format" for agents we have not run. Never say "works everywhere".
+- Do not say a skill "works in X" until someone ran it there. Install tested is not run tested.
+- Skills that use Grok Bot tools (routines, cards, agent folders) must say so on the first line of their page: "Needs Grok Bot. Uses routines and approval cards."
+- Do not write "compatible with Muse" or "works with dots".
+
+## 8. README and skill page shape
+
+Every skill page (README or botkits.dev) uses this order:
+
+1. One-line promise. What job it does, in plain words.
+2. Who it is for. One line.
+3. Install: `npx skills add botkitsdev/botkits --skill <name>`, plus the manual folder copy for agents the CLI does not cover.
+4. What it does. 3 to 6 bullets. Inputs, steps, output, limits.
+5. Before and after. A short real example. Mark it as an example.
+6. Works with. Use section 7 wording.
+7. Links: botkits.dev page, the paid kit if one exists (section 9), Inspired by.
+8. License: MIT.
+
+## 9. Links and calls to action
+
+- Main link everywhere: the repo `https://github.com/botkitsdev/botkits` or `https://botkits.dev`.
+- One call to action per piece. Default: "Install with `npx skills add botkitsdev/botkits`" or "Browse on botkits.dev".
+- Gumroad links appear only in a section titled **Paid kits** (README, site kits page, a skill page's paid kit line). Never in posts, Reddit comments, PR descriptions or a skill's `SKILL.md`.
+- Paid kits (exact names and prices): X Article Writer, $7. AEO/GEO Site Audit & Build Kit, $9. Shorts Builder Kit, $14. AEO Kit (Markdown Twins + YouTube Watch Pages), $24. Check the listing before you quote a price.
+- Free skills stay free and complete. A paid kit is the tested, ready-to-run version, not the missing half.
+
+## 10. Words to avoid
+
+Do not use: unlock, unleash, supercharge, game-changer, revolutionize, seamless, effortless, powerful, robust, cutting-edge, next-level, elevate, empower, leverage (as a verb), harness, delve, dive in, deep dive, journey, landscape, realm, tapestry, testament, in today's fast-paced world, it's not just X it's Y, the best part?, here's the thing, let that sink in, magic, secret sauce, 10x, insane, crushing it, AI-powered (as a selling point), "simply", "just" (as in "just run").
+
+Also avoid: rhetorical questions as hooks, lists of three adjectives, closing slogans, and claims about other people's results.
+
+## 11. Credit
+
+- Every skill written from outside ideas ends with an **Inspired by** section.
+- Write it in our own words. Name the source with a link, say what it does well, what it misses, and what our version adds.
+- Keep upstream license notices where they apply. Full list: `docs/credits.md` and `THIRD_PARTY_NOTICES.md`.
+- Never copy text from a source into a skill.
+
+## 12. Visuals
+
+See [DESIGN.md](DESIGN.md). In short: botkits.dev blue, `#2340c4` on light and `#a3b4ff` on dark. Lime is retired; do not use it in new work.
