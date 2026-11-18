@@ -43,7 +43,7 @@ Turn a 16:9 video into a 1080×1920 Short. Center crop, audio kept, length and s
 Turn rough notes into an X Article, with a first-line hook, images between sections and no invented numbers.
 </td>
 <td valign="top" width="33%">
-<p align="center"><a href="skills/seo/aeo-geo-site/"><img src="assets/top3-aeo-geo-site.png" alt="aeo-geo-site: botkits.dev is-agentic score, 79 to 81, is-agentic.com, 17 Nov 2026"></a></p>
+<p align="center"><a href="skills/seo/aeo-geo-site/"><img src="assets/top3-aeo-geo-site.png" alt="aeo-geo-site: botkits.dev is-agentic score, 79 to 81 to 100, is-agentic.com, 17 Nov 2026"></a></p>
 <strong><a href="skills/seo/aeo-geo-site/">aeo-geo-site</a></strong><br>
 Make your site easy for ChatGPT, Gemini and Copilot to read, understand and cite.
 </td>
