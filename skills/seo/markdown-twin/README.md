@@ -35,10 +35,10 @@ After the three steps, a twin lives at `/docs/install.md` (or `/docs/install/ind
 - Other agents that support the Agent Skills format can load it. We have not run it there.
 - No direct install yet in ChatGPT dots or Meta Muse. Paste the instructions from [SKILL.md](SKILL.md) into a chat.
 
-
 ## Paid kits
 
 [AEO Kit (Markdown Twins + YouTube Watch Pages), $24](https://daniacostaai.gumroad.com/l/wzalwo). It adds the Cloudflare Worker router (content negotiation) and the YouTube watch page builder. The free skill works by itself.
+
 ## Links
 
 - [botkits.dev](https://botkits.dev)
