@@ -12,7 +12,7 @@ for d in skills/writing/x-article skills/seo/aeo-geo-site skills/video/shorts-re
 done
 
 # 2. File names that exist only in the paid kits.
-hits=$(git ls-files | grep -E '(^|/)(aeo_check\.py|shortkit\.py|negotiate\.mjs|make-watch-page\.mjs|watch\.json|wrangler\.example\.jsonc|scoring-rubric\.md|audit-checklist\.md|article-skeleton\.md|prepublish-checklist\.md|TEST-RESULTS\.md)$|(^|/)(jsonld|router|watch-page|shorts-builder|aeo-kit|shorts-kit|paid-sources)/' || true)
+hits=$(git ls-files | grep -E '(^|/)(aeo_check\.py|shortkit\.py|negotiate\.mjs|make-watch-page\.mjs|watch\.json|wrangler\.example\.jsonc|scoring-rubric\.md|audit-checklist\.md|article-skeleton\.md|prepublish-checklist\.md|TEST-RESULTS\.md|worked-audit\.md|worked-example\.md|ai-crawlers\.md|audit-report\.md|page-brief\.md|image-plan\.md|promo-post\.md|sample-contact-sheet\.png|sample-frame-[^/]*)$|(^|/)(fixture-site|jsonld|router|watch-page|shorts-builder|aeo-kit|shorts-kit|paid-sources)/' || true)
 if [ -n "$hits" ]; then echo "Paid guard: these paths match paid kit files:"; echo "$hits"; fail=1; fi
 
 # 3. No Gumroad link in any SKILL.md.
