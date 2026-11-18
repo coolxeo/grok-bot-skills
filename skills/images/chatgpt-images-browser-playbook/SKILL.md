@@ -10,7 +10,7 @@ compatibility: Needs Grok Bot or another agent with a signed-in browser it can d
 
 Automate ChatGPT Images through a signed-in box browser session. No API keys. No cookie scraping. No private endpoint scripts. No Shell-driven CDP, Playwright, Puppeteer, or cookie DB reads.
 
-This is a **session-only** playbook: drive the live Images UI the owner already uses. It is product-agnostic — attach whatever identity or style reference images the current job requires.
+This is a **session-only** playbook: drive the live Images UI the owner already uses. It is product-agnostic. Attach whatever identity or style reference images the current job requires.
 
 ## Session
 1. Open `https://chatgpt.com` in the box browser on the account the owner already uses for Images.
@@ -21,7 +21,7 @@ This is a **session-only** playbook: drive the live Images UI the owner already 
 1. Delegate clicks and typing to a browser or desktop subagent. Do not drive Chrome from Shell.
 2. Scope each dispatch tightly: one prompt, attach named refs, wait for the still, download or save it, stop.
 3. For a batch, loop many narrow dispatches (one still each). Do not ask one subagent to "generate the whole pack."
-4. Always attach the locked identity / style reference images the job requires before Generate. Do not invent product cast locks or character sheets in this skill — those belong to the project brief.
+4. Always attach the locked identity / style reference images the job requires before Generate. Do not invent product cast locks or character sheets in this skill. Those belong to the project brief.
 5. Use the image-generation controls available in the current session. Do not assume a specific model name or picker exists. Reject GenerateImage and other local generators for this lane.
 6. **No sleep-poll loops.** Do not chain `sleep 15` / `sleep 20` / `sleep 30` waiting on the UI. Wait on the page result in the browser subagent, or stop and report. Retry once on rate limit, then pause.
 

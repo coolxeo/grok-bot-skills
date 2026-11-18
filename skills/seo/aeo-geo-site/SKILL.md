@@ -23,9 +23,9 @@ Competition moves from “being found” to “being chosen.” Visibility is ea
 
 ## Three data planes (control all that apply)
 
-1. **Crawled web data** — what AI learned and what live search finds: brand reputation, category authority, expert mentions, crawlable HTML.
-2. **Structured feeds / APIs** — catalogs, sitemaps, `llms.txt`, markdown twins, JSON-LD, public APIs. Precision and control live here. (Retail: product feeds. Content sites: entity pages, video objects, FAQ, design law, markdown negotiation.)
-3. **Live website data** — what an agent sees on visit: current copy, media, reviews, working CTAs. If the live page lies or fails, the agent fails even if feeds were perfect.
+1. **Crawled web data**: what AI learned and what live search finds: brand reputation, category authority, expert mentions, crawlable HTML.
+2. **Structured feeds / APIs**: catalogs, sitemaps, `llms.txt`, markdown twins, JSON-LD, public APIs. Precision and control live here. (Retail: product feeds. Content sites: entity pages, video objects, FAQ, design law, markdown negotiation.)
+3. **Live website data**: what an agent sees on visit: current copy, media, reviews, working CTAs. If the live page lies or fails, the agent fails even if feeds were perfect.
 
 Never cloak: **same HTML to bots and users.** Extra formats (markdown via `Accept`, `llms.txt`) are additive, not different facts.
 
@@ -68,7 +68,7 @@ SEO vs AEO vs GEO in one line:
 AI systems prioritize verifiable truth and penalize low-trust language.
 
 - Consistent entity: same name, same facts, same URLs across site, social profiles, video channels, schema.
-- Proof you can show: reviews, press, certifications, expert mentions, official sameAs links — only real ones.
+- Proof you can show: reviews, press, certifications, expert mentions, official sameAs links. Only real ones.
 - FAQ and help content that answers hard questions honestly (including “no”, “not yet”, disclosures).
 - Contact / trust pages when recommended (email, privacy, no fake forms).
 - No exaggerated claims, no fake social proof, no Ivy-league wallpaper, no “#1” without a source.
@@ -81,7 +81,7 @@ AI systems prioritize verifiable truth and penalize low-trust language.
 - [ ] Visible facts match JSON-LD and any markdown twin
 - [ ] FAQ or Q-shaped headings where intent is question-shaped
 - [ ] Images have useful alt; no type burned into photos unless brand allows it
-- [ ] CTA points at the real product surface (signup, docs, buy URL, contact) — not a maze
+- [ ] CTA points at the real product surface (signup, docs, buy URL, contact), not a maze
 - [ ] `noindex` only for experiments; production pages in sitemap when indexable
 - [ ] No cloaking; Accept negotiation serves the same facts
 - [ ] Trust lines are true and on-brand (disclosures, AI-use notes, location, team)

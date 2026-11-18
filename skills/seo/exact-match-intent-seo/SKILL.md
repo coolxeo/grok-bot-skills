@@ -6,7 +6,7 @@ description: >-
 ---
 # Exact-match intent SEO (EMD lesson)
 
-Triggered by posts that credit **EMD SEO** (Exact Match Domain) for high CTR on new sites — e.g. [Hridoy Reh](https://x.com/hridoyreh/status/2096534436934455606) showing ~8.9k clicks / 27.3k impressions / **32.7% CTR** / avg position **2.8** after months of near-zero.
+Triggered by posts that credit **EMD SEO** (Exact Match Domain) for high CTR on new sites, e.g. [Hridoy Reh](https://x.com/hridoyreh/status/2096534436934455606) showing ~8.9k clicks / 27.3k impressions / **32.7% CTR** / avg position **2.8** after months of near-zero.
 
 ## What the claim usually means
 
@@ -51,7 +51,7 @@ Only for a **new niche property** where the whole site is that one intent, conte
 - [ ] First paragraph answers who / what / what next
 - [ ] Unique from other pages (no near-duplicates)
 - [ ] In sitemap if indexable; `noindex` only for experiments
-- [ ] After 4–8 weeks: GSC query report → refresh for “impressions, not in copy”
+- [ ] After 4 to 8 weeks: GSC query report → refresh for “impressions, not in copy”
 
 ## Pair with
 
