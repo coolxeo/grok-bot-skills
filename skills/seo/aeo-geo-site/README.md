@@ -2,4 +2,4 @@
 
 This is the free `aeo-geo-site` skill. The instructions are in [SKILL.md](SKILL.md).
 
-> Built and used daily on my 3 YouTube channels, run by a team of Grok Bots. Want it wired up and ready to go? [The full kit is here.](https://daniacostaai.gumroad.com/l/cxabi)
+> Built and used daily on my 3 YouTube channels. Want it wired up and ready to go? [The full kit is here.](https://daniacostaai.gumroad.com/l/cxabi)
