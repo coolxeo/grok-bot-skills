@@ -15,7 +15,7 @@
 
 # Skills your bots can run today
 
-31 open skill folders for Grok Bot, Claude Code and other agents. Used daily by my own bot team. MIT.
+Open SKILL.md folders for Claude, ChatGPT, Codex, Cursor, Gemini, Copilot and Grok Bot. 31 skills, used daily by my own Grok Bots. MIT.
 
 <p align="center">
   <a href="https://botkits.dev">Browse on botkits.dev</a>
@@ -90,11 +90,11 @@ git clone https://github.com/botkitsdev/botkits.git
 
 The install path and invocation syntax depend on your bot. To try a writing skill without installing it, paste its instructions into a chat, then add your task.
 
-Free skills that run my 3 YouTube channels with a team of Grok Bots. Nothing posts or spends without my tap. The paid kits are the tested, ready-to-run versions.
+Free skills I use daily to run my 3 YouTube channels. My bots run on Grok Bot. The skills are plain SKILL.md files, so they should work in any agent that supports the Agent Skills format. Nothing posts or spends without my tap. The paid kits are the tested, ready-to-run versions.
 
 Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
 
-31 skills for writing, design, code, SEO, ads, YouTube research, video, images, and bot routines. Give your Grok Bot a clear process for the job you need done.
+31 skills for writing, design, code, SEO, ads, YouTube research, video, images, and bot routines. Give your bot a clear process for the job you need done.
 
 Every skill is Dani's own version, inspired by several public references rather than copied from one. Each is a single readable `SKILL.md`. The rewritten skills end with what inspired them, what those references were missing, and what this version adds.
 
@@ -120,7 +120,7 @@ npx skills add Leonxlnx/taste-skill --skill design-taste-frontend redesign-exist
 npx skills add https://github.com/cursor/plugins/tree/main/pstack/skills/make-bot-ui --skill "Make Bot UI"
 ```
 
-The CLI supports agents such as Codex and Claude Code. Grok Bot installation through this CLI has not been verified. For Grok Bot, use its supported import process. Tool access still depends on the bot environment.
+The CLI installs skills for agents such as Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and Grok Build. Grok Bot, the ChatGPT app, ChatGPT dots and Meta Muse are not on its agent list. For those, see [Use a skill in other bots](AGENTS.md#use-a-skill-in-other-bots). Tool access still depends on the bot environment.
 
 ### Try it
 
@@ -268,7 +268,7 @@ flowchart LR
 
 The instructions are plain Markdown. Some workflows need more than a chat window:
 
-- Bot and engineering skills refer to Grok Bot tools, routines, cloud agents, or local agent data. Check that your environment has those tools before running them.
+- Some bot and engineering skills use Grok Bot tools: routines, approval cards, cloud agents, or local agent data. As written, they need Grok Bot. Check that your environment has those tools before running them.
 - Some coding workflows refer to pstack skills. Install that pack separately when a workflow needs it.
 - `diagram-design` runs on its own. If [Cathryn Lavery's diagram pack](https://github.com/cathrynlavery/diagram-design) is installed, it uses that pack's type references too. Its optional line-draw clip needs a headless browser only if you record webm or mp4. Do not commit gif, mp4, webm, or rendered png files.
 - `motion-picker` needs no package of its own. It chooses a library and a timing preset. The same media rule applies: captures stay out of git.
