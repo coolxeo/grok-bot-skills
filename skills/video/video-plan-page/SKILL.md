@@ -84,9 +84,8 @@ Skip it for a single-shot clip or a script with no picture notes.
 - [ ] No private names, emails or account IDs in the inputs or images
 - [ ] Nothing built until the reply came back
 
-> **Pro: from approved plan to Shorts.** When the long cut is done, the
-> [Shorts Builder Kit](https://daniacostaai.gumroad.com/l/ommvol) turns it into 9:16 Shorts with
-> QA included. The free [shorts-reframe](../shorts-reframe/SKILL.md) skill covers the crop on its own.
+> **Next step: from approved plan to Shorts.** When the long cut is done, the free
+> [shorts-reframe](../shorts-reframe/SKILL.md) skill crops it to 9:16 Shorts.
 
 ## Inspired by
 
