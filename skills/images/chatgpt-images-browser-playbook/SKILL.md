@@ -1,9 +1,10 @@
 ---
 name: chatgpt-images-browser-playbook
 description: >-
-  Use when generating stills on chatgpt.com with a signed-in browser session —
+  Needs Grok Bot or a browser agent. Use when generating stills on chatgpt.com with a signed-in browser session.
   Images UI only, one still per dispatch, no API keys, no cookie scraping,
   no sleep-poll loops. Session-only; hand the box to the owner for login/2FA.
+compatibility: Needs Grok Bot or another agent with a signed-in browser it can drive.
 ---
 # ChatGPT Images browser playbook
 

@@ -1,8 +1,9 @@
 ---
 name: overheard
 description: >-
-  Core instructions on every turn: voice, first-run interview, day-two starter
+  Needs Grok Bot. Core instructions on every turn: voice, first-run interview, day-two starter
   menu, sources, digests, anti-jobs.
+compatibility: Needs Grok Bot (persona instructions for the Overheard Grok Bot).
 ---
 # Overheard
 

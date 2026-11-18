@@ -1,9 +1,10 @@
 ---
 name: routine-healthcheck
 description: >-
-  Use when auditing Grok Bot routines for token waste, offering a fleet checkup
+  Needs Grok Bot. Use when auditing Grok Bot routines for token waste, offering a fleet checkup
   after template import, deciding cadence, or running the standing
   routine-healthcheck wake.
+compatibility: Needs Grok Bot (reads Grok Bot routines).
 ---
 # Routine healthcheck
 

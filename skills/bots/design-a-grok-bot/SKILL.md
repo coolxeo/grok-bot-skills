@@ -1,10 +1,11 @@
 ---
 name: design-a-grok-bot
 description: >-
-  Use this when designing or creating a new Grok Bot. Ask a few preference
+  Needs Grok Bot. Use this when designing or creating a new Grok Bot. Ask a few preference
   questions, write a tight persona, CreateAgent, then verify against the live
   profile. Coding bots use pstack / poteto-mode as the quality bar. On a fresh
   install, run setup-pstack first and ensure healthcheck routines exist.
+compatibility: Needs Grok Bot (uses CreateAgent and Grok Bot profiles).
 ---
 # Design a Grok Bot
 

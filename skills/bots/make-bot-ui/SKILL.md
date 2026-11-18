@@ -1,9 +1,10 @@
 ---
 name: make-bot-ui
 description: >-
-  Use to give a Grok Bot its own clickable page or dashboard that wakes it
+  Needs Grok Bot. Use to give a Grok Bot its own clickable page or dashboard that wakes it
   through a webhook routine, including safe handling of the sender key and
   sharing the page over Tailscale.
+compatibility: Needs Grok Bot (wakes the bot through a Grok Bot webhook routine).
 ---
 # Make a bot UI
 

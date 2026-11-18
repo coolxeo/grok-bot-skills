@@ -2,7 +2,7 @@
 name: show-me
 description: >-
   use this when opening or rewriting a pull request description, or when the
-  user needs a visual explanation of code shape, flow, or structure — keep PR
+  user needs a visual explanation of code shape, flow, or structure. Keep PR
   bodies easy to scan with the smallest clear diagram
 ---
 # show-me

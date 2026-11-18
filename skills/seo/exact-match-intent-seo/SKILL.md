@@ -1,7 +1,7 @@
 ---
 name: exact-match-intent-seo
 description: >-
-  use this when choosing domains, URL slugs, titles, or H1s for SEO — Exact
+  use this when choosing domains, URL slugs, titles, or H1s for SEO. Exact
   Match Domain (EMD) lessons and the safer brand-domain equivalent
 ---
 # Exact-match intent SEO (EMD lesson)

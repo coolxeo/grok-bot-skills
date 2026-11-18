@@ -3,6 +3,7 @@ name: engineering-playbook
 description: >-
   Standing principles for delegating code to cloud agents and supervising PRs to
   merge. Use on every ship or watch.
+compatibility: Written for Grok Bot supervising cloud agents. The principles also work with any agent that opens PRs.
 ---
 # Engineering playbook
 
