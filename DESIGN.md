@@ -120,3 +120,43 @@ Write a short, factual description of what the image shows. Name the skill and a
 ## README section order
 
 DESIGN.md has no README template. For the section order of a skill README, follow [BRAND.md](BRAND.md) section 8.
+
+## Premium (/premium)
+
+Paid kits live on `/premium`. Open-source pages keep the tokens above. Premium pages ignore the light/dark toggle and always render dark. That is the contrast with the open-source pages.
+
+| Token | Value | Use |
+|---|---|---|
+| bg | `#0B0D10` | Page |
+| surface | `#14171C` | Cards, panels, code blocks |
+| rule | `#262A31` | Dividers, card borders (1 px) |
+| text | `#F2EFE7` | Body and headlines (warm white; 16.9:1 on bg) |
+| muted | `#A39E93` | Secondary text (7.3:1 on bg) |
+| blue | `#a3b4ff` | Links in body text only, so it stays BotKits |
+| gold | `#E2B85C` | Premium contrast colour (10.4:1 on bg) |
+
+Gold on a light page, if ever needed, is `#8A5F0E` (5.0:1 on `#f1f2ee`). Premium pages themselves stay dark, so they use `#E2B85C`.
+
+Use gold for the "Premium" label, the price, the primary button fill (button text `#0B0D10`, 10.4:1), the active nav item, and a 1 px top hairline on Premium cards. Gold never goes in the logo, never in body paragraphs, and never as a big background fill (no gold sections or gradients).
+
+No orange `#F2762E` on Premium pages: gold replaces the spark there. Orange stays for the open-source pages under [Spark (orange)](#spark-orange). No lime `#C8FF3D` on Premium.
+
+The logo stays BotKits (capital B and K), using the existing dark-mode asset. Never recolour it gold. Next to the logo, the section label is "Premium": small caps, letter-spacing +0.08em, 13 to 14 px, gold. Same typefaces as the open-source site. Headlines one weight heavier than on the open-source pages.
+
+### Premium cards
+
+Surface `#14171C`, 1 px border `#262A31`, 1 px gold top hairline. Radius matches the site cards. Kit name in text colour; price in gold; one-line description in muted. One gold button per card ("Get kit"). The secondary action is a text link in `#a3b4ff`.
+
+### Homepage banner
+
+One slim strip above the hero on the open-source homepage, full width, never sticky, dismissible.
+
+- Height 44 px desktop, 52 px mobile (text may wrap to 2 lines).
+- Light mode: bg `#0B0D10`, text `#F2EFE7`. Dark mode: bg `#14171C` with a 1 px `#262A31` bottom border.
+- Content, left to right: "PREMIUM" label in gold small caps, 12 px; then one line in text colour, 14 to 15 px; then a link in gold, "See Premium →", underlined on hover.
+- A close × in muted on the right, 24 px tap target.
+- No orange, no blue fill, no icons, no animation.
+
+Do: dark always, gold sparingly (labels, prices, one button), lots of empty space.
+
+Do not: gold plus orange on the same screen, gold gradients or glows, the blue `#2340c4` as a fill on Premium, lime.
