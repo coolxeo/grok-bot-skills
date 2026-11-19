@@ -97,7 +97,7 @@ Match these sizes when you replace a repo file.
 
 ## Alt text
 
-Write a short, factual description of what the image shows. Name the skill and any number that is in the picture. Do not start with "image of". Example: `aeo-geo-site: botkits.dev is-agentic score, 79 to 81 to 100, is-agentic.com, 17 Nov 2026`.
+Write a short, factual description of what the image shows. Name the skill and any number that is in the picture. Do not start with "image of". Example: `botkits-aeo-geo-site: botkits.dev is-agentic score, 79 to 81 to 100, is-agentic.com, 17 Nov 2026`.
 
 ## File names
 
