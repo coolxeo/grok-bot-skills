@@ -52,7 +52,7 @@ BotKits is not a Grok Bot project. Grok Bot is where we run the skills every day
 ## 6. Skill names and descriptions
 
 - Folder name = `name` in frontmatter. Lowercase, digits and hyphens, max 64 characters (Agent Skills spec).
-- Name the job or the output: `x-article`, `shorts-reframe`, `source-check`. Not the tool or the brand.
+- Every skill name starts with `botkits-`, then names the job or the output: `botkits-x-article`, `botkits-shorts-reframe`, `botkits-source-check`. Not the tool. The prefix keeps our skills from overwriting others with the same name when both are installed.
 - New skills must not carry one agent's name (no `*-grok-bot`, `*-claude`) unless the skill only works there. If so, add a `compatibility` line in the frontmatter and say it in the first line of the page.
 - `description` starts with the trigger: "Use this when ..." or "Use to ...". Then the output. Then one key limit. Max 1024 characters; aim for under 300.
 - Front-load trigger words. Some agents cut long descriptions.
@@ -95,7 +95,7 @@ Every skill page (README or botkits.dev) uses this order:
 - Gumroad links appear only in a section titled **Paid kits** (README, site kits page, a skill page's paid kit line). Never in posts, Reddit comments, PR descriptions or a skill's `SKILL.md`.
 - Paid kits (exact names and prices): X Article Writer, $7. AEO/GEO Site Audit & Build Kit, $9. Shorts Builder Kit, $14. AEO Kit (Markdown Twins + YouTube Watch Pages), $24. Check the listing before you quote a price.
 - Free skills stay free and complete. A paid kit is the tested, ready-to-run version, not the missing half.
-- Paid kit files (scripts, templates, examples, tests) never go in this repo. The lite skills `x-article`, `aeo-geo-site`, `shorts-reframe` and `markdown-twin` hold only `SKILL.md` and `README.md`. The `paid-guard` check stops any PR that breaks this.
+- Paid kit files (scripts, templates, examples, tests) never go in this repo. The lite skills `botkits-x-article`, `botkits-aeo-geo-site`, `botkits-shorts-reframe` and `botkits-markdown-twin` hold only `SKILL.md` and `README.md`. The `paid-guard` check stops any PR that breaks this.
 
 ## 10. Words to avoid
 
