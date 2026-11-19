@@ -39,8 +39,10 @@ Do not use lime `#C8FF3D` or the old ink `#0D0A1F`.
 Files live in `assets/`:
 
 - `mark-512.png`: square mark on `#2340c4`. Also ship `mark.svg` and `mark-1024.png` when you can.
-- `logo-wide.png` / `logo-wide@2x.png`: 1280×320 light header (wordmark + install line).
-- `header-dark.png` / `header-dark@2x.png`: 1280×320 dark header.
+- `logo-wide.png` / `logo-wide@2x.png`: 1280×320 light header (wordmark + install line). This is the light root header in README.md.
+- `header-dark.png` / `header-dark@2x.png`: 1280×320 dark header. This is the dark root header in README.md.
+
+There is no `header-light.png`. The light header is `logo-wide.png`.
 
 The mark is a closed isometric kit with pill eyes, on the blue tile. Do not recolour it, add a spark, or change its geometry.
 
@@ -87,7 +89,7 @@ Outline all type to paths in SVGs. No `<text>` in shipped SVGs.
 
 | Asset | 1× | 2× |
 |---|---|---|
-| `logo-wide.png`, `header-dark.png`, `header-light.png` | 1280×320 | 2560×640 |
+| `logo-wide.png`, `header-dark.png` | 1280×320 | 2560×640 |
 | `mark-512.png` | 512×512 | none (`mark-1024.png` is 1024×1024) |
 | GitHub avatar | 40×40 circle | none |
 | Top-3 cards | 800×460 | 1600×920 |
@@ -101,7 +103,7 @@ Write a short, factual description of what the image shows. Name the skill and a
 
 ## File names
 
-- Logo: `mark-512.png`, `mark-1024.png`, `mark.svg`, `logo-wide.png`, `logo-wide@2x.png`, `header-light.png`, `header-dark.png`, plus `@2x` and `.svg` where they exist.
+- Logo: `mark-512.png`, `mark-1024.png`, `mark.svg`, `logo-wide.png`, `logo-wide@2x.png`, `header-dark.png`, `header-dark@2x.png`, plus `@2x` and `.svg` where they exist.
 - Cards: `top3-{skill}-light.png`, `top3-{skill}-dark.png`, and `@2x`. Drop-in repo copies use the unsuffixed names (`top3-shorts-reframe.png`, `top3-x-article.png`, `top3-aeo-geo-site.png`) and are the light artwork.
 - Demo: `demo.gif`.
 - Put drop-in files in `assets/` with those exact repo names so the README needs no edits.
