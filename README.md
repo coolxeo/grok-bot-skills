@@ -90,7 +90,7 @@ Each agent loads a skill from its own folder. Copy the skill folder itself (`ski
 
 | Agent | Install | Put the folder here | Status |
 | --- | --- | --- | --- |
-| Grok Bot | Open a 1:1 chat. Paste the skill's `SKILL.md` and ask the Bot to save it as a skill. If the Bot cannot find it later, enable it under Connect apps, Private skills. | No project folder. Skills live in your Grok Bot library. | Used daily |
+| Grok Bot | Open a 1:1 chat. Paste the skill's `SKILL.md` and ask the Bot to save it as a skill. | No project folder. Skills live in your Grok Bot library. | Used daily |
 | Claude Code | `npx skills add botkitsdev/botkits --skill <skill-name> -a claude-code` | `.claude/skills/<skill-name>/` (project) or `~/.claude/skills/<skill-name>/` (personal) | Installs with `npx skills add` (tested 18 Nov 2026) |
 | Codex | `npx skills add botkitsdev/botkits --skill <skill-name> -a codex` | `.agents/skills/<skill-name>/` (repo) or `~/.agents/skills/<skill-name>/` (user) | Installs with `npx skills add` (tested 18 Nov 2026) |
 | Cursor | `npx skills add botkitsdev/botkits --skill <skill-name> -a cursor` | `.agents/skills/<skill-name>/` or `.cursor/skills/<skill-name>/` (project), `~/.agents/skills/` or `~/.cursor/skills/` (user) | Installs with `npx skills add` (tested 18 Nov 2026) |

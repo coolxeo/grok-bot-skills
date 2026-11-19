@@ -42,8 +42,6 @@ Files live in `assets/`:
 - `logo-wide.png` / `logo-wide@2x.png`: 1280×320 light header (wordmark + install line). This is the light root header in README.md.
 - `header-dark.png` / `header-dark@2x.png`: 1280×320 dark header. This is the dark root header in README.md.
 
-There is no `header-light.png`. The light header is `logo-wide.png`.
-
 The mark is a closed isometric kit with pill eyes, on the blue tile. Do not recolour it, add a spark, or change its geometry.
 
 Clear space: keep a margin around the mark of at least the lid lip (~10% of the tile). The 40 px GitHub avatar must still read as a box with two eyes, with the blue circle edge visible on `#ffffff` and `#0d1117`. Do not use the mark below 40 px.
