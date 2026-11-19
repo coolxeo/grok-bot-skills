@@ -20,7 +20,12 @@ skills/<category>/<skill-name>/...        optional scripts, templates, reference
 assets/                                   shared README images
 docs/credits.md                           source credits
 THIRD_PARTY_NOTICES.md                    license notices
+.agents/skills/<skill-name>               symlink to skills/<category>/<skill-name>/ (generated)
+.claude/skills                            symlink to .agents/skills (generated)
+GEMINI.md                                 symlink to this file, for Gemini CLI
 ```
+
+The folders under `skills/` are the only real copies. `.agents/skills/` gives one flat folder per skill, which Codex, Cursor, Gemini CLI, GitHub Copilot and Muse Code read, and `.claude/skills` points Claude Code at the same folder. Do not edit through a link and do not add files there by hand. After you add, rename or move a skill, run `bash .github/scripts/skill-links.sh` and commit the links. CI runs it with `--check`. Skill folder names must be unique across categories.
 
 Categories today: ads, bots, design, engineering, images, seo, video, writing, youtube.
 
@@ -36,7 +41,7 @@ Every skill follows the open [Agent Skills spec](https://agentskills.io/specific
 - Keep `SKILL.md` under 500 lines. Move long reference material to files next to it and link them with relative paths, one level deep.
 - One skill, one job.
 
-When you add a skill, also add it to the skill list and the count in `README.md`.
+When you add a skill, also add it to the skill list and the count in `README.md`, and run `bash .github/scripts/skill-links.sh`.
 
 ### Grok Bot-only skills
 
@@ -120,3 +125,4 @@ Or copy one skill folder by hand. Copy the skill folder itself (`skills/<categor
 - [ ] Every number has a source.
 - [ ] New outside ideas are credited.
 - [ ] Public text passed [botkits-no-ai-slop](skills/writing/botkits-no-ai-slop/).
+- [ ] `bash .github/scripts/skill-links.sh --check` passes.
