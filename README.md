@@ -9,13 +9,13 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/github/license/botkitsdev/botkits?labelColor=14181B&color=2340C4" alt="MIT license"></a>
   <a href="https://github.com/botkitsdev/botkits/stargazers"><img src="https://img.shields.io/github/stars/botkitsdev/botkits?style=flat&labelColor=14181B&color=F6F7F3" alt="GitHub stars"></a>
-  <a href="#all-skills"><img src="https://img.shields.io/badge/skills-32-F6F7F3?labelColor=14181B" alt="32 skills"></a>
+  <a href="#all-skills"><img src="https://img.shields.io/badge/skills-33-F6F7F3?labelColor=14181B" alt="33 skills"></a>
   <a href="https://botkits.dev"><img src="https://img.shields.io/badge/botkits.dev-2340C4?labelColor=14181B&color=2340C4" alt="botkits.dev"></a>
 </p>
 
 # Skills your bots can run today
 
-Open SKILL.md folders for Claude, ChatGPT, Codex, Cursor, Gemini, Copilot and Grok Bot. 32 skills, used daily by my own Grok Bots. MIT.
+Open SKILL.md folders for Claude, ChatGPT, Codex, Cursor, Gemini, Copilot and Grok Bot. 33 skills, used daily by my own Grok Bots. MIT.
 
 <p align="center">
   <a href="https://botkits.dev">Browse on botkits.dev</a>
@@ -30,7 +30,7 @@ Install guides and skill pages: [botkits.dev](https://botkits.dev)
   <img src="assets/demo.gif" alt="Terminal demo: npx skills add botkitsdev/botkits, then a bot loads botkits-no-ai-slop/SKILL.md when the task matches." width="800">
 </p>
 
-[Top 3](#top-3) · [Quick start](#quick-start) · [Use it in](#use-it-in) · [Start here](#start-here) · [All 32 skills](#all-skills) · [Renamed skills](#renamed-skills) · [How a skill is used](#how-a-skill-is-used) · [Tool requirements](#tool-requirements) · [Premium](#premium) · [Contribute](#contribute) · [Inspired by](#inspired-by) · [License](#license)
+[Top 3](#top-3) · [Quick start](#quick-start) · [Use it in](#use-it-in) · [Start here](#start-here) · [All 33 skills](#all-skills) · [Renamed skills](#renamed-skills) · [How a skill is used](#how-a-skill-is-used) · [Tool requirements](#tool-requirements) · [Premium](#premium) · [Contribute](#contribute) · [Inspired by](#inspired-by) · [License](#license)
 
 ## Top 3
 
@@ -64,7 +64,7 @@ npx skills add botkitsdev/botkits
 
 To install one skill, add `--skill` and its folder name, for example `npx skills add botkitsdev/botkits --skill botkits-no-ai-slop`. Run `npx skills add botkitsdev/botkits --list` to see them all.
 
-For all 32 skills, download the [ZIP](https://github.com/botkitsdev/botkits/archive/refs/heads/main.zip), or clone the repo:
+For all 33 skills, download the [ZIP](https://github.com/botkitsdev/botkits/archive/refs/heads/main.zip), or clone the repo:
 
 ```sh
 git clone https://github.com/botkitsdev/botkits.git
@@ -80,7 +80,7 @@ Free skills I use daily to run my 3 YouTube channels. My bots run on Grok Bot. T
 
 Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
 
-32 skills for writing, design, code, SEO, ads, YouTube research, video, images, and bot routines. Give your bot a clear process for the job you need done.
+33 skills for writing, design, code, SEO, ads, YouTube research, video, images, and bot routines. Give your bot a clear process for the job you need done.
 
 Every skill is Dani's own version, inspired by several public references rather than copied from one. Each is a single readable `SKILL.md`. The rewritten skills end with what inspired them, what those references were missing, and what this version adds.
 
@@ -235,6 +235,7 @@ updates. Show the evidence. Propose changes before applying them.
 | Skill | What it does |
 | --- | --- |
 | [botkits-chatgpt-images-browser-playbook](skills/images/botkits-chatgpt-images-browser-playbook/) | Generate still images through a signed-in ChatGPT browser session. |
+| [botkits-scene-detail-board](skills/images/botkits-scene-detail-board/) | Pair a photo with a grid of hand sketches of its details, in one portrait image. |
 
 ## Renamed skills
 
