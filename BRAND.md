@@ -97,7 +97,7 @@ Every skill page (README or botkits.dev) uses this order:
 - Each Premium kit says what the free skill already does first, then what the kit adds, then the price.
 - Paid kits (exact names and prices): X Article Writer, $7. AEO/GEO Site Audit & Build Kit, $9. Shorts Builder Kit, $14. AEO Kit (Markdown Twins + YouTube Watch Pages), $24. Check the listing before you quote a price.
 - Free skills stay free and complete. A paid kit is the tested, ready-to-run version, not the missing half.
-- Paid kit files (scripts, templates, examples, tests) never go in this repo. The lite skills `botkits-x-article`, `botkits-aeo-geo-site`, `botkits-shorts-reframe` and `botkits-markdown-twin` hold only `SKILL.md` and `README.md`. The `paid-guard` check stops any PR that breaks this.
+- Paid kit files (scripts, templates, examples, tests) never go in this repo. The lite skills `botkits-x-article`, `botkits-aeo-geo-site`, `botkits-shorts-reframe`, `botkits-markdown-twin` and `botkits-system-design-explorer` hold only `SKILL.md` and `README.md`. The `paid-guard` check stops any PR that breaks this.
 
 ## 10. Words to avoid
 
