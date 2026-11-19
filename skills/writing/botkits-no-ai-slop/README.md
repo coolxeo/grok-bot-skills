@@ -28,12 +28,25 @@ This example starts with a draft that will be published. It has a staged contras
 
 In Edit mode, those tells are removed with a light touch, the writer's voice is kept, and the output shows what changed plus a fact-lock line. In Detect mode the same tells are listed with a quoted line and a fix; the draft is not rewritten. Nothing new is added.
 
-## Works with
+## Use it in
 
 - Used daily: Grok Bot.
 - Installs with `npx skills add` (tested 18 Nov 2026): Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and Grok Build.
+- Supports the SKILL.md format (vendor docs): Claude apps (upload), ChatGPT (Business, Enterprise, Edu, Healthcare upload), and the other clients listed at [agentskills.io](https://agentskills.io/clients).
 - Other agents that support the Agent Skills format can load it. We have not run it there.
 - No direct install yet in ChatGPT dots or Meta Muse. Paste the instructions from [SKILL.md](SKILL.md) into a chat.
+
+| Agent | Put this folder here |
+| --- | --- |
+| Grok Bot | Paste [SKILL.md](SKILL.md) in a 1:1 chat and ask the Bot to save it as a skill. |
+| Claude Code | `.claude/skills/botkits-no-ai-slop/` or `~/.claude/skills/botkits-no-ai-slop/` |
+| Codex | `.agents/skills/botkits-no-ai-slop/` or `~/.agents/skills/botkits-no-ai-slop/` |
+| Cursor | `.agents/skills/botkits-no-ai-slop/` or `.cursor/skills/botkits-no-ai-slop/` |
+| Gemini CLI | `.gemini/skills/botkits-no-ai-slop/` or `.agents/skills/botkits-no-ai-slop/` (one folder deep only) |
+| GitHub Copilot | `.github/skills/botkits-no-ai-slop/` or `.agents/skills/botkits-no-ai-slop/` |
+| Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
+
+Install tested is not run tested.
 
 ## Links
 

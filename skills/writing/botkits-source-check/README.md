@@ -29,12 +29,25 @@ This example starts with a drafted article. Some numbers, quotes and "X said" li
 
 After the check, every checkable claim has a status (OK, Stretched, Open, or Wrong). Each non-OK claim has its line, what the source actually says, and a fix. A Sources section is added or updated, with access dates. The verdict is Ready, Small fixes, Needs sourcing, or Not reliable. The prose is not rewritten.
 
-## Works with
+## Use it in
 
 - Used daily: Grok Bot.
 - Installs with `npx skills add` (tested 18 Nov 2026): Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and Grok Build.
+- Supports the SKILL.md format (vendor docs): Claude apps (upload), ChatGPT (Business, Enterprise, Edu, Healthcare upload), and the other clients listed at [agentskills.io](https://agentskills.io/clients).
 - Other agents that support the Agent Skills format can load it. We have not run it there.
 - No direct install yet in ChatGPT dots or Meta Muse. Paste the instructions from [SKILL.md](SKILL.md) into a chat.
+
+| Agent | Put this folder here |
+| --- | --- |
+| Grok Bot | Paste [SKILL.md](SKILL.md) in a 1:1 chat and ask the Bot to save it as a skill. |
+| Claude Code | `.claude/skills/botkits-source-check/` or `~/.claude/skills/botkits-source-check/` |
+| Codex | `.agents/skills/botkits-source-check/` or `~/.agents/skills/botkits-source-check/` |
+| Cursor | `.agents/skills/botkits-source-check/` or `.cursor/skills/botkits-source-check/` |
+| Gemini CLI | `.gemini/skills/botkits-source-check/` or `.agents/skills/botkits-source-check/` (one folder deep only) |
+| GitHub Copilot | `.github/skills/botkits-source-check/` or `.agents/skills/botkits-source-check/` |
+| Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
+
+Install tested is not run tested.
 
 ## Links
 

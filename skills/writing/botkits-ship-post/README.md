@@ -28,12 +28,25 @@ This example starts with a commit such as `fix: retry failed webhook deliveries`
 
 After the skill, the opening is the before and after, as in the skill's own example: "A failed webhook used to mean a lost order notice. Now it retries for an hour before giving up." The output has the picked change, the owner's sentence, the X post, an optional link reply, and a number ledger. Nothing is posted.
 
-## Works with
+## Use it in
 
 - Used daily: Grok Bot.
 - Installs with `npx skills add` (tested 18 Nov 2026): Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and Grok Build.
+- Supports the SKILL.md format (vendor docs): Claude apps (upload), ChatGPT (Business, Enterprise, Edu, Healthcare upload), and the other clients listed at [agentskills.io](https://agentskills.io/clients).
 - Other agents that support the Agent Skills format can load it. We have not run it there.
 - No direct install yet in ChatGPT dots or Meta Muse. Paste the instructions from [SKILL.md](SKILL.md) into a chat.
+
+| Agent | Put this folder here |
+| --- | --- |
+| Grok Bot | Paste [SKILL.md](SKILL.md) in a 1:1 chat and ask the Bot to save it as a skill. |
+| Claude Code | `.claude/skills/botkits-ship-post/` or `~/.claude/skills/botkits-ship-post/` |
+| Codex | `.agents/skills/botkits-ship-post/` or `~/.agents/skills/botkits-ship-post/` |
+| Cursor | `.agents/skills/botkits-ship-post/` or `.cursor/skills/botkits-ship-post/` |
+| Gemini CLI | `.gemini/skills/botkits-ship-post/` or `.agents/skills/botkits-ship-post/` (one folder deep only) |
+| GitHub Copilot | `.github/skills/botkits-ship-post/` or `.agents/skills/botkits-ship-post/` |
+| Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
+
+Install tested is not run tested.
 
 ## Links
 

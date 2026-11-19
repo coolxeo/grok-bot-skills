@@ -84,15 +84,17 @@ Every skill page (README or botkits.dev) uses this order:
 3. Install: `npx skills add botkitsdev/botkits --skill <name>`, plus the manual folder copy for agents the CLI does not cover.
 4. What it does. 3 to 6 bullets. Inputs, steps, output, limits.
 5. Before and after. A short real example. Mark it as an example.
-6. Works with. Use section 7 wording.
-7. Links: botkits.dev page, the paid kit if one exists (section 9), Inspired by.
+6. Use it in. Use section 7 wording, then a short table of where each agent loads the folder.
+7. Premium, only if a paid kit exists (section 9). Then Links: botkits.dev page, Inspired by.
 8. License: MIT.
 
 ## 9. Links and calls to action
 
 - Main link everywhere: the repo `https://github.com/botkitsdev/botkits` or `https://botkits.dev`.
 - One call to action per piece. Default: "Install with `npx skills add botkitsdev/botkits`" or "Browse on botkits.dev".
-- Gumroad links appear only in a section titled **Paid kits** (README, site kits page, a skill page's paid kit line). Never in posts, Reddit comments, PR descriptions or a skill's `SKILL.md`.
+- Free first. The site and README lead with the open source skills: star, install, browse, contribute. No prices or Gumroad links on the home page, except one thin banner near the bottom that links to Premium.
+- Paid kits live under **Premium**: the site page `/premium` (dark style, see DESIGN.md) and a README section titled **Premium**. A skill page may carry one Premium line. Gumroad links appear only there. Never in posts, Reddit comments, PR descriptions or a skill's `SKILL.md`.
+- Each Premium kit says what the free skill already does first, then what the kit adds, then the price.
 - Paid kits (exact names and prices): X Article Writer, $7. AEO/GEO Site Audit & Build Kit, $9. Shorts Builder Kit, $14. AEO Kit (Markdown Twins + YouTube Watch Pages), $24. Check the listing before you quote a price.
 - Free skills stay free and complete. A paid kit is the tested, ready-to-run version, not the missing half.
 - Paid kit files (scripts, templates, examples, tests) never go in this repo. The lite skills `botkits-x-article`, `botkits-aeo-geo-site`, `botkits-shorts-reframe` and `botkits-markdown-twin` hold only `SKILL.md` and `README.md`. The `paid-guard` check stops any PR that breaks this.

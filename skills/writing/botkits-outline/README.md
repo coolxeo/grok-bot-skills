@@ -28,12 +28,25 @@ This example starts with a seed, interview notes, or a pile of facts. There is n
 
 After the plan you have a one-sentence claim, a named shape with a reason, a section list with jobs, facts and rough lengths, two or three openings taken from the material, gaps marked `[GAP: ...]`, and a cut list. The plan waits for a yes. Nothing is drafted yet.
 
-## Works with
+## Use it in
 
 - Used daily: Grok Bot.
 - Installs with `npx skills add` (tested 18 Nov 2026): Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and Grok Build.
+- Supports the SKILL.md format (vendor docs): Claude apps (upload), ChatGPT (Business, Enterprise, Edu, Healthcare upload), and the other clients listed at [agentskills.io](https://agentskills.io/clients).
 - Other agents that support the Agent Skills format can load it. We have not run it there.
 - No direct install yet in ChatGPT dots or Meta Muse. Paste the instructions from [SKILL.md](SKILL.md) into a chat.
+
+| Agent | Put this folder here |
+| --- | --- |
+| Grok Bot | Paste [SKILL.md](SKILL.md) in a 1:1 chat and ask the Bot to save it as a skill. |
+| Claude Code | `.claude/skills/botkits-outline/` or `~/.claude/skills/botkits-outline/` |
+| Codex | `.agents/skills/botkits-outline/` or `~/.agents/skills/botkits-outline/` |
+| Cursor | `.agents/skills/botkits-outline/` or `.cursor/skills/botkits-outline/` |
+| Gemini CLI | `.gemini/skills/botkits-outline/` or `.agents/skills/botkits-outline/` (one folder deep only) |
+| GitHub Copilot | `.github/skills/botkits-outline/` or `.agents/skills/botkits-outline/` |
+| Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
+
+Install tested is not run tested.
 
 ## Links
 

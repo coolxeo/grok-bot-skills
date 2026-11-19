@@ -28,12 +28,25 @@ This example starts with an idea, or with a press-release draft. The first line 
 
 After the pass you get a native post in a code block, a hook that names a concrete subject, and an ending that is a result or a real question, plus a note on the angle. For LinkedIn, the hook fits before "see more", the link is in the comments, and hyphens are gone.
 
-## Works with
+## Use it in
 
 - Used daily: Grok Bot.
 - Installs with `npx skills add` (tested 18 Nov 2026): Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and Grok Build.
+- Supports the SKILL.md format (vendor docs): Claude apps (upload), ChatGPT (Business, Enterprise, Edu, Healthcare upload), and the other clients listed at [agentskills.io](https://agentskills.io/clients).
 - Other agents that support the Agent Skills format can load it. We have not run it there.
 - No direct install yet in ChatGPT dots or Meta Muse. Paste the instructions from [SKILL.md](SKILL.md) into a chat.
+
+| Agent | Put this folder here |
+| --- | --- |
+| Grok Bot | Paste [SKILL.md](SKILL.md) in a 1:1 chat and ask the Bot to save it as a skill. |
+| Claude Code | `.claude/skills/botkits-social-copywriting/` or `~/.claude/skills/botkits-social-copywriting/` |
+| Codex | `.agents/skills/botkits-social-copywriting/` or `~/.agents/skills/botkits-social-copywriting/` |
+| Cursor | `.agents/skills/botkits-social-copywriting/` or `.cursor/skills/botkits-social-copywriting/` |
+| Gemini CLI | `.gemini/skills/botkits-social-copywriting/` or `.agents/skills/botkits-social-copywriting/` (one folder deep only) |
+| GitHub Copilot | `.github/skills/botkits-social-copywriting/` or `.agents/skills/botkits-social-copywriting/` |
+| Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
+
+Install tested is not run tested.
 
 ## Links
 

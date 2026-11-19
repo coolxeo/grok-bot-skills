@@ -30,16 +30,29 @@ Once restyled, the H1 and first viewport answer the reader's job. Visible facts 
 
 ![botkits.dev agent-readiness score on is-agentic.com, 17 Nov 2026: 79, then 81, then 100](../../../assets/top3-aeo-geo-site.png)
 
-## Works with
+## Use it in
 
 - Used daily: Grok Bot.
 - Installs with `npx skills add` (tested 18 Nov 2026): Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and Grok Build.
+- Supports the SKILL.md format (vendor docs): Claude apps (upload), ChatGPT (Business, Enterprise, Edu, Healthcare upload), and the other clients listed at [agentskills.io](https://agentskills.io/clients).
 - Other agents that support the Agent Skills format can load it. We have not run it there.
 - No direct install yet in ChatGPT dots or Meta Muse. Paste the instructions from [SKILL.md](SKILL.md) into a chat.
 
-## Paid kits
+| Agent | Put this folder here |
+| --- | --- |
+| Grok Bot | Paste [SKILL.md](SKILL.md) in a 1:1 chat and ask the Bot to save it as a skill. |
+| Claude Code | `.claude/skills/botkits-aeo-geo-site/` or `~/.claude/skills/botkits-aeo-geo-site/` |
+| Codex | `.agents/skills/botkits-aeo-geo-site/` or `~/.agents/skills/botkits-aeo-geo-site/` |
+| Cursor | `.agents/skills/botkits-aeo-geo-site/` or `.cursor/skills/botkits-aeo-geo-site/` |
+| Gemini CLI | `.gemini/skills/botkits-aeo-geo-site/` or `.agents/skills/botkits-aeo-geo-site/` (one folder deep only) |
+| GitHub Copilot | `.github/skills/botkits-aeo-geo-site/` or `.agents/skills/botkits-aeo-geo-site/` |
+| Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
-[AEO/GEO Site Audit & Build Kit, $9](https://daniacostaai.gumroad.com/l/cxabi). It adds tested code, templates and a worked example. The free skill works by itself.
+Install tested is not run tested.
+
+## Premium
+
+The free skill works by itself. The [AEO/GEO Site Audit & Build Kit](https://daniacostaai.gumroad.com/l/cxabi) adds tested code, templates and a worked example. Price: $9.
 
 ## Links
 
