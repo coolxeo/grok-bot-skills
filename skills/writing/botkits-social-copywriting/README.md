@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../../assets/skills/header-botkits-social-copywriting-dark.png 1x, ../../../assets/skills/header-botkits-social-copywriting-dark@2x.png 2x"><img src="../../../assets/skills/header-botkits-social-copywriting-light.png" srcset="../../../assets/skills/header-botkits-social-copywriting-light.png 1x, ../../../assets/skills/header-botkits-social-copywriting-light@2x.png 2x" width="800" alt="BotKits botkits-social-copywriting skill header"></picture>
+
 # botkits-social-copywriting
 
 Write posts that read native to X or LinkedIn. Use it once the idea exists; finish with botkits-no-ai-slop.

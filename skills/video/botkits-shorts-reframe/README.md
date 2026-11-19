@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../../assets/skills/header-botkits-shorts-reframe-dark.png 1x, ../../../assets/skills/header-botkits-shorts-reframe-dark@2x.png 2x"><img src="../../../assets/skills/header-botkits-shorts-reframe-light.png" srcset="../../../assets/skills/header-botkits-shorts-reframe-light.png 1x, ../../../assets/skills/header-botkits-shorts-reframe-light@2x.png 2x" width="800" alt="BotKits botkits-shorts-reframe skill header"></picture>
+
 # botkits-shorts-reframe
 
 Turn a 16:9 video into a 1080×1920 Short. Center crop, audio kept, length and resolution checked.

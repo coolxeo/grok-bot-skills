@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../../assets/skills/header-botkits-markdown-twin-dark.png 1x, ../../../assets/skills/header-botkits-markdown-twin-dark@2x.png 2x"><img src="../../../assets/skills/header-botkits-markdown-twin-light.png" srcset="../../../assets/skills/header-botkits-markdown-twin-light.png 1x, ../../../assets/skills/header-botkits-markdown-twin-light@2x.png 2x" width="800" alt="BotKits botkits-markdown-twin skill header"></picture>
+
 # botkits-markdown-twin
 
 For one HTML page, publish a clean markdown copy that an agent can read instead of scraping the rendered page. The twin must carry the same facts as the HTML.

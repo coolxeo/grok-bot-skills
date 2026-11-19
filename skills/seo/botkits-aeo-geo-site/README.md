@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../../assets/skills/header-botkits-aeo-geo-site-dark.png 1x, ../../../assets/skills/header-botkits-aeo-geo-site-dark@2x.png 2x"><img src="../../../assets/skills/header-botkits-aeo-geo-site-light.png" srcset="../../../assets/skills/header-botkits-aeo-geo-site-light.png 1x, ../../../assets/skills/header-botkits-aeo-geo-site-light@2x.png 2x" width="800" alt="BotKits botkits-aeo-geo-site skill header"></picture>
+
 # botkits-aeo-geo-site
 
 Make your site easy for ChatGPT, Gemini and Copilot to read, understand and cite.

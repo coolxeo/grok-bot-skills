@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../../assets/skills/header-botkits-source-check-dark.png 1x, ../../../assets/skills/header-botkits-source-check-dark@2x.png 2x"><img src="../../../assets/skills/header-botkits-source-check-light.png" srcset="../../../assets/skills/header-botkits-source-check-light.png 1x, ../../../assets/skills/header-botkits-source-check-light@2x.png 2x" width="800" alt="BotKits botkits-source-check skill header"></picture>
+
 # botkits-source-check
 
 Check every factual claim in a draft before it goes out. Report only, except for adding or updating a Sources section.

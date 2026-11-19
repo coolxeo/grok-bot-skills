@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../../assets/skills/header-botkits-storytelling-hooks-dark.png 1x, ../../../assets/skills/header-botkits-storytelling-hooks-dark@2x.png 2x"><img src="../../../assets/skills/header-botkits-storytelling-hooks-light.png" srcset="../../../assets/skills/header-botkits-storytelling-hooks-light.png 1x, ../../../assets/skills/header-botkits-storytelling-hooks-light@2x.png 2x" width="800" alt="BotKits botkits-storytelling-hooks skill header"></picture>
+
 # botkits-storytelling-hooks
 
 Write a hook from a fact you already have.

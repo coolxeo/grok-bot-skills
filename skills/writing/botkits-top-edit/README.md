@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../../assets/skills/header-botkits-top-edit-dark.png 1x, ../../../assets/skills/header-botkits-top-edit-dark@2x.png 2x"><img src="../../../assets/skills/header-botkits-top-edit-light.png" srcset="../../../assets/skills/header-botkits-top-edit-light.png 1x, ../../../assets/skills/header-botkits-top-edit-light@2x.png 2x" width="800" alt="BotKits botkits-top-edit skill header"></picture>
+
 # botkits-top-edit
 
 The final screen before publishing. Run it after botkits-no-ai-slop. It is a checklist, not a critique: it flags issues and does not edit.
