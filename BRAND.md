@@ -92,7 +92,7 @@ Every skill page (README or botkits.dev) uses this order:
 
 - Main link everywhere: the repo `https://github.com/botkitsdev/botkits` or `https://botkits.dev`.
 - One call to action per piece. Default: "Install with `npx skills add botkitsdev/botkits`" or "Browse on botkits.dev".
-- Free first. The site and README lead with the open source skills: star, install, browse, contribute. No prices or Gumroad links on the home page, except one thin banner near the bottom that links to Premium.
+- Free first. The site and README lead with the open source skills: star, install, browse, contribute. No prices or Gumroad links on the home page, except one slim dark Premium strip above the hero that links to `/premium`.
 - Paid kits live under **Premium**: the site page `/premium` (dark style, see DESIGN.md) and a README section titled **Premium**. A skill page may carry one Premium line. Gumroad links appear only there. Never in posts, Reddit comments, PR descriptions or a skill's `SKILL.md`.
 - Each Premium kit says what the free skill already does first, then what the kit adds, then the price.
 - Paid kits (exact names and prices): X Article Writer, $7. AEO/GEO Site Audit & Build Kit, $9. Shorts Builder Kit, $14. AEO Kit (Markdown Twins + YouTube Watch Pages), $24. Check the listing before you quote a price.
