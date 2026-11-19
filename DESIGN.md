@@ -120,3 +120,26 @@ Write a short, factual description of what the image shows. Name the skill and a
 ## README section order
 
 DESIGN.md has no README template. For the section order of a skill README, follow [BRAND.md](BRAND.md) section 8.
+
+## Premium
+
+Premium is the paid kits section of botkits.dev (`/premium`) and its banner on the open source home page. Open source pages keep the tokens above. Source: Designer's Premium style spec, 19 Nov 2026.
+
+Premium pages are always dark. They ignore the light and dark toggle.
+
+| Token | Value | Use |
+| --- | --- | --- |
+| bg | `#0B0D10` | Page |
+| surface | `#14171C` | Cards, panels, code blocks |
+| rule | `#262A31` | Dividers and 1 px card borders |
+| text | `#F2EFE7` | Body and headlines |
+| muted | `#A39E93` | Secondary text |
+| blue | `#a3b4ff` | Links in body text only |
+| gold | `#E2B85C` | The Premium contrast colour |
+
+- Gold is the only contrast colour. Use `#E2B85C` on dark. Use `#8A5F0E` only if gold type must sit on a light page.
+- Use gold for the "Premium" label, prices, one primary button per card (button text `#0B0D10`), the active nav item, and a 1 px top hairline on cards. Never in body text, and never as a large fill or gradient.
+- No orange `#F2762E` and no lime on Premium. Gold replaces the spark there.
+- The logo stays "BotKits" with the existing dark asset. Never make it gold.
+- No prices or Gumroad links on the home page, except one slim dark Premium strip above the hero that links to `/premium`.
+- The strip is 44 px high on desktop and 52 px on mobile. It is full width, not sticky, and the reader can close it. Light mode: bg `#0B0D10`, text `#F2EFE7`. Dark mode: bg `#14171C` with a 1 px `#262A31` bottom border. It holds a gold "PREMIUM" label, one line of text, and a gold "See Premium" link. No icons and no animation.
