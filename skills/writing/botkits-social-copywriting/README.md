@@ -44,6 +44,7 @@ After the pass you get a native post in a code block, a hook that names a concre
 | Cursor | `.agents/skills/botkits-social-copywriting/` or `.cursor/skills/botkits-social-copywriting/` |
 | Gemini CLI | `.gemini/skills/botkits-social-copywriting/` or `.agents/skills/botkits-social-copywriting/` (one folder deep only) |
 | GitHub Copilot | `.github/skills/botkits-social-copywriting/` or `.agents/skills/botkits-social-copywriting/` |
+| Grok Build | `.grok/skills/botkits-social-copywriting/` or `~/.grok/skills/botkits-social-copywriting/` |
 | Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
 Install tested is not run tested.

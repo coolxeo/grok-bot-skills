@@ -44,6 +44,7 @@ After the skill, the opening is the before and after, as in the skill's own exam
 | Cursor | `.agents/skills/botkits-ship-post/` or `.cursor/skills/botkits-ship-post/` |
 | Gemini CLI | `.gemini/skills/botkits-ship-post/` or `.agents/skills/botkits-ship-post/` (one folder deep only) |
 | GitHub Copilot | `.github/skills/botkits-ship-post/` or `.agents/skills/botkits-ship-post/` |
+| Grok Build | `.grok/skills/botkits-ship-post/` or `~/.grok/skills/botkits-ship-post/` |
 | Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
 Install tested is not run tested.

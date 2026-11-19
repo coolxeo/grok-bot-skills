@@ -46,6 +46,7 @@ Once restyled, the H1 and first viewport answer the reader's job. Visible facts 
 | Cursor | `.agents/skills/botkits-aeo-geo-site/` or `.cursor/skills/botkits-aeo-geo-site/` |
 | Gemini CLI | `.gemini/skills/botkits-aeo-geo-site/` or `.agents/skills/botkits-aeo-geo-site/` (one folder deep only) |
 | GitHub Copilot | `.github/skills/botkits-aeo-geo-site/` or `.agents/skills/botkits-aeo-geo-site/` |
+| Grok Build | `.grok/skills/botkits-aeo-geo-site/` or `~/.grok/skills/botkits-aeo-geo-site/` |
 | Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
 Install tested is not run tested.

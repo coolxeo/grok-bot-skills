@@ -44,6 +44,7 @@ After the screen, those issues are flagged with line numbers, quoted text, and a
 | Cursor | `.agents/skills/botkits-top-edit/` or `.cursor/skills/botkits-top-edit/` |
 | Gemini CLI | `.gemini/skills/botkits-top-edit/` or `.agents/skills/botkits-top-edit/` (one folder deep only) |
 | GitHub Copilot | `.github/skills/botkits-top-edit/` or `.agents/skills/botkits-top-edit/` |
+| Grok Build | `.grok/skills/botkits-top-edit/` or `~/.grok/skills/botkits-top-edit/` |
 | Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
 Install tested is not run tested.

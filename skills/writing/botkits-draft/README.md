@@ -44,6 +44,7 @@ After the pass, each section is written and approved before the next. The thesis
 | Cursor | `.agents/skills/botkits-draft/` or `.cursor/skills/botkits-draft/` |
 | Gemini CLI | `.gemini/skills/botkits-draft/` or `.agents/skills/botkits-draft/` (one folder deep only) |
 | GitHub Copilot | `.github/skills/botkits-draft/` or `.agents/skills/botkits-draft/` |
+| Grok Build | `.grok/skills/botkits-draft/` or `~/.grok/skills/botkits-draft/` |
 | Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
 Install tested is not run tested.

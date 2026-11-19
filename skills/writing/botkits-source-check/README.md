@@ -45,6 +45,7 @@ After the check, every checkable claim has a status (OK, Stretched, Open, or Wro
 | Cursor | `.agents/skills/botkits-source-check/` or `.cursor/skills/botkits-source-check/` |
 | Gemini CLI | `.gemini/skills/botkits-source-check/` or `.agents/skills/botkits-source-check/` (one folder deep only) |
 | GitHub Copilot | `.github/skills/botkits-source-check/` or `.agents/skills/botkits-source-check/` |
+| Grok Build | `.grok/skills/botkits-source-check/` or `~/.grok/skills/botkits-source-check/` |
 | Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
 Install tested is not run tested.

@@ -96,6 +96,7 @@ Each agent loads a skill from its own folder. Copy the skill folder itself (`ski
 | Cursor | `npx skills add botkitsdev/botkits --skill <skill-name> -a cursor` | `.agents/skills/<skill-name>/` or `.cursor/skills/<skill-name>/` (project), `~/.agents/skills/` or `~/.cursor/skills/` (user) | Installs with `npx skills add` (tested 18 Nov 2026) |
 | Gemini CLI | `npx skills add botkitsdev/botkits --skill <skill-name> -a gemini-cli` | `.gemini/skills/<skill-name>/` or `.agents/skills/<skill-name>/` (project), `~/.gemini/skills/` (user). One folder deep only. | Installs with `npx skills add` (tested 18 Nov 2026) |
 | GitHub Copilot | `npx skills add botkitsdev/botkits --skill <skill-name> -a github-copilot` | `.github/skills/<skill-name>/` or `.agents/skills/<skill-name>/` (project), `~/.copilot/skills/` or `~/.agents/skills/` (personal) | Installs with `npx skills add` (tested 18 Nov 2026) |
+| Grok Build | `npx skills add botkitsdev/botkits --skill <skill-name> -a grok` | `.grok/skills/<skill-name>/` (project) or `~/.grok/skills/<skill-name>/` (user) | Installs with `npx skills add` (tested 18 Nov 2026) |
 
 Install tested is not run tested. Other agents that support the Agent Skills format can load it. We have not run it there.
 

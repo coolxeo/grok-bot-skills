@@ -49,6 +49,7 @@ The two unused options came from Transformation and Mistake. The body then has t
 | Cursor | `.agents/skills/botkits-storytelling-hooks/` or `.cursor/skills/botkits-storytelling-hooks/` |
 | Gemini CLI | `.gemini/skills/botkits-storytelling-hooks/` or `.agents/skills/botkits-storytelling-hooks/` (one folder deep only) |
 | GitHub Copilot | `.github/skills/botkits-storytelling-hooks/` or `.agents/skills/botkits-storytelling-hooks/` |
+| Grok Build | `.grok/skills/botkits-storytelling-hooks/` or `~/.grok/skills/botkits-storytelling-hooks/` |
 | Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
 Install tested is not run tested.

@@ -51,6 +51,7 @@ ffprobe must then show width `1080`, height `1920`, and a duration that matches 
 | Cursor | `.agents/skills/botkits-shorts-reframe/` or `.cursor/skills/botkits-shorts-reframe/` |
 | Gemini CLI | `.gemini/skills/botkits-shorts-reframe/` or `.agents/skills/botkits-shorts-reframe/` (one folder deep only) |
 | GitHub Copilot | `.github/skills/botkits-shorts-reframe/` or `.agents/skills/botkits-shorts-reframe/` |
+| Grok Build | `.grok/skills/botkits-shorts-reframe/` or `~/.grok/skills/botkits-shorts-reframe/` |
 | Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
 Install tested is not run tested.

@@ -44,6 +44,7 @@ After the three steps, a twin lives at `/docs/install.md` (or `/docs/install/ind
 | Cursor | `.agents/skills/botkits-markdown-twin/` or `.cursor/skills/botkits-markdown-twin/` |
 | Gemini CLI | `.gemini/skills/botkits-markdown-twin/` or `.agents/skills/botkits-markdown-twin/` (one folder deep only) |
 | GitHub Copilot | `.github/skills/botkits-markdown-twin/` or `.agents/skills/botkits-markdown-twin/` |
+| Grok Build | `.grok/skills/botkits-markdown-twin/` or `~/.grok/skills/botkits-markdown-twin/` |
 | Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
 Install tested is not run tested.

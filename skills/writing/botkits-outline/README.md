@@ -44,6 +44,7 @@ After the plan you have a one-sentence claim, a named shape with a reason, a sec
 | Cursor | `.agents/skills/botkits-outline/` or `.cursor/skills/botkits-outline/` |
 | Gemini CLI | `.gemini/skills/botkits-outline/` or `.agents/skills/botkits-outline/` (one folder deep only) |
 | GitHub Copilot | `.github/skills/botkits-outline/` or `.agents/skills/botkits-outline/` |
+| Grok Build | `.grok/skills/botkits-outline/` or `~/.grok/skills/botkits-outline/` |
 | Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
 Install tested is not run tested.

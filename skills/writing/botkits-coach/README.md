@@ -44,6 +44,7 @@ After the read you get a reverse outline and a gate result. If any gate question
 | Cursor | `.agents/skills/botkits-coach/` or `.cursor/skills/botkits-coach/` |
 | Gemini CLI | `.gemini/skills/botkits-coach/` or `.agents/skills/botkits-coach/` (one folder deep only) |
 | GitHub Copilot | `.github/skills/botkits-coach/` or `.agents/skills/botkits-coach/` |
+| Grok Build | `.grok/skills/botkits-coach/` or `~/.grok/skills/botkits-coach/` |
 | Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
 Install tested is not run tested.

@@ -44,6 +44,7 @@ In Edit mode, those tells are removed with a light touch, the writer's voice is 
 | Cursor | `.agents/skills/botkits-no-ai-slop/` or `.cursor/skills/botkits-no-ai-slop/` |
 | Gemini CLI | `.gemini/skills/botkits-no-ai-slop/` or `.agents/skills/botkits-no-ai-slop/` (one folder deep only) |
 | GitHub Copilot | `.github/skills/botkits-no-ai-slop/` or `.agents/skills/botkits-no-ai-slop/` |
+| Grok Build | `.grok/skills/botkits-no-ai-slop/` or `~/.grok/skills/botkits-no-ai-slop/` |
 | Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
 Install tested is not run tested.

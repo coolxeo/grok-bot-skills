@@ -46,6 +46,7 @@ After the pipeline you have a short concrete title, a first-line hook that says 
 | Cursor | `.agents/skills/botkits-x-article/` or `.cursor/skills/botkits-x-article/` |
 | Gemini CLI | `.gemini/skills/botkits-x-article/` or `.agents/skills/botkits-x-article/` (one folder deep only) |
 | GitHub Copilot | `.github/skills/botkits-x-article/` or `.agents/skills/botkits-x-article/` |
+| Grok Build | `.grok/skills/botkits-x-article/` or `~/.grok/skills/botkits-x-article/` |
 | Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
 Install tested is not run tested.
