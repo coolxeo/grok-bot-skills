@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.png 1x, assets/header-dark@2x.png 2x">
     <source media="(prefers-color-scheme: light)" srcset="assets/logo-wide.png 1x, assets/logo-wide@2x.png 2x">
-    <img src="assets/logo-wide.png" alt="botkits" width="800">
+    <img src="assets/logo-wide.png" alt="BotKits" width="800">
   </picture>
 </p>
 
@@ -20,53 +20,39 @@ Open SKILL.md folders for Claude, ChatGPT, Codex, Cursor, Gemini, Copilot and Gr
 <p align="center">
   <a href="https://botkits.dev">Browse on botkits.dev</a>
   &nbsp;·&nbsp;
-  <a href="https://botkits.dev/kits/">Paid kits</a>
+  <a href="#premium">Premium</a>
   <!-- Free Starter Pack: hidden until the pack is live. -->
 </p>
 
-Kits and install guides: [botkits.dev](https://botkits.dev)
+Install guides and skill pages: [botkits.dev](https://botkits.dev)
 
 <p align="center">
-  <img src="assets/demo.gif" alt="Terminal demo: npx skills add botkitsdev/botkits, then a bot loads no-ai-slop/SKILL.md when the task matches." width="800">
+  <img src="assets/demo.gif" alt="Terminal demo: npx skills add botkitsdev/botkits, then a bot loads botkits-no-ai-slop/SKILL.md when the task matches." width="800">
 </p>
 
-[Top 3](#top-3) · [Quick start](#quick-start) · [Start here](#start-here) · [All 32 skills](#all-skills) · [Renamed skills](#renamed-skills) · [How a skill is used](#how-a-skill-is-used) · [Tool requirements](#tool-requirements) · [Contribute](#contribute) · [Inspired by](#inspired-by) · [License](#license)
+[Top 3](#top-3) · [Quick start](#quick-start) · [Use it in](#use-it-in) · [Start here](#start-here) · [All 32 skills](#all-skills) · [Renamed skills](#renamed-skills) · [How a skill is used](#how-a-skill-is-used) · [Tool requirements](#tool-requirements) · [Premium](#premium) · [Contribute](#contribute) · [Inspired by](#inspired-by) · [License](#license)
 
 ## Top 3
 
 <table>
 <tr>
 <td valign="top" width="33%">
-<p align="center"><a href="skills/video/botkits-shorts-reframe/"><img src="assets/top3-shorts-reframe.png" alt="shorts-reframe: 16:9 frame and the 9:16 center-crop result at 1080×1920"></a></p>
+<p align="center"><a href="skills/video/botkits-shorts-reframe/"><img src="assets/top3-shorts-reframe.png" alt="botkits-shorts-reframe: 16:9 frame and the 9:16 center-crop result at 1080×1920"></a></p>
 <strong><a href="skills/video/botkits-shorts-reframe/">botkits-shorts-reframe</a></strong><br>
 Turn a 16:9 video into a 1080×1920 Short. Center crop, audio kept, length and size checked.
 </td>
 <td valign="top" width="33%">
-<p align="center"><a href="skills/writing/botkits-x-article/"><img src="assets/top3-x-article.png" alt="x-article: mock article header with a hook line, a section, and an image slot"></a></p>
+<p align="center"><a href="skills/writing/botkits-x-article/"><img src="assets/top3-x-article.png" alt="botkits-x-article: mock article header with a hook line, a section, and an image slot"></a></p>
 <strong><a href="skills/writing/botkits-x-article/">botkits-x-article</a></strong><br>
 Turn rough notes into an X Article, with a first-line hook, images between sections and no invented numbers.
 </td>
 <td valign="top" width="33%">
-<p align="center"><a href="skills/seo/botkits-aeo-geo-site/"><img src="assets/top3-aeo-geo-site.png" alt="aeo-geo-site: botkits.dev is-agentic score, 79 to 81 to 100, is-agentic.com, 17 Nov 2026"></a></p>
+<p align="center"><a href="skills/seo/botkits-aeo-geo-site/"><img src="assets/top3-aeo-geo-site.png" alt="botkits-aeo-geo-site: botkits.dev is-agentic score, 79 to 81 to 100, is-agentic.com, 17 Nov 2026"></a></p>
 <strong><a href="skills/seo/botkits-aeo-geo-site/">botkits-aeo-geo-site</a></strong><br>
 Make your site easy for ChatGPT, Gemini and Copilot to read, understand and cite.
 </td>
 </tr>
 </table>
-
-**Paid kits:** [Shorts Builder Kit, $14](https://botkits.dev/kits/#shorts-builder-kit) · [X Article Writer, $7](https://botkits.dev/kits/#x-article-writer) · [AEO/GEO Site Audit & Build Kit, $9](https://botkits.dev/kits/#aeo-geo-site-audit-build-kit) · [AEO Kit (Markdown Twins + YouTube Watch Pages), $24](https://botkits.dev/kits/#aeo-kit)
-
-<details>
-<summary><strong>Paid kit details</strong></summary>
-
-| Kit (result name) | What it is | Price | Link | Free skill |
-| --- | --- | --- | --- | --- |
-| Audit your site for AI answers, then fix it | AEO/GEO Site Audit & Build Kit | $9 | [Get the kit →](https://daniacostaai.gumroad.com/l/cxabi) | [botkits-aeo-geo-site](skills/seo/botkits-aeo-geo-site/) |
-| Make your pages and videos readable by AI answers | AEO Kit (Markdown Twins + YouTube Watch Pages) | $24 | [Get the kit →](https://daniacostaai.gumroad.com/l/wzalwo) | [botkits-markdown-twin](skills/seo/botkits-markdown-twin/) |
-| Turn one video into Shorts, QA included | Shorts Builder Kit | $14 | [Get the kit →](https://daniacostaai.gumroad.com/l/ommvol) | [botkits-shorts-reframe](skills/video/botkits-shorts-reframe/) |
-| Turn rough notes into an X Article | X Article Writer | $7 | [Get the kit →](https://daniacostaai.gumroad.com/l/lzowtl) | [botkits-x-article](skills/writing/botkits-x-article/) |
-
-</details>
 
 ## Quick start
 
@@ -90,13 +76,36 @@ git clone https://github.com/botkitsdev/botkits.git
 
 The install path and invocation syntax depend on your bot. To try a writing skill without installing it, paste its instructions into a chat, then add your task.
 
-Free skills I use daily to run my 3 YouTube channels. My bots run on Grok Bot. The skills are plain SKILL.md files for any agent that supports the Agent Skills format. Nothing posts or spends without my tap. The paid kits are the tested, ready-to-run versions.
+Free skills I use daily to run my 3 YouTube channels. My bots run on Grok Bot. The skills are plain SKILL.md files for any agent that supports the Agent Skills format. Nothing posts or spends without my tap. The [Premium](#premium) kits are the tested, ready-to-run versions.
 
 Made by Dani Acosta. Follow on X: [@DaniAcostaAI](https://x.com/DaniAcostaAI)
 
 32 skills for writing, design, code, SEO, ads, YouTube research, video, images, and bot routines. Give your bot a clear process for the job you need done.
 
 Every skill is Dani's own version, inspired by several public references rather than copied from one. Each is a single readable `SKILL.md`. The rewritten skills end with what inspired them, what those references were missing, and what this version adds.
+
+## Use it in
+
+Each agent loads a skill from its own folder. Copy the skill folder itself (`skills/<category>/<skill-name>/`), not the category folder. Or let the Skills CLI copy it with `-a <agent>`.
+
+| Agent | Install | Put the folder here | Status |
+| --- | --- | --- | --- |
+| Grok Bot | Open a 1:1 chat. Paste the skill's `SKILL.md` and ask the Bot to save it as a skill. | No project folder. Skills live in your Grok Bot library. | Used daily |
+| Claude Code | `npx skills add botkitsdev/botkits --skill <skill-name> -a claude-code` | `.claude/skills/<skill-name>/` (project) or `~/.claude/skills/<skill-name>/` (personal) | Installs with `npx skills add` (tested 18 Nov 2026) |
+| Codex | `npx skills add botkitsdev/botkits --skill <skill-name> -a codex` | `.agents/skills/<skill-name>/` (repo) or `~/.agents/skills/<skill-name>/` (user) | Installs with `npx skills add` (tested 18 Nov 2026) |
+| Cursor | `npx skills add botkitsdev/botkits --skill <skill-name> -a cursor` | `.agents/skills/<skill-name>/` or `.cursor/skills/<skill-name>/` (project), `~/.agents/skills/` or `~/.cursor/skills/` (user) | Installs with `npx skills add` (tested 18 Nov 2026) |
+| Gemini CLI | `npx skills add botkitsdev/botkits --skill <skill-name> -a gemini-cli` | `.gemini/skills/<skill-name>/` or `.agents/skills/<skill-name>/` (project), `~/.gemini/skills/` (user). One folder deep only. | Installs with `npx skills add` (tested 18 Nov 2026) |
+| GitHub Copilot | `npx skills add botkitsdev/botkits --skill <skill-name> -a github-copilot` | `.github/skills/<skill-name>/` or `.agents/skills/<skill-name>/` (project), `~/.copilot/skills/` or `~/.agents/skills/` (personal) | Installs with `npx skills add` (tested 18 Nov 2026) |
+| Grok Build | `npx skills add botkitsdev/botkits --skill <skill-name> -a grok` | `.grok/skills/<skill-name>/` (project) or `~/.grok/skills/<skill-name>/` (user) | Installs with `npx skills add` (tested 18 Nov 2026) |
+
+Install tested is not run tested. Other agents that support the Agent Skills format can load it. We have not run it there.
+
+- Used daily: Grok Bot.
+- Installs with `npx skills add` (tested 18 Nov 2026): Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and Grok Build.
+- Supports the SKILL.md format (vendor docs): Claude apps (upload), ChatGPT (Business, Enterprise, Edu, Healthcare upload), and the other clients listed at [agentskills.io](https://agentskills.io/clients).
+- No direct install yet in ChatGPT dots or Meta Muse. Paste the instructions into a chat.
+
+Some bot and engineering skills use Grok Bot tools. As written, they need Grok Bot. See [Tool requirements](#tool-requirements).
 
 ## Start here
 
@@ -150,8 +159,7 @@ updates. Show the evidence. Propose changes before applying them.
 
 ## All skills
 
-<details>
-<summary><strong>Writing (10)</strong></summary>
+### Writing
 
 | Skill | What it does |
 | --- | --- |
@@ -166,10 +174,7 @@ updates. Show the evidence. Propose changes before applying them.
 | [botkits-x-article](skills/writing/botkits-x-article/) | Write long-form X Articles with section images. |
 | [botkits-ship-post](skills/writing/botkits-ship-post/) | Turn commits and PRs into one build-in-public post. |
 
-</details>
-
-<details>
-<summary><strong>Design (4)</strong></summary>
+### Design
 
 | Skill | What it does |
 | --- | --- |
@@ -178,20 +183,14 @@ updates. Show the evidence. Propose changes before applying them.
 | [botkits-diagram-design](skills/design/botkits-diagram-design/) | Create explainer diagrams that are branded, not dashboard slop. |
 | [botkits-motion-picker](skills/design/botkits-motion-picker/) | Pick one animation library for a single motion moment, with its license and a calm, snappy, or playful preset. |
 
-</details>
-
-<details>
-<summary><strong>Engineering (2)</strong></summary>
+### Engineering
 
 | Skill | What it does |
 | --- | --- |
 | [botkits-engineering-playbook](skills/engineering/botkits-engineering-playbook/) | Delegate coding work to cloud agents and review the results. |
 | [botkits-show-me](skills/engineering/botkits-show-me/) | Explain code changes with visual PR descriptions. |
 
-</details>
-
-<details>
-<summary><strong>SEO (5)</strong></summary>
+### SEO
 
 | Skill | What it does |
 | --- | --- |
@@ -201,38 +200,26 @@ updates. Show the evidence. Propose changes before applying them.
 | [botkits-ai-citation-sources](skills/seo/botkits-ai-citation-sources/) | List the third-party sources AI answers cite and draft one action per source. |
 | [botkits-markdown-twin](skills/seo/botkits-markdown-twin/) | Publish a clean markdown copy of one HTML page, advertise it with a link tag, and list it in /llms.txt. |
 
-</details>
-
-<details>
-<summary><strong>Ads (1)</strong></summary>
+### Ads
 
 | Skill | What it does |
 | --- | --- |
 | [botkits-whetstone-signal](skills/ads/botkits-whetstone-signal/) | Pick, score, and send back the conversion event automated ad campaigns optimize for. |
 
-</details>
-
-<details>
-<summary><strong>YouTube (1)</strong></summary>
+### YouTube
 
 | Skill | What it does |
 | --- | --- |
 | [botkits-youtube-niche-report](skills/youtube/botkits-youtube-niche-report/) | Pull a niche's top videos, score them against their own channel, and build an interactive HTML report of what wins. Ships with an example config for a made-up niche. |
 
-</details>
-
-<details>
-<summary><strong>Video (2)</strong></summary>
+### Video
 
 | Skill | What it does |
 | --- | --- |
 | [botkits-shorts-reframe](skills/video/botkits-shorts-reframe/) | Crop a 16:9 video to 9:16, scale it to 1080x1920, keep the audio, and check duration and resolution. |
 | [botkits-video-plan-page](skills/video/botkits-video-plan-page/) | Turn a video script into one HTML page with a playable animatic, the shot list, and choices to approve before rendering. Ships with a made-up demo film. |
 
-</details>
-
-<details>
-<summary><strong>Bots (6)</strong></summary>
+### Bots
 
 | Skill | What it does |
 | --- | --- |
@@ -243,16 +230,11 @@ updates. Show the evidence. Propose changes before applying them.
 | [botkits-overheard](skills/bots/botkits-overheard/) | Compile a digest of third-party mentions. |
 | [botkits-overheard-setup](skills/bots/botkits-overheard-setup/) | Set up a mention watch list, sources, and schedule. |
 
-</details>
-
-<details>
-<summary><strong>Images (1)</strong></summary>
+### Images
 
 | Skill | What it does |
 | --- | --- |
 | [botkits-chatgpt-images-browser-playbook](skills/images/botkits-chatgpt-images-browser-playbook/) | Generate still images through a signed-in ChatGPT browser session. |
-
-</details>
 
 ## Renamed skills
 
@@ -320,6 +302,17 @@ The instructions are plain Markdown. Some workflows need more than a chat window
 - Search, publishing, and design tasks need the relevant browser, connector, or project access.
 
 Other agents may need changes to tool names, paths, or invocation syntax. Cross-agent compatibility has not been verified.
+
+## Premium
+
+Every skill above is free and complete. A Premium kit is the tested, ready-to-run version of one free skill. Each row says what the free skill already does, then what the kit adds, then the price.
+
+| Kit | The free skill already | The kit adds | Price | Link |
+| --- | --- | --- | --- | --- |
+| AEO/GEO Site Audit & Build Kit | [botkits-aeo-geo-site](skills/seo/botkits-aeo-geo-site/) structures site content for search and AI answers. | Tested code, templates and a worked example. | $9 | [Get the kit](https://daniacostaai.gumroad.com/l/cxabi) |
+| AEO Kit (Markdown Twins + YouTube Watch Pages) | [botkits-markdown-twin](skills/seo/botkits-markdown-twin/) publishes a clean markdown copy of one page and lists it in /llms.txt. | The Cloudflare Worker router (content negotiation) and the YouTube watch page builder. | $24 | [Get the kit](https://daniacostaai.gumroad.com/l/wzalwo) |
+| Shorts Builder Kit | [botkits-shorts-reframe](skills/video/botkits-shorts-reframe/) crops a 16:9 video to a 1080x1920 Short and checks it. | Eased pan and zoom, a loudness check and a jitter check. | $14 | [Get the kit](https://daniacostaai.gumroad.com/l/ommvol) |
+| X Article Writer | [botkits-x-article](skills/writing/botkits-x-article/) turns rough notes into an X Article with section images. | Tested templates and a worked example. | $7 | [Get the kit](https://daniacostaai.gumroad.com/l/lzowtl) |
 
 ## Contribute
 

@@ -33,12 +33,26 @@ After the pass, the chosen hook (Lesson family) is:
 
 The two unused options came from Transformation and Mistake. The body then has to deliver that one rule.
 
-## Works with
+## Use it in
 
 - Used daily: Grok Bot.
 - Installs with `npx skills add` (tested 18 Nov 2026): Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and Grok Build.
+- Supports the SKILL.md format (vendor docs): Claude apps (upload), ChatGPT (Business, Enterprise, Edu, Healthcare upload), and the other clients listed at [agentskills.io](https://agentskills.io/clients).
 - Other agents that support the Agent Skills format can load it. We have not run it there.
 - No direct install yet in ChatGPT dots or Meta Muse. Paste the instructions from [SKILL.md](SKILL.md) into a chat.
+
+| Agent | Put this folder here |
+| --- | --- |
+| Grok Bot | Paste [SKILL.md](SKILL.md) in a 1:1 chat and ask the Bot to save it as a skill. |
+| Claude Code | `.claude/skills/botkits-storytelling-hooks/` or `~/.claude/skills/botkits-storytelling-hooks/` |
+| Codex | `.agents/skills/botkits-storytelling-hooks/` or `~/.agents/skills/botkits-storytelling-hooks/` |
+| Cursor | `.agents/skills/botkits-storytelling-hooks/` or `.cursor/skills/botkits-storytelling-hooks/` |
+| Gemini CLI | `.gemini/skills/botkits-storytelling-hooks/` or `.agents/skills/botkits-storytelling-hooks/` (one folder deep only) |
+| GitHub Copilot | `.github/skills/botkits-storytelling-hooks/` or `.agents/skills/botkits-storytelling-hooks/` |
+| Grok Build | `.grok/skills/botkits-storytelling-hooks/` or `~/.grok/skills/botkits-storytelling-hooks/` |
+| Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
+
+Install tested is not run tested.
 
 ## Links
 

@@ -28,12 +28,26 @@ This example starts with a draft that already had a slop pass. A sentence still 
 
 After the screen, those issues are flagged with line numbers, quoted text, and a fix. The file is unchanged. The verdict is Clean, Quick fixes, or Needs work, with one sentence of advice.
 
-## Works with
+## Use it in
 
 - Used daily: Grok Bot.
 - Installs with `npx skills add` (tested 18 Nov 2026): Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and Grok Build.
+- Supports the SKILL.md format (vendor docs): Claude apps (upload), ChatGPT (Business, Enterprise, Edu, Healthcare upload), and the other clients listed at [agentskills.io](https://agentskills.io/clients).
 - Other agents that support the Agent Skills format can load it. We have not run it there.
 - No direct install yet in ChatGPT dots or Meta Muse. Paste the instructions from [SKILL.md](SKILL.md) into a chat.
+
+| Agent | Put this folder here |
+| --- | --- |
+| Grok Bot | Paste [SKILL.md](SKILL.md) in a 1:1 chat and ask the Bot to save it as a skill. |
+| Claude Code | `.claude/skills/botkits-top-edit/` or `~/.claude/skills/botkits-top-edit/` |
+| Codex | `.agents/skills/botkits-top-edit/` or `~/.agents/skills/botkits-top-edit/` |
+| Cursor | `.agents/skills/botkits-top-edit/` or `.cursor/skills/botkits-top-edit/` |
+| Gemini CLI | `.gemini/skills/botkits-top-edit/` or `.agents/skills/botkits-top-edit/` (one folder deep only) |
+| GitHub Copilot | `.github/skills/botkits-top-edit/` or `.agents/skills/botkits-top-edit/` |
+| Grok Build | `.grok/skills/botkits-top-edit/` or `~/.grok/skills/botkits-top-edit/` |
+| Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
+
+Install tested is not run tested.
 
 ## Links
 

@@ -28,12 +28,26 @@ This example starts with a draft that is about to be line-edited. The thesis is 
 
 After the read you get a reverse outline and a gate result. If any gate question is "no", the review stops there and the writer goes back to outline or draft. The file is not edited. If the gate passes, you get a score out of 35, quoted lines that already work, the top three structural problems with a before/after sketch, and one question for the writer.
 
-## Works with
+## Use it in
 
 - Used daily: Grok Bot.
 - Installs with `npx skills add` (tested 18 Nov 2026): Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and Grok Build.
+- Supports the SKILL.md format (vendor docs): Claude apps (upload), ChatGPT (Business, Enterprise, Edu, Healthcare upload), and the other clients listed at [agentskills.io](https://agentskills.io/clients).
 - Other agents that support the Agent Skills format can load it. We have not run it there.
 - No direct install yet in ChatGPT dots or Meta Muse. Paste the instructions from [SKILL.md](SKILL.md) into a chat.
+
+| Agent | Put this folder here |
+| --- | --- |
+| Grok Bot | Paste [SKILL.md](SKILL.md) in a 1:1 chat and ask the Bot to save it as a skill. |
+| Claude Code | `.claude/skills/botkits-coach/` or `~/.claude/skills/botkits-coach/` |
+| Codex | `.agents/skills/botkits-coach/` or `~/.agents/skills/botkits-coach/` |
+| Cursor | `.agents/skills/botkits-coach/` or `.cursor/skills/botkits-coach/` |
+| Gemini CLI | `.gemini/skills/botkits-coach/` or `.agents/skills/botkits-coach/` (one folder deep only) |
+| GitHub Copilot | `.github/skills/botkits-coach/` or `.agents/skills/botkits-coach/` |
+| Grok Build | `.grok/skills/botkits-coach/` or `~/.grok/skills/botkits-coach/` |
+| Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
+
+Install tested is not run tested.
 
 ## Links
 

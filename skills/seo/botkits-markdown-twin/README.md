@@ -28,16 +28,30 @@ This example, from the skill itself, starts with an HTML page at `/docs/install/
 
 After the three steps, a twin lives at `/docs/install.md` (or `/docs/install/index.md`) with the same facts and no chrome. The HTML page points to it with `rel="alternate" type="text/markdown"`. `/llms.txt` has one new line that links to the twin, not the HTML page.
 
-## Works with
+## Use it in
 
 - Used daily: Grok Bot.
 - Installs with `npx skills add` (tested 18 Nov 2026): Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and Grok Build.
+- Supports the SKILL.md format (vendor docs): Claude apps (upload), ChatGPT (Business, Enterprise, Edu, Healthcare upload), and the other clients listed at [agentskills.io](https://agentskills.io/clients).
 - Other agents that support the Agent Skills format can load it. We have not run it there.
 - No direct install yet in ChatGPT dots or Meta Muse. Paste the instructions from [SKILL.md](SKILL.md) into a chat.
 
-## Paid kits
+| Agent | Put this folder here |
+| --- | --- |
+| Grok Bot | Paste [SKILL.md](SKILL.md) in a 1:1 chat and ask the Bot to save it as a skill. |
+| Claude Code | `.claude/skills/botkits-markdown-twin/` or `~/.claude/skills/botkits-markdown-twin/` |
+| Codex | `.agents/skills/botkits-markdown-twin/` or `~/.agents/skills/botkits-markdown-twin/` |
+| Cursor | `.agents/skills/botkits-markdown-twin/` or `.cursor/skills/botkits-markdown-twin/` |
+| Gemini CLI | `.gemini/skills/botkits-markdown-twin/` or `.agents/skills/botkits-markdown-twin/` (one folder deep only) |
+| GitHub Copilot | `.github/skills/botkits-markdown-twin/` or `.agents/skills/botkits-markdown-twin/` |
+| Grok Build | `.grok/skills/botkits-markdown-twin/` or `~/.grok/skills/botkits-markdown-twin/` |
+| Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
-[AEO Kit (Markdown Twins + YouTube Watch Pages), $24](https://daniacostaai.gumroad.com/l/wzalwo). It adds the Cloudflare Worker router (content negotiation) and the YouTube watch page builder. The free skill works by itself.
+Install tested is not run tested.
+
+## Premium
+
+The free skill works by itself. The [AEO Kit (Markdown Twins + YouTube Watch Pages)](https://daniacostaai.gumroad.com/l/wzalwo) adds the Cloudflare Worker router (content negotiation) and the YouTube watch page builder. Price: $24.
 
 ## Links
 

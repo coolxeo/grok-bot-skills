@@ -30,16 +30,30 @@ After the pipeline you have a short concrete title, a first-line hook that says 
 
 ![An X Article layout: a short concrete title, a first-line hook that says something different, then a Research section with an image slot](../../../assets/top3-x-article.png)
 
-## Works with
+## Use it in
 
 - Used daily: Grok Bot.
 - Installs with `npx skills add` (tested 18 Nov 2026): Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and Grok Build.
+- Supports the SKILL.md format (vendor docs): Claude apps (upload), ChatGPT (Business, Enterprise, Edu, Healthcare upload), and the other clients listed at [agentskills.io](https://agentskills.io/clients).
 - Other agents that support the Agent Skills format can load it. We have not run it there.
 - No direct install yet in ChatGPT dots or Meta Muse. Paste the instructions from [SKILL.md](SKILL.md) into a chat.
 
-## Paid kits
+| Agent | Put this folder here |
+| --- | --- |
+| Grok Bot | Paste [SKILL.md](SKILL.md) in a 1:1 chat and ask the Bot to save it as a skill. |
+| Claude Code | `.claude/skills/botkits-x-article/` or `~/.claude/skills/botkits-x-article/` |
+| Codex | `.agents/skills/botkits-x-article/` or `~/.agents/skills/botkits-x-article/` |
+| Cursor | `.agents/skills/botkits-x-article/` or `.cursor/skills/botkits-x-article/` |
+| Gemini CLI | `.gemini/skills/botkits-x-article/` or `.agents/skills/botkits-x-article/` (one folder deep only) |
+| GitHub Copilot | `.github/skills/botkits-x-article/` or `.agents/skills/botkits-x-article/` |
+| Grok Build | `.grok/skills/botkits-x-article/` or `~/.grok/skills/botkits-x-article/` |
+| Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
-[X Article Writer, $7](https://daniacostaai.gumroad.com/l/lzowtl). It adds tested templates and a worked example. The free skill works by itself.
+Install tested is not run tested.
+
+## Premium
+
+The free skill works by itself. The [X Article Writer](https://daniacostaai.gumroad.com/l/lzowtl) adds tested templates and a worked example. Price: $7.
 
 ## Links
 

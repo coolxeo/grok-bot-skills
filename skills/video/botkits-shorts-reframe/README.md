@@ -35,16 +35,30 @@ ffprobe must then show width `1080`, height `1920`, and a duration that matches 
 
 ![A 16:9 frame with a centered 9:16 crop box, and the 1080x1920 result next to it](../../../assets/top3-shorts-reframe.png)
 
-## Works with
+## Use it in
 
 - Used daily: Grok Bot.
 - Installs with `npx skills add` (tested 18 Nov 2026): Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and Grok Build.
+- Supports the SKILL.md format (vendor docs): Claude apps (upload), ChatGPT (Business, Enterprise, Edu, Healthcare upload), and the other clients listed at [agentskills.io](https://agentskills.io/clients).
 - Other agents that support the Agent Skills format can load it. We have not run it there.
 - No direct install yet in ChatGPT dots or Meta Muse. Paste the instructions from [SKILL.md](SKILL.md) into a chat.
 
-## Paid kits
+| Agent | Put this folder here |
+| --- | --- |
+| Grok Bot | Paste [SKILL.md](SKILL.md) in a 1:1 chat and ask the Bot to save it as a skill. |
+| Claude Code | `.claude/skills/botkits-shorts-reframe/` or `~/.claude/skills/botkits-shorts-reframe/` |
+| Codex | `.agents/skills/botkits-shorts-reframe/` or `~/.agents/skills/botkits-shorts-reframe/` |
+| Cursor | `.agents/skills/botkits-shorts-reframe/` or `.cursor/skills/botkits-shorts-reframe/` |
+| Gemini CLI | `.gemini/skills/botkits-shorts-reframe/` or `.agents/skills/botkits-shorts-reframe/` (one folder deep only) |
+| GitHub Copilot | `.github/skills/botkits-shorts-reframe/` or `.agents/skills/botkits-shorts-reframe/` |
+| Grok Build | `.grok/skills/botkits-shorts-reframe/` or `~/.grok/skills/botkits-shorts-reframe/` |
+| Claude apps | Turn on code execution. ZIP this folder and upload it in Customize, Skills. |
 
-[Shorts Builder Kit, $14](https://daniacostaai.gumroad.com/l/ommvol). It adds eased pan and zoom, a loudness check and a jitter check. The free skill works by itself.
+Install tested is not run tested.
+
+## Premium
+
+The free skill works by itself. The [Shorts Builder Kit](https://daniacostaai.gumroad.com/l/ommvol) adds eased pan and zoom, a loudness check and a jitter check. Price: $14.
 
 ## Links
 
