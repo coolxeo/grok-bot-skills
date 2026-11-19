@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../../assets/skills/header-botkits-draft-dark.png 1x, ../../../assets/skills/header-botkits-draft-dark@2x.png 2x"><img src="../../../assets/skills/header-botkits-draft-light.png" srcset="../../../assets/skills/header-botkits-draft-light.png 1x, ../../../assets/skills/header-botkits-draft-light@2x.png 2x" width="800" alt="BotKits botkits-draft skill header"></picture>
+
 # botkits-draft
 
 Write from an approved outline, one section at a time. Never produce the whole article in one go.

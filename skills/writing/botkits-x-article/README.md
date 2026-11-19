@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../../assets/skills/header-botkits-x-article-dark.png 1x, ../../../assets/skills/header-botkits-x-article-dark@2x.png 2x"><img src="../../../assets/skills/header-botkits-x-article-light.png" srcset="../../../assets/skills/header-botkits-x-article-light.png 1x, ../../../assets/skills/header-botkits-x-article-light@2x.png 2x" width="800" alt="BotKits botkits-x-article skill header"></picture>
+
 # botkits-x-article
 
 Turn rough notes into an X Article, with a first-line hook, images between sections and no invented numbers.

@@ -88,6 +88,7 @@ Outline all type to paths in SVGs. No `<text>` in shipped SVGs.
 | Asset | 1× | 2× |
 |---|---|---|
 | `logo-wide.png`, `header-dark.png` | 1280×320 | 2560×640 |
+| Skill headers `header-botkits-<name>-light.png` and `-dark.png` | 1280×320 | 2560×640 |
 | `mark-512.png` | 512×512 | none (`mark-1024.png` is 1024×1024) |
 | GitHub avatar | 40×40 circle | none |
 | Top-3 cards | 800×460 | 1600×920 |
@@ -104,6 +105,9 @@ Write a short, factual description of what the image shows. Name the skill and a
 - Logo: `mark-512.png`, `mark-1024.png`, `mark.svg`, `logo-wide.png`, `logo-wide@2x.png`, `header-dark.png`, `header-dark@2x.png`, plus `@2x` and `.svg` where they exist.
 - Cards: `top3-{skill}-light.png`, `top3-{skill}-dark.png`, and `@2x`. Drop-in repo copies use the unsuffixed names (`top3-shorts-reframe.png`, `top3-x-article.png`, `top3-aeo-geo-site.png`) and are the light artwork.
 - Demo: `demo.gif`.
+- Skill headers: `assets/skills/header-botkits-<name>-light.png`, `-light@2x.png`, `-dark.png` and `-dark@2x.png`. They are 1280×320 and 2560×640. Make them with Designer's skill header generator. Commit only these 4 PNGs, not the SVGs.
+- Skill headers live in the shared `assets/skills/` folder, not in the skill folder. The 4 lite skill folders may hold only `SKILL.md` and `README.md` (see the paid-guard check), so one shared folder keeps every skill the same.
+- A skill README starts with its header, above the `#` title. Use a `<picture>` with the dark pair as the `prefers-color-scheme: dark` source and the light pair as the `<img>`, width 800. Alt text: `BotKits botkits-<name> skill header`.
 - Put drop-in files in `assets/` with those exact repo names so the README needs no edits.
 
 ## Before you ship an image

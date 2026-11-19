@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../../assets/skills/header-botkits-outline-dark.png 1x, ../../../assets/skills/header-botkits-outline-dark@2x.png 2x"><img src="../../../assets/skills/header-botkits-outline-light.png" srcset="../../../assets/skills/header-botkits-outline-light.png 1x, ../../../assets/skills/header-botkits-outline-light@2x.png 2x" width="800" alt="BotKits botkits-outline skill header"></picture>
+
 # botkits-outline
 
 Turn a seed, interview notes, or a pile of facts into a writing plan the writer can approve. No prose yet.

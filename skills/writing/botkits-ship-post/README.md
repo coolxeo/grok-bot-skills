@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../../assets/skills/header-botkits-ship-post-dark.png 1x, ../../../assets/skills/header-botkits-ship-post-dark@2x.png 2x"><img src="../../../assets/skills/header-botkits-ship-post-light.png" srcset="../../../assets/skills/header-botkits-ship-post-light.png 1x, ../../../assets/skills/header-botkits-ship-post-light@2x.png 2x" width="800" alt="BotKits botkits-ship-post skill header"></picture>
+
 # botkits-ship-post
 
 Turn real work into one honest post. The repo is the source, not a blank page. Drafts only.

@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../../assets/skills/header-botkits-no-ai-slop-dark.png 1x, ../../../assets/skills/header-botkits-no-ai-slop-dark@2x.png 2x"><img src="../../../assets/skills/header-botkits-no-ai-slop-light.png" srcset="../../../assets/skills/header-botkits-no-ai-slop-light.png 1x, ../../../assets/skills/header-botkits-no-ai-slop-light@2x.png 2x" width="800" alt="BotKits botkits-no-ai-slop skill header"></picture>
+
 # botkits-no-ai-slop
 
 Edit out AI-writing tells with the smallest change that works, or flag them without rewriting. Never adds facts.
